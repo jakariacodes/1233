@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 
-export const AdminLayout = () => {
+export const AdminLayout = ({ children }: { children?: React.ReactNode }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { signOut, user } = useAuth();
   const navigate = useNavigate();
@@ -65,7 +65,7 @@ export const AdminLayout = () => {
            </div>
         </header>
         <div className="p-8">
-           <Outlet />
+           {children || <Outlet />}
         </div>
       </main>
     </div>

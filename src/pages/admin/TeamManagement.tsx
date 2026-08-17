@@ -108,7 +108,7 @@ const TeamManagement = () => {
       if (editingMember) {
         const { error } = await supabase
           .from('team_members')
-          .update(memberData)
+          .update(memberData as any)
           .eq('id', editingMember.id);
 
         if (error) throw error;
@@ -116,7 +116,7 @@ const TeamManagement = () => {
       } else {
         const { error } = await supabase
           .from('team_members')
-          .insert([memberData]);
+          .insert([memberData as any]);
 
         if (error) throw error;
         toast.success('Team member added successfully');

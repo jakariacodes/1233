@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AdminLayout } from '@/components/admin/AdminLayout';
+import { Star } from 'lucide-react';
 import { usePortfolios, Portfolio } from '@/hooks/usePortfolios';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -124,7 +125,7 @@ const PortfolioManagement = () => {
       if (editingPortfolio) {
         const { error } = await supabase
           .from('portfolios')
-          .update(portfolioData)
+          .update(portfolioData as any)
           .eq('id', editingPortfolio.id);
 
         if (error) throw error;
@@ -132,7 +133,7 @@ const PortfolioManagement = () => {
       } else {
         const { error } = await supabase
           .from('portfolios')
-          .insert([portfolioData]);
+          .insert([portfolioData as any]);
 
         if (error) throw error;
         toast.success('Portfolio created successfully');

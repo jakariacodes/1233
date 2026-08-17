@@ -46,7 +46,11 @@ const BlogPost = () => {
           console.error('Error fetching post:', error);
           setPost(null);
         } else {
-          setPost(data);
+          setPost({
+            ...data,
+            is_published: !!data.is_published,
+            is_featured: !!data.is_featured
+          } as BlogPostData);
           
           // Fetch category name
           if (data.category_id) {

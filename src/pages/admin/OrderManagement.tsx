@@ -172,7 +172,7 @@ const OrderManagement = () => {
       if (editingOrder) {
         const { error } = await supabase
           .from('orders')
-          .update(orderData)
+          .update(orderData as any)
           .eq('id', editingOrder.id);
 
         if (error) throw error;
@@ -181,7 +181,7 @@ const OrderManagement = () => {
         const orderNumber = generateOrderNumber();
         const { error } = await supabase
           .from('orders')
-          .insert([{ ...orderData, order_number: orderNumber }]);
+          .insert([{ ...orderData, order_number: orderNumber } as any]);
 
         if (error) throw error;
 
@@ -233,9 +233,9 @@ const OrderManagement = () => {
 
   const updateStatus = async (orderId: string, status: Order['status']) => {
     try {
-      const updateData: Record<string, any> = { status };
-      if (status === 'in_progress') updateData.started_at = new Date().toISOString();
-      if (status === 'completed') updateData.completed_at = new Date().toISOString();
+      const updateData: any = { status };
+      if (status === 'in_progress') updateData['started_at'] = new Date().toISOString();
+      if (status === 'completed') updateData['completed_at'] = new Date().toISOString();
 
       const { error } = await supabase
         .from('orders')

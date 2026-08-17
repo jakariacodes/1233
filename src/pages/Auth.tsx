@@ -26,7 +26,7 @@ const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState<Record<string>>({});
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -39,7 +39,7 @@ const Auth = () => {
 
   useEffect(() => {
     if (user) {
-      navigate('/');
+      navigate({ to: '/' });
     }
   }, [user, navigate]);
 
@@ -52,7 +52,7 @@ const Auth = () => {
       if (isLogin) {
         const result = loginSchema.safeParse(formData);
         if (!result.success) {
-          const fieldErrors: Record<string> = {};
+          const fieldErrors: Record<string, string> = {};
           result.error.errors.forEach((err) => {
             if (err.path[0]) {
               fieldErrors[err.path[0] as string] = err.message;
@@ -72,12 +72,12 @@ const Auth = () => {
           }
         } else {
           toast.success("Welcome back!");
-          navigate('/');
+          navigate({ to: '/' });
         }
       } else {
         const result = signupSchema.safeParse(formData);
         if (!result.success) {
-          const fieldErrors: Record<string> = {};
+          const fieldErrors: Record<string, string> = {};
           result.error.errors.forEach((err) => {
             if (err.path[0]) {
               fieldErrors[err.path[0] as string] = err.message;
@@ -97,7 +97,7 @@ const Auth = () => {
           }
         } else {
           toast.success("Account created successfully! Welcome aboard!");
-          navigate('/');
+          navigate({ to: '/' });
         }
       }
     } catch (error) {
@@ -180,10 +180,10 @@ const Auth = () => {
                           onChange={(e) =>
                             setFormData({ ...formData, fullName: e.target.value })
                           }
-                          className={`bg-secondary/50 border-border h-12 ${errors.fullName ? 'border-destructive' : ''}`}
+                          className={`bg-secondary/50 border-border h-12 ${errors['fullName'] ? 'border-destructive' : ''}`}
                         />
-                        {errors.fullName && (
-                          <p className="text-sm text-destructive mt-1">{errors.fullName}</p>
+                        {errors['fullName'] && (
+                          <p className="text-sm text-destructive mt-1">{errors['fullName']}</p>
                         )}
                       </div>
                     )}
@@ -199,10 +199,10 @@ const Auth = () => {
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
-                        className={`bg-secondary/50 border-border h-12 ${errors.email ? 'border-destructive' : ''}`}
+                        className={`bg-secondary/50 border-border h-12 ${errors['email'] ? 'border-destructive' : ''}`}
                       />
-                      {errors.email && (
-                        <p className="text-sm text-destructive mt-1">{errors.email}</p>
+                      {errors['email'] && (
+                        <p className="text-sm text-destructive mt-1">{errors['email']}</p>
                       )}
                     </div>
 
@@ -218,7 +218,7 @@ const Auth = () => {
                           onChange={(e) =>
                             setFormData({ ...formData, password: e.target.value })
                           }
-                          className={`bg-secondary/50 border-border h-12 pr-10 ${errors.password ? 'border-destructive' : ''}`}
+                          className={`bg-secondary/50 border-border h-12 pr-10 ${errors['password'] ? 'border-destructive' : ''}`}
                         />
                         <button
                           type="button"
@@ -232,8 +232,8 @@ const Auth = () => {
                           )}
                         </button>
                       </div>
-                      {errors.password && (
-                        <p className="text-sm text-destructive mt-1">{errors.password}</p>
+                      {errors['password'] && (
+                        <p className="text-sm text-destructive mt-1">{errors['password']}</p>
                       )}
                     </div>
 
@@ -249,10 +249,10 @@ const Auth = () => {
                           onChange={(e) =>
                             setFormData({ ...formData, confirmPassword: e.target.value })
                           }
-                          className={`bg-secondary/50 border-border h-12 ${errors.confirmPassword ? 'border-destructive' : ''}`}
+                          className={`bg-secondary/50 border-border h-12 ${errors['confirmPassword'] ? 'border-destructive' : ''}`}
                         />
-                        {errors.confirmPassword && (
-                          <p className="text-sm text-destructive mt-1">{errors.confirmPassword}</p>
+                        {errors['confirmPassword'] && (
+                          <p className="text-sm text-destructive mt-1">{errors['confirmPassword']}</p>
                         )}
                       </div>
                     )}
