@@ -67,7 +67,8 @@ const Navbar = () => {
         {/* Right Side Actions */}
         <div className="flex items-center gap-4 shrink-0">
           <Link 
-            to="/login" 
+            to={"/auth" as any} 
+
             className="hidden md:block text-sm font-medium hover:text-primary transition-colors px-4"
           >
             Login
@@ -105,7 +106,7 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="pt-4 mt-4 border-t border-border flex flex-col gap-3">
-              <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link to={"/auth" as any} onClick={() => setIsMobileMenuOpen(false)}>
                 <Button variant="ghost" className="w-full justify-start rounded-2xl h-12">Login</Button>
               </Link>
               <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
