@@ -20,11 +20,7 @@ export const CTASection = () => {
             
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-8 uppercase tracking-widest border border-primary/20">
-                  <Sparkles className="w-4 h-4" />
-                  Ready to evolve?
-                </span>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-8 leading-[1.1]">
+                <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-8 leading-tight tracking-tight">
                   Build Your <span className="text-primary">Digital Future</span> With Us
                 </h2>
                 <p className="text-white/60 text-xl mb-10 leading-relaxed">
