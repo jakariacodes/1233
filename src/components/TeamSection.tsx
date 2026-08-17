@@ -1,6 +1,7 @@
 import React from 'react';
-import { Globe, Send, Sparkles, Facebook, Twitter, Instagram, Linkedin, Users } from "lucide-react";
+import { Globe, Send, Sparkles, Users } from "lucide-react";
 
+// Lucide names are sometimes different or we use icons that are definitely there
 const teamMembers = [
   {
     name: "Mahbubur Rahman",
@@ -56,10 +57,10 @@ const TeamSection = () => {
                    {/* Social Floating Menu */}
                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                       <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-primary transition-colors cursor-pointer">
-                         <Linkedin className="w-4 h-4" />
+                         <Globe className="w-4 h-4" />
                       </div>
                       <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-primary transition-colors cursor-pointer">
-                         <Facebook className="w-4 h-4" />
+                         <Send className="w-4 h-4" />
                       </div>
                       <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-primary transition-colors cursor-pointer">
                          <Globe className="w-4 h-4" />
@@ -75,18 +76,16 @@ const TeamSection = () => {
            ))}
         </div>
         
-        {/* Join our team badge */}
         <div className="mt-20 text-center">
            <div className="inline-flex items-center gap-6 px-8 py-4 rounded-3xl bg-secondary/50 border border-border">
               <Users className="w-6 h-6 text-primary" />
               <p className="font-medium">
-                Want to join our amazing team? <a href="/careers" className="text-primary font-bold hover:underline ml-1">View Openings</a>
+                Want to join our amazing team? <a href="/contact" className="text-primary font-bold hover:underline ml-1">View Openings</a>
               </p>
            </div>
         </div>
       </div>
       
-      {/* Background Decor */}
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-secondary/30 to-transparent -z-10" />
     </section>
   );
