@@ -36,12 +36,11 @@ export const GoogleAnalytics = () => {
     document.head.appendChild(script2);
 
     return () => {
-      // Use standard selectors to find and remove scripts to avoid reference issues
       const scripts = document.head.getElementsByTagName('script');
       for (let i = scripts.length - 1; i >= 0; i--) {
         const s = scripts[i];
-        if (s.src.includes('googletagmanager.com/gtag/js') || 
-            (s.text && s.text.includes('window.dataLayer'))) {
+        if (s && (s.src?.includes('googletagmanager.com/gtag/js') || 
+            (s.text && s.text.includes('window.dataLayer')))) {
           document.head.removeChild(s);
         }
       }
