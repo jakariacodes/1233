@@ -19,7 +19,8 @@ const ContactSection = () => {
             <div className="grid lg:grid-cols-2 relative z-10">
               
               {/* Form Side */}
-              <div className="p-8 md:p-12 lg:p-16">
+              <div className="p-8 md:p-12 lg:p-16 relative">
+                <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-[80px] -z-10" />
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Contact us</h2>
                 <p className="text-white/60 mb-12">Fill out the form below and we'll get back to you once we've processed your request.</p>
                 
