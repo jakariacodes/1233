@@ -150,23 +150,23 @@ export const HeroSection = () => {
             {/* CTA Buttons with enhanced animations */}
             <div className="flex flex-col sm:flex-row gap-4 mb-10 animate-slide-up animation-delay-400">
               <Link to="/contact">
-                <Button className="gap-2 h-14 px-8 text-base bg-primary hover:bg-primary/90 rounded-xl group relative overflow-hidden hover-glow">
-                  <span className="relative z-10 flex items-center gap-2">
+                <Button className="gap-3 h-16 px-10 text-lg bg-primary hover:bg-primary/90 rounded-2xl group relative overflow-hidden hover-glow font-bold shadow-2xl shadow-primary/30">
+                  <span className="relative z-10 flex items-center gap-3">
                     Start Your Project
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary via-teal-500 to-primary bg-[length:200%_100%] animate-gradient-shift opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary via-teal-400 to-primary bg-[length:200%_100%] animate-gradient-shift opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Button>
               </Link>
               <Link to="/portfolio">
                 <Button 
                   variant="outline" 
-                  className="gap-3 h-14 px-8 text-base border-white/20 text-white hover:bg-white/10 rounded-xl group"
+                  className="gap-4 h-16 px-10 text-lg border-white/20 text-white hover:bg-white/10 rounded-2xl group font-bold backdrop-blur-sm"
                 >
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300">
-                    <Play className="w-4 h-4 fill-current ml-0.5" />
+                  <div className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300">
+                    <Play className="w-5 h-5 fill-current ml-0.5" />
                   </div>
-                  <span className="group-hover:tracking-wide transition-all duration-300">View Our Work</span>
+                  <span className="group-hover:tracking-wider transition-all duration-300">View Our Work</span>
                 </Button>
               </Link>
             </div>
