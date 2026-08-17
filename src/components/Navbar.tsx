@@ -84,7 +84,7 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     
     // Fetch dynamic services
-    const { supabase } = import("@/integrations/supabase/client").then(m => {
+    import("@/integrations/supabase/client").then(m => {
       m.supabase.from("services").select("*").order("sort_order").then(({ data }) => {
         if (data) setDynamicServices(data);
       });
