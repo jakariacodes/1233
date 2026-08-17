@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Send, Sparkles, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Globe, Send, Sparkles, Facebook, Twitter, Instagram, Linkedin, Users } from "lucide-react";
 
 const teamMembers = [
   {
