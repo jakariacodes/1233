@@ -108,9 +108,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <div className="flex flex-col min-h-screen">
-          <div className="absolute top-0 left-0 right-0 z-50">
-            <Navbar />
-          </div>
+          <Navbar />
           <main className="flex-grow">
             <Outlet />
           </main>
