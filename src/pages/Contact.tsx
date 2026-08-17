@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/button";
 import { 
   Phone, Mail, MapPin, Clock, Send, MessageCircle, 

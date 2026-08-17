@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { Eye, EyeOff, LogIn, UserPlus, ArrowRight, Sparkles } from "lucide-react";
-import { useAuth } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate } from "@tanstack/react-router";
 import { z } from "zod";
 
