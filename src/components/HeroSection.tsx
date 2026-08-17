@@ -113,22 +113,22 @@ export const HeroSection = () => {
             </div>
 
             {/* Heading with animated gradient */}
-            <h1 className="font-display text-5xl md:text-6xl lg:text-8xl font-bold leading-[1.05] mb-8 animate-slide-up animation-delay-100 tracking-tight">
-              <span className="text-white">Empowering Your</span>
+            <h1 className="font-display text-5xl md:text-7xl lg:text-9xl font-extrabold leading-[1.05] mb-8 animate-slide-up animation-delay-100 tracking-tighter">
+              <span className="text-white drop-shadow-2xl">Empowering Your</span>
               <br />
-              <span className="text-primary">Digital Future</span>
+              <span className="text-primary drop-shadow-[0_0_15px_rgba(0,168,132,0.3)]">Digital Future</span>
               <br />
-              <span className="text-white inline-flex items-center gap-4">
+              <span className="text-white inline-flex items-center gap-6">
                 With Precision
-                <span className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary animate-glow-pulse hover:scale-110 transition-transform duration-300 shadow-xl shadow-primary/20">
-                  <Sparkles className="w-7 h-7 text-white animate-pulse" />
+                <span className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary animate-glow-pulse hover:scale-110 transition-transform duration-500 shadow-2xl shadow-primary/30 border border-white/20">
+                  <Sparkles className="w-8 h-8 text-white animate-pulse" />
                 </span>
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-lg text-white/60 mb-8 max-w-lg leading-relaxed animate-slide-up animation-delay-200">
-              We craft <span className="text-primary font-bold">next-gen technology solutions</span> that drive measurable growth and transform businesses globally.
+            <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-2xl leading-relaxed animate-slide-up animation-delay-200 font-medium tracking-wide">
+              We craft <span className="text-primary font-extrabold underline underline-offset-8 decoration-primary/30">next-gen technology solutions</span> that drive measurable growth and transform businesses globally.
             </p>
 
             {/* Services Pills with hover effects */}
@@ -150,23 +150,23 @@ export const HeroSection = () => {
             {/* CTA Buttons with enhanced animations */}
             <div className="flex flex-col sm:flex-row gap-4 mb-10 animate-slide-up animation-delay-400">
               <Link to="/contact">
-                <Button className="gap-2 h-14 px-8 text-base bg-primary hover:bg-primary/90 rounded-xl group relative overflow-hidden hover-glow">
-                  <span className="relative z-10 flex items-center gap-2">
+                <Button className="gap-3 h-16 px-10 text-lg bg-primary hover:bg-primary/90 rounded-2xl group relative overflow-hidden hover-glow font-bold shadow-2xl shadow-primary/30">
+                  <span className="relative z-10 flex items-center gap-3">
                     Start Your Project
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary via-teal-500 to-primary bg-[length:200%_100%] animate-gradient-shift opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary via-teal-400 to-primary bg-[length:200%_100%] animate-gradient-shift opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Button>
               </Link>
               <Link to="/portfolio">
                 <Button 
                   variant="outline" 
-                  className="gap-3 h-14 px-8 text-base border-white/20 text-white hover:bg-white/10 rounded-xl group"
+                  className="gap-4 h-16 px-10 text-lg border-white/20 text-white hover:bg-white/10 rounded-2xl group font-bold backdrop-blur-sm"
                 >
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300">
-                    <Play className="w-4 h-4 fill-current ml-0.5" />
+                  <div className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300">
+                    <Play className="w-5 h-5 fill-current ml-0.5" />
                   </div>
-                  <span className="group-hover:tracking-wide transition-all duration-300">View Our Work</span>
+                  <span className="group-hover:tracking-wider transition-all duration-300">View Our Work</span>
                 </Button>
               </Link>
             </div>
