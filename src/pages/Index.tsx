@@ -11,7 +11,7 @@ import { PricingSection } from "@/components/PricingSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { BlogSection } from "@/components/BlogSection";
 import { ContactSection } from "@/components/ContactSection";
-import { CTASection } from "@/components/CTASection";
+
 
 const Index = () => {
   return (
@@ -28,7 +28,7 @@ const Index = () => {
       <TestimonialsSection />
       <BlogSection />
       <ContactSection />
-      <CTASection />
+      
     </div>
   );
 };
