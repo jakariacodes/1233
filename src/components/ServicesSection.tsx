@@ -1,17 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import {
-  Globe,
-  Code2,
-  Palette,
-  Video,
-  TrendingUp,
-  Search,
-  Briefcase,
-  Zap,
-  ArrowRight,
-  ArrowUpRight,
-} from "lucide-react";
+import { Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase, Zap, ArrowRight, ArrowUpRight,  } from "lucide-react";
 
 const services = [
   {

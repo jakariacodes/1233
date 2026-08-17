@@ -1,10 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useParams, Link } from "@tanstack/react-router";
-import { 
-  ArrowLeft, ArrowRight, Star, Clock, CheckCircle2, Users, 
-  Zap, Shield, RefreshCw, MessageCircle, ChevronRight,
-  Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, Star, Clock, CheckCircle2, Users, Zap, Shield, RefreshCw, MessageCircle, ChevronRight, Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase } from "lucide-react";
 
 // Placeholder images
 const serviceWeb = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=60";

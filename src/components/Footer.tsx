@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { Link } from "@tanstack/react-router";
 import { Phone, Mail, MapPin, Globe, Send, Camera, ArrowRight, ArrowUpRight, Heart, Sparkles } from "lucide-react";
 
 const Footer = () => {

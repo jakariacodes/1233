@@ -1,18 +1,5 @@
 import { Link, Outlet, useNavigate } from "@tanstack/react-router";
-import { 
-  LayoutDashboard, 
-  FileText, 
-  Briefcase, 
-  Settings, 
-  LogOut, 
-  Menu, 
-  X,
-  Bell,
-  Search,
-  ChevronRight,
-  Globe,
-  User
-} from "lucide-react";
+import { LayoutDashboard, FileText, Briefcase, Settings, LogOut, Menu, X, Bell, Search, ChevronRight, Globe, User } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
