@@ -29,7 +29,8 @@ const tiers = [
 
 const PricingSection = () => {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-secondary/30 relative overflow-hidden">
+      <div className="absolute inset-0 tech-grid opacity-10" />
       <div className="container-custom">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 uppercase tracking-widest">
@@ -49,10 +50,10 @@ const PricingSection = () => {
           {tiers.map((tier, i) => (
             <div 
               key={i} 
-              className={`relative bg-card p-10 rounded-[2.5rem] border transition-all duration-500 flex flex-col hover:-translate-y-3 ${
+              className={`relative bg-white p-10 rounded-[2.5rem] border transition-all duration-500 flex flex-col hover:-translate-y-4 hover:shadow-2xl ${
                 tier.popular 
-                  ? "border-primary shadow-2xl shadow-primary/10 ring-4 ring-primary/5" 
-                  : "border-border hover:border-primary/30 hover:shadow-xl"
+                  ? "border-primary shadow-2xl shadow-primary/10 ring-8 ring-primary/5" 
+                  : "border-border hover:border-primary/50"
               }`}
             >
               {tier.popular && (
