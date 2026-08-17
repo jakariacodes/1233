@@ -14,8 +14,8 @@ const services = [
     icon: Code2,
     title: "Web Development",
     description: "Robust, scalable web applications built with cutting-edge technologies like React & Node.js.",
-    gradient: "from-violet-500 to-purple-500",
-    bgGradient: "from-violet-500/10 to-purple-500/10",
+    gradient: "from-teal-600 to-teal-400",
+    bgGradient: "from-teal-600/10 to-teal-400/10",
   },
   {
     icon: Palette,
