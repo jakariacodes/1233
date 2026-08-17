@@ -1,13 +1,10 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "@tanstack/react-router";
 import { ArrowLeft, Calendar, Clock, Share2, Facebook, Twitter, Linkedin, Tag, ChevronRight, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/components/ui/button";
 import { format } from "date-fns";
-import { useBlogPosts } from "@/hooks/useBlogPosts";
+import { useBlogPosts } from "@/components/ui/button";
 
 interface BlogPostData {
   id: string;
@@ -120,13 +117,8 @@ const BlogPost = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{post.title} - TechCrafterIT Blog</title>
-        <meta name="description" content={post.excerpt || ''} />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         <main className="pt-24">
           {/* Hero Section */}
@@ -328,7 +320,6 @@ const BlogPost = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );

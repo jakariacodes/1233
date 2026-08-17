@@ -1,8 +1,5 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { Linkedin, Twitter, Facebook, Globe, MapPin, ArrowUpRight, Loader2, Users } from "lucide-react";
-import { useTeamMembers } from "@/hooks/useTeamMembers";
+import { useTeamMembers } from "@/components/ui/button";
 
 const stats = [
   { value: "30+", label: "Team Members" },
@@ -25,16 +22,8 @@ const Team = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Our Team - TechCrafterIT | Meet the Experts</title>
-        <meta
-          name="description"
-          content="Meet the talented team behind TechCrafterIT. Our experts in web development, design, and digital marketing are ready to transform your business."
-        />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         <main className="pt-24">
           {/* Hero Section */}
@@ -414,7 +403,6 @@ const Team = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );

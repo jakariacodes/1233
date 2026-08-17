@@ -1,22 +1,11 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { RefreshCw, ArrowLeft, AlertCircle, CheckCircle2, XCircle } from "lucide-react";
 
 const RefundPolicy = () => {
   return (
     <>
-      <Helmet>
-        <title>Refund Policy - TechCrafterIT</title>
-        <meta
-          name="description"
-          content="Read TechCrafterIT's refund policy to understand our refund terms and conditions for our digital services."
-        />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         <main className="pt-24">
           {/* Hero */}
@@ -175,7 +164,6 @@ const RefundPolicy = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );

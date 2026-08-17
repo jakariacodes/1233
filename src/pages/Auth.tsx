@@ -1,13 +1,10 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { Eye, EyeOff, LogIn, UserPlus, ArrowRight, Sparkles } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@tanstack/react-router";
 import { z } from "zod";
 
 const loginSchema = z.object({
@@ -112,16 +109,8 @@ const Auth = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{isLogin ? "Login" : "Sign Up"} - TechCrafterIT | Client Portal</title>
-        <meta
-          name="description"
-          content="Access your TechCrafterIT client portal to manage your projects and access exclusive features."
-        />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         <main className="pt-24 pb-20">
           <section className="py-20 relative overflow-hidden">
@@ -349,7 +338,6 @@ const Auth = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );

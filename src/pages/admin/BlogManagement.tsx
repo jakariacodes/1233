@@ -7,7 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { Plus, Edit2, Trash2, FileText, Loader2, Eye, EyeOff, Search, Calendar } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from '@tanstack/react-router';
 
 const BlogManagement = () => {
   const { posts, loading, refetch } = useBlogPosts(false);

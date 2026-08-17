@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import {
   Phone,
   Mail,
@@ -14,7 +14,7 @@ import {
   Globe,
   Send,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/button";
 import logo from "@/assets/logo.png";
 
 const quickLinks = [

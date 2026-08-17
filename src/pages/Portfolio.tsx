@@ -1,8 +1,5 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { ArrowRight, ExternalLink, Loader2, Sparkles } from "lucide-react";
 import { usePortfolios } from "@/hooks/usePortfolios";
 
@@ -11,16 +8,8 @@ const Portfolio = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Portfolio - TechCrafterIT | Our Work Showcase</title>
-        <meta
-          name="description"
-          content="Explore TechCrafterIT's portfolio of successful projects. See our work in web design, development, graphic design, video editing, and digital marketing."
-        />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         <main className="pt-24">
           {/* Hero Section */}
@@ -177,7 +166,6 @@ const Portfolio = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );

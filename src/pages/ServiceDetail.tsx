@@ -1,16 +1,13 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "@tanstack/react-router";
 import { 
   ArrowLeft, ArrowRight, Star, Clock, CheckCircle2, Users, 
   Zap, Shield, RefreshCw, MessageCircle, ChevronRight,
   Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase
 } from "lucide-react";
-import serviceWeb from "@/assets/service-web.jpg";
-import serviceMarketing from "@/assets/service-marketing.jpg";
-import serviceCreative from "@/assets/service-creative.jpg";
+import serviceWeb from "@/components/ui/button";
+import serviceMarketing from "@/components/ui/button";
+import serviceCreative from "@/components/ui/button";
 
 // Service data with gigs
 const servicesData: Record<string, {
@@ -639,13 +636,8 @@ const ServiceDetail = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{service.title} - TechCrafterIT Services</title>
-        <meta name="description" content={service.description} />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         <main className="pt-24">
           {/* Hero Section */}
@@ -874,7 +866,6 @@ const ServiceDetail = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );

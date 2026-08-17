@@ -1,16 +1,13 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Textarea } from "@/components/ui/button";
 import { 
   Phone, Mail, MapPin, Clock, Send, MessageCircle, 
   ArrowRight, Sparkles, Globe, CheckCircle2 
 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/components/ui/button";
 import { z } from "zod";
 
 // Validation schema
@@ -153,16 +150,8 @@ const Contact = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Contact Us - TechCrafterIT | Start Your Project Today</title>
-        <meta
-          name="description"
-          content="Contact TechCrafterIT for premium digital solutions. Get a free consultation and project quote. We respond within 24 hours."
-        />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         <main className="pt-24">
           {/* Hero Section */}
@@ -501,7 +490,6 @@ const Contact = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );

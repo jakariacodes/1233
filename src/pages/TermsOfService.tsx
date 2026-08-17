@@ -1,22 +1,11 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { FileText, ArrowLeft } from "lucide-react";
 
 const TermsOfService = () => {
   return (
     <>
-      <Helmet>
-        <title>Terms of Service - TechCrafterIT</title>
-        <meta
-          name="description"
-          content="Read TechCrafterIT's terms of service governing the use of our website and digital services."
-        />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         <main className="pt-24">
           {/* Hero */}
@@ -138,7 +127,6 @@ const TermsOfService = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );

@@ -1,10 +1,7 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Link } from "react-router-dom";
+import { Textarea } from "@/components/ui/button";
+import { Link } from "@tanstack/react-router";
 import {
   Briefcase,
   MapPin,
@@ -82,16 +79,8 @@ const Careers = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Careers - TechCrafterIT | Join Our Team</title>
-        <meta
-          name="description"
-          content="Join TechCrafterIT and be part of Bangladesh's leading digital agency. Explore career opportunities in web development, design, marketing, and more."
-        />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         <main className="pt-24">
           {/* Hero Section */}
@@ -318,7 +307,6 @@ const Careers = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );

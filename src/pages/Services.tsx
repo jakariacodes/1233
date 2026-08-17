@@ -1,8 +1,5 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Star, Clock, CheckCircle2, Users, Sparkles } from "lucide-react";
 import {
   Globe,
@@ -14,9 +11,9 @@ import {
   Briefcase,
   Zap,
 } from "lucide-react";
-import serviceWeb from "@/assets/service-web.jpg";
-import serviceMarketing from "@/assets/service-marketing.jpg";
-import serviceCreative from "@/assets/service-creative.jpg";
+import serviceWeb from "@/components/ui/button";
+import serviceMarketing from "@/components/ui/button";
+import serviceCreative from "@/components/ui/button";
 
 const services = [
   {
@@ -121,16 +118,8 @@ const Services = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Our Services - TechCrafterIT | Digital Solutions Bangladesh</title>
-        <meta
-          name="description"
-          content="Explore TechCrafterIT's comprehensive digital services including web design, development, graphic design, video editing, digital marketing, SEO, and business strategy."
-        />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         <main className="pt-24">
           {/* Hero Section */}
@@ -367,7 +356,6 @@ const Services = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );
