@@ -8,6 +8,27 @@ const Footer = () => {
   return (
     <footer className="section-padding bg-[#011612] text-white overflow-hidden relative border-t border-white/5">
       <div className="container-custom">
+        {/* Call to Action Bar */}
+        <div className="mb-20">
+          <div className="bg-primary/10 border border-primary/20 rounded-[2rem] p-8 md:p-12 backdrop-blur-xl relative overflow-hidden">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+              <div className="text-center lg:text-left">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                  Build Your <span className="text-primary">Digital Future</span> With Us
+                </h2>
+                <p className="text-white/60">Ready to transform your business with premium digital solutions?</p>
+              </div>
+              <Link to="/contact">
+                <button className="h-14 px-8 rounded-xl bg-primary hover:bg-primary/90 text-white font-bold transition-all shadow-lg shadow-primary/20">
+                  Start Your Journey
+                </button>
+              </Link>
+            </div>
+            {/* Background decorative elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-3xl -z-10" />
+          </div>
+        </div>
+
         {/* Main Footer Content */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
           <div className="flex flex-col space-y-6 max-w-sm">
