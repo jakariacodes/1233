@@ -56,7 +56,7 @@ const BlogEditor = () => {
       const { data, error } = await supabase
         .from('blog_posts')
         .select('*')
-        .eq('id', id)
+        .eq('id', id || '')
         .single();
 
       if (error) throw error;
@@ -148,7 +148,7 @@ const BlogEditor = () => {
         meta_description: formData.meta_description?.trim() || null,
         tags: formData.tags,
         is_featured: formData.is_featured,
-        author_id: user?.id,
+        author_id: user?.id || null,
         is_published: publish || formData.is_published,
         published_at: (publish || formData.is_published) ? new Date().toISOString() : null,
       };
@@ -156,15 +156,15 @@ const BlogEditor = () => {
       if (isEditing) {
         const { error } = await supabase
           .from('blog_posts')
-          .update(postData)
-          .eq('id', id);
+          .update(postData as any)
+          .eq('id', id || '');
 
         if (error) throw error;
         toast.success('Post updated successfully');
       } else {
         const { error } = await supabase
           .from('blog_posts')
-          .insert([postData]);
+          .insert([postData as any]);
 
         if (error) throw error;
         toast.success(publish ? 'Post published!' : 'Post saved as draft');

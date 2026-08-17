@@ -180,10 +180,10 @@ const Auth = () => {
                           onChange={(e) =>
                             setFormData({ ...formData, fullName: e.target.value })
                           }
-                          className={`bg-secondary/50 border-border h-12 ${errors.fullName ? 'border-destructive' : ''}`}
+                          className={`bg-secondary/50 border-border h-12 ${errors['fullName'] ? 'border-destructive' : ''}`}
                         />
-                        {errors.fullName && (
-                          <p className="text-sm text-destructive mt-1">{errors.fullName}</p>
+                        {errors['fullName'] && (
+                          <p className="text-sm text-destructive mt-1">{errors['fullName']}</p>
                         )}
                       </div>
                     )}
@@ -199,10 +199,10 @@ const Auth = () => {
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
-                        className={`bg-secondary/50 border-border h-12 ${errors.email ? 'border-destructive' : ''}`}
+                        className={`bg-secondary/50 border-border h-12 ${errors['email'] ? 'border-destructive' : ''}`}
                       />
-                      {errors.email && (
-                        <p className="text-sm text-destructive mt-1">{errors.email}</p>
+                      {errors['email'] && (
+                        <p className="text-sm text-destructive mt-1">{errors['email']}</p>
                       )}
                     </div>
 
@@ -218,7 +218,7 @@ const Auth = () => {
                           onChange={(e) =>
                             setFormData({ ...formData, password: e.target.value })
                           }
-                          className={`bg-secondary/50 border-border h-12 pr-10 ${errors.password ? 'border-destructive' : ''}`}
+                          className={`bg-secondary/50 border-border h-12 pr-10 ${errors['password'] ? 'border-destructive' : ''}`}
                         />
                         <button
                           type="button"
@@ -232,8 +232,8 @@ const Auth = () => {
                           )}
                         </button>
                       </div>
-                      {errors.password && (
-                        <p className="text-sm text-destructive mt-1">{errors.password}</p>
+                      {errors['password'] && (
+                        <p className="text-sm text-destructive mt-1">{errors['password']}</p>
                       )}
                     </div>
 
@@ -249,10 +249,10 @@ const Auth = () => {
                           onChange={(e) =>
                             setFormData({ ...formData, confirmPassword: e.target.value })
                           }
-                          className={`bg-secondary/50 border-border h-12 ${errors.confirmPassword ? 'border-destructive' : ''}`}
+                          className={`bg-secondary/50 border-border h-12 ${errors['confirmPassword'] ? 'border-destructive' : ''}`}
                         />
-                        {errors.confirmPassword && (
-                          <p className="text-sm text-destructive mt-1">{errors.confirmPassword}</p>
+                        {errors['confirmPassword'] && (
+                          <p className="text-sm text-destructive mt-1">{errors['confirmPassword']}</p>
                         )}
                       </div>
                     )}

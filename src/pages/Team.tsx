@@ -3,7 +3,7 @@ import { Globe, Send, Mail, Phone, MapPin, Award, Users, Briefcase, Sparkles, He
 import { Loader2 } from "lucide-react";
 
 const Team = () => {
-  const { teamMembers, loading } = useTeamMembers(true);
+  const { teamMembers, loading } = useTeamMembers();
 
   if (loading) {
     return (
