@@ -32,7 +32,8 @@ import { Route as AuthenticatedAdminOrdersRouteImport } from './routes/_authenti
 import { Route as AuthenticatedAdminPortfolioRouteImport } from './routes/_authenticated/admin/portfolio'
 import { Route as AuthenticatedAdminSettingsRouteImport } from './routes/_authenticated/admin/settings'
 import { Route as AuthenticatedAdminTeamRouteImport } from './routes/_authenticated/admin/team'
-import { Route as AuthenticatedAdminBlogIndexRouteImport } from './routes/_authenticated/admin/blog.index'
+import { Route as AuthenticatedAdminBlogIndexRouteImport } from './routes/_authenticated/admin/blog/index'
+import { Route as AuthenticatedAdminBlogEditorRouteImport } from './routes/_authenticated/admin/blog.editor'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -159,6 +160,12 @@ const AuthenticatedAdminBlogIndexRoute =
     path: '/blog/',
     getParentRoute: () => AuthenticatedAdminRouteRoute,
   } as any)
+const AuthenticatedAdminBlogEditorRoute =
+  AuthenticatedAdminBlogEditorRouteImport.update({
+    id: '/blog/editor',
+    path: '/blog/editor',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -183,6 +190,7 @@ export interface FileRoutesByFullPath {
   '/admin/settings': typeof AuthenticatedAdminSettingsRoute
   '/admin/team': typeof AuthenticatedAdminTeamRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
+  '/admin/blog/editor': typeof AuthenticatedAdminBlogEditorRoute
   '/admin/blog/': typeof AuthenticatedAdminBlogIndexRoute
 }
 export interface FileRoutesByTo {
@@ -207,6 +215,7 @@ export interface FileRoutesByTo {
   '/admin/settings': typeof AuthenticatedAdminSettingsRoute
   '/admin/team': typeof AuthenticatedAdminTeamRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
+  '/admin/blog/editor': typeof AuthenticatedAdminBlogEditorRoute
   '/admin/blog': typeof AuthenticatedAdminBlogIndexRoute
 }
 export interface FileRoutesById {
@@ -234,6 +243,7 @@ export interface FileRoutesById {
   '/_authenticated/admin/settings': typeof AuthenticatedAdminSettingsRoute
   '/_authenticated/admin/team': typeof AuthenticatedAdminTeamRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
+  '/_authenticated/admin/blog/editor': typeof AuthenticatedAdminBlogEditorRoute
   '/_authenticated/admin/blog/': typeof AuthenticatedAdminBlogIndexRoute
 }
 export interface FileRouteTypes {
@@ -261,6 +271,7 @@ export interface FileRouteTypes {
     | '/admin/settings'
     | '/admin/team'
     | '/admin/'
+    | '/admin/blog/editor'
     | '/admin/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -285,6 +296,7 @@ export interface FileRouteTypes {
     | '/admin/settings'
     | '/admin/team'
     | '/admin'
+    | '/admin/blog/editor'
     | '/admin/blog'
   id:
     | '__root__'
@@ -311,6 +323,7 @@ export interface FileRouteTypes {
     | '/_authenticated/admin/settings'
     | '/_authenticated/admin/team'
     | '/_authenticated/admin/'
+    | '/_authenticated/admin/blog/editor'
     | '/_authenticated/admin/blog/'
   fileRoutesById: FileRoutesById
 }
@@ -502,6 +515,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminBlogIndexRouteImport
       parentRoute: typeof AuthenticatedAdminRouteRoute
     }
+    '/_authenticated/admin/blog/editor': {
+      id: '/_authenticated/admin/blog/editor'
+      path: '/blog/editor'
+      fullPath: '/admin/blog/editor'
+      preLoaderRoute: typeof AuthenticatedAdminBlogEditorRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
   }
 }
 
@@ -513,6 +533,7 @@ interface AuthenticatedAdminRouteRouteChildren {
   AuthenticatedAdminSettingsRoute: typeof AuthenticatedAdminSettingsRoute
   AuthenticatedAdminTeamRoute: typeof AuthenticatedAdminTeamRoute
   AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
+  AuthenticatedAdminBlogEditorRoute: typeof AuthenticatedAdminBlogEditorRoute
   AuthenticatedAdminBlogIndexRoute: typeof AuthenticatedAdminBlogIndexRoute
 }
 
@@ -525,6 +546,7 @@ const AuthenticatedAdminRouteRouteChildren: AuthenticatedAdminRouteRouteChildren
     AuthenticatedAdminSettingsRoute: AuthenticatedAdminSettingsRoute,
     AuthenticatedAdminTeamRoute: AuthenticatedAdminTeamRoute,
     AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
+    AuthenticatedAdminBlogEditorRoute: AuthenticatedAdminBlogEditorRoute,
     AuthenticatedAdminBlogIndexRoute: AuthenticatedAdminBlogIndexRoute,
   }
 

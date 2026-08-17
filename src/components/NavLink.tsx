@@ -1,4 +1,4 @@
-import { Link, LinkProps } from "@tanstack/react-router";
+import { LinkProps } from "@tanstack/react-router";
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
