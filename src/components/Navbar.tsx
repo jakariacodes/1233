@@ -39,10 +39,7 @@ const Navbar = () => {
             "text-2xl font-bold tracking-tight transition-colors duration-300",
             isScrolled ? "text-primary" : "text-primary"
           )}>
-            TechCrafter<span className={cn(
-              "transition-colors duration-300",
-              isScrolled ? "text-foreground" : "text-foreground"
-            )}>IT</span>
+            TechCrafter<span className="text-foreground">IT</span>
           </span>
         </Link>
 
