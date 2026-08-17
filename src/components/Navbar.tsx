@@ -30,7 +30,7 @@ const Navbar = () => {
   return (
     <nav className={cn(
       "w-full transition-all duration-300",
-      isScrolled ? "bg-white/95 backdrop-blur-md shadow-md py-2 border-b" : "bg-background/80 backdrop-blur-sm py-4 border-b border-border/40"
+      isScrolled ? "bg-background/95 backdrop-blur-md shadow-md py-2 border-b" : "bg-background/80 backdrop-blur-sm py-4 border-b border-border/40"
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
