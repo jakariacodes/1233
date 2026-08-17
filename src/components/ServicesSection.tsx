@@ -7,8 +7,8 @@ const services = [
     icon: Globe,
     title: "Web Design",
     description: "Stunning, responsive websites that captivate visitors and drive conversions with modern UI/UX.",
-    gradient: "from-blue-500 to-cyan-500",
-    bgGradient: "from-blue-500/10 to-cyan-500/10",
+    gradient: "from-teal-500 to-cyan-500",
+    bgGradient: "from-teal-500/10 to-cyan-500/10",
   },
   {
     icon: Code2,
@@ -28,15 +28,15 @@ const services = [
     icon: Video,
     title: "Video Editing",
     description: "Professional video production that tells your story with cinematic impact.",
-    gradient: "from-green-500 to-emerald-500",
-    bgGradient: "from-green-500/10 to-emerald-500/10",
+    gradient: "from-cyan-600 to-cyan-400",
+    bgGradient: "from-cyan-600/10 to-cyan-400/10",
   },
   {
     icon: TrendingUp,
     title: "Digital Marketing",
     description: "Strategic campaigns that amplify your reach and maximize ROI across all channels.",
-    gradient: "from-pink-500 to-rose-500",
-    bgGradient: "from-pink-500/10 to-rose-500/10",
+    gradient: "from-teal-500 to-blue-500",
+    bgGradient: "from-teal-500/10 to-blue-500/10",
   },
   {
     icon: Search,
@@ -56,8 +56,8 @@ const services = [
     icon: Zap,
     title: "AI Solutions",
     description: "Custom AI-powered digital solutions tailored to your unique challenges.",
-    gradient: "from-purple-500 to-pink-500",
-    bgGradient: "from-purple-500/10 to-pink-500/10",
+    gradient: "from-cyan-500 to-teal-500",
+    bgGradient: "from-cyan-500/10 to-teal-500/10",
   },
 ];
 
@@ -145,7 +145,7 @@ export const ServicesSection = () => {
               { value: "5+", label: "Years of Excellence" },
             ].map((stat, index) => (
               <div key={index} className="text-center group cursor-default">
-                <div className="text-3xl md:text-4xl font-display font-bold text-gradient mb-2 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-display font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
                   {stat.value}
                 </div>
                 <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">{stat.label}</p>
