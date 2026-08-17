@@ -16,11 +16,7 @@ const PortfolioSection = () => {
       <div className="container-custom relative z-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-20">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-primary-foreground text-sm font-bold mb-4 uppercase tracking-widest">
-              <Sparkles className="w-4 h-4 text-primary" />
-              Featured Showcases
-            </span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 tracking-tight">
               Our Latest <span className="text-primary">Digital Masterpieces</span>
             </h2>
             <p className="text-white/60 text-lg leading-relaxed">

@@ -32,12 +32,8 @@ const PricingSection = () => {
     <section className="py-24 bg-secondary/30 relative overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-10" />
       <div className="container-custom">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 uppercase tracking-widest">
-            <Sparkles className="w-4 h-4" />
-            Pricing Plans
-          </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+        <div className="max-w-3xl mx-auto text-center mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 tracking-tight">
             Invest in Your <span className="text-primary">Digital Growth</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">

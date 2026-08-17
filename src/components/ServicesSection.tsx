@@ -72,16 +72,13 @@ export const ServicesSection = () => {
 
       <div className="container-custom relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-20">
           <div className="max-w-2xl">
-            <span className="section-badge mb-4 animate-slide-up hover:scale-105 transition-transform cursor-default">
-              Our Services
-            </span>
-            <h2 className="section-title mb-6 animate-slide-up animation-delay-100">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 leading-tight tracking-tight">
               Premium Digital Services{" "}
               <span className="text-gradient-animated">Under One Platform</span>
             </h2>
-            <p className="section-subtitle animate-slide-up animation-delay-200">
+            <p className="text-muted-foreground text-xl leading-relaxed max-w-xl">
               We deliver comprehensive digital solutions that transform businesses 
               and create lasting impact in the digital landscape.
             </p>

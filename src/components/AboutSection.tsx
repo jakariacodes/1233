@@ -9,11 +9,7 @@ const AboutSection = () => {
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div className="animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-8 uppercase tracking-widest border border-primary/20 animate-pulse">
-              <Sparkles className="w-4 h-4" />
-              <span>Defining Tomorrow</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 leading-[1.1]">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold mb-8 leading-tight tracking-tight">
               Empowering Brands Through <span className="text-primary">Next-Gen</span> Innovation
             </h2>
             <p className="text-muted-foreground text-xl mb-10 leading-relaxed font-medium">
@@ -33,7 +29,7 @@ const AboutSection = () => {
                      <item.icon className="w-6 h-6" />
                    </div>
                    <div>
-                     <h4 className="font-display font-bold text-lg mb-1">{item.title}</h4>
+                     <h3 className="font-display font-bold text-lg mb-1">{item.title}</h3>
                      <p className="text-sm text-muted-foreground leading-snug">{item.desc}</p>
                    </div>
                  </div>

@@ -28,11 +28,7 @@ const TeamSection = () => {
     <section className="py-24 bg-white relative overflow-hidden" id="team">
       <div className="container-custom relative z-10">
         <div className="text-center mb-20">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-6 uppercase tracking-widest border border-primary/20">
-            <Sparkles className="w-4 h-4" />
-            Our Visionaries
-          </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 tracking-tight">
             Meet the <span className="text-primary">Experts</span> Behind NextOnline
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeroSection } from "@/components/HeroSection";
-import { ClientsSection } from "@/components/ClientsSection";
+
 import { ServicesSection } from "@/components/ServicesSection";
 import { StatsSection } from "@/components/StatsSection";
 import { AboutSection } from "@/components/AboutSection";
@@ -17,7 +17,7 @@ const Index = () => {
   return (
     <div className="flex flex-col gap-0 overflow-hidden">
       <HeroSection />
-      <ClientsSection />
+      
       <ServicesSection />
       <StatsSection />
       <AboutSection />
