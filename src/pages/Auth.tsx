@@ -130,7 +130,7 @@ const Auth = () => {
                     <span className="text-sm font-medium">Client Portal</span>
                   </div>
                   <h1 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                    {isLogin ? "Welcome Back" : "Join TechCrafterIT"}
+                    {isLogin ? "Welcome Back" : "Join NextOnline Technology"}
                   </h1>
                   <p className="text-muted-foreground">
                     {isLogin

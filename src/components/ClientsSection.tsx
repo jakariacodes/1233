@@ -11,7 +11,7 @@ const clients = [
 
 export const ClientsSection = () => {
   return (
-    <section className="py-20 bg-secondary/50 border-y border-border relative overflow-hidden">
+    <section className="py-20 bg-white border-y border-border relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-hero-pattern opacity-30" />
       <div className="absolute inset-0 tech-grid opacity-20" />
@@ -33,8 +33,8 @@ export const ClientsSection = () => {
         {/* Clients Logos - Infinite Scroll */}
         <div className="relative">
           {/* Gradient Masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-secondary/50 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-secondary/50 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
           
           {/* Scrolling Container */}
           <div className="overflow-hidden">
@@ -74,7 +74,7 @@ export const ClientsSection = () => {
               className="text-center animate-slide-up group cursor-default"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="text-2xl md:text-3xl font-display font-bold text-gradient mb-1 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-2xl md:text-3xl font-display font-bold text-primary mb-1 group-hover:scale-110 transition-transform duration-300">
                 {stat.value}
               </div>
               <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">{stat.label}</p>

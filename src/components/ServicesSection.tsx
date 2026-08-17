@@ -7,15 +7,15 @@ const services = [
     icon: Globe,
     title: "Web Design",
     description: "Stunning, responsive websites that captivate visitors and drive conversions with modern UI/UX.",
-    gradient: "from-blue-500 to-cyan-500",
-    bgGradient: "from-blue-500/10 to-cyan-500/10",
+    gradient: "from-teal-500 to-cyan-500",
+    bgGradient: "from-teal-500/10 to-cyan-500/10",
   },
   {
     icon: Code2,
     title: "Web Development",
     description: "Robust, scalable web applications built with cutting-edge technologies like React & Node.js.",
-    gradient: "from-violet-500 to-purple-500",
-    bgGradient: "from-violet-500/10 to-purple-500/10",
+    gradient: "from-teal-600 to-teal-400",
+    bgGradient: "from-teal-600/10 to-teal-400/10",
   },
   {
     icon: Palette,
@@ -28,15 +28,15 @@ const services = [
     icon: Video,
     title: "Video Editing",
     description: "Professional video production that tells your story with cinematic impact.",
-    gradient: "from-green-500 to-emerald-500",
-    bgGradient: "from-green-500/10 to-emerald-500/10",
+    gradient: "from-cyan-600 to-cyan-400",
+    bgGradient: "from-cyan-600/10 to-cyan-400/10",
   },
   {
     icon: TrendingUp,
     title: "Digital Marketing",
     description: "Strategic campaigns that amplify your reach and maximize ROI across all channels.",
-    gradient: "from-pink-500 to-rose-500",
-    bgGradient: "from-pink-500/10 to-rose-500/10",
+    gradient: "from-teal-500 to-blue-500",
+    bgGradient: "from-teal-500/10 to-blue-500/10",
   },
   {
     icon: Search,
@@ -56,8 +56,8 @@ const services = [
     icon: Zap,
     title: "AI Solutions",
     description: "Custom AI-powered digital solutions tailored to your unique challenges.",
-    gradient: "from-purple-500 to-pink-500",
-    bgGradient: "from-purple-500/10 to-pink-500/10",
+    gradient: "from-cyan-500 to-teal-500",
+    bgGradient: "from-cyan-500/10 to-teal-500/10",
   },
 ];
 
@@ -65,7 +65,7 @@ export const ServicesSection = () => {
   return (
     <section className="section-padding relative overflow-hidden" id="services">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
+      <div className="absolute inset-0 bg-white" />
       <div className="absolute inset-0 tech-grid opacity-30" />
       <div className="absolute top-1/4 -left-32 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-morph" />
       <div className="absolute bottom-1/4 -right-32 w-64 h-64 bg-accent/5 rounded-full blur-3xl animate-morph animation-delay-2000" />
@@ -102,7 +102,7 @@ export const ServicesSection = () => {
             <Link
               to="/services"
               key={index}
-              className="group relative bg-card rounded-3xl p-7 border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl animate-slide-up overflow-hidden"
+              className="group relative bg-white rounded-[2.5rem] p-8 border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl animate-slide-up overflow-hidden"
               style={{ animationDelay: `${index * 75}ms` }}
             >
               {/* Background Gradient on Hover */}
@@ -136,7 +136,7 @@ export const ServicesSection = () => {
         </div>
 
         {/* Bottom Stats Bar */}
-        <div className="mt-20 p-8 rounded-3xl bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 border border-border animate-slide-up animation-delay-600 hover:border-primary/20 transition-all duration-500">
+        <div className="mt-20 p-8 rounded-[2.5rem] bg-secondary/30 border border-border animate-slide-up animation-delay-600 hover:border-primary/50 transition-all duration-500">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { value: "850+", label: "Projects Completed" },
@@ -145,7 +145,7 @@ export const ServicesSection = () => {
               { value: "5+", label: "Years of Excellence" },
             ].map((stat, index) => (
               <div key={index} className="text-center group cursor-default">
-                <div className="text-3xl md:text-4xl font-display font-bold text-gradient mb-2 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-display font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
                   {stat.value}
                 </div>
                 <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">{stat.label}</p>

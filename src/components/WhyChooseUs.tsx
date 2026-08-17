@@ -63,7 +63,7 @@ export const WhyChooseUs = () => {
               Why Choose Us
             </span>
             <h2 className="section-title mb-6 animate-slide-up animation-delay-100">
-              The <span className="text-gradient-animated">TechCrafterIT</span> Advantage
+              The <span className="text-gradient-animated">NextOnline Technology</span> Advantage
             </h2>
             <p className="section-subtitle mb-10 animate-slide-up animation-delay-200">
               We combine technical expertise with business acumen to deliver 

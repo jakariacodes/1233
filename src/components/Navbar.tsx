@@ -3,6 +3,7 @@ import { Menu, X, ChevronDown, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logoHeader from "@/assets/logo-header.png.asset.json";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,18 +30,17 @@ const Navbar = () => {
   return (
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
-      "bg-white border-b border-border/5 py-4",
+      "bg-white/80 backdrop-blur-xl border-b border-border/10 py-5",
       isScrolled && "shadow-sm py-3"
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group shrink-0">
-          <span className={cn(
-            "text-2xl font-bold tracking-tight transition-colors duration-300",
-            isScrolled ? "text-primary" : "text-primary"
-          )}>
-            TechCrafter<span className="text-foreground">IT</span>
-          </span>
+          <img 
+            src={logoHeader.url} 
+            alt="NextOnline Technology" 
+            className="h-10 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop Menu */}
