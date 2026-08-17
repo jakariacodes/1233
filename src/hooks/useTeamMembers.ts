@@ -31,11 +31,20 @@ export const useTeamMembers = () => {
         .order('display_order', { ascending: true });
 
       if (error) throw error;
-      setTeamMembers((data || []).map(member => ({
-        ...member,
-        display_order: member.display_order ?? 0,
-        is_active: !!member.is_active
-      })) as TeamMember[]);
+      setTeamMembers((data || []).map(member => {
+        const socialLinks = member.social_links as any || {};
+        return {
+          ...member,
+          linkedin_url: socialLinks.linkedin || null,
+          twitter_url: socialLinks.twitter || null,
+          facebook_url: socialLinks.facebook || null,
+          portfolio_url: socialLinks.portfolio || null,
+          display_order: member.display_order ?? 0,
+          is_active: !!member.is_active,
+          created_at: member.created_at || new Date().toISOString(),
+          updated_at: member.updated_at || new Date().toISOString()
+        };
+      }) as TeamMember[]);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch team members');
     } finally {

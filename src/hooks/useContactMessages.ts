@@ -28,7 +28,10 @@ export const useContactMessages = () => {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      setMessages((data as ContactMessage[]) || []);
+      setMessages((data || []).map(m => ({
+        ...m,
+        created_at: m.created_at || new Date().toISOString()
+      })) as ContactMessage[]);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch messages');
     } finally {

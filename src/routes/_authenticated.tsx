@@ -1,19 +1,31 @@
 import { createFileRoute, Outlet, redirect } from '@tanstack/react-router';
 import { useAuth } from '@/contexts/AuthContext';
 import { useEffect } from 'react';
+import { Loader2 } from 'lucide-react';
 
 export const Route = createFileRoute('/_authenticated')({
-  beforeLoad: ({ context }) => {
-    // This is tricky because we need the auth state which is in a context
-    // We'll handle the redirect in the component for now or use a loader
-  },
   component: AuthenticatedLayout,
 });
 
 function AuthenticatedLayout() {
   const { user, isAdmin, loading } = useAuth();
+  const navigate = Route.useNavigate();
   
-  // Temporary bypass: Always allow access to admin for now
-  // This is just to let you in while we fix the Supabase connection issues
+  useEffect(() => {
+    if (!loading && !user) {
+      navigate({ to: '/auth' });
+    }
+  }, [user, loading, navigate]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!user) return null;
+
   return <Outlet />;
 }

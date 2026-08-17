@@ -1,5 +1,5 @@
 import { Link, Outlet, useNavigate } from "@tanstack/react-router";
-import { LayoutDashboard, FileText, Briefcase, Settings, LogOut, Menu, X, Bell, Search, ChevronRight, Globe, User } from "lucide-react";
+import { LayoutDashboard, FileText, Briefcase, Settings, LogOut, Menu, X, ShoppingCart, MessageSquare, Users } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,9 @@ export const AdminLayout = ({ children }: { children?: React.ReactNode }) => {
     { icon: LayoutDashboard, label: "Dashboard", href: "/admin" },
     { icon: FileText, label: "Blog Posts", href: "/admin/blog" },
     { icon: Briefcase, label: "Portfolio", href: "/admin/portfolio" },
+    { icon: ShoppingCart, label: "Orders", href: "/admin/orders" },
+    { icon: MessageSquare, label: "Messages", href: "/admin/messages" },
+    { icon: Users, label: "Team", href: "/admin/team" },
     { icon: Settings, label: "Settings", href: "/admin/settings" },
   ];
 

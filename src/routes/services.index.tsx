@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import Services from '@/pages/Services';
+import { getServices } from '@/lib/services.functions';
 
 export const Route = createFileRoute('/services/')({
   head: () => ({
@@ -23,5 +24,6 @@ export const Route = createFileRoute('/services/')({
       },
     ],
   }),
+  loader: () => getServices(),
   component: Services,
 });

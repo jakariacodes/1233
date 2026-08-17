@@ -1,5 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, X, ChevronDown, Sparkles, Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase, Zap, ArrowRight } from "lucide-react";
+import React from "react";
+
+const iconMap: Record<string, any> = {
+  Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase, Zap
+};
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -69,6 +74,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [dynamicServices, setDynamicServices] = useState<any[]>([]);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -76,6 +82,14 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
+    
+    // Fetch dynamic services
+    import("@/integrations/supabase/client").then(m => {
+      m.supabase.from("services").select("*").order("sort_order").then(({ data }) => {
+        if (data) setDynamicServices(data);
+      });
+    });
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -161,15 +175,15 @@ const Navbar = () => {
                         </div>
 
                         <div className="grid grid-cols-2 gap-x-8 gap-y-6">
-                          {services.map((service, idx) => (
+                          {(dynamicServices.length > 0 ? dynamicServices : services).map((service, idx) => (
                             <Link 
                               key={idx} 
-                              to={service.href as any} 
+                              to={(service.href || `/services/${service.id}`) as any} 
                               className="group flex items-start gap-4 p-2 rounded-xl hover:bg-slate-50 transition-colors"
                               onClick={() => setIsServicesOpen(false)}
                             >
-                              <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center text-white shrink-0 group-hover:scale-110 transition-transform", service.color)}>
-                                <service.icon className="w-5 h-5" />
+                              <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center text-white shrink-0 group-hover:scale-110 transition-transform", service.color || "bg-primary")}>
+                                {service.icon ? <service.icon className="w-5 h-5" /> : (iconMap[service.icon_name] ? React.createElement(iconMap[service.icon_name], { className: "w-5 h-5" }) : <Globe className="w-5 h-5" />)}
                               </div>
                               <div>
                                 <h4 className="text-sm font-bold text-slate-900 group-hover:text-primary transition-colors">{service.title}</h4>
