@@ -1,6 +1,3 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/Navbar";
-import { Footer } from "@/Footer";
 import { Button } from "@/ui/button";
 import { Link } from "@tanstack/react-router";
 import { 
@@ -99,16 +96,8 @@ const expertise = [
 const About = () => {
   return (
     <>
-      <Helmet>
-        <title>About Us - TechCrafterIT | Digital Agency Bangladesh</title>
-        <meta
-          name="description"
-          content="Learn about TechCrafterIT, Bangladesh's premium digital agency. Meet our team, discover our mission, and see why businesses trust us with their digital transformation."
-        />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
         
         <main className="pt-24">
           {/* Hero Section */}
@@ -393,7 +382,6 @@ const About = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );

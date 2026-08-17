@@ -1,6 +1,3 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/Navbar";
-import { Footer } from "@/Footer";
 import { Button } from "@/ui/button";
 import { Link, useParams } from "@tanstack/react-router";
 import { 
@@ -639,13 +636,8 @@ const ServiceDetail = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{service.title} - TechCrafterIT Services</title>
-        <meta name="description" content={service.description} />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         <main className="pt-24">
           {/* Hero Section */}
@@ -874,7 +866,6 @@ const ServiceDetail = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );

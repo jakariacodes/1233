@@ -1,6 +1,3 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/Navbar";
-import { Footer } from "@/Footer";
 import { Button } from "@/ui/button";
 import { Input } from "@/ui/input";
 import { useState, useEffect } from "react";
@@ -112,16 +109,8 @@ const Auth = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{isLogin ? "Login" : "Sign Up"} - TechCrafterIT | Client Portal</title>
-        <meta
-          name="description"
-          content="Access your TechCrafterIT client portal to manage your projects and access exclusive features."
-        />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         <main className="pt-24 pb-20">
           <section className="py-20 relative overflow-hidden">
@@ -349,7 +338,6 @@ const Auth = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );

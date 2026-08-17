@@ -1,22 +1,11 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/Navbar";
-import { Footer } from "@/Footer";
 import { Link } from "@tanstack/react-router";
 import { Shield, ArrowLeft } from "lucide-react";
 
 const PrivacyPolicy = () => {
   return (
     <>
-      <Helmet>
-        <title>Privacy Policy - TechCrafterIT</title>
-        <meta
-          name="description"
-          content="Read TechCrafterIT's privacy policy to understand how we collect, use, and protect your personal information."
-        />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         <main className="pt-24">
           {/* Hero */}
@@ -140,7 +129,6 @@ const PrivacyPolicy = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );

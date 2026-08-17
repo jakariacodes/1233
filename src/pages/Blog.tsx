@@ -1,6 +1,3 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/Navbar";
-import { Footer } from "@/Footer";
 import { Button } from "@/ui/button";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Calendar, Clock, Tag, TrendingUp, Search, Loader2 } from "lucide-react";
@@ -48,16 +45,8 @@ const Blog = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Blog - TechCrafterIT | Digital Insights & Expert Tips</title>
-        <meta
-          name="description"
-          content="Read the latest insights, tips, and trends in web design, development, digital marketing, SEO, and more from the TechCrafterIT team."
-        />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         <main className="pt-24">
           {/* Hero Section */}
@@ -345,7 +334,6 @@ const Blog = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );

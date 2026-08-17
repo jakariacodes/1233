@@ -1,6 +1,3 @@
-import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/Navbar";
-import { Footer } from "@/Footer";
 import { Button } from "@/ui/button";
 import { Input } from "@/ui/input";
 import { Textarea } from "@/ui/textarea";
@@ -153,16 +150,8 @@ const Contact = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Contact Us - TechCrafterIT | Start Your Project Today</title>
-        <meta
-          name="description"
-          content="Contact TechCrafterIT for premium digital solutions. Get a free consultation and project quote. We respond within 24 hours."
-        />
-      </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
 
         <main className="pt-24">
           {/* Hero Section */}
@@ -501,7 +490,6 @@ const Contact = () => {
           </section>
         </main>
 
-        <Footer />
       </div>
     </>
   );
