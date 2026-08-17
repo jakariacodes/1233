@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Zap, Shield, Globe, Facebook } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, Shield, Globe } from "lucide-react";
+import { Facebook } from "lucide-react";
 import ceoPhoto from "@/assets/ceo-photo.jpg";
 
 const highlights = [

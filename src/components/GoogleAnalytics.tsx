@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
 // Add your Google Analytics 4 Measurement ID here
 const GA_MEASUREMENT_ID = 'G-JMB75PY41D';

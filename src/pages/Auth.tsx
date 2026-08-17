@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { Eye, EyeOff, LogIn, UserPlus, ArrowRight, Sparkles } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { z } from "zod";
 
 const loginSchema = z.object({

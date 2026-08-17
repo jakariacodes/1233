@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { ArrowRight, Play, CheckCircle2, Sparkles, Users, Award, Zap, Code, Palette, TrendingUp, Globe, Star, Shield, Terminal, Database, Cpu, Wifi } from "lucide-react";
 
 const stats = [
