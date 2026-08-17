@@ -122,7 +122,7 @@ const PrivacyPolicy = () => {
                 <ul>
                   <li>Email: info@techcrafterit.com</li>
                   <li>Phone: +880 1731-173992</li>
-                  <li>Address: Hatibandha, Lalmonirhat, Rangpur, Bangladesh</li>
+                  <li>Address: 1505/13, 37 Bir Uttam C R Dotto Road, Nahar Plaza, Ramana, Dhaka-1000, Bangladesh.</li>
                 </ul>
               </div>
             </div>

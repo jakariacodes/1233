@@ -66,7 +66,7 @@ const Contact = () => {
                 </div>
                 <div>
                    <h3 className="font-bold">Visit Us</h3>
-                   <p className="text-muted-foreground">Rangpur, Bangladesh</p>
+                   <p className="text-muted-foreground">Dhaka-1000, Bangladesh</p>
                 </div>
              </div>
           </div>
