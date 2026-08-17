@@ -383,6 +383,4 @@ const About = () => {
   );
 };
 
-// Add missing import
-
 export default About;
