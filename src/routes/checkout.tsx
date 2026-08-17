@@ -9,6 +9,7 @@ export const Route = createFileRoute('/checkout')({
       serviceId: (search['serviceId'] as string) || '',
       packageId: (search['packageId'] as string) || '',
     };
+  },
   loaderDeps: ({ search }) => ({ serviceId: search.serviceId, packageId: search.packageId }),
   loader: async ({ deps }) => {
     const { serviceId, packageId } = deps;
@@ -35,7 +36,7 @@ export const Route = createFileRoute('/checkout')({
           <h1 className="text-2xl font-bold mb-4">Invalid Checkout Request</h1>
           <p className="text-muted-foreground mb-6">Please select a service and package to continue.</p>
           <Link to="/services">
-            <button className="flex items-center gap-2 text-primary font-semibold">
+            <button className="flex items-center gap-2 text-primary font-semibold text-sm">
               <ArrowLeft className="w-4 h-4" /> Back to Services
             </button>
           </Link>
