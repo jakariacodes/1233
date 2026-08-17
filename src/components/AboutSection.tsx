@@ -1,75 +1,157 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Zap, Shield, Globe } from "lucide-react";
+import { 
+  ArrowRight, 
+  Sparkles, 
+  Shield, 
+  Globe, 
+  CheckCircle2, 
+  Star,
+  Award,
+  Users,
+  Zap,
+  Clock,
+  MessageSquare
+} from "lucide-react";
 
 const AboutSection = () => {
   return (
-    <section className="section-padding bg-white relative overflow-hidden" id="about">
+    <section className="section-padding bg-slate-50/30 relative overflow-hidden" id="about">
+      {/* Background Decor */}
+      <div className="absolute inset-0 tech-grid opacity-[0.03] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          <div className="animate-fade-in">
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold mb-8 leading-tight tracking-tight">
-              Empowering Brands Through <span className="text-primary">Next-Gen</span> Innovation
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          
+          {/* Left Column: Content */}
+          <div className="animate-fade-in order-2 lg:order-1">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-6 group cursor-default">
+              <Sparkles className="w-3.5 h-3.5 text-blue-500 animate-pulse" />
+              <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">About NextOnline</span>
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 leading-[1.1] tracking-tight text-slate-900">
+              Expert Web Development & <br />
+              <span className="text-primary relative inline-block">
+                Digital Service
+                <svg className="absolute -bottom-2 left-0 w-full" width="200" height="8" viewBox="0 0 200 8" fill="none" preserveAspectRatio="none">
+                  <path d="M1 5.89286C34.1667 2.39286 100.5 -1.10714 200 6.89286" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                </svg>
+              </span> <br />
+              Company
             </h2>
-            <p className="text-muted-foreground text-xl mb-10 leading-relaxed font-medium">
-              NextOnline Technology is a premium digital powerhouse dedicated to crafting 
-              high-impact experiences that redefine boundaries and drive measurable growth.
+            
+            <p className="text-slate-600 text-lg mb-10 leading-relaxed max-w-xl">
+              NextOnline Technology is a leading web development and digital service company based in Bangladesh, 
+              serving clients in UK, USA, Canada and worldwide. With over 5 years of experience, we provide 
+              professional web design service, web development service, SEO service and problem solutions that help 
+              businesses thrive in the digital age.
             </p>
             
-            <div className="grid sm:grid-cols-2 gap-6 mb-12">
-               {[
-                 { icon: Zap, title: "Speed to Market", desc: "Accelerated development cycles." },
-                 { icon: Shield, title: "Enterprise Security", desc: "Robust data protection systems." },
-                 { icon: Globe, title: "Global Scale", desc: "Infrastructure for worldwide reach." },
-                 { icon: Sparkles, title: "Premium Design", desc: "Exquisite visual storytelling." }
-               ].map((item, i) => (
-                 <div key={i} className="flex gap-4 group">
-                   <div className="w-12 h-12 rounded-2xl bg-secondary/50 border border-border flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                     <item.icon className="w-6 h-6" />
-                   </div>
-                   <div>
-                     <h3 className="font-display font-bold text-lg mb-1">{item.title}</h3>
-                     <p className="text-sm text-muted-foreground leading-snug">{item.desc}</p>
-                   </div>
-                 </div>
-               ))}
+            {/* 2x2 Feature Grid */}
+            <div className="grid sm:grid-cols-2 gap-4 mb-12">
+              {[
+                { icon: Shield, title: "ISO 27001 Certified Teams", color: "text-blue-500", bg: "bg-blue-50" },
+                { icon: Sparkles, title: "100% Client Satisfaction Rate", color: "text-primary", bg: "bg-primary/5" },
+                { icon: Zap, title: "On-Time Project Delivery", color: "text-blue-500", bg: "bg-blue-50" },
+                { icon: Globe, title: "24/7 Technical Support", color: "text-blue-500", bg: "bg-blue-50" }
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow group">
+                  <div className={`w-10 h-10 rounded-xl ${item.bg} flex items-center justify-center ${item.color} group-hover:scale-110 transition-transform`}>
+                    <item.icon className="w-5 h-5" />
+                  </div>
+                  <span className="text-sm font-bold text-slate-800 leading-snug">{item.title}</span>
+                </div>
+              ))}
             </div>
             
             <Link to="/about">
-              <Button size="xl" className="h-16 px-10 rounded-2xl shadow-xl shadow-primary/20 transition-all font-bold text-lg hover:-translate-y-1">
-                Learn Our Story
-                <ArrowRight className="ml-3 w-5 h-5" />
+              <Button className="h-14 px-8 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-md shadow-lg shadow-blue-200 transition-all hover:-translate-y-1">
+                Learn More About Us
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
           </div>
           
-          <div className="relative">
-             <div className="aspect-square rounded-[3rem] bg-secondary/50 border border-border p-6 md:p-10 relative overflow-hidden group">
-                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          {/* Right Column: Visual Dashboard */}
+          <div className="relative order-1 lg:order-2">
+            <div className="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100 relative overflow-hidden group">
+              {/* Top Stats */}
+              <div className="grid grid-cols-3 gap-4 mb-10">
+                {[
+                  { value: "5+", label: "Years", sub: "Experience" },
+                  { value: "650+", label: "Happy", sub: "Clients" },
+                  { value: "850+", label: "Completed", sub: "Projects" }
+                ].map((stat, i) => (
+                  <div key={i} className="text-center p-4 rounded-2xl bg-slate-50/50 border border-slate-100 transition-colors hover:bg-white hover:shadow-sm">
+                    <div className="text-2xl md:text-3xl font-display font-bold text-primary mb-1">{stat.value}</div>
+                    <div className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider">{stat.label}</div>
+                    <div className="text-[10px] md:text-xs text-slate-400">{stat.sub}</div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Profile Card */}
+              <div className="bg-[#0f172a] rounded-3xl p-6 flex items-center gap-5 mb-8 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -mr-16 -mt-16 blur-2xl" />
                 
-                {/* Visual Content */}
-                <div className="w-full h-full rounded-[2.5rem] bg-white border border-border shadow-2xl flex items-center justify-center relative overflow-hidden">
-                   {/* Background Pattern */}
-                   <div className="absolute inset-0 tech-grid opacity-10" />
-                   
-                   <div className="relative z-10 text-center px-8">
-                      <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 text-primary group-hover:scale-110 transition-transform">
-                         <Sparkles className="w-10 h-10" />
-                      </div>
-                      <div className="text-primary font-display font-bold text-6xl mb-3 leading-none">Since 2021</div>
-                      <div className="text-foreground/80 font-bold text-xl uppercase tracking-[0.3em]">Innovation First</div>
-                   </div>
-                   
-                   {/* Floating Elements */}
-                   <div className="absolute top-10 right-10 w-20 h-20 rounded-3xl bg-primary/5 border border-primary/10 animate-float" />
-                   <div className="absolute bottom-10 left-10 w-24 h-24 rounded-full bg-accent/5 border border-accent/10 animate-float-delayed" />
+                <div className="relative w-20 h-20 rounded-full border-2 border-primary/30 p-1 flex-shrink-0">
+                  <div className="w-full h-full rounded-full bg-slate-800 overflow-hidden relative">
+                    <img 
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&auto=format&fit=crop" 
+                      alt="CEO"
+                      className="w-full h-full object-cover" 
+                    />
+                    <div className="absolute bottom-1 right-1 w-3.5 h-3.5 bg-green-500 border-2 border-[#0f172a] rounded-full shadow-lg" />
+                  </div>
                 </div>
                 
-                {/* Decorative border glow */}
-                <div className="absolute -inset-2 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-             </div>
+                <div className="relative">
+                  <h4 className="text-white font-bold text-xl mb-0.5">Md Jakaria Hasan</h4>
+                  <p className="text-primary text-sm font-semibold mb-1">CEO & Founder</p>
+                  <div className="flex items-center gap-1.5 text-slate-400 text-xs">
+                    <div className="w-1.5 h-1.5 bg-slate-500 rounded-full" />
+                    Rangpur, Bangladesh
+                  </div>
+                </div>
+              </div>
+              
+              {/* Quote Section */}
+              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 mb-8 relative">
+                <MessageSquare className="absolute top-4 left-4 w-5 h-5 text-primary opacity-20" />
+                <p className="text-slate-600 text-sm leading-relaxed pl-6 italic">
+                  "Our mission is to become Bangladesh's leading digital agency, delivering innovative solutions that help businesses succeed in the digital world."
+                </p>
+              </div>
+              
+              {/* Badges & Social */}
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div className="flex flex-wrap items-center gap-3">
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-wider border border-blue-100">
+                    🏆 Top Rated Agency
+                  </div>
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 text-green-600 text-[10px] font-bold uppercase tracking-wider border border-green-100">
+                    ✓ Verified Business
+                  </div>
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-purple-50 text-purple-600 text-[10px] font-bold uppercase tracking-wider border border-purple-100">
+                    ⭐ 5-Star Reviews
+                  </div>
+                </div>
+                
+                <Button variant="ghost" className="h-10 px-6 rounded-full bg-blue-500 text-white hover:bg-blue-600 flex items-center gap-2 text-xs font-bold transition-transform hover:scale-105">
+                  Follow on Facebook
+                </Button>
+              </div>
+            </div>
+            
+            {/* Decorative Glows */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-[60px] pointer-events-none" />
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-500/10 rounded-full blur-[60px] pointer-events-none" />
           </div>
+          
         </div>
       </div>
     </section>
