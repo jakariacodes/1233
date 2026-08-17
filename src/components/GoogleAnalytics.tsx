@@ -37,11 +37,12 @@ export const GoogleAnalytics = () => {
 
     return () => {
       try {
-        if (script1 && document.head.contains(script1)) {
-          document.head.removeChild(script1);
+        const h = document.head;
+        if (h && script1 && h.contains(script1)) {
+          h.removeChild(script1);
         }
-        if (script2 && document.head.contains(script2)) {
-          document.head.removeChild(script2);
+        if (h && script2 && h.contains(script2)) {
+          h.removeChild(script2);
         }
       } catch (e) {
         console.warn('Error cleanup analytics scripts:', e);
