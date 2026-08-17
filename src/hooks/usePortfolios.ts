@@ -41,7 +41,13 @@ export const usePortfolios = (publishedOnly = true) => {
       const { data, error } = await query;
 
       if (error) throw error;
-      setPortfolios((data as Portfolio[]) || []);
+      setPortfolios((data || []).map(p => ({
+        ...p,
+        is_featured: !!p.is_featured,
+        is_published: !!p.is_published,
+        created_at: p.created_at || new Date().toISOString(),
+        updated_at: p.updated_at || new Date().toISOString()
+      })) as Portfolio[]);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch portfolios');
     } finally {

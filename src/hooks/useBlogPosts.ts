@@ -51,7 +51,9 @@ export const useBlogPosts = (publishedOnly = true) => {
       setPosts((data || []).map(post => ({
         ...post,
         is_featured: !!post.is_featured,
-        is_published: !!post.is_published
+        is_published: !!post.is_published,
+        created_at: post.created_at || new Date().toISOString(),
+        updated_at: post.updated_at || new Date().toISOString()
       })) as BlogPost[]);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch posts');
@@ -81,7 +83,10 @@ export const useBlogCategories = () => {
         .order('name', { ascending: true });
 
       if (error) throw error;
-      setCategories(data || []);
+      setCategories((data || []).map(cat => ({
+        ...cat,
+        created_at: cat.created_at || new Date().toISOString()
+      })) as BlogCategory[]);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch categories');
     } finally {
