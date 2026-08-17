@@ -16,11 +16,7 @@ const PortfolioSection = () => {
       <div className="container-custom relative z-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-20">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-primary-foreground text-sm font-bold mb-4 uppercase tracking-widest">
-              <Sparkles className="w-4 h-4 text-primary" />
-              Featured Showcases
-            </span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 tracking-tight">
               Our Latest <span className="text-primary">Digital Masterpieces</span>
             </h2>
             <p className="text-white/60 text-lg leading-relaxed">
@@ -76,7 +72,7 @@ const PortfolioSection = () => {
                     <span className="w-8 h-px bg-primary" />
                     <span className="text-xs font-bold text-primary uppercase tracking-widest">{project.category}</span>
                   </div>
-                  <h3 className="text-2xl font-display font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
+                  <h3 className="text-2xl font-display font-bold mb-3 group-hover:text-primary transition-colors tracking-tight">{project.title}</h3>
                   <p className="text-white/60 text-sm line-clamp-2 leading-relaxed mb-6">{project.description}</p>
                   
                   <div className="text-white font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">

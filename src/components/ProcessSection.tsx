@@ -32,11 +32,8 @@ const ProcessSection = () => {
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       <div className="container-custom relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-20">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 uppercase tracking-wider">
-            Execution Roadmap
-          </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+        <div className="max-w-3xl mx-auto text-center mb-24">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 tracking-tight">
             From Concept to <span className="text-primary">Digital Reality</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
@@ -52,7 +49,7 @@ const ProcessSection = () => {
           {steps.map((step, i) => (
             <div key={i} className="group relative">
               {/* Step Number */}
-              <div className="absolute -top-6 -right-2 text-8xl font-display font-black text-primary/5 group-hover:text-primary/10 transition-colors pointer-events-none">
+              <div className="absolute -top-8 -right-4 text-9xl font-display font-black text-primary/5 group-hover:text-primary/10 transition-colors pointer-events-none">
                 0{i + 1}
               </div>
               
@@ -61,7 +58,7 @@ const ProcessSection = () => {
                   <step.icon className="w-8 h-8" />
                 </div>
                 
-                <h3 className="text-2xl font-display font-bold mb-4 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-display font-bold mb-4 group-hover:text-primary transition-colors tracking-tight">
                   {step.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">

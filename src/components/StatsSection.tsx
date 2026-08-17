@@ -24,9 +24,9 @@ const StatsSection = () => {
               <div className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                 {stat.value}
               </div>
-              <div className="text-sm font-bold text-muted-foreground uppercase tracking-[0.2em]">
+              <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-[0.2em]">
                 {stat.label}
-              </div>
+              </h3>
             </div>
           ))}
         </div>

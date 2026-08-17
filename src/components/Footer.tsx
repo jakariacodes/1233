@@ -59,7 +59,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-12 mb-20">
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h4 className="text-lg font-bold mb-8">{section.title}</h4>
+              <h3 className="text-lg font-bold mb-8 tracking-tight">{section.title}</h3>
               <ul className="space-y-4">
                 {section.links.map((link) => (
                   <li key={link.name}>

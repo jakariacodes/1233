@@ -113,7 +113,7 @@ export const HeroSection = () => {
             </div>
 
             {/* Heading with animated gradient */}
-            <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] mb-8 animate-slide-up animation-delay-100">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-8xl font-bold leading-[1.05] mb-8 animate-slide-up animation-delay-100 tracking-tight">
               <span className="text-white">Empowering Your</span>
               <br />
               <span className="text-primary">Digital Future</span>
