@@ -2,7 +2,8 @@ import { Link, LinkProps } from "@tanstack/react-router";
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
-interface NavLinkCompatProps extends Omit<LinkProps, "className"> {
+interface NavLinkCompatProps extends Omit<LinkProps, "className" | "to"> {
+  to?: LinkProps["to"];
   className?: string | ((props: { isActive: boolean; isPending: boolean }) => string);
   activeClassName?: string;
   pendingClassName?: string;
@@ -13,7 +14,7 @@ const NavLink = forwardRef<HTMLAnchorElement, NavLinkCompatProps>(
     return (
       <Link
         ref={ref}
-        to={to as any}
+        to={to ?? undefined}
         className={((linkProps: any) => {
           const baseClass = typeof className === "function" ? className(linkProps) : className;
           return cn(
