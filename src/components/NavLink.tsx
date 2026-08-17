@@ -14,7 +14,7 @@ const NavLink = forwardRef<HTMLAnchorElement, NavLinkCompatProps>(
     return (
       <Link
         ref={ref}
-        to={to ?? undefined}
+        to={to as any}
         className={((linkProps: any) => {
           const baseClass = typeof className === "function" ? className(linkProps) : className;
           return cn(
