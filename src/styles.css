@@ -36,20 +36,20 @@
   --card-foreground: 222 47% 11%;
   --popover: 0 0% 100%;
   --popover-foreground: 222 47% 11%;
-  --primary: 175 100% 33%; /* Deep Teal: #00a884 (estimated from screenshot) */
+  --primary: 175 100% 33%; /* #00a884 */
   --primary-foreground: 0 0% 100%;
   --secondary: 175 20% 97%;
   --secondary-foreground: 222 47% 11%;
   --muted: 175 20% 97%;
   --muted-foreground: 175 16% 47%;
-  --accent: 175 100% 45%; /* Brighter Teal accent */
+  --accent: 195 100% 45%; /* Electric Blue accent */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
-  --border: 214 32% 91%;
-  --input: 214 32% 91%;
-  --ring: 187 88% 38%;
-  --radius: 1rem;
+  --border: 175 20% 92%;
+  --input: 175 20% 92%;
+  --ring: 175 100% 33%;
+  --radius: 1.25rem;
 
   --gradient-primary: linear-gradient(135deg, hsl(187 88% 38%), hsl(195 90% 45%));
 }

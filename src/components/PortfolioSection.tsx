@@ -11,7 +11,8 @@ const PortfolioSection = () => {
   return (
     <section className="section-padding bg-[#011612] relative overflow-hidden text-white">
       {/* Background Decorative */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 transform origin-top blur-3xl" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 transform origin-top blur-[150px]" />
+      <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-accent/5 skew-x-12 transform origin-bottom blur-[120px]" />
       
       <div className="container-custom relative z-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-20">
@@ -44,7 +45,7 @@ const PortfolioSection = () => {
               <Link 
                 key={project.id} 
                 to="/portfolio" 
-                className="group block relative overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:-translate-y-4 shadow-2xl"
+                className="group block relative overflow-hidden rounded-[2rem] bg-slate-900/40 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:-translate-y-3 shadow-2xl backdrop-blur-sm"
               >
                 <div className="aspect-[4/3] bg-[#022822] overflow-hidden relative">
                   {project.featured_image ? (
