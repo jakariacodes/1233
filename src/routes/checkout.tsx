@@ -9,16 +9,16 @@ export const Route = createFileRoute('/checkout')({
       serviceId: (search['serviceId'] as string) || '',
       packageId: (search['packageId'] as string) || '',
     };
-  },
+  loaderDeps: ({ search }) => ({ serviceId: search.serviceId, packageId: search.packageId }),
   loader: async ({ deps }) => {
-    const s = deps as { serviceId: string; packageId: string };
-    if (!s.serviceId || !s.packageId) {
+    const { serviceId, packageId } = deps;
+    if (!serviceId || !packageId) {
       return { service: null, package: null };
     }
     
     try {
-      const service = await getServiceById(search.serviceId);
-      const pkg = service?.service_packages?.find((p: any) => p.id === search.packageId);
+      const service = await getServiceById({ data: serviceId });
+      const pkg = service?.service_packages?.find((p: any) => p.id === packageId);
       
       return { service, package: pkg };
     } catch (error) {
