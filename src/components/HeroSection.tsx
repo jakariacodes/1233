@@ -113,15 +113,15 @@ export const HeroSection = () => {
             </div>
 
             {/* Heading with animated gradient */}
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 animate-slide-up animation-delay-100">
-              <span className="text-white">Transform Your</span>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] mb-8 animate-slide-up animation-delay-100">
+              <span className="text-white">Empowering Your</span>
               <br />
-              <span className="text-gradient-animated">Digital Presence</span>
+              <span className="text-primary">Digital Future</span>
               <br />
-              <span className="text-white inline-flex items-center gap-3">
-                With Excellence
-                <span className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-blue-600 animate-glow-pulse hover:scale-110 transition-transform duration-300">
-                  <Sparkles className="w-6 h-6 text-white animate-pulse" />
+              <span className="text-white inline-flex items-center gap-4">
+                With Precision
+                <span className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary animate-glow-pulse hover:scale-110 transition-transform duration-300 shadow-xl shadow-primary/20">
+                  <Sparkles className="w-7 h-7 text-white animate-pulse" />
                 </span>
               </span>
             </h1>
