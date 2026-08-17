@@ -124,7 +124,7 @@ const PortfolioManagement = () => {
       if (editingPortfolio) {
         const { error } = await supabase
           .from('portfolios')
-          .update(portfolioData)
+          .update(portfolioData as any)
           .eq('id', editingPortfolio.id);
 
         if (error) throw error;
@@ -132,7 +132,7 @@ const PortfolioManagement = () => {
       } else {
         const { error } = await supabase
           .from('portfolios')
-          .insert([portfolioData]);
+          .insert([portfolioData as any]);
 
         if (error) throw error;
         toast.success('Portfolio created successfully');

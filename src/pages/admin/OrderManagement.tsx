@@ -172,7 +172,7 @@ const OrderManagement = () => {
       if (editingOrder) {
         const { error } = await supabase
           .from('orders')
-          .update(orderData)
+          .update(orderData as any)
           .eq('id', editingOrder.id);
 
         if (error) throw error;
@@ -181,7 +181,7 @@ const OrderManagement = () => {
         const orderNumber = generateOrderNumber();
         const { error } = await supabase
           .from('orders')
-          .insert([{ ...orderData, order_number: orderNumber }]);
+          .insert([{ ...orderData, order_number: orderNumber } as any]);
 
         if (error) throw error;
 

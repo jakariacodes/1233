@@ -69,7 +69,7 @@ const BlogManagement = () => {
               Create and manage your blog posts
             </p>
           </div>
-          <Link to="/admin/blog/new">
+          <Link to="/admin/blog/editor">
             <Button className="gap-2">
               <Plus className="w-4 h-4" />
               New Post
@@ -125,7 +125,7 @@ const BlogManagement = () => {
                   : 'Try adjusting your search or filters'}
               </p>
               {posts.length === 0 && (
-                <Link to="/admin/blog/new">
+                <Link to="/admin/blog/editor">
                   <Button className="gap-2">
                     <Plus className="w-4 h-4" />
                     Create Post
@@ -198,7 +198,7 @@ const BlogManagement = () => {
                         <Eye className="w-4 h-4" />
                       )}
                     </Button>
-                    <Link to={`/admin/blog/edit/${post.id}`}>
+                    <Link to="/admin/blog/editor" search={{ id: post.id }}>
                       <Button variant="outline" size="icon">
                         <Edit2 className="w-4 h-4" />
                       </Button>

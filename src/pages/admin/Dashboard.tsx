@@ -258,7 +258,7 @@ const Dashboard = () => {
                 <span className="text-sm font-medium">Add Portfolio</span>
               </Link>
               <Link
-                to="/admin/blog/new"
+                to="/admin/blog/editor"
                 className="flex flex-col items-center gap-2 p-4 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors text-center"
               >
                 <FileText className="w-8 h-8 text-primary" />
