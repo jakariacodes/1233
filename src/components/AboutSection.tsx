@@ -17,10 +17,17 @@ import {
 
 const AboutSection = () => {
   return (
-    <section className="section-padding bg-slate-50/30 relative overflow-hidden" id="about">
-      {/* Background Decor */}
-      <div className="absolute inset-0 tech-grid opacity-[0.03] pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+    <section className="section-padding bg-white relative overflow-hidden" id="about">
+      {/* Background Decor from Demo */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* The large circular shape/glow from the demo */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-[65%] -translate-y-1/2 w-[1000px] h-[1000px] bg-blue-50/50 rounded-full border border-blue-100/20 shadow-[inset_0_0_100px_rgba(59,130,246,0.03)]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-[60%] -translate-y-1/2 w-[800px] h-[800px] bg-white rounded-full shadow-2xl border border-slate-100" />
+        
+        {/* Additional accent glows */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-50/30 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px]" />
+      </div>
       
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -101,8 +108,8 @@ const AboutSection = () => {
                 <div className="relative w-20 h-20 rounded-full border-2 border-primary/30 p-1 flex-shrink-0">
                   <div className="w-full h-full rounded-full bg-slate-800 overflow-hidden relative">
                     <img 
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&auto=format&fit=crop" 
-                      alt="CEO"
+                      src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&auto=format&fit=crop" 
+                      alt="Md Jakaria Hasan"
                       className="w-full h-full object-cover" 
                     />
                     <div className="absolute bottom-1 right-1 w-3.5 h-3.5 bg-green-500 border-2 border-[#0f172a] rounded-full shadow-lg" />
