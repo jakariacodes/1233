@@ -30,7 +30,7 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section className="py-24 bg-[#f8fafc] relative overflow-hidden">
+    <section className="py-24 bg-white relative overflow-hidden">
       <div className="container-custom relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-20">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 uppercase tracking-wider">
@@ -56,7 +56,7 @@ const ProcessSection = () => {
                 0{i + 1}
               </div>
               
-              <div className="p-8 rounded-[2.5rem] bg-white border border-border shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-500 group-hover:-translate-y-2 h-full flex flex-col">
+              <div className="p-8 md:p-10 rounded-[2.5rem] bg-secondary/30 border border-border/50 hover:border-primary/50 transition-all duration-500 group-hover:-translate-y-4 hover:shadow-2xl h-full flex flex-col">
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}>
                   <step.icon className="w-8 h-8" />
                 </div>
