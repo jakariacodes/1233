@@ -108,8 +108,8 @@ const AboutSection = () => {
                 <div className="relative w-20 h-20 rounded-full border-2 border-primary/30 p-1 flex-shrink-0">
                   <div className="w-full h-full rounded-full bg-slate-800 overflow-hidden relative">
                     <img 
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&auto=format&fit=crop" 
-                      alt="CEO"
+                      src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&auto=format&fit=crop" 
+                      alt="Md Jakaria Hasan"
                       className="w-full h-full object-cover" 
                     />
                     <div className="absolute bottom-1 right-1 w-3.5 h-3.5 bg-green-500 border-2 border-[#0f172a] rounded-full shadow-lg" />
