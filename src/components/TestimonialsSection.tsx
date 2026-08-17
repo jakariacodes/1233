@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight, Quote, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import useEmblaCarousel from "embla-carousel-react";
 
@@ -60,9 +60,9 @@ const StarRating = ({ rating }: { rating: number }) => {
       {[...Array(5)].map((_, index) => (
         <Star
           key={index}
-          className={`w-5 h-5 ${
+          className={`w-4 h-4 ${
             index < rating
-              ? "fill-amber-400 text-amber-400"
+              ? "fill-primary text-primary"
               : "fill-muted text-muted"
           }`}
         />
@@ -100,7 +100,6 @@ export const TestimonialsSection = () => {
     emblaApi.on("reInit", onSelect);
   }, [emblaApi, onSelect]);
 
-  // Auto-scroll
   useEffect(() => {
     if (!emblaApi) return;
     const intervalId = setInterval(() => {
@@ -110,89 +109,74 @@ export const TestimonialsSection = () => {
   }, [emblaApi]);
 
   return (
-    <section className="section-padding relative overflow-hidden bg-gradient-to-b from-secondary/50 to-background">
-      {/* Background Elements */}
-      <div className="absolute inset-0 tech-grid opacity-20" />
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-morph" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-morph animation-delay-2000" />
-
+    <section className="py-24 relative overflow-hidden bg-white">
+      {/* Background Decor */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2" />
+      
       <div className="container-custom relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
-          <div className="max-w-2xl">
-            <span className="section-badge mb-4 animate-slide-up hover:scale-105 transition-transform cursor-default">
-              Testimonials
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12 mb-20">
+          <div className="max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-6 uppercase tracking-widest border border-primary/20">
+              <Sparkles className="w-4 h-4" />
+              Client Success
             </span>
-            <h2 className="section-title mb-6 animate-slide-up animation-delay-100">
-              What Our <span className="text-gradient-animated">Clients Say</span>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 leading-[1.1]">
+              Trusted by Hundreds of <span className="text-primary">Industry Leaders</span>
             </h2>
-            <p className="section-subtitle animate-slide-up animation-delay-200">
-              Don't just take our word for it. Here's what our valued clients 
-              have to say about working with NextOnline Technology.
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Real results for real businesses. See how NextOnline Technology 
+              has helped our clients scale their digital presence.
             </p>
           </div>
           
-          {/* Navigation Buttons */}
-          <div className="flex gap-3 animate-slide-up animation-delay-300">
+          <div className="flex justify-center gap-4">
             <Button
               variant="outline"
               size="icon"
               onClick={scrollPrev}
-              className="rounded-full w-12 h-12 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-lg"
-              aria-label="Previous testimonial"
+              className="rounded-2xl w-14 h-14 border-border hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-6 h-6" />
             </Button>
             <Button
               variant="outline"
               size="icon"
               onClick={scrollNext}
-              className="rounded-full w-12 h-12 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-lg"
-              aria-label="Next testimonial"
+              className="rounded-2xl w-14 h-14 border-border hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-6 h-6" />
             </Button>
           </div>
         </div>
 
-        {/* Carousel */}
         <div className="relative">
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-6">
+          <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={emblaRef}>
+            <div className="flex gap-8">
               {testimonials.map((testimonial) => (
                 <div
                   key={testimonial.id}
                   className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0"
                 >
-                  <div className="group bg-card rounded-3xl p-8 border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-500 h-full flex flex-col hover:-translate-y-2 overflow-hidden relative">
-                    {/* Shimmer effect */}
-                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                  <div className="group bg-white rounded-[2.5rem] p-10 border border-border hover:border-primary/50 transition-all duration-500 h-full flex flex-col hover:-translate-y-4 hover:shadow-2xl relative">
+                    <Quote className="absolute top-8 right-8 w-12 h-12 text-primary/5 group-hover:text-primary/10 transition-colors" />
                     
-                    {/* Quote Icon */}
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative z-10">
-                      <Quote className="w-7 h-7 text-white" />
-                    </div>
-
-                    {/* Rating */}
-                    <div className="relative z-10">
+                    <div className="mb-6">
                       <StarRating rating={testimonial.rating} />
                     </div>
 
-                    {/* Review Text */}
-                    <p className="text-foreground/80 mt-5 mb-8 flex-grow leading-relaxed text-lg relative z-10 group-hover:text-foreground transition-colors duration-300">
+                    <p className="text-foreground/80 mb-10 flex-grow leading-relaxed text-lg font-medium italic">
                       "{testimonial.review}"
                     </p>
 
-                    {/* Client Info */}
-                    <div className="flex items-center gap-4 pt-6 border-t border-border relative z-10">
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex items-center gap-5 pt-8 border-t border-border">
+                      <div className="w-16 h-16 rounded-2xl bg-secondary/50 flex items-center justify-center text-primary font-bold text-xl border border-border group-hover:bg-primary group-hover:text-white transition-all">
                         {testimonial.avatar}
                       </div>
                       <div>
-                        <h4 className="font-display font-bold text-lg group-hover:text-primary transition-colors duration-300">
+                        <h4 className="font-display font-bold text-xl mb-1">
                           {testimonial.name}
                         </h4>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">
                           {testimonial.role}
                         </p>
                       </div>
@@ -203,42 +187,20 @@ export const TestimonialsSection = () => {
             </div>
           </div>
 
-          {/* Dots Indicator */}
-          <div className="flex justify-center gap-2 mt-10">
+          <div className="flex justify-center gap-3 mt-12">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => emblaApi?.scrollTo(index)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full transition-all duration-300 ${
                   index === selectedIndex
-                    ? "bg-primary w-10"
-                    : "bg-muted-foreground/20 w-2.5 hover:bg-muted-foreground/40"
+                    ? "bg-primary w-12"
+                    : "bg-border w-2 hover:bg-primary/30"
                 }`}
-                aria-label={`Go to testimonial ${index + 1}`}
+                aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
-        </div>
-
-        {/* Trust Metrics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 p-8 rounded-3xl bg-card border border-border hover:border-primary/20 transition-all duration-500">
-          {[
-            { value: "100%", label: "Client Satisfaction" },
-            { value: "650+", label: "Happy Clients" },
-            { value: "4.9", label: "Average Rating" },
-            { value: "98%", label: "Repeat Customers" },
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className="text-center animate-slide-up group cursor-default"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className="text-3xl md:text-4xl font-display font-bold text-gradient mb-2 group-hover:scale-110 transition-transform duration-300">
-                {stat.value}
-              </div>
-              <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">{stat.label}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>
