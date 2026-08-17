@@ -1,7 +1,7 @@
-import { Button } from "@/ui/button";
+import { Button } from "@;
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ExternalLink, Loader2, Sparkles } from "lucide-react";
-import { usePortfolios } from "@/hooks/usePortfolios";
+import { usePortfolios } from "@;
 
 const Portfolio = () => {
   const { portfolios, loading } = usePortfolios(true);

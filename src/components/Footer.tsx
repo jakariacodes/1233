@@ -14,7 +14,7 @@ import {
   Globe,
   Send,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/button";
 import logo from "@/assets/logo.png";
 
 const quickLinks = [

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/button";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 

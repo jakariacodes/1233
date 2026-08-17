@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/button";
 import { Sparkles, LayoutDashboard, Menu, X } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import logo from "@/assets/logo.png";

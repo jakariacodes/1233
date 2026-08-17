@@ -1,8 +1,8 @@
-import { Button } from "@/ui/button";
+import { Button } from "@;
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Calendar, Clock, Tag, TrendingUp, Search, Loader2 } from "lucide-react";
 import { useState } from "react";
-import { useBlogPosts, useBlogCategories } from "@/hooks/useBlogPosts";
+import { useBlogPosts, useBlogCategories } from "@;
 import { format } from "date-fns";
 
 const Blog = () => {

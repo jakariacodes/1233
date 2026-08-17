@@ -1,5 +1,5 @@
 import { Linkedin, Twitter, Facebook, Globe, MapPin, ArrowUpRight, Loader2, Users } from "lucide-react";
-import { useTeamMembers } from "@/hooks/useTeamMembers";
+import { useTeamMembers } from "@;
 
 const stats = [
   { value: "30+", label: "Team Members" },

@@ -8,12 +8,12 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { AuthProvider } from "@/contexts/AuthContext";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { Toaster } from "@/components/ui/sonner";
-import { GoogleAnalytics } from "@/components/GoogleAnalytics";
-import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Navbar } from "@;
+import { Footer } from "@;
+import { Toaster } from "@/sonner";
+import { GoogleAnalytics } from "@;
+import appCss from "@/styles.css?url";
+import { reportLovableError } from "@/lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (

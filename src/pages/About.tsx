@@ -1,11 +1,11 @@
-import { Button } from "@/ui/button";
+import { Button } from "@;
 import { Link } from "@tanstack/react-router";
 import { 
   ArrowRight, Award, Users, Target, Rocket, CheckCircle, 
   Calendar, Sparkles, Globe, TrendingUp, Heart, Shield,
   Code, Palette, Megaphone, Star
 } from "lucide-react";
-import ceoPhoto from "@/assets/ceo-photo.jpg";
+import ceoPhoto from "@;
 
 const values = [
   {

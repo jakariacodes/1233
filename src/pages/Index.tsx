@@ -1,11 +1,11 @@
-import { HeroSection } from "@/components/HeroSection";
-import { ClientsSection } from "@/components/ClientsSection";
-import { ServicesSection } from "@/components/ServicesSection";
-import { AboutSection } from "@/components/AboutSection";
-import { ValuesSection } from "@/components/ValuesSection";
-import { WhyChooseUs } from "@/components/WhyChooseUs";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { CTASection } from "@/components/CTASection";
+import { HeroSection } from "@;
+import { ClientsSection } from "@;
+import { ServicesSection } from "@;
+import { AboutSection } from "@;
+import { ValuesSection } from "@;
+import { WhyChooseUs } from "@;
+import { TestimonialsSection } from "@;
+import { CTASection } from "@;
 
 export const Index = () => {
   return (

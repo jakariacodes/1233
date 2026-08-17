@@ -1,4 +1,4 @@
-import { Button } from "@/ui/button";
+import { Button } from "@;
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Star, Clock, CheckCircle2, Users, Sparkles } from "lucide-react";
 import {
@@ -11,9 +11,9 @@ import {
   Briefcase,
   Zap,
 } from "lucide-react";
-import serviceWeb from "@/assets/service-web.jpg";
-import serviceMarketing from "@/assets/service-marketing.jpg";
-import serviceCreative from "@/assets/service-creative.jpg";
+import serviceWeb from "@;
+import serviceMarketing from "@;
+import serviceCreative from "@;
 
 const services = [
   {
