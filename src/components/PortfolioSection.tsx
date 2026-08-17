@@ -33,13 +33,13 @@ const PortfolioSection = () => {
         </div>
 
         {loading ? (
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3].map(i => (
               <div key={i} className="aspect-[4/3] rounded-[2.5rem] bg-white/5 animate-pulse border border-white/10" />
             ))}
           </div>
         ) : (
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredPortfolios.map((project) => (
               <Link 
                 key={project.id} 

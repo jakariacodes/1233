@@ -30,13 +30,13 @@ const BlogSection = () => {
         </div>
 
         {loading ? (
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3].map(i => (
               <div key={i} className="aspect-[4/3] rounded-[2.5rem] bg-secondary/50 animate-pulse border border-border" />
             ))}
           </div>
         ) : (
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {recentPosts.map((post) => (
               <Link 
                 key={post.id} 
