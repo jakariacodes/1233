@@ -9,7 +9,7 @@ const PortfolioSection = () => {
   const featuredPortfolios = portfolios.slice(0, 3);
 
   return (
-    <section className="py-24 bg-[#061e24] relative overflow-hidden text-white">
+    <section className="section-padding bg-[#061e24] relative overflow-hidden text-white">
       {/* Background Decorative */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 transform origin-top blur-3xl" />
       

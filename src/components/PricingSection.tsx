@@ -29,7 +29,7 @@ const tiers = [
 
 const PricingSection = () => {
   return (
-    <section className="py-24 bg-secondary/30 relative overflow-hidden">
+    <section className="section-padding bg-secondary/30 relative overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-10" />
       <div className="container-custom">
         <div className="max-w-3xl mx-auto text-center mb-20">

@@ -30,7 +30,7 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="section-padding bg-white relative overflow-hidden">
       <div className="container-custom relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-24">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 tracking-tight">

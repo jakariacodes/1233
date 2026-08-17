@@ -9,7 +9,7 @@ const BlogSection = () => {
   const recentPosts = posts.slice(0, 3);
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden" id="blog">
+    <section className="section-padding bg-white relative overflow-hidden" id="blog">
       <div className="container-custom relative z-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-12 mb-20">
           <div className="max-w-2xl">
