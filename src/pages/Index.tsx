@@ -15,7 +15,7 @@ import { CTASection } from "@/components/CTASection";
 
 const Index = () => {
   return (
-    <div className="flex flex-col gap-0 overflow-hidden pt-20">
+    <div className="flex flex-col gap-0 overflow-hidden">
       <HeroSection />
       <ClientsSection />
       <ServicesSection />
