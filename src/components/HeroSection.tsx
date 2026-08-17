@@ -112,23 +112,21 @@ export const HeroSection = () => {
               <span className="text-xs text-white/50 border-l border-white/20 pl-3">Est. 2021</span>
             </div>
 
-            {/* Heading with animated gradient */}
-            <h1 className="font-display text-5xl md:text-7xl lg:text-9xl font-extrabold leading-[1.05] mb-8 animate-slide-up animation-delay-100 tracking-tighter">
-              <span className="text-white drop-shadow-2xl">Empowering Your</span>
-              <br />
-              <span className="text-primary drop-shadow-[0_0_15px_rgba(0,168,132,0.3)]">Digital Future</span>
-              <br />
-              <span className="text-white inline-flex items-center gap-6">
-                With Precision
-                <span className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary animate-glow-pulse hover:scale-110 transition-transform duration-500 shadow-2xl shadow-primary/30 border border-white/20">
-                  <Sparkles className="w-8 h-8 text-white animate-pulse" />
-                </span>
-              </span>
-            </h1>
+            {/* Heading with reference-based design */}
+            <div className="mb-8 animate-slide-up animation-delay-100">
+              <div className="inline-block px-4 py-1.5 rounded-lg bg-teal-500/10 text-teal-400 font-bold text-xs uppercase tracking-widest mb-6 border border-teal-500/20">
+                Digitize Your Imagination
+              </div>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15] text-white tracking-tight">
+                Innovative Software <br />
+                Development Company <br />
+                in Bangladesh
+              </h1>
+            </div>
 
             {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-2xl leading-relaxed animate-slide-up animation-delay-200 font-medium tracking-wide">
-              We craft <span className="text-primary font-extrabold underline underline-offset-8 decoration-primary/30">next-gen technology solutions</span> that drive measurable growth and transform businesses globally.
+            <p className="text-base md:text-lg text-white/70 mb-10 max-w-xl leading-relaxed animate-slide-up animation-delay-200">
+              We provide B2B and B2C-based software solutions that develop creative and inventive software solutions for individual industries.
             </p>
 
             {/* Services Pills with hover effects */}
@@ -150,23 +148,17 @@ export const HeroSection = () => {
             {/* CTA Buttons with enhanced animations */}
             <div className="flex flex-col sm:flex-row gap-4 mb-10 animate-slide-up animation-delay-400">
               <Link to="/contact">
-                <Button className="gap-3 h-16 px-10 text-lg bg-primary hover:bg-primary/90 rounded-2xl group relative overflow-hidden hover-glow font-bold shadow-2xl shadow-primary/30">
-                  <span className="relative z-10 flex items-center gap-3">
-                    Start Your Project
-                    <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary via-teal-400 to-primary bg-[length:200%_100%] animate-gradient-shift opacity-0 group-hover:opacity-100 transition-opacity" />
+                <Button className="h-12 px-8 text-sm bg-blue-700 hover:bg-blue-600 rounded-full group relative overflow-hidden font-bold shadow-lg shadow-blue-900/20 border border-blue-600/30 uppercase tracking-wider">
+                  Company Deck
                 </Button>
               </Link>
               <Link to="/portfolio">
                 <Button 
                   variant="outline" 
-                  className="gap-4 h-16 px-10 text-lg border-white/20 text-white hover:bg-white/10 rounded-2xl group font-bold backdrop-blur-sm"
+                  className="gap-2 h-12 px-8 text-sm border-teal-500/50 text-teal-400 hover:bg-teal-500/10 rounded-full group font-bold backdrop-blur-sm uppercase tracking-wider"
                 >
-                  <div className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300">
-                    <Play className="w-5 h-5 fill-current ml-0.5" />
-                  </div>
-                  <span className="group-hover:tracking-wider transition-all duration-300">View Our Work</span>
+                  Our Products
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
             </div>
