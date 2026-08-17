@@ -14,14 +14,14 @@ const NavLink = forwardRef<HTMLAnchorElement, NavLinkCompatProps>(
       <Link
         ref={ref}
         to={to}
-        className={(linkProps: any) => {
+        className={((linkProps: any) => {
           const baseClass = typeof className === "function" ? className(linkProps) : className;
           return cn(
             baseClass,
             linkProps.isActive && activeClassName,
             linkProps.isPending && pendingClassName
           );
-        }}
+        }) as any}
         {...props}
       />
     );

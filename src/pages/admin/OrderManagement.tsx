@@ -233,9 +233,9 @@ const OrderManagement = () => {
 
   const updateStatus = async (orderId: string, status: Order['status']) => {
     try {
-      const updateData: Record<string, any> = { status };
-      if (status === 'in_progress') updateData.started_at = new Date().toISOString();
-      if (status === 'completed') updateData.completed_at = new Date().toISOString();
+      const updateData: any = { status };
+      if (status === 'in_progress') updateData['started_at'] = new Date().toISOString();
+      if (status === 'completed') updateData['completed_at'] = new Date().toISOString();
 
       const { error } = await supabase
         .from('orders')

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AdminLayout } from '@/components/admin/AdminLayout';
+import { Star } from 'lucide-react';
 import { usePortfolios, Portfolio } from '@/hooks/usePortfolios';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
