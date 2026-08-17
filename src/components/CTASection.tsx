@@ -35,13 +35,13 @@ export const CTASection = () => {
                       <ArrowRight className="w-5 h-5" />
                     </Button>
                   </Link>
-                  <a href="tel:+8801731173992" className="flex items-center gap-4 text-white group">
+                  <a href="tel:+8801711392738" className="flex items-center gap-4 text-white group">
                     <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
                       <Phone className="w-6 h-6" />
                     </div>
                     <div>
                       <p className="text-xs font-bold text-white/40 uppercase tracking-widest">Call Now</p>
-                      <p className="font-display font-bold">+880 1731-173992</p>
+                      <p className="font-display font-bold">+88 01711-392738</p>
                     </div>
                   </a>
                 </div>
