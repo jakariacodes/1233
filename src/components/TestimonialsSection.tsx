@@ -109,7 +109,7 @@ export const TestimonialsSection = () => {
   }, [emblaApi]);
 
   return (
-    <section className="py-24 relative overflow-hidden bg-white">
+    <section className="section-padding relative overflow-hidden bg-white">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2" />
       

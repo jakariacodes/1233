@@ -9,7 +9,7 @@ const BlogSection = () => {
   const recentPosts = posts.slice(0, 3);
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden" id="blog">
+    <section className="section-padding bg-white relative overflow-hidden" id="blog">
       <div className="container-custom relative z-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-12 mb-20">
           <div className="max-w-2xl">
@@ -30,13 +30,13 @@ const BlogSection = () => {
         </div>
 
         {loading ? (
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3].map(i => (
               <div key={i} className="aspect-[4/3] rounded-[2.5rem] bg-secondary/50 animate-pulse border border-border" />
             ))}
           </div>
         ) : (
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {recentPosts.map((post) => (
               <Link 
                 key={post.id} 

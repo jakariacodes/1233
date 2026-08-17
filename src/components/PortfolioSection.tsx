@@ -9,7 +9,7 @@ const PortfolioSection = () => {
   const featuredPortfolios = portfolios.slice(0, 3);
 
   return (
-    <section className="py-24 bg-[#061e24] relative overflow-hidden text-white">
+    <section className="section-padding bg-[#061e24] relative overflow-hidden text-white">
       {/* Background Decorative */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 transform origin-top blur-3xl" />
       
@@ -33,13 +33,13 @@ const PortfolioSection = () => {
         </div>
 
         {loading ? (
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3].map(i => (
               <div key={i} className="aspect-[4/3] rounded-[2.5rem] bg-white/5 animate-pulse border border-white/10" />
             ))}
           </div>
         ) : (
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredPortfolios.map((project) => (
               <Link 
                 key={project.id} 

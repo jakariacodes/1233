@@ -4,7 +4,7 @@ import { Send } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section className="py-24 bg-[#051139] relative overflow-hidden" id="contact">
+    <section className="section-padding bg-[#051139] relative overflow-hidden" id="contact">
       <div className="container-custom relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="bg-[#0a1b52] rounded-[2rem] overflow-hidden shadow-2xl border border-white/5">

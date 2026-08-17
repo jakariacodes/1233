@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles, Zap, Shield, Globe } from "lucide-react";
 
 const AboutSection = () => {
   return (
-    <section className="py-24 bg-white relative overflow-hidden" id="about">
+    <section className="section-padding bg-white relative overflow-hidden" id="about">
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div className="animate-fade-in">

@@ -53,7 +53,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#051139] text-white pt-20 pb-10 overflow-hidden">
+    <footer className="section-padding bg-[#051139] text-white overflow-hidden">
       <div className="container-custom">
         {/* Main Footer Content */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-12 mb-20">

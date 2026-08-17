@@ -40,7 +40,7 @@ const codeSnippets = [
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#061e24]">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#061e24] py-20 lg:py-0">
       {/* Animated Tech Grid Background */}
       <div className="absolute inset-0 tech-grid opacity-50" />
       
