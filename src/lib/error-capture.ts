@@ -39,9 +39,18 @@ function describeStatus(error: Error): string {
 
 function safeStringify(value: unknown): string {
   try {
-    return JSON.stringify(value) ?? String(value);
+    if (value === null) return "null";
+    if (typeof value === "undefined") return "undefined";
+    if (typeof value === "string") return value;
+    if (typeof value === "number" || typeof value === "boolean") return String(value);
+    
+    return JSON.stringify(value) || "non-serializable object";
   } catch {
-    return String(value);
+    try {
+      return String(value);
+    } catch {
+      return "[Unprintable Object]";
+    }
   }
 }
 
