@@ -5,174 +5,90 @@ import logoFooter from "@/assets/logo-footer.png.asset.json";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const footerSections = [
-    {
-      title: "Services",
-      links: [
-        { name: "Custom Software", href: "/services" },
-        { name: "Mobile App Development", href: "/services" },
-        { name: "Web Design & Development", href: "/services" },
-        { name: "MVPs & Product Design", href: "/services" },
-        { name: "Cybersecurity", href: "/services" },
-        { name: "Web & Search Experience", href: "/services" },
-      ],
-    },
-    {
-      title: "Industries",
-      links: [
-        { name: "E-Gov Solutions", href: "/services" },
-        { name: "EdTech", href: "/services" },
-        { name: "Maritime & PorTech", href: "/services" },
-        { name: "FinTech", href: "/services" },
-        { name: "HealthTech", href: "/services" },
-        { name: "Telecom & Media", href: "/services" },
-      ],
-    },
-    {
-      title: "Products",
-      links: [
-        { name: "Modulexa", href: "#" },
-        { name: "Educator LMS", href: "#" },
-        { name: "Fintracko", href: "#" },
-        { name: "EduFano University", href: "#" },
-        { name: "EduFano School", href: "#" },
-        { name: "HRworkout", href: "#" },
-      ],
-    },
-    {
-      title: "Insights",
-      links: [
-        { name: "Company Overview", href: "/about" },
-        { name: "Our Team", href: "/team" },
-        { name: "Career", href: "/contact" },
-        { name: "Case Studies", href: "/portfolio" },
-        { name: "Blog", href: "/blog" },
-        { name: "News", href: "/blog" },
-      ],
-    },
-  ];
-
   return (
     <footer className="section-padding bg-[#011612] text-white overflow-hidden relative border-t border-white/5">
       <div className="container-custom">
-        {/* Top Info Bar (Integrated Address & Contact) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20 pb-12 border-b border-white/10">
-          <div className="flex flex-col space-y-4">
-            <Link to="/" className="mb-4 block">
+        {/* Main Footer Content */}
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
+          <div className="flex flex-col space-y-6 max-w-sm">
+            <Link to="/" className="block">
               <img
                 src={logoFooter.url}
                 alt="NextOnline Technology"
                 className="h-10 w-auto object-contain brightness-0 invert"
               />
             </Link>
+            <p className="text-white/60 text-sm leading-relaxed">
+              Bangladesh's premium digital agency delivering cutting-edge solutions that transform businesses through technology and innovation.
+            </p>
             <div className="flex gap-4">
-              <a href="https://www.facebook.com/profile.php?id=61559869275150" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+              <a href="https://www.facebook.com/profile.php?id=61559869275150" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/5 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all border border-white/10">
                 <Globe className="w-4 h-4" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+              <a href="#" className="w-9 h-9 rounded-full bg-white/5 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all border border-white/10">
                 <Globe className="w-4 h-4" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-                <Globe className="w-4 h-4" />
-              </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+              <a href="#" className="w-9 h-9 rounded-full bg-white/5 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all border border-white/10">
                 <Globe className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          <div className="space-y-4">
-            <div className="flex items-start gap-3">
-              <div className="mt-1 bg-primary/20 p-2 rounded-lg text-primary">
-                <Mail className="w-4 h-4" />
-              </div>
-              <div>
-                <p className="text-xs text-white/50 uppercase font-bold tracking-widest mb-1">Email Address</p>
-                <a href="mailto:info@thenextonline.com" className="text-sm hover:text-primary transition-colors">info@thenextonline.com</a>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 w-full md:w-auto">
+            {/* Quick Contact */}
+            <div className="space-y-6">
+              <h3 className="text-sm uppercase font-bold tracking-widest text-white/40">Contact Us</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <Mail className="w-5 h-5 text-primary shrink-0" />
+                  <a href="mailto:info@thenextonline.com" className="text-sm text-white/80 hover:text-primary transition-colors">info@thenextonline.com</a>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Phone className="w-5 h-5 text-primary shrink-0" />
+                  <div className="space-y-1">
+                    <a href="tel:+15055241559" className="text-sm text-white/80 block hover:text-primary transition-colors">USA: +1 505-524-1559</a>
+                    <a href="tel:+8801711392738" className="text-sm text-white/80 block hover:text-primary transition-colors">BD: +88 01711-392738</a>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="flex items-start gap-3">
-              <div className="mt-1 bg-primary/20 p-2 rounded-lg text-primary">
-                <Phone className="w-4 h-4" />
-              </div>
-              <div>
-                <p className="text-xs text-white/50 uppercase font-bold tracking-widest mb-1">Contact Phone</p>
-                <a href="tel:+15055241559" className="text-sm block hover:text-primary transition-colors">USA: +15055241559</a>
-                <a href="tel:+8801711392738" className="text-sm block hover:text-primary transition-colors">BD: +88 01711392738</a>
+
+            {/* Offices */}
+            <div className="space-y-6 lg:col-span-2">
+              <h3 className="text-sm uppercase font-bold tracking-widest text-white/40">Our Offices</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-base">🇺🇸</span>
+                    <p className="text-xs font-bold text-white/80 uppercase tracking-wider">USA Office</p>
+                  </div>
+                  <p className="text-sm text-white/60 leading-relaxed">
+                    9169 W STATE ST<br />
+                    GARDEN CITY, ID 83714
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-base">🇧🇩</span>
+                    <p className="text-xs font-bold text-white/80 uppercase tracking-wider">Bangladesh HQ</p>
+                  </div>
+                  <p className="text-sm text-white/60 leading-relaxed">
+                    1505/13, Nahar Plaza, Bir Uttam C R Dotto Road, Ramana, Dhaka
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-
-          <div className="flex items-start gap-3 lg:col-span-2">
-            <div className="mt-1 bg-primary/20 p-2 rounded-lg text-primary">
-              <MapPin className="w-4 h-4" />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
-              <div>
-                <p className="text-xs text-white/50 uppercase font-bold tracking-widest mb-1">USA Office</p>
-                <p className="text-sm text-white/80 leading-relaxed">
-                  9169 W STATE ST<br />
-                  GARDEN CITY, ID 83714
-                </p>
-              </div>
-              <div>
-                <p className="text-xs text-white/50 uppercase font-bold tracking-widest mb-1">UK Office</p>
-                <p className="text-sm text-white/80 leading-relaxed">
-                  20-22 Wenlock Road,<br />
-                  London, England, N1 7GU
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-12 mb-20">
-          {footerSections.map((section) => (
-            <div key={section.title}>
-              <h3 className="text-sm uppercase font-bold mb-8 tracking-[0.2em] text-white/40">{section.title}</h3>
-              <ul className="space-y-4">
-                {section.links.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.href as any}
-                      className="text-white/60 hover:text-primary transition-colors text-sm font-medium"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
         </div>
 
         {/* Lower Footer Area */}
-        <div className="pt-12 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-12">
-            {/* Bangladesh Location (Special Highlight) */}
-            <div className="max-w-md">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-xl">🇧🇩</span>
-                <h5 className="font-bold text-sm tracking-wider uppercase text-white/80">Bangladesh Headquarters</h5>
-              </div>
-              <p className="text-sm text-white/60 leading-relaxed">
-                1505/13, 37 Bir Uttam C R Dotto Road, Nahar Plaza,<br />
-                Ramana, Dhaka-1000, Bangladesh.
-              </p>
-            </div>
-
-            {/* Copyright & Links */}
-            <div className="text-left md:text-right space-y-4">
-              <div className="flex flex-wrap md:justify-end gap-6 text-xs font-bold uppercase tracking-widest text-white/40">
-                <Link to="/about" className="hover:text-white transition-colors">Privacy Policy</Link>
-                <Link to="/about" className="hover:text-white transition-colors">Terms of Service</Link>
-                <Link to="/contact" className="hover:text-white transition-colors">Cookie Settings</Link>
-              </div>
-              <p className="text-white/30 text-xs font-medium uppercase tracking-[0.2em]">
-                Copyright © {currentYear} NextOnline Technology Ltd. All rights reserved.
-              </p>
-            </div>
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-white/30 text-[10px] font-bold uppercase tracking-[0.2em]">
+            Copyright © {currentYear} NextOnline Technology Ltd. All rights reserved.
+          </p>
+          <div className="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-white/40">
+            <Link to="/about" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/about" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
