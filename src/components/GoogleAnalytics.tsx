@@ -30,10 +30,10 @@ export const GoogleAnalytics = () => {
         document.head.appendChild(script1);
       }
 
-      const hasScript2 = scripts.some(s => s.text && s.text.includes('window.dataLayer'));
+      const hasScript2 = scripts.some(s => s.textContent && s.textContent.includes('window.dataLayer'));
       if (!hasScript2) {
         const script2 = document.createElement('script');
-        script2.text = `
+        script2.textContent = `
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
