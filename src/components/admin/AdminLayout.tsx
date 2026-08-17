@@ -28,7 +28,7 @@ export const AdminLayout = ({ children }: { children?: React.ReactNode }) => {
         <div className="p-6 h-full flex flex-col">
           <Link to="/" className="flex items-center gap-2 mb-10">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold">T</div>
-            <span className="font-display font-bold text-xl">TechCrafter Admin</span>
+            <span className="font-display font-bold text-xl">NextOnline Admin</span>
           </Link>
 
           <nav className="space-y-1 flex-1">

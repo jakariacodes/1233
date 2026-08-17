@@ -39,7 +39,7 @@ const AboutSection = () => {
           <div className="relative">
              <div className="aspect-square rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 border border-border flex items-center justify-center p-8">
                 <div className="w-full h-full rounded-2xl bg-card border border-border shadow-2xl flex items-center justify-center text-primary font-bold text-4xl">
-                   TechCrafterIT
+                   NextOnline Technology
                 </div>
              </div>
           </div>

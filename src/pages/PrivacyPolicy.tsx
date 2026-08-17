@@ -36,7 +36,7 @@ const PrivacyPolicy = () => {
               <div className="max-w-4xl mx-auto prose prose-lg prose-headings:font-display prose-headings:font-bold prose-p:text-muted-foreground prose-li:text-muted-foreground">
                 <h2>1. Introduction</h2>
                 <p>
-                  Welcome to TechCrafterIT ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+                  Welcome to NextOnline Technology ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
                 </p>
 
                 <h2>2. Information We Collect</h2>

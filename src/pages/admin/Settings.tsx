@@ -40,7 +40,7 @@ const Settings = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="siteName">Site Name</Label>
-                  <Input id="siteName" defaultValue="TechCrafterIT" />
+                  <Input id="siteName" defaultValue="NextOnline Technology" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="siteEmail">Contact Email</Label>

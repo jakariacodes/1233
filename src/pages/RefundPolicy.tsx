@@ -48,7 +48,7 @@ const RefundPolicy = () => {
                 <div className="prose prose-lg prose-headings:font-display prose-headings:font-bold prose-p:text-muted-foreground prose-li:text-muted-foreground">
                   <h2>1. Overview</h2>
                   <p>
-                    At TechCrafterIT, we strive to provide high-quality digital services that meet our clients' expectations. This refund policy outlines the conditions under which refunds may be granted.
+                    At NextOnline Technology, we strive to provide high-quality digital services that meet our clients' expectations. This refund policy outlines the conditions under which refunds may be granted.
                   </p>
 
                   <h2>2. Eligibility for Refunds</h2>

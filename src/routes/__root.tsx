@@ -66,9 +66,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "TechCrafterIT | Premier Digital Agency" },
-      { name: "description", content: "TechCrafterIT is a modern, technology-driven digital service company based in Rangpur, Bangladesh. We deliver high-quality professional digital solutions." },
-      { property: "og:title", content: "TechCrafterIT | Premier Digital Agency" },
+      { title: "NextOnline Technology | Premier Digital Agency" },
+      { name: "description", content: "NextOnline Technology is a modern, technology-driven digital service company based in Rangpur, Bangladesh. We deliver high-quality professional digital solutions." },
+      { property: "og:title", content: "NextOnline Technology | Premier Digital Agency" },
       { property: "og:description", content: "Bangladesh's premium digital agency delivering cutting-edge solutions that transform businesses." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

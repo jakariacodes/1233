@@ -36,12 +36,12 @@ const TermsOfService = () => {
               <div className="max-w-4xl mx-auto prose prose-lg prose-headings:font-display prose-headings:font-bold prose-p:text-muted-foreground prose-li:text-muted-foreground">
                 <h2>1. Acceptance of Terms</h2>
                 <p>
-                  By accessing and using TechCrafterIT's website and services, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+                  By accessing and using NextOnline Technology's website and services, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
                 </p>
 
                 <h2>2. Services Description</h2>
                 <p>
-                  TechCrafterIT provides digital services including but not limited to web design, web development, graphic design, video editing, digital marketing, and SEO optimization. The specific scope of services will be defined in individual project agreements.
+                  NextOnline Technology provides digital services including but not limited to web design, web development, graphic design, video editing, digital marketing, and SEO optimization. The specific scope of services will be defined in individual project agreements.
                 </p>
 
                 <h2>3. User Responsibilities</h2>
@@ -57,7 +57,7 @@ const TermsOfService = () => {
                 <h2>4. Intellectual Property</h2>
                 <h3>Our Content</h3>
                 <p>
-                  All content on our website, including text, graphics, logos, and software, is the property of TechCrafterIT and is protected by intellectual property laws.
+                  All content on our website, including text, graphics, logos, and software, is the property of NextOnline Technology and is protected by intellectual property laws.
                 </p>
                 <h3>Client Work</h3>
                 <p>
@@ -90,7 +90,7 @@ const TermsOfService = () => {
 
                 <h2>9. Limitation of Liability</h2>
                 <p>
-                  TechCrafterIT shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our services. Our total liability shall not exceed the amount paid for the specific service.
+                  NextOnline Technology shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our services. Our total liability shall not exceed the amount paid for the specific service.
                 </p>
 
                 <h2>10. Warranty Disclaimer</h2>

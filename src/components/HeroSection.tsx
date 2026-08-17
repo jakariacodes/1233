@@ -107,9 +107,9 @@ export const HeroSection = () => {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
               <span className="text-sm text-white/80 font-medium group-hover:text-white transition-colors">
-                🇧🇩 Bangladesh's Leading Digital Agency
+                NextOnline Technology — Bangladesh's Leading Agency
               </span>
-              <span className="text-xs text-white/50 border-l border-white/20 pl-3">Est. 2020</span>
+              <span className="text-xs text-white/50 border-l border-white/20 pl-3">Est. 2021</span>
             </div>
 
             {/* Heading with animated gradient */}
