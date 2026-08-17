@@ -72,7 +72,7 @@ export const ServicesSection = () => {
 
       <div className="container-custom relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-20">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 leading-tight tracking-tight">
               Premium Digital Services{" "}
@@ -130,7 +130,7 @@ export const ServicesSection = () => {
         </div>
 
         {/* Bottom Stats Bar */}
-        <div className="mt-20 p-8 rounded-[2.5rem] bg-secondary/30 border border-border animate-slide-up animation-delay-600 hover:border-primary/50 transition-all duration-500">
+        <div className="mt-16 p-6 rounded-[2rem] bg-slate-50 border border-slate-200 animate-slide-up animation-delay-600 hover:border-primary/50 transition-all duration-500">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { value: "850+", label: "Projects Completed" },

@@ -15,7 +15,7 @@ const PortfolioSection = () => {
       <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-accent/5 skew-x-12 transform origin-bottom blur-[120px]" />
       
       <div className="container-custom relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-20">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 tracking-tight">
               Our Latest <span className="text-primary">Digital Masterpieces</span>
