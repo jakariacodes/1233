@@ -11,6 +11,19 @@ export const getServices = createServerFn({ method: "GET" }).handler(async () =>
   return data;
 });
 
+export const getServiceById = createServerFn({ method: "GET" })
+  .inputValidator(z.string().parse)
+  .handler(async ({ data: id }) => {
+    const { data, error } = await supabaseAdmin
+      .from("services")
+      .select("*, service_packages(*)")
+      .eq("id", id)
+      .or(`slug.eq.${id}`)
+      .single();
+    if (error) throw error;
+    return data;
+  });
+
 export const createOrder = createServerFn({ method: "POST" })
   .inputValidator(z.object({
     userId: z.string().optional(),
@@ -23,7 +36,8 @@ export const createOrder = createServerFn({ method: "POST" })
       country: z.string().optional()
     }),
     amount: z.number(),
-    packageName: z.string().optional()
+    packageName: z.string().optional(),
+    serviceType: z.string().optional()
   }).parse)
   .handler(async ({ data }) => {
     const { data: order, error } = await supabaseAdmin
@@ -34,11 +48,12 @@ export const createOrder = createServerFn({ method: "POST" })
         customer_name: data.customerDetails.name,
         customer_email: data.customerDetails.email,
         customer_phone: data.customerDetails.phone,
-        service_type: 'Digital Service',
+        service_type: data.serviceType || 'Digital Service',
         package_name: data.packageName,
         amount: data.amount,
-        status: 'pending'
-      } as any) // Typecast for now as package_id was removed in last migration to match frontend Order interface
+        status: 'pending',
+        payment_status: 'unpaid'
+      } as any)
       .select()
       .single();
     if (error) throw error;
