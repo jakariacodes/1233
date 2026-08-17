@@ -50,8 +50,7 @@ const Navbar = () => {
               key={link.name}
               to={link.href as any}
               className={cn(
-                "text-sm font-medium transition-all duration-300 hover:text-primary flex items-center gap-1",
-                isScrolled ? "text-muted-foreground" : "text-muted-foreground"
+                "text-sm font-medium transition-all duration-300 hover:text-primary flex items-center gap-1 text-muted-foreground"
               )}
               activeProps={{ 
                 className: "text-primary font-semibold" 
@@ -67,10 +66,7 @@ const Navbar = () => {
         <div className="flex items-center gap-6">
           <Link 
             to={"/auth" as any} 
-            className={cn(
-              "hidden md:block text-sm font-medium hover:text-primary transition-colors",
-              isScrolled ? "text-muted-foreground" : "text-muted-foreground"
-            )}
+            className="hidden md:block text-sm font-medium hover:text-primary transition-colors text-muted-foreground"
           >
             Login
           </Link>
