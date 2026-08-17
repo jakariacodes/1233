@@ -110,14 +110,14 @@ const Footer = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
               <div>
                 <p className="text-xs text-white/50 uppercase font-bold tracking-widest mb-1">USA Office</p>
-                <p className="text-sm text-white/80 leading-relaxed">
+                <p className="text-sm text-white/90 leading-relaxed font-medium">
                   9169 W STATE ST<br />
                   GARDEN CITY, ID 83714
                 </p>
               </div>
               <div>
                 <p className="text-xs text-white/50 uppercase font-bold tracking-widest mb-1">UK Office</p>
-                <p className="text-sm text-white/80 leading-relaxed">
+                <p className="text-sm text-white/90 leading-relaxed font-medium">
                   20-22 Wenlock Road,<br />
                   London, England, N1 7GU
                 </p>
@@ -130,13 +130,13 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-12 mb-20">
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h3 className="text-sm uppercase font-bold mb-8 tracking-[0.2em] text-white/40">{section.title}</h3>
+              <h3 className="text-sm uppercase font-bold mb-8 tracking-[0.2em] text-white/60">{section.title}</h3>
               <ul className="space-y-4">
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href as any}
-                      className="text-white/60 hover:text-primary transition-colors text-sm font-medium"
+                      className="text-white/80 hover:text-primary transition-colors text-sm font-medium"
                     >
                       {link.name}
                     </Link>
@@ -154,9 +154,9 @@ const Footer = () => {
             <div className="max-w-md">
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-xl">🇧🇩</span>
-                <h5 className="font-bold text-sm tracking-wider uppercase text-white/80">Bangladesh Headquarters</h5>
+                <h5 className="font-bold text-sm tracking-wider uppercase text-white">Bangladesh Headquarters</h5>
               </div>
-              <p className="text-sm text-white/60 leading-relaxed">
+              <p className="text-sm text-white/80 leading-relaxed font-medium">
                 1505/13, 37 Bir Uttam C R Dotto Road, Nahar Plaza,<br />
                 Ramana, Dhaka-1000, Bangladesh.
               </p>
@@ -164,12 +164,12 @@ const Footer = () => {
 
             {/* Copyright & Links */}
             <div className="text-left md:text-right space-y-4">
-              <div className="flex flex-wrap md:justify-end gap-6 text-xs font-bold uppercase tracking-widest text-white/40">
+              <div className="flex flex-wrap md:justify-end gap-6 text-xs font-bold uppercase tracking-widest text-white/60">
                 <Link to="/about" className="hover:text-white transition-colors">Privacy Policy</Link>
                 <Link to="/about" className="hover:text-white transition-colors">Terms of Service</Link>
                 <Link to="/contact" className="hover:text-white transition-colors">Cookie Settings</Link>
               </div>
-              <p className="text-white/30 text-xs font-medium uppercase tracking-[0.2em]">
+              <p className="text-white/50 text-xs font-medium uppercase tracking-[0.2em]">
                 Copyright © {currentYear} NextOnline Technology Ltd. All rights reserved.
               </p>
             </div>
