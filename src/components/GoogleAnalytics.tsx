@@ -36,16 +36,14 @@ export const GoogleAnalytics = () => {
     document.head.appendChild(script2);
 
     return () => {
-      try {
-        const h = document.head;
-        if (h && script1 && h.contains(script1)) {
-          h.removeChild(script1);
+      // Use standard selectors to find and remove scripts to avoid reference issues
+      const scripts = document.head.getElementsByTagName('script');
+      for (let i = scripts.length - 1; i >= 0; i--) {
+        const s = scripts[i];
+        if (s.src.includes('googletagmanager.com/gtag/js') || 
+            (s.text && s.text.includes('window.dataLayer'))) {
+          document.head.removeChild(s);
         }
-        if (h && script2 && h.contains(script2)) {
-          h.removeChild(script2);
-        }
-      } catch (e) {
-        console.warn('Error cleanup analytics scripts:', e);
       }
     };
   }, []);
