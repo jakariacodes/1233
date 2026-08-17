@@ -6,12 +6,13 @@ import { ArrowLeft } from 'lucide-react';
 export const Route = createFileRoute('/checkout')({
   validateSearch: (search: Record<string, unknown>) => {
     return {
-      serviceId: (search.serviceId as string) || '',
-      packageId: (search.packageId as string) || '',
+      serviceId: (search['serviceId'] as string) || '',
+      packageId: (search['packageId'] as string) || '',
     };
   },
   loader: async ({ search }) => {
-    if (!search.serviceId || !search.packageId) {
+    const s = search as { serviceId: string; packageId: string };
+    if (!s.serviceId || !s.packageId) {
       return { service: null, package: null };
     }
     
