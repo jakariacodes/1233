@@ -1,36 +1,37 @@
-# Migration Fixes Plan
+# Branding and Design Overhaul Plan
 
-Fixing build errors and runtime issues following the TanStack Start migration.
-
-## User Review Required
-- **Admin Status:** I'm implementing a basic `isAdmin` check in `AuthContext.tsx` that looks for `is_admin: true` in user metadata. Please verify if your database uses a different mechanism (like a `user_roles` table).
+Update the application's visual identity, naming, and overall design quality to match the "NextOnline Technology" logo and reference design.
 
 ## Proposed Changes
 
-### Logic & Routing
-- `src/components/GoogleAnalytics.tsx`: Fix runtime `TypeError` by ensuring script strings don't attempt to convert objects to primitives.
-- `src/components/NavLink.tsx`: Fix missing `Link` import.
-- `src/contexts/AuthContext.tsx`: Add `isAdmin` property to the context type and implementation.
-- `src/components/ProtectedRoute.tsx`: Ensure it consumes the updated `AuthContext` with `isAdmin`.
-- `src/integrations/supabase/client.ts`: Fix strict property access for environment variables.
+### 1. Brand & Naming
+- **Global Rename**: Replace all instances of "TechCrafterIT" with "NextOnline Technology".
+- **Logo Integration**: Use the uploaded teal/cyan logos for header and footer.
+- **Color System Update**:
+  - Update CSS variables in `src/styles.css` to use a teal/cyan primary color (#0d9488 or similar teal) extracted from the logo.
+  - Define high-contrast accent colors for a premium look.
 
-### UI Components (Import & Type Fixes)
-- `src/components/ui/command.tsx`, `src/components/ui/form.tsx`, `src/components/ui/sidebar.tsx`, `src/components/ui/toaster.tsx`, `src/components/ui/toggle-group.tsx`: Correct relative imports (e.g., `@/dialog` -> `@/components/ui/dialog`).
-- `src/components/ui/context-menu.tsx`, `src/components/ui/dropdown-menu.tsx`, `src/components/ui/menubar.tsx`, `src/components/ui/sonner.tsx`: Fix `checked` and `theme` properties to be compatible with `exactOptionalPropertyTypes: true`.
-- `src/components/ui/resizable.tsx`: Correct `react-resizable-panels` exports usage.
-- `src/components/ui/input-otp.tsx`: Fix slot property access.
-- `src/components/ui/chart.tsx`: Fix potential `undefined` access for tooltip items.
+### 2. Header (Navbar)
+- Replace text logo with the new header logo image.
+- Ensure white background and premium hover effects for navigation.
+- Use a rounded-full "Get Started" button with teal theme.
 
-### Hooks & State
-- `src/hooks/useBlogPosts.ts`, `src/hooks/useTeamMembers.ts`: Fix TypeScript errors where Supabase returns `null` for fields expected as `boolean` or `number`.
-- `src/hooks/use-toast.ts`: Fix `toastId` type compatibility.
+### 3. Footer Redesign
+- Redesign the footer to match the reference style:
+  - Centered layout for main branding.
+  - Premium pill-shaped navigation links.
+  - Integrated social media links with teal hover states.
+  - Clean, organized contact information.
+
+### 4. Visual Quality & Content
+- **Typography**: Refine font weights and sizes for a more "premium" feel.
+- **Hero Section**: Update the teal-cyan gradients and animations to align with the new branding.
+- **Image Quality**: Audit and improve spacing/padding for sections to ensure a more spacious, professional layout.
+- **Section Polish**: Add subtle entrance animations and glassmorphism effects where appropriate.
 
 ## Technical Details
-- **Google Analytics Fix:** The error "Cannot convert object to primitive value" usually happens when an object is used in a template literal or string concatenation where a string is expected.
-- **Strict Types:** The project uses `exactOptionalPropertyTypes: true`, which means `property?: type` cannot be assigned `undefined` explicitly. I will use conditional assignments.
-- **Admin Check:** Defaulting to `user?.user_metadata?.is_admin` for the `isAdmin` flag.
 
-## Verification Plan
-1. Run `bun run build:dev` to ensure all TypeScript and build errors are resolved.
-2. Check the browser console for the `TypeError` in `GoogleAnalytics.tsx`.
-3. Verify protected admin routes still work as expected.
+- **Tailwind v4**: Update `--primary` and gradients in `src/styles.css`.
+- **Assets**: Use `lovable-assets` pointers for `logo-header.png` and `logo-footer.png`.
+- **Components**: Modify `Navbar.tsx`, `Footer.tsx`, and `HeroSection.tsx` primarily.
+- **Global Search & Replace**: Update metadata and text across the project.
