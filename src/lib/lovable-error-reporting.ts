@@ -43,12 +43,18 @@ export function reportLovableError(error: unknown, context: Record<string, unkno
   // which is present only inside the editor preview.
   // Loaders and server fns commonly throw a raw Response; String(it) is the
   // opaque "[object Response]", so pull out the status and URL instead.
-  const message =
-    error instanceof Response
-      ? `Response ${error.status}${error.url ? ` at ${error.url}` : ""}`
-      : error instanceof Error
-        ? error.message
-        : String(error);
+  let message = "Unknown error";
+  try {
+    if (error instanceof Response) {
+      message = `Response ${error.status}${error.url ? ` at ${error.url}` : ""}`;
+    } else if (error instanceof Error) {
+      message = error.message;
+    } else {
+      message = typeof error === 'string' ? error : JSON.stringify(error);
+    }
+  } catch {
+    message = "Non-serializable error";
+  }
   const stack = error instanceof Error ? error.stack : undefined;
   window.__lovableReportRuntimeError?.({
     message,
