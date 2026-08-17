@@ -1,14 +1,14 @@
 import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { HeroSection } from "@/components/HeroSection";
-import { ClientsSection } from "@/components/ClientsSection";
-import { ServicesSection } from "@/components/ServicesSection";
-import { AboutSection } from "@/components/AboutSection";
-import { ValuesSection } from "@/components/ValuesSection";
-import { WhyChooseUs } from "@/components/WhyChooseUs";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { CTASection } from "@/components/CTASection";
-import { Footer } from "@/components/Footer";
+import { Navbar } from "@/Navbar";
+import { HeroSection } from "@/HeroSection";
+import { ClientsSection } from "@/ClientsSection";
+import { ServicesSection } from "@/ServicesSection";
+import { AboutSection } from "@/AboutSection";
+import { ValuesSection } from "@/ValuesSection";
+import { WhyChooseUs } from "@/WhyChooseUs";
+import { TestimonialsSection } from "@/TestimonialsSection";
+import { CTASection } from "@/CTASection";
+import { Footer } from "@/Footer";
 
 const Index = () => {
   return (

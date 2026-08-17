@@ -1,9 +1,9 @@
 import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Navbar } from "@/Navbar";
+import { Footer } from "@/Footer";
+import { Button } from "@/ui/button";
+import { Input } from "@/ui/input";
+import { Textarea } from "@/ui/textarea";
 import { Link } from "@tanstack/react-router";
 import {
   Briefcase,

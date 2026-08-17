@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { Button } from "@/components/ui/button";
+import { Navbar } from "@/Navbar";
+import { Footer } from "@/Footer";
+import { Button } from "@/ui/button";
 import { Link } from "@tanstack/react-router";
 import { 
   ArrowRight, Award, Users, Target, Rocket, CheckCircle, 

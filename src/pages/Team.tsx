@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Navbar } from "@/Navbar";
+import { Footer } from "@/Footer";
 import { Linkedin, Twitter, Facebook, Globe, MapPin, ArrowUpRight, Loader2, Users } from "lucide-react";
 import { useTeamMembers } from "@/hooks/useTeamMembers";
 

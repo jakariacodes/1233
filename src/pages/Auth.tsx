@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Navbar } from "@/Navbar";
+import { Footer } from "@/Footer";
+import { Button } from "@/ui/button";
+import { Input } from "@/ui/input";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { Eye, EyeOff, LogIn, UserPlus, ArrowRight, Sparkles } from "lucide-react";

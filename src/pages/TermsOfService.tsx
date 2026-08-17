@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Navbar } from "@/Navbar";
+import { Footer } from "@/Footer";
 import { Link } from "@tanstack/react-router";
 import { FileText, ArrowLeft } from "lucide-react";
 
