@@ -9,7 +9,7 @@ const AboutSection = () => {
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div className="animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-8 uppercase tracking-widest border border-primary/20">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-8 uppercase tracking-widest border border-primary/20 animate-pulse">
               <Sparkles className="w-4 h-4" />
               <span>Defining Tomorrow</span>
             </div>
