@@ -34,7 +34,7 @@ const timeline = [
   {
     year: "2020",
     title: "The Beginning",
-    description: "Founded in Rangpur, Bangladesh with a vision to provide world-class digital services.",
+    description: "Founded with a vision to provide world-class digital services to businesses worldwide.",
     icon: Sparkles,
     color: "from-blue-500 to-cyan-500",
   },
@@ -161,7 +161,7 @@ const About = () => {
                     <span className="text-gradient block">Digital Reality</span>
                   </h2>
                   <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                    Founded in Rangpur, Bangladesh, NextOnline Technology emerged from a vision 
+                    NextOnline Technology emerged from a vision 
                     to provide world-class digital services to businesses of all sizes. 
                     What started as a small team with big dreams has grown into a 
                     comprehensive digital agency serving clients across the globe.
@@ -189,41 +189,35 @@ const About = () => {
                   </div>
                 </div>
 
-                {/* CEO Card */}
+                {/* Brand Excellence Card */}
                 <div className="relative">
                   <div className="absolute -top-10 -right-10 w-60 h-60 bg-primary/10 rounded-full blur-[100px]" />
                   <div className="absolute -bottom-10 -left-10 w-80 h-80 bg-accent/10 rounded-full blur-[120px]" />
 
-                  <div className="relative glass-card rounded-3xl p-10 text-center">
-                    {/* Quote Mark */}
-                    <div className="absolute top-6 left-6 text-8xl font-serif text-primary/10">"</div>
+                  <div className="relative glass-card rounded-3xl p-10 text-center group overflow-hidden">
+                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                     
-                    <div className="relative w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-primary/30 mb-6 shadow-2xl">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20" />
-                      <img
-                        src={ceoPhoto}
-                        alt="Md Jakaria Hasan - CEO & Founder"
-                        className="w-full h-full object-cover relative"
-                      />
+                    <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 text-primary group-hover:scale-110 transition-transform">
+                      <Rocket className="w-10 h-10" />
                     </div>
                     
-                    <h3 className="font-display text-2xl font-bold mb-2">
-                      Md Jakaria Hasan
+                    <h3 className="font-display text-3xl font-bold mb-2">
+                      NextOnline Technology
                     </h3>
-                    <p className="text-primary font-semibold mb-6 flex items-center justify-center gap-2">
-                      <Award className="w-4 h-4" />
-                      CEO & Founder
+                    <p className="text-primary font-semibold mb-6 flex items-center justify-center gap-2 uppercase tracking-widest text-sm">
+                      <Sparkles className="w-4 h-4" />
+                      Innovation First
                     </p>
                     <p className="text-muted-foreground leading-relaxed mb-8 italic">
                       "Our mission is to empower businesses with digital solutions 
-                      that drive real growth. Every project we undertake is a step 
-                      towards making Bangladesh a hub for digital excellence."
+                      that drive real growth. We strive to be the leading digital 
+                      partner delivering excellence in every project."
                     </p>
                     
                     <div className="flex items-center justify-center gap-4">
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <MapPin className="w-4 h-4 text-primary" />
-                        <span>Rangpur, Bangladesh</span>
+                        <span>Dhaka, Bangladesh</span>
                       </div>
                       <div className="w-1 h-1 bg-muted-foreground rounded-full" />
                       <div className="flex items-center gap-1">
