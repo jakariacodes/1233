@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Linkedin, Instagram, Twitter, Mail, Phone } from "lucide-react";
+import { Globe, Mail, Phone } from "lucide-react";
 import logoFooter from "@/assets/logo-footer.png.asset.json";
 
 const Footer = () => {
