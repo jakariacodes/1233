@@ -57,7 +57,7 @@ export const GoogleAnalytics = () => {
   useEffect(() => {
     if (typeof window.gtag !== 'undefined') {
       window.gtag('config', GA_MEASUREMENT_ID, {
-        page_path: location.pathname + location.search,
+        page_path: location.pathname + (location.searchStr || ''),
       });
     }
   }, [location]);

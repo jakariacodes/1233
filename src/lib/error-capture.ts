@@ -46,11 +46,7 @@ function safeStringify(value: unknown): string {
     
     return JSON.stringify(value) || "non-serializable object";
   } catch {
-    try {
-      return String(value);
-    } catch {
-      return "[Unprintable Object]";
-    }
+    return Object.prototype.toString.call(value);
   }
 }
 
