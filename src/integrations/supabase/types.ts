@@ -14,52 +14,265 @@ export type Database = {
   }
   public: {
     Tables: {
-      orders: {
+      blog_categories: {
         Row: {
           created_at: string | null
-          customer_details: Json | null
+          description: string | null
           id: string
-          package_id: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
+      blog_posts: {
+        Row: {
+          author_id: string | null
+          category_id: string | null
+          content: string | null
+          created_at: string | null
+          excerpt: string | null
+          featured_image: string | null
+          id: string
+          is_featured: boolean | null
+          is_published: boolean | null
+          meta_description: string | null
+          meta_title: string | null
+          published_at: string | null
+          slug: string
+          tags: string[] | null
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          author_id?: string | null
+          category_id?: string | null
+          content?: string | null
+          created_at?: string | null
+          excerpt?: string | null
+          featured_image?: string | null
+          id?: string
+          is_featured?: boolean | null
+          is_published?: boolean | null
+          meta_description?: string | null
+          meta_title?: string | null
+          published_at?: string | null
+          slug: string
+          tags?: string[] | null
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          author_id?: string | null
+          category_id?: string | null
+          content?: string | null
+          created_at?: string | null
+          excerpt?: string | null
+          featured_image?: string | null
+          id?: string
+          is_featured?: boolean | null
+          is_published?: boolean | null
+          meta_description?: string | null
+          meta_title?: string | null
+          published_at?: string | null
+          slug?: string
+          tags?: string[] | null
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blog_posts_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "blog_categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      contact_messages: {
+        Row: {
+          created_at: string | null
+          email: string
+          id: string
+          is_read: boolean | null
+          is_replied: boolean | null
+          message: string
+          name: string
+          phone: string | null
+          replied_at: string | null
+          subject: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          id?: string
+          is_read?: boolean | null
+          is_replied?: boolean | null
+          message: string
+          name: string
+          phone?: string | null
+          replied_at?: string | null
+          subject?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          id?: string
+          is_read?: boolean | null
+          is_replied?: boolean | null
+          message?: string
+          name?: string
+          phone?: string | null
+          replied_at?: string | null
+          subject?: string | null
+        }
+        Relationships: []
+      }
+      orders: {
+        Row: {
+          admin_notes: string | null
+          amount: number
+          completed_at: string | null
+          created_at: string | null
+          currency: string | null
+          customer_email: string
+          customer_name: string
+          customer_phone: string | null
+          deadline: string | null
+          id: string
+          notes: string | null
+          order_number: string
+          package_name: string | null
           payment_method: string | null
           payment_status: string | null
+          service_details: string | null
+          service_type: string
+          started_at: string | null
           status: string | null
-          total_amount: number
           updated_at: string | null
           user_id: string | null
         }
         Insert: {
+          admin_notes?: string | null
+          amount: number
+          completed_at?: string | null
           created_at?: string | null
-          customer_details?: Json | null
+          currency?: string | null
+          customer_email: string
+          customer_name: string
+          customer_phone?: string | null
+          deadline?: string | null
           id?: string
-          package_id: string
+          notes?: string | null
+          order_number: string
+          package_name?: string | null
           payment_method?: string | null
           payment_status?: string | null
+          service_details?: string | null
+          service_type: string
+          started_at?: string | null
           status?: string | null
-          total_amount: number
           updated_at?: string | null
           user_id?: string | null
         }
         Update: {
+          admin_notes?: string | null
+          amount?: number
+          completed_at?: string | null
           created_at?: string | null
-          customer_details?: Json | null
+          currency?: string | null
+          customer_email?: string
+          customer_name?: string
+          customer_phone?: string | null
+          deadline?: string | null
           id?: string
-          package_id?: string
+          notes?: string | null
+          order_number?: string
+          package_name?: string | null
           payment_method?: string | null
           payment_status?: string | null
+          service_details?: string | null
+          service_type?: string
+          started_at?: string | null
           status?: string | null
-          total_amount?: number
           updated_at?: string | null
           user_id?: string | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "orders_package_id_fkey"
-            columns: ["package_id"]
-            isOneToOne: false
-            referencedRelation: "service_packages"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
+      }
+      portfolios: {
+        Row: {
+          category: string
+          client_name: string | null
+          completed_at: string | null
+          created_at: string | null
+          description: string | null
+          display_order: number | null
+          featured_image: string | null
+          id: string
+          images: string[] | null
+          is_featured: boolean | null
+          is_published: boolean | null
+          long_description: string | null
+          project_url: string | null
+          slug: string
+          technologies: string[] | null
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          category: string
+          client_name?: string | null
+          completed_at?: string | null
+          created_at?: string | null
+          description?: string | null
+          display_order?: number | null
+          featured_image?: string | null
+          id?: string
+          images?: string[] | null
+          is_featured?: boolean | null
+          is_published?: boolean | null
+          long_description?: string | null
+          project_url?: string | null
+          slug: string
+          technologies?: string[] | null
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          category?: string
+          client_name?: string | null
+          completed_at?: string | null
+          created_at?: string | null
+          description?: string | null
+          display_order?: number | null
+          featured_image?: string | null
+          id?: string
+          images?: string[] | null
+          is_featured?: boolean | null
+          is_published?: boolean | null
+          long_description?: string | null
+          project_url?: string | null
+          slug?: string
+          technologies?: string[] | null
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
       }
       profiles: {
         Row: {
@@ -180,6 +393,72 @@ export type Database = {
           sort_order?: number | null
           subtitle?: string | null
           title?: string
+        }
+        Relationships: []
+      }
+      site_settings: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          id: string
+          key: string
+          updated_at: string | null
+          value: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          key: string
+          updated_at?: string | null
+          value?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          key?: string
+          updated_at?: string | null
+          value?: string | null
+        }
+        Relationships: []
+      }
+      team_members: {
+        Row: {
+          bio: string | null
+          created_at: string | null
+          display_order: number | null
+          id: string
+          image_url: string | null
+          is_active: boolean | null
+          name: string
+          role: string
+          social_links: Json | null
+          updated_at: string | null
+        }
+        Insert: {
+          bio?: string | null
+          created_at?: string | null
+          display_order?: number | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          name: string
+          role: string
+          social_links?: Json | null
+          updated_at?: string | null
+        }
+        Update: {
+          bio?: string | null
+          created_at?: string | null
+          display_order?: number | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          name?: string
+          role?: string
+          social_links?: Json | null
+          updated_at?: string | null
         }
         Relationships: []
       }
