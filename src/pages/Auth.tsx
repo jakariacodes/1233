@@ -26,7 +26,7 @@ const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState<Record<string>>({});
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -39,7 +39,7 @@ const Auth = () => {
 
   useEffect(() => {
     if (user) {
-      navigate('/');
+      navigate({ to: '/' });
     }
   }, [user, navigate]);
 
@@ -52,7 +52,7 @@ const Auth = () => {
       if (isLogin) {
         const result = loginSchema.safeParse(formData);
         if (!result.success) {
-          const fieldErrors: Record<string> = {};
+          const fieldErrors: Record<string, string> = {};
           result.error.errors.forEach((err) => {
             if (err.path[0]) {
               fieldErrors[err.path[0] as string] = err.message;
@@ -72,12 +72,12 @@ const Auth = () => {
           }
         } else {
           toast.success("Welcome back!");
-          navigate('/');
+          navigate({ to: '/' });
         }
       } else {
         const result = signupSchema.safeParse(formData);
         if (!result.success) {
-          const fieldErrors: Record<string> = {};
+          const fieldErrors: Record<string, string> = {};
           result.error.errors.forEach((err) => {
             if (err.path[0]) {
               fieldErrors[err.path[0] as string] = err.message;
@@ -97,7 +97,7 @@ const Auth = () => {
           }
         } else {
           toast.success("Account created successfully! Welcome aboard!");
-          navigate('/');
+          navigate({ to: '/' });
         }
       }
     } catch (error) {

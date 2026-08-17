@@ -43,7 +43,7 @@ const Services = () => {
               </div>
               <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
               <p className="text-muted-foreground mb-8">{service.description}</p>
-              <Link to={`/services/${service.id}`}>
+              <Link to={`/services/$id`} params={{ id: service.id }}>
                 <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
                   View Details <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>

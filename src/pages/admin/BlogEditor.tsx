@@ -21,7 +21,7 @@ import { Link } from '@tanstack/react-router';
 import { blogPostSchema, validateForm, sanitizeHtml } from '@/lib/validation';
 
 const BlogEditor = () => {
-  const { id } = useParams();
+  const { id } = useParams({ from: '/_authenticated/admin/blog/editor' }) as { id?: string };
   const navigate = useNavigate();
   const { user } = useAuth();
   const { categories } = useBlogCategories();
@@ -77,7 +77,7 @@ const BlogEditor = () => {
       }
     } catch (error) {
       toast.error('Failed to load post');
-      navigate('/admin/blog');
+      navigate({ to: '/admin/blog' });
     } finally {
       setIsLoading(false);
     }
@@ -170,7 +170,7 @@ const BlogEditor = () => {
         toast.success(publish ? 'Post published!' : 'Post saved as draft');
       }
 
-      navigate('/admin/blog');
+      navigate({ to: '/admin/blog' });
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'Failed to save post');
     } finally {

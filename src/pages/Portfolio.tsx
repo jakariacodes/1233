@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ExternalLink, Sparkles } from "lucide-react";
+import { ArrowRight, ExternalLink, Sparkles, Loader2 } from "lucide-react";
 import { usePortfolios } from "@/hooks/usePortfolios";
 
 const Portfolio = () => {

@@ -55,7 +55,7 @@ const Blog = () => {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
-              <Link key={post.id} to={`/blog/${post.slug}`} className="group">
+              <Link key={post.id} to={`/blog/$slug`} params={{ slug: post.slug }} className="group">
                 <div className="bg-card rounded-2xl border border-border overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
                   <div className="aspect-video relative overflow-hidden">
                     <img 
