@@ -251,7 +251,7 @@ const TeamManagement = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Twitter URL (optional)</label>
+                    <label className="block text-sm font-medium mb-2">Send URL (optional)</label>
                     <Input
                       value={formData.twitter_url}
                       onChange={(e) => setFormData({ ...formData, twitter_url: e.target.value })}
@@ -262,7 +262,7 @@ const TeamManagement = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Facebook URL (optional)</label>
+                    <label className="block text-sm font-medium mb-2">Globe URL (optional)</label>
                     <Input
                       value={formData.facebook_url}
                       onChange={(e) => setFormData({ ...formData, facebook_url: e.target.value })}

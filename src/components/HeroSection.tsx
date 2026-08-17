@@ -1,4 +1,4 @@
-import { Button } from "@/button";
+import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Play, CheckCircle2, Sparkles, Users, Award, Zap, Code, Palette, TrendingUp, Globe, Star, Shield, Terminal, Database, Cpu, Wifi } from "lucide-react";
 

@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
-import BlogEditor from '@/pages/admin/BlogEditor';
+import BlogManagement from '@/pages/admin/BlogManagement';
 
 export const Route = createFileRoute('/_authenticated/admin/blog/')({
-  component: BlogEditor,
+  component: BlogManagement,
 });

@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/dialog';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
-import { Plus, Edit2, Trash2, Briefcase, Loader2, Eye, EyeOff, ExternalLink, Star, StarOff } from 'lucide-react';
+import { Plus, Edit2, Trash2, Briefcase, Loader2, Eye, EyeOff, ExternalLink, StarOff } from 'lucide-react';
 import { portfolioSchema, validateForm } from '@/lib/validation';
 
 const PortfolioManagement = () => {
