@@ -53,7 +53,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="section-padding bg-[#011612] text-white overflow-hidden relative border-t border-white/5">
+    <footer className="py-16 bg-[#011612] text-white overflow-hidden relative border-t border-white/5">
       <div className="container-custom">
         {/* Top Info Bar (Integrated Address & Contact) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20 pb-12 border-b border-white/10">
