@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useParams, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Star, Clock, CheckCircle2, Users, Zap, Shield, MessageCircle, Play, ChevronRight, Award, MapPin } from "lucide-react";
+import { ArrowLeft, ArrowRight, Star, Clock, CheckCircle2, Users, Zap, Shield, MessageCircle, Play, ChevronRight, Award, MapPin, Sparkles } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 // Enhanced mock data for all services
