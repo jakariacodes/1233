@@ -90,16 +90,16 @@ const Footer = () => {
               </Link>
               <div className="flex gap-4">
                 <a href="#" className="w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-white hover:text-primary transition-all">
-                  <Facebook className="w-4 h-4" />
+                  <Globe className="w-4 h-4" />
                 </a>
                 <a href="#" className="w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-white hover:text-primary transition-all">
-                  <Linkedin className="w-4 h-4" />
+                  <Globe className="w-4 h-4" />
                 </a>
                 <a href="#" className="w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-white hover:text-primary transition-all">
-                  <Instagram className="w-4 h-4" />
+                  <Globe className="w-4 h-4" />
                 </a>
                 <a href="#" className="w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-white hover:text-primary transition-all">
-                  <Twitter className="w-4 h-4" />
+                  <Globe className="w-4 h-4" />
                 </a>
               </div>
             </div>
