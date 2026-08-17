@@ -14,12 +14,12 @@ const NavLink = forwardRef<HTMLAnchorElement, NavLinkCompatProps>(
       <Link
         ref={ref}
         to={to}
-        className={(linkProps) => {
-          const baseClass = typeof className === "function" ? className(linkProps) : className;
+        className={(linkProps: { isActive: boolean; isPending: boolean }) => {
+          const baseClass = typeof className === "function" ? className(linkProps: { isActive: boolean; isPending: boolean }) : className;
           return cn(
             baseClass,
-            linkProps.isActive && activeClassName,
-            linkProps.isPending && pendingClassName
+            linkProps: { isActive: boolean; isPending: boolean }.isActive && activeClassName,
+            linkProps: { isActive: boolean; isPending: boolean }.isPending && pendingClassName
           );
         }}
         {...props}

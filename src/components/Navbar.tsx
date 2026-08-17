@@ -90,7 +90,7 @@ export const Navbar = () => {
             {user ? (
               <>
                 {isAdmin && (
-                  <Link to="/admin">
+                  <Link to="/admin" as any>
                     <Button variant="ghost" size="sm" className="gap-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
                       <LayoutDashboard className="w-4 h-4" />
                       Admin
@@ -160,7 +160,7 @@ export const Navbar = () => {
               {user ? (
                 <>
                   {isAdmin && (
-                    <Link to="/admin">
+                    <Link to="/admin" as any>
                       <Button variant="outline" className="w-full h-12 rounded-xl gap-2">
                         <LayoutDashboard className="w-4 h-4" />
                         Admin Dashboard
