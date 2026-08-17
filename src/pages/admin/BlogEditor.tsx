@@ -21,7 +21,7 @@ import { Link } from '@tanstack/react-router';
 import { blogPostSchema, validateForm, sanitizeHtml } from '@/lib/validation';
 
 const BlogEditor = () => {
-  const { id } = useParams({ strict: false }) as { id?: string };
+  const { id } = useParams({ from: '/_authenticated/admin/blog/editor', strict: false }) as { id?: string };
   const navigate = useNavigate();
   const { user } = useAuth();
   const { categories } = useBlogCategories();
