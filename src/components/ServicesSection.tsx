@@ -63,12 +63,12 @@ const services = [
 
 export const ServicesSection = () => {
   return (
-    <section className="section-padding relative overflow-hidden bg-white" id="services">
+    <section className="section-padding relative overflow-hidden bg-slate-50/50" id="services">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-white" />
-      <div className="absolute inset-0 tech-grid opacity-30" />
-      <div className="absolute top-1/4 -left-32 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-morph" />
-      <div className="absolute bottom-1/4 -right-32 w-64 h-64 bg-accent/5 rounded-full blur-3xl animate-morph animation-delay-2000" />
+      <div className="absolute inset-0 bg-white/40" />
+      <div className="absolute inset-0 tech-grid opacity-[0.05]" />
+      <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] animate-morph" />
+      <div className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px] animate-morph animation-delay-2000" />
 
       <div className="container-custom relative z-10">
         {/* Section Header */}
@@ -99,7 +99,7 @@ export const ServicesSection = () => {
             <Link
               to="/services"
               key={index}
-              className="group relative bg-white rounded-[2.5rem] p-10 border border-border/60 hover:border-primary/30 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_50px_rgba(59,130,246,0.1)] animate-slide-up overflow-hidden flex flex-col"
+              className="group relative bg-white rounded-[2rem] p-8 border border-slate-200 hover:border-primary/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,168,132,0.08)] animate-slide-up overflow-hidden flex flex-col"
               style={{ animationDelay: `${index * 75}ms` }}
             >
               {/* Subtle hover gradient */}

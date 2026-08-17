@@ -25,7 +25,7 @@ const teamMembers = [
 
 const TeamSection = () => {
   return (
-    <section className="section-padding bg-white relative overflow-hidden" id="team">
+    <section className="section-padding bg-slate-50 relative overflow-hidden" id="team">
       <div className="container-custom relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 tracking-tight">
@@ -41,7 +41,7 @@ const TeamSection = () => {
            {teamMembers.map((member, index) => (
              <div 
               key={index} 
-              className="group relative bg-secondary/30 rounded-[3rem] border border-border overflow-hidden hover:border-primary/50 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl"
+              className="group relative bg-white rounded-[2.5rem] border border-slate-200 overflow-hidden hover:border-primary/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_60px_rgba(0,0,0,0.05)]"
              >
                 <div className="aspect-[4/5] overflow-hidden relative">
                    <img 

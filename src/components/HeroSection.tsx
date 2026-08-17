@@ -117,10 +117,10 @@ export const HeroSection = () => {
               <div className="inline-block px-4 py-1.5 rounded-lg bg-teal-500/10 text-teal-400 font-bold text-xs uppercase tracking-widest mb-6 border border-teal-500/20">
                 Digitize Your Imagination
               </div>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15] text-white tracking-tight">
-                Innovative Software <br />
-                Development Company <br />
-                in Bangladesh
+              <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15] tracking-tight">
+                <span className="text-white">Innovative Software </span><br />
+                <span className="text-primary animate-pulse-gentle">Development Company </span><br />
+                <span className="text-white">in Bangladesh</span>
               </h1>
             </div>
 
