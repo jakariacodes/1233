@@ -65,7 +65,7 @@ export const ServicesSection = () => {
   return (
     <section className="section-padding relative overflow-hidden" id="services">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
+      <div className="absolute inset-0 bg-white" />
       <div className="absolute inset-0 tech-grid opacity-30" />
       <div className="absolute top-1/4 -left-32 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-morph" />
       <div className="absolute bottom-1/4 -right-32 w-64 h-64 bg-accent/5 rounded-full blur-3xl animate-morph animation-delay-2000" />
@@ -102,7 +102,7 @@ export const ServicesSection = () => {
             <Link
               to="/services"
               key={index}
-              className="group relative bg-card rounded-3xl p-7 border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl animate-slide-up overflow-hidden"
+              className="group relative bg-white rounded-[2.5rem] p-8 border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl animate-slide-up overflow-hidden"
               style={{ animationDelay: `${index * 75}ms` }}
             >
               {/* Background Gradient on Hover */}
@@ -136,7 +136,7 @@ export const ServicesSection = () => {
         </div>
 
         {/* Bottom Stats Bar */}
-        <div className="mt-20 p-8 rounded-3xl bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 border border-border animate-slide-up animation-delay-600 hover:border-primary/20 transition-all duration-500">
+        <div className="mt-20 p-8 rounded-[2.5rem] bg-secondary/30 border border-border animate-slide-up animation-delay-600 hover:border-primary/50 transition-all duration-500">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { value: "850+", label: "Projects Completed" },
