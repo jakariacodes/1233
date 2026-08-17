@@ -39,13 +39,11 @@ const Navbar = () => {
             ? "bg-white/80 backdrop-blur-xl shadow-lg border-white/40" 
             : "bg-white/90 backdrop-blur-md shadow-md"
         )}>
-          {/* Logo */}
+          {/* Logo - Text instead of Image */}
           <Link to="/" className="flex items-center gap-2 group shrink-0">
-            <img 
-              src={logoAsset.url} 
-              alt="TechCrafterIT" 
-              className="h-8 w-auto object-contain"
-            />
+            <span className="text-xl font-bold tracking-tight text-primary">
+              TechCrafter<span className="text-foreground">IT</span>
+            </span>
           </Link>
 
           {/* Desktop Menu - Pill Style */}
