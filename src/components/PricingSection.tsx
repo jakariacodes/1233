@@ -59,7 +59,7 @@ const PricingSection = () => {
               )}
               
               <div className="mb-8">
-                <h3 className="text-2xl font-display font-bold mb-2">{tier.name}</h3>
+                <h3 className="text-2xl font-display font-bold mb-2 tracking-tight">{tier.name}</h3>
                 <p className="text-muted-foreground text-sm">{tier.description}</p>
               </div>
               

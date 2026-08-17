@@ -58,7 +58,7 @@ const ProcessSection = () => {
                   <step.icon className="w-8 h-8" />
                 </div>
                 
-                <h3 className="text-2xl font-display font-bold mb-4 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-display font-bold mb-4 group-hover:text-primary transition-colors tracking-tight">
                   {step.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">

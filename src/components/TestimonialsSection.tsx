@@ -169,7 +169,7 @@ export const TestimonialsSection = () => {
                         {testimonial.avatar}
                       </div>
                       <div>
-                        <h4 className="font-display font-bold text-xl mb-1">
+                        <h4 className="font-display font-bold text-xl mb-1 tracking-tight">
                           {testimonial.name}
                         </h4>
                         <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">

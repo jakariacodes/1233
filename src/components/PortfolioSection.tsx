@@ -72,7 +72,7 @@ const PortfolioSection = () => {
                     <span className="w-8 h-px bg-primary" />
                     <span className="text-xs font-bold text-primary uppercase tracking-widest">{project.category}</span>
                   </div>
-                  <h3 className="text-2xl font-display font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
+                  <h3 className="text-2xl font-display font-bold mb-3 group-hover:text-primary transition-colors tracking-tight">{project.title}</h3>
                   <p className="text-white/60 text-sm line-clamp-2 leading-relaxed mb-6">{project.description}</p>
                   
                   <div className="text-white font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">

@@ -57,7 +57,7 @@ const AboutSection = () => {
                       <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 text-primary group-hover:scale-110 transition-transform">
                          <Sparkles className="w-10 h-10" />
                       </div>
-                      <div className="text-primary font-display font-bold text-6xl mb-3">Since 2021</div>
+                      <div className="text-primary font-display font-bold text-6xl mb-3 leading-none">Since 2021</div>
                       <div className="text-foreground/80 font-bold text-xl uppercase tracking-[0.3em]">Innovation First</div>
                    </div>
                    
