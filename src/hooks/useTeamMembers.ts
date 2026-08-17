@@ -31,7 +31,11 @@ export const useTeamMembers = () => {
         .order('display_order', { ascending: true });
 
       if (error) throw error;
-      setTeamMembers(data || []);
+      setTeamMembers((data || []).map(member => ({
+        ...member,
+        display_order: member.display_order ?? 0,
+        is_active: !!member.is_active
+      })) as TeamMember[]);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch team members');
     } finally {

@@ -48,7 +48,11 @@ export const useBlogPosts = (publishedOnly = true) => {
       const { data, error } = await query;
 
       if (error) throw error;
-      setPosts(data || []);
+      setPosts((data || []).map(post => ({
+        ...post,
+        is_featured: !!post.is_featured,
+        is_published: !!post.is_published
+      })) as BlogPost[]);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch posts');
     } finally {
