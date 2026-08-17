@@ -112,7 +112,7 @@ function RootComponent() {
           <main className="flex-grow">
             <Outlet />
           </main>
-          <Footer />
+          {/* Footer removed per user request */}
         </div>
         <Toaster />
         <GoogleAnalytics />
