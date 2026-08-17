@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Phone, Mail, MapPin, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
 
 export const CTASection = () => {
   return (
@@ -14,13 +14,13 @@ export const CTASection = () => {
 
       <div className="container-custom relative z-10">
         <div className="max-w-5xl mx-auto">
-          <div className="bg-white/5 border border-white/10 rounded-[3rem] p-8 md:p-16 backdrop-blur-xl relative overflow-hidden">
+          <div className="bg-white/5 border border-white/10 rounded-[3rem] p-8 md:p-16 backdrop-blur-xl relative overflow-hidden text-poppins">
             {/* Inner glow */}
             <div className="absolute -top-24 -left-24 w-48 h-48 bg-primary/20 rounded-full blur-3xl" />
             
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white mb-8 leading-tight tracking-tight">
+                <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
                   Build Your <span className="text-primary">Digital Future</span> With Us
                 </h2>
                 <p className="text-white/60 text-xl mb-10 leading-relaxed">
@@ -30,18 +30,18 @@ export const CTASection = () => {
                 
                 <div className="flex flex-wrap gap-6">
                   <Link to="/contact">
-                    <Button size="xl" className="h-16 px-10 rounded-2xl gap-3 shadow-2xl shadow-primary/20 hover:shadow-primary/40 transition-all font-bold text-lg">
+                    <Button size="xl" className="h-16 px-10 rounded-2xl gap-3 shadow-2xl shadow-primary/20 hover:shadow-primary/40 transition-all font-bold text-lg bg-primary hover:bg-primary/90 text-white border-none">
                       Start Your Journey
                       <ArrowRight className="w-5 h-5" />
                     </Button>
                   </Link>
-                  <a href="tel:+8801731173992" className="flex items-center gap-4 text-white group">
+                  <a href="tel:+8801711392738" className="flex items-center gap-4 text-white group">
                     <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
                       <Phone className="w-6 h-6" />
                     </div>
                     <div>
                       <p className="text-xs font-bold text-white/40 uppercase tracking-widest">Call Now</p>
-                      <p className="font-display font-bold">+880 1731-173992</p>
+                      <p className="font-bold">+88 01711-392738</p>
                     </div>
                   </a>
                 </div>
@@ -52,13 +52,13 @@ export const CTASection = () => {
                   {
                     icon: Mail,
                     label: "Email Inquiry",
-                    value: "info@nextonlinetechnology.com",
-                    href: "mailto:info@nextonlinetechnology.com"
+                    value: "info@thenextonline.com",
+                    href: "mailto:info@thenextonline.com"
                   },
                   {
                     icon: MapPin,
                     label: "Headquarters",
-                    value: "Hatibandha, Lalmonirhat, Rangpur",
+                    value: "1505/13, Nahar Plaza, Ramana, Dhaka",
                     href: null
                   }
                 ].map((item, index) => (
@@ -69,21 +69,21 @@ export const CTASection = () => {
                     <div>
                       <p className="text-sm font-bold text-white/40 uppercase tracking-widest mb-1">{item.label}</p>
                       {item.href ? (
-                        <a href={item.href} className="text-white font-display font-bold text-lg hover:text-primary transition-colors">
+                        <a href={item.href} className="text-white font-bold text-lg hover:text-primary transition-colors">
                           {item.value}
                         </a>
                       ) : (
-                        <p className="text-white font-display font-bold text-lg">{item.value}</p>
+                        <p className="text-white font-bold text-lg">{item.value}</p>
                       )}
                     </div>
                   </div>
                 ))}
                 
                 {/* Availability card */}
-                <div className="p-6 rounded-3xl bg-primary border border-primary/20 flex items-center justify-between text-white">
+                <div className="p-6 rounded-3xl bg-primary border border-primary/20 flex items-center justify-between text-white shadow-xl shadow-primary/20">
                   <div>
                     <p className="text-white/60 text-xs font-bold uppercase tracking-widest mb-1">Status</p>
-                    <p className="font-display font-bold text-xl">24/7 Premium Support</p>
+                    <p className="font-bold text-xl">24/7 Premium Support</p>
                   </div>
                   <div className="relative">
                     <div className="w-3 h-3 bg-white rounded-full animate-ping absolute" />
