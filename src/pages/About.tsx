@@ -95,7 +95,7 @@ const About = () => {
 
       <div className="min-h-screen bg-background">
         
-        <main className="pt-24">
+        <main className="pt-20">
           {/* Hero Section */}
           <section className="py-20 relative overflow-hidden">
             {/* Background Elements */}

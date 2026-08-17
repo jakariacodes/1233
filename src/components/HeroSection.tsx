@@ -96,7 +96,7 @@ export const HeroSection = () => {
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-primary/60 rounded-full animate-glow-pulse animation-delay-1000" />
       </div>
 
-      <div className="container-custom relative z-10 pt-32 pb-20">
+      <div className="container-custom relative z-10 pt-48 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content */}
           <div className="order-2 lg:order-1">
