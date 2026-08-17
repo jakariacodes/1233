@@ -18,33 +18,30 @@ export const GoogleAnalytics = () => {
     // Only run on client
     if (typeof window === 'undefined') return;
 
-    // Load Google Analytics script
-    const script1 = document.createElement('script');
-    script1.async = true;
-    script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-    document.head.appendChild(script1);
+    // Check if scripts already exist to avoid duplication
+    const scripts = Array.from(document.head.getElementsByTagName('script'));
+    const hasScript1 = scripts.some(s => s.src?.includes('googletagmanager.com/gtag/js'));
+    
+    if (!hasScript1) {
+      const script1 = document.createElement('script');
+      script1.async = true;
+      script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+      document.head.appendChild(script1);
+    }
 
-    const script2 = document.createElement('script');
-    script2.text = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){window.dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${GA_MEASUREMENT_ID}', {
-        page_path: window.location.pathname,
-      });
-    `;
-    document.head.appendChild(script2);
-
-    return () => {
-      const scripts = document.head.getElementsByTagName('script');
-      for (let i = scripts.length - 1; i >= 0; i--) {
-        const s = scripts[i];
-        if (s && (s.src?.includes('googletagmanager.com/gtag/js') || 
-            (s.text && s.text.includes('window.dataLayer')))) {
-          document.head.removeChild(s);
-        }
-      }
-    };
+    const hasScript2 = scripts.some(s => s.text?.includes('window.dataLayer'));
+    if (!hasScript2) {
+      const script2 = document.createElement('script');
+      script2.text = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${GA_MEASUREMENT_ID}', {
+          page_path: window.location.pathname,
+        });
+      `;
+      document.head.appendChild(script2);
+    }
   }, []);
 
   // Track page views on route change
