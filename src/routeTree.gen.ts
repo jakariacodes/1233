@@ -26,6 +26,12 @@ import { Route as BlogIdRouteImport } from './routes/blog.$id'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesIdRouteImport } from './routes/services.$id'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin/index'
+import { Route as AuthenticatedAdminCategoriesRouteImport } from './routes/_authenticated/admin/categories'
+import { Route as AuthenticatedAdminMessagesRouteImport } from './routes/_authenticated/admin/messages'
+import { Route as AuthenticatedAdminOrdersRouteImport } from './routes/_authenticated/admin/orders'
+import { Route as AuthenticatedAdminPortfolioRouteImport } from './routes/_authenticated/admin/portfolio'
+import { Route as AuthenticatedAdminSettingsRouteImport } from './routes/_authenticated/admin/settings'
+import { Route as AuthenticatedAdminTeamRouteImport } from './routes/_authenticated/admin/team'
 import { Route as AuthenticatedAdminBlogIndexRouteImport } from './routes/_authenticated/admin/blog.index'
 
 const IndexRoute = IndexRouteImport.update({
@@ -112,6 +118,41 @@ const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AuthenticatedAdminRouteRoute,
 } as any)
+const AuthenticatedAdminCategoriesRoute =
+  AuthenticatedAdminCategoriesRouteImport.update({
+    id: '/categories',
+    path: '/categories',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminMessagesRoute =
+  AuthenticatedAdminMessagesRouteImport.update({
+    id: '/messages',
+    path: '/messages',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminOrdersRoute =
+  AuthenticatedAdminOrdersRouteImport.update({
+    id: '/orders',
+    path: '/orders',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminPortfolioRoute =
+  AuthenticatedAdminPortfolioRouteImport.update({
+    id: '/portfolio',
+    path: '/portfolio',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminSettingsRoute =
+  AuthenticatedAdminSettingsRouteImport.update({
+    id: '/settings',
+    path: '/settings',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminTeamRoute = AuthenticatedAdminTeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => AuthenticatedAdminRouteRoute,
+} as any)
 const AuthenticatedAdminBlogIndexRoute =
   AuthenticatedAdminBlogIndexRouteImport.update({
     id: '/blog/',
@@ -135,6 +176,12 @@ export interface FileRoutesByFullPath {
   '/services/$id': typeof ServicesIdRoute
   '/blog/': typeof BlogIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/admin/categories': typeof AuthenticatedAdminCategoriesRoute
+  '/admin/messages': typeof AuthenticatedAdminMessagesRoute
+  '/admin/orders': typeof AuthenticatedAdminOrdersRoute
+  '/admin/portfolio': typeof AuthenticatedAdminPortfolioRoute
+  '/admin/settings': typeof AuthenticatedAdminSettingsRoute
+  '/admin/team': typeof AuthenticatedAdminTeamRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
   '/admin/blog/': typeof AuthenticatedAdminBlogIndexRoute
 }
@@ -153,6 +200,12 @@ export interface FileRoutesByTo {
   '/services/$id': typeof ServicesIdRoute
   '/blog': typeof BlogIndexRoute
   '/services': typeof ServicesIndexRoute
+  '/admin/categories': typeof AuthenticatedAdminCategoriesRoute
+  '/admin/messages': typeof AuthenticatedAdminMessagesRoute
+  '/admin/orders': typeof AuthenticatedAdminOrdersRoute
+  '/admin/portfolio': typeof AuthenticatedAdminPortfolioRoute
+  '/admin/settings': typeof AuthenticatedAdminSettingsRoute
+  '/admin/team': typeof AuthenticatedAdminTeamRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
   '/admin/blog': typeof AuthenticatedAdminBlogIndexRoute
 }
@@ -174,6 +227,12 @@ export interface FileRoutesById {
   '/services/$id': typeof ServicesIdRoute
   '/blog/': typeof BlogIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/_authenticated/admin/categories': typeof AuthenticatedAdminCategoriesRoute
+  '/_authenticated/admin/messages': typeof AuthenticatedAdminMessagesRoute
+  '/_authenticated/admin/orders': typeof AuthenticatedAdminOrdersRoute
+  '/_authenticated/admin/portfolio': typeof AuthenticatedAdminPortfolioRoute
+  '/_authenticated/admin/settings': typeof AuthenticatedAdminSettingsRoute
+  '/_authenticated/admin/team': typeof AuthenticatedAdminTeamRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
   '/_authenticated/admin/blog/': typeof AuthenticatedAdminBlogIndexRoute
 }
@@ -195,6 +254,12 @@ export interface FileRouteTypes {
     | '/services/$id'
     | '/blog/'
     | '/services/'
+    | '/admin/categories'
+    | '/admin/messages'
+    | '/admin/orders'
+    | '/admin/portfolio'
+    | '/admin/settings'
+    | '/admin/team'
     | '/admin/'
     | '/admin/blog/'
   fileRoutesByTo: FileRoutesByTo
@@ -213,6 +278,12 @@ export interface FileRouteTypes {
     | '/services/$id'
     | '/blog'
     | '/services'
+    | '/admin/categories'
+    | '/admin/messages'
+    | '/admin/orders'
+    | '/admin/portfolio'
+    | '/admin/settings'
+    | '/admin/team'
     | '/admin'
     | '/admin/blog'
   id:
@@ -233,6 +304,12 @@ export interface FileRouteTypes {
     | '/services/$id'
     | '/blog/'
     | '/services/'
+    | '/_authenticated/admin/categories'
+    | '/_authenticated/admin/messages'
+    | '/_authenticated/admin/orders'
+    | '/_authenticated/admin/portfolio'
+    | '/_authenticated/admin/settings'
+    | '/_authenticated/admin/team'
     | '/_authenticated/admin/'
     | '/_authenticated/admin/blog/'
   fileRoutesById: FileRoutesById
@@ -376,6 +453,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
       parentRoute: typeof AuthenticatedAdminRouteRoute
     }
+    '/_authenticated/admin/categories': {
+      id: '/_authenticated/admin/categories'
+      path: '/categories'
+      fullPath: '/admin/categories'
+      preLoaderRoute: typeof AuthenticatedAdminCategoriesRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/messages': {
+      id: '/_authenticated/admin/messages'
+      path: '/messages'
+      fullPath: '/admin/messages'
+      preLoaderRoute: typeof AuthenticatedAdminMessagesRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/orders': {
+      id: '/_authenticated/admin/orders'
+      path: '/orders'
+      fullPath: '/admin/orders'
+      preLoaderRoute: typeof AuthenticatedAdminOrdersRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/portfolio': {
+      id: '/_authenticated/admin/portfolio'
+      path: '/portfolio'
+      fullPath: '/admin/portfolio'
+      preLoaderRoute: typeof AuthenticatedAdminPortfolioRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/settings': {
+      id: '/_authenticated/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AuthenticatedAdminSettingsRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/team': {
+      id: '/_authenticated/admin/team'
+      path: '/team'
+      fullPath: '/admin/team'
+      preLoaderRoute: typeof AuthenticatedAdminTeamRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
     '/_authenticated/admin/blog/': {
       id: '/_authenticated/admin/blog/'
       path: '/blog'
@@ -387,12 +506,24 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthenticatedAdminRouteRouteChildren {
+  AuthenticatedAdminCategoriesRoute: typeof AuthenticatedAdminCategoriesRoute
+  AuthenticatedAdminMessagesRoute: typeof AuthenticatedAdminMessagesRoute
+  AuthenticatedAdminOrdersRoute: typeof AuthenticatedAdminOrdersRoute
+  AuthenticatedAdminPortfolioRoute: typeof AuthenticatedAdminPortfolioRoute
+  AuthenticatedAdminSettingsRoute: typeof AuthenticatedAdminSettingsRoute
+  AuthenticatedAdminTeamRoute: typeof AuthenticatedAdminTeamRoute
   AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
   AuthenticatedAdminBlogIndexRoute: typeof AuthenticatedAdminBlogIndexRoute
 }
 
 const AuthenticatedAdminRouteRouteChildren: AuthenticatedAdminRouteRouteChildren =
   {
+    AuthenticatedAdminCategoriesRoute: AuthenticatedAdminCategoriesRoute,
+    AuthenticatedAdminMessagesRoute: AuthenticatedAdminMessagesRoute,
+    AuthenticatedAdminOrdersRoute: AuthenticatedAdminOrdersRoute,
+    AuthenticatedAdminPortfolioRoute: AuthenticatedAdminPortfolioRoute,
+    AuthenticatedAdminSettingsRoute: AuthenticatedAdminSettingsRoute,
+    AuthenticatedAdminTeamRoute: AuthenticatedAdminTeamRoute,
     AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
     AuthenticatedAdminBlogIndexRoute: AuthenticatedAdminBlogIndexRoute,
   }
