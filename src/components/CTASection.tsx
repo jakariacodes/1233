@@ -4,7 +4,7 @@ import { ArrowRight, Phone, Mail, MapPin, MessageCircle, Sparkles } from "lucide
 
 export const CTASection = () => {
   return (
-    <section className="section-padding relative overflow-hidden bg-[#061e24]">
+    <section className="section-padding relative overflow-hidden bg-[#011612]">
       {/* Background Orbs */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] -z-10 translate-x-1/3 -translate-y-1/3" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] -z-10 -translate-x-1/3 translate-y-1/3" />

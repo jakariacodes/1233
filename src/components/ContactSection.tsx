@@ -4,10 +4,10 @@ import { Send } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section className="section-padding bg-[#051139] relative overflow-hidden" id="contact">
+    <section className="section-padding bg-[#011612] relative overflow-hidden" id="contact">
       <div className="container-custom relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-[#0a1b52] rounded-[2rem] overflow-hidden shadow-2xl border border-white/5">
+          <div className="bg-[#022822] rounded-[2rem] overflow-hidden shadow-2xl border border-white/5">
             <div className="grid lg:grid-cols-2">
               
               {/* Form Side */}
@@ -77,11 +77,11 @@ const ContactSection = () => {
 
                     <div className="relative group">
                       <select className="w-full bg-transparent border-b border-white/20 py-2 text-white outline-none focus:border-primary transition-colors appearance-none cursor-pointer">
-                        <option className="bg-[#0a1b52]">Select Industry</option>
-                        <option className="bg-[#0a1b52]">E-Gov Solutions</option>
-                        <option className="bg-[#0a1b52]">EdTech</option>
-                        <option className="bg-[#0a1b52]">FinTech</option>
-                        <option className="bg-[#0a1b52]">HealthTech</option>
+                        <option className="bg-[#022822]">Select Industry</option>
+                        <option className="bg-[#022822]">E-Gov Solutions</option>
+                        <option className="bg-[#022822]">EdTech</option>
+                        <option className="bg-[#022822]">FinTech</option>
+                        <option className="bg-[#022822]">HealthTech</option>
                       </select>
                       <label className="absolute left-0 -top-4 text-white/40 text-xs">
                         Industry <span className="text-red-500">*</span>
@@ -91,10 +91,10 @@ const ContactSection = () => {
 
                     <div className="relative group">
                       <select className="w-full bg-transparent border-b border-white/20 py-2 text-white outline-none focus:border-primary transition-colors appearance-none cursor-pointer">
-                        <option className="bg-[#0a1b52]">Select Budget</option>
-                        <option className="bg-[#0a1b52]">$1,000 - $5,000</option>
-                        <option className="bg-[#0a1b52]">$5,000 - $10,000</option>
-                        <option className="bg-[#0a1b52]">$10,000+</option>
+                        <option className="bg-[#022822]">Select Budget</option>
+                        <option className="bg-[#022822]">$1,000 - $5,000</option>
+                        <option className="bg-[#022822]">$5,000 - $10,000</option>
+                        <option className="bg-[#022822]">$10,000+</option>
                       </select>
                       <label className="absolute left-0 -top-4 text-white/40 text-xs">
                         Budget <span className="text-red-500">*</span>
