@@ -21,7 +21,7 @@ import { Link } from '@tanstack/react-router';
 import { blogPostSchema, validateForm, sanitizeHtml } from '@/lib/validation';
 
 const BlogEditor = () => {
-  const { id } = useParams({ from: '/_authenticated/admin/blog/editor' }) as { id?: string };
+  const { id } = useParams({ strict: false }) as { id?: string };
   const navigate = useNavigate();
   const { user } = useAuth();
   const { categories } = useBlogCategories();
@@ -71,8 +71,8 @@ const BlogEditor = () => {
           meta_title: data.meta_title || '',
           meta_description: data.meta_description || '',
           tags: data.tags || [],
-          is_featured: data.is_featured,
-          is_published: data.is_published,
+          is_featured: !!data.is_featured,
+          is_published: !!data.is_published,
         });
       }
     } catch (error) {
