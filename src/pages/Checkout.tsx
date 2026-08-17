@@ -22,7 +22,7 @@ const Checkout = ({ service, package: pkg }: CheckoutProps) => {
   const [orderSuccess, setOrderSuccess] = useState<any>(null);
 
   const [formData, setFormData] = useState({
-    name: user?.user_metadata?.full_name || "",
+    name: user?.user_metadata?.['full_name'] || "",
     email: user?.email || "",
     phone: "",
     address: "",
@@ -43,12 +43,14 @@ const Checkout = ({ service, package: pkg }: CheckoutProps) => {
 
     try {
       const order = await createOrder({
-        userId: user?.id,
-        packageId: pkg.id,
-        customerDetails: formData,
-        amount: pkg.price,
-        packageName: pkg.name,
-        serviceType: service.title
+        data: {
+          userId: user?.id,
+          packageId: pkg.id,
+          customerDetails: formData,
+          amount: pkg.price,
+          packageName: pkg.name,
+          serviceType: service.title
+        }
       });
       
       setOrderSuccess(order);

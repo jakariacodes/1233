@@ -10,8 +10,8 @@ export const Route = createFileRoute('/checkout')({
       packageId: (search['packageId'] as string) || '',
     };
   },
-  loader: async ({ search }) => {
-    const s = search as { serviceId: string; packageId: string };
+  loader: async ({ deps }) => {
+    const s = deps as { serviceId: string; packageId: string };
     if (!s.serviceId || !s.packageId) {
       return { service: null, package: null };
     }
