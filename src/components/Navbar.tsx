@@ -43,7 +43,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Menu - Standard Layout */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8 justify-center flex-1">
           {navLinks.map((link) => (
             <Link
               key={link.name}
