@@ -94,38 +94,35 @@ export const ServicesSection = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <Link
               to="/services"
               key={index}
-              className="group relative bg-white rounded-[2.5rem] p-8 border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl animate-slide-up overflow-hidden"
+              className="group relative bg-white rounded-[2.5rem] p-10 border border-border/60 hover:border-primary/30 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_50px_rgba(59,130,246,0.1)] animate-slide-up overflow-hidden flex flex-col"
               style={{ animationDelay: `${index * 75}ms` }}
             >
-              {/* Background Gradient on Hover */}
+              {/* Subtle hover gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${service.bgGradient} opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-500`} />
               
-              {/* Shimmer effect on hover */}
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-              
-              <div className="relative">
-                {/* Icon with glow */}
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-xl`}>
-                  <service.icon className="w-7 h-7 text-white group-hover:animate-pulse" />
+              <div className="relative z-10 flex flex-col h-full">
+                {/* Icon Container */}
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}>
+                  <service.icon className="w-8 h-8 text-white" />
                 </div>
 
                 {/* Content */}
-                <h3 className="font-display text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
+                <h3 className="font-display text-2xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-5 group-hover:text-foreground/80 transition-colors duration-300">
+                <p className="text-muted-foreground text-base leading-relaxed mb-8 flex-grow">
                   {service.description}
                 </p>
 
                 {/* Link */}
-                <div className="flex items-center gap-2 text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                  Learn More
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
+                <div className="flex items-center gap-2 text-sm font-bold text-primary translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <span>Explore Service</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </Link>
