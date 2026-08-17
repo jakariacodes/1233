@@ -36,11 +36,15 @@ export const GoogleAnalytics = () => {
     document.head.appendChild(script2);
 
     return () => {
-      if (document.head.contains(script1)) {
-        document.head.removeChild(script1);
-      }
-      if (document.head.contains(script2)) {
-        document.head.removeChild(script2);
+      try {
+        if (script1 && document.head.contains(script1)) {
+          document.head.removeChild(script1);
+        }
+        if (script2 && document.head.contains(script2)) {
+          document.head.removeChild(script2);
+        }
+      } catch (e) {
+        console.warn('Error cleanup analytics scripts:', e);
       }
     };
   }, []);

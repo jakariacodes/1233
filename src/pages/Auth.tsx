@@ -53,7 +53,7 @@ const Auth = () => {
         const result = loginSchema.safeParse(formData);
         if (!result.success) {
           const fieldErrors: Record<string, string> = {};
-          result.error.errors.forEach((err) => {
+          (result.error as any).errors.forEach((err: any) => {
             if (err.path[0]) {
               fieldErrors[err.path[0] as string] = err.message;
             }
@@ -78,7 +78,7 @@ const Auth = () => {
         const result = signupSchema.safeParse(formData);
         if (!result.success) {
           const fieldErrors: Record<string, string> = {};
-          result.error.errors.forEach((err) => {
+          (result.error as any).errors.forEach((err: any) => {
             if (err.path[0]) {
               fieldErrors[err.path[0] as string] = err.message;
             }

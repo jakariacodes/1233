@@ -21,7 +21,7 @@ interface BlogPostData {
 }
 
 const BlogPost = () => {
-  const { slug } = useParams({ from: "/blog/$slug" }) as { slug: string };
+  const { slug } = useParams({ strict: false }) as { slug: string };
   const [post, setPost] = useState<BlogPostData | null>(null);
   const [loading, setLoading] = useState(true);
   const [categoryName, setCategoryName] = useState<string>("Uncategorized");
