@@ -36,13 +36,13 @@
   --card-foreground: 222 47% 11%;
   --popover: 0 0% 100%;
   --popover-foreground: 222 47% 11%;
-  --primary: 217 91% 60%; /* Rebranding to Blue: #3b82f6 */
+  --primary: 175 100% 33%; /* Deep Teal: #00a884 (estimated from screenshot) */
   --primary-foreground: 0 0% 100%;
-  --secondary: 180 20% 97%;
+  --secondary: 175 20% 97%;
   --secondary-foreground: 222 47% 11%;
-  --muted: 180 20% 97%;
-  --muted-foreground: 215 16% 47%;
-  --accent: 195 90% 45%; /* Cyan accent */
+  --muted: 175 20% 97%;
+  --muted-foreground: 175 16% 47%;
+  --accent: 175 100% 45%; /* Brighter Teal accent */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
@@ -55,25 +55,25 @@
 }
 
 .dark {
-  --background: 222 47% 6%;
+  --background: 180 60% 3%; /* Deep Forest Green/Dark Teal: #011612 */
   --foreground: 210 40% 98%;
-  --card: 222 47% 8%;
+  --card: 180 60% 5%;
   --card-foreground: 210 40% 98%;
-  --popover: 222 47% 8%;
+  --popover: 180 60% 5%;
   --popover-foreground: 210 40% 98%;
-  --primary: 217 91% 60%;
+  --primary: 175 100% 33%;
   --primary-foreground: 0 0% 100%;
   --secondary: 222 47% 12%;
   --secondary-foreground: 210 40% 98%;
   --muted: 222 30% 15%;
   --muted-foreground: 215 20% 65%;
-  --accent: 199 89% 48%;
+  --accent: 175 100% 45%;
   --accent-foreground: 210 40% 98%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 210 40% 98%;
-  --border: 222 30% 18%;
-  --input: 222 30% 18%;
-  --ring: 217 91% 60%;
+  --border: 180 30% 12%;
+  --input: 180 30% 12%;
+  --ring: 175 100% 33%;
 }
 
 @layer base {

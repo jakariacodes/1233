@@ -9,7 +9,7 @@ const PortfolioSection = () => {
   const featuredPortfolios = portfolios.slice(0, 3);
 
   return (
-    <section className="section-padding bg-[#061e24] relative overflow-hidden text-white">
+    <section className="section-padding bg-[#011612] relative overflow-hidden text-white">
       {/* Background Decorative */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 transform origin-top blur-3xl" />
       
@@ -46,7 +46,7 @@ const PortfolioSection = () => {
                 to="/portfolio" 
                 className="group block relative overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:-translate-y-4 shadow-2xl"
               >
-                <div className="aspect-[4/3] bg-[#0a2a32] overflow-hidden relative">
+                <div className="aspect-[4/3] bg-[#022822] overflow-hidden relative">
                   {project.featured_image ? (
                     <img 
                       src={project.featured_image} 
@@ -59,7 +59,7 @@ const PortfolioSection = () => {
                     </div>
                   )}
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#061e24] via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#011612] via-transparent to-transparent opacity-60" />
                   
                   {/* Floating badge */}
                   <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

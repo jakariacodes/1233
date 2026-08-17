@@ -40,7 +40,7 @@ const codeSnippets = [
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#061e24] py-20 lg:py-0">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#011612] py-20 lg:py-0">
       {/* Animated Tech Grid Background */}
       <div className="absolute inset-0 tech-grid opacity-50" />
       
@@ -101,7 +101,7 @@ export const HeroSection = () => {
           {/* Left Content */}
           <div className="order-2 lg:order-1">
             {/* Badge */}
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 animate-slide-up hover:border-primary/30 hover:bg-white/10 transition-all duration-300 group">
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-primary/20 mb-8 animate-slide-up hover:border-primary/50 hover:bg-white/10 transition-all duration-300 group cursor-default shadow-[0_0_15px_rgba(0,168,132,0.1)]">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -139,7 +139,7 @@ export const HeroSection = () => {
                   className="group flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 cursor-pointer hover-lift"
                   style={{ animationDelay: `${300 + index * 100}ms` }}
                 >
-                  <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-teal-700 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <service.icon className="w-3.5 h-3.5 text-white" />
                   </div>
                   <span className="text-sm font-medium text-white/80 group-hover:text-white transition-colors">{service.label}</span>
@@ -155,7 +155,7 @@ export const HeroSection = () => {
                     Start Your Project
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary via-blue-500 to-primary bg-[length:200%_100%] animate-gradient-shift opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary via-teal-500 to-primary bg-[length:200%_100%] animate-gradient-shift opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Button>
               </Link>
               <Link to="/portfolio">
@@ -193,7 +193,7 @@ export const HeroSection = () => {
           <div className="order-1 lg:order-2">
             <div className="relative animate-scale-in animation-delay-200">
               {/* Animated Glow */}
-              <div className="absolute -inset-6 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-[2.5rem] blur-3xl animate-glow-pulse" />
+              <div className="absolute -inset-6 bg-gradient-to-r from-primary/20 to-teal-500/20 rounded-[2.5rem] blur-3xl animate-glow-pulse" />
               
               {/* Pulse rings */}
               <div className="absolute -inset-4 rounded-[2.5rem] border border-primary/20 animate-pulse-ring opacity-50" />
@@ -204,7 +204,7 @@ export const HeroSection = () => {
                 {/* Header */}
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center animate-bounce-gentle">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-teal-700 flex items-center justify-center animate-bounce-gentle">
                       <Zap className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -244,9 +244,9 @@ export const HeroSection = () => {
                 </div>
 
                 {/* Bottom CTA with gradient animation */}
-                <div className="rounded-2xl p-5 bg-gradient-to-r from-primary to-blue-600 relative overflow-hidden group/cta hover:shadow-glow transition-all duration-500">
+                <div className="rounded-2xl p-5 bg-gradient-to-r from-primary to-teal-700 relative overflow-hidden group/cta hover:shadow-glow transition-all duration-500">
                   {/* Animated background */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary via-blue-500 to-primary bg-[length:200%_100%] animate-gradient-shift opacity-50" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary via-teal-500 to-primary bg-[length:200%_100%] animate-gradient-shift opacity-50" />
                   
                   <div className="relative flex items-center justify-between gap-4">
                     <div>
@@ -263,7 +263,7 @@ export const HeroSection = () => {
               </div>
 
               {/* Floating Badge - Left */}
-              <div className="absolute -left-4 top-1/3 bg-[#061e24]/80 backdrop-blur-md rounded-2xl p-3 shadow-2xl border border-white/10 hidden lg:flex items-center gap-3 animate-slide-up hover:scale-105 hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+              <div className="absolute -left-4 top-1/3 bg-[#011612]/80 backdrop-blur-md rounded-2xl p-3 shadow-2xl border border-white/10 hidden lg:flex items-center gap-3 animate-slide-up hover:scale-105 hover:border-primary/30 transition-all duration-300 cursor-pointer group">
                 <div className="w-11 h-11 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:animate-bounce-gentle">
                   <Shield className="w-5 h-5 text-white" />
                 </div>
@@ -274,8 +274,8 @@ export const HeroSection = () => {
               </div>
 
               {/* Floating Badge - Right */}
-              <div className="absolute -right-2 bottom-1/4 bg-[#061e24]/80 backdrop-blur-md rounded-2xl p-3 shadow-2xl border border-white/10 hidden lg:flex items-center gap-3 animate-slide-up hover:scale-105 hover:border-primary/30 transition-all duration-300 cursor-pointer group">
-                <div className="w-11 h-11 bg-gradient-to-br from-primary to-blue-600 rounded-xl flex items-center justify-center group-hover:animate-bounce-gentle">
+              <div className="absolute -right-2 bottom-1/4 bg-[#011612]/80 backdrop-blur-md rounded-2xl p-3 shadow-2xl border border-white/10 hidden lg:flex items-center gap-3 animate-slide-up hover:scale-105 hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+                <div className="w-11 h-11 bg-gradient-to-br from-primary to-teal-700 rounded-xl flex items-center justify-center group-hover:animate-bounce-gentle">
                   <Users className="w-5 h-5 text-white" />
                 </div>
                 <div>
