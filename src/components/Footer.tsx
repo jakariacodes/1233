@@ -1,15 +1,15 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Mail, MapPin, Globe, Send, Instagram, Facebook, Twitter, Linkedin, Heart, Sparkles, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, Globe, Send, Heart, Sparkles, ArrowRight } from "lucide-react";
 import logoFooter from "@/assets/logo-footer.png.asset.json";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook", color: "hover:bg-blue-600" },
-    { icon: Twitter, href: "#", label: "Twitter", color: "hover:bg-sky-500" },
-    { icon: Instagram, href: "#", label: "Instagram", color: "hover:bg-pink-600" },
-    { icon: Linkedin, href: "#", label: "LinkedIn", color: "hover:bg-blue-700" },
+    { icon: Globe, href: "#", label: "Facebook", color: "hover:bg-blue-600" },
+    { icon: Send, href: "#", label: "Twitter", color: "hover:bg-sky-500" },
+    { icon: Globe, href: "#", label: "Instagram", color: "hover:bg-pink-600" },
+    { icon: Globe, href: "#", label: "LinkedIn", color: "hover:bg-blue-700" },
   ];
 
   const footerLinks = [
