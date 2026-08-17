@@ -6,7 +6,7 @@ import { useOrders } from '@/hooks/useOrders';
 import { usePortfolios } from '@/hooks/usePortfolios';
 import { useContactMessages } from '@/hooks/useContactMessages';
 import { Users, FileText, Eye, TrendingUp, ArrowUpRight, Calendar, ShoppingCart, Briefcase, MessageSquare, DollarSign } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from '@tanstack/react-router';
 
 const Dashboard = () => {
   const { teamMembers } = useTeamMembers();
