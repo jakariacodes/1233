@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Link, useParams } from "react-router";
+import { Link, useParams } from "@tanstack/react-router";
 import { 
   ArrowLeft, ArrowRight, Star, Clock, CheckCircle2, Users, 
   Zap, Shield, RefreshCw, MessageCircle, ChevronRight,

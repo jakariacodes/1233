@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Link } from "react-router";
+import { Link } from "@tanstack/react-router";
 import { RefreshCw, ArrowLeft, AlertCircle, CheckCircle2, XCircle } from "lucide-react";
 
 const RefundPolicy = () => {
