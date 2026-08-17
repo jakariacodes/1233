@@ -1,6 +1,6 @@
-import { Button } from "@;
-import { Input } from "@;
-import { Textarea } from "@;
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
 import {
   Briefcase,

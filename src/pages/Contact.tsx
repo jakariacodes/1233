@@ -1,13 +1,13 @@
-import { Button } from "@;
-import { Input } from "@;
-import { Textarea } from "@;
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/button";
 import { 
   Phone, Mail, MapPin, Clock, Send, MessageCircle, 
   ArrowRight, Sparkles, Globe, CheckCircle2 
 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { supabase } from "@;
+import { supabase } from "@/components/ui/button";
 import { z } from "zod";
 
 // Validation schema

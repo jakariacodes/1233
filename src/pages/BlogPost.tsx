@@ -1,10 +1,10 @@
-import { Button } from "@;
+import { Button } from "@/components/ui/button";
 import { Link, useParams } from "@tanstack/react-router";
 import { ArrowLeft, Calendar, Clock, Share2, Facebook, Twitter, Linkedin, Tag, ChevronRight, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
-import { supabase } from "@;
+import { supabase } from "@/components/ui/button";
 import { format } from "date-fns";
-import { useBlogPosts } from "@;
+import { useBlogPosts } from "@/components/ui/button";
 
 interface BlogPostData {
   id: string;

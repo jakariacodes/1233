@@ -1,13 +1,13 @@
-import { Button } from "@;
+import { Button } from "@/components/ui/button";
 import { Link, useParams } from "@tanstack/react-router";
 import { 
   ArrowLeft, ArrowRight, Star, Clock, CheckCircle2, Users, 
   Zap, Shield, RefreshCw, MessageCircle, ChevronRight,
   Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase
 } from "lucide-react";
-import serviceWeb from "@;
-import serviceMarketing from "@;
-import serviceCreative from "@;
+import serviceWeb from "@/components/ui/button";
+import serviceMarketing from "@/components/ui/button";
+import serviceCreative from "@/components/ui/button";
 
 // Service data with gigs
 const servicesData: Record<string, {
