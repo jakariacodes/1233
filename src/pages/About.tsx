@@ -3,9 +3,9 @@ import { Link } from "@tanstack/react-router";
 import { 
   ArrowRight, Award, Users, Target, Rocket, CheckCircle, 
   Calendar, Sparkles, Globe, TrendingUp, Heart, Shield,
-  Code, Palette, Megaphone, Star
+  Code, Palette, Megaphone, Star, MapPin
 } from "lucide-react";
-import ceoPhoto from "@/components/ui/button";
+import ceoPhoto from "@/assets/ceo-photo.jpg";
 
 const values = [
   {
@@ -52,7 +52,7 @@ const timeline = [
   {
     year: "2022",
     title: "Global Reach",
-    description: "Started serving international clients from USA, UK, Canada, and Australia.",
+    description: "Star, MapPinted serving international clients from USA, UK, Canada, and Australia.",
     icon: Globe,
     color: "from-purple-500 to-pink-500",
   },
@@ -232,7 +232,7 @@ const About = () => {
                       <div className="w-1 h-1 bg-muted-foreground rounded-full" />
                       <div className="flex items-center gap-1">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 text-amber-500 fill-amber-500" />
+                          <Star, MapPin key={i} className="w-4 h-4 text-amber-500 fill-amber-500" />
                         ))}
                       </div>
                     </div>
