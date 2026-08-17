@@ -63,7 +63,7 @@ const services = [
 
 export const ServicesSection = () => {
   return (
-    <section className="section-padding relative overflow-hidden" id="services">
+    <section className="section-padding relative overflow-hidden bg-white" id="services">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-white" />
       <div className="absolute inset-0 tech-grid opacity-30" />
