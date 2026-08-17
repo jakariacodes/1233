@@ -101,28 +101,22 @@ const AboutSection = () => {
                 ))}
               </div>
               
-              {/* Profile Card */}
-              <div className="bg-[#0f172a] rounded-3xl p-6 flex items-center gap-5 mb-8 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -mr-16 -mt-16 blur-2xl" />
+              {/* Core Excellence Highlight */}
+              <div className="bg-[#0f172a] rounded-3xl p-8 mb-8 relative overflow-hidden group/highlight">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full -mr-16 -mt-16 blur-2xl group-hover/highlight:scale-110 transition-transform duration-700" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-500/10 rounded-full -ml-12 -mb-12 blur-xl" />
                 
-                <div className="relative w-20 h-20 rounded-full border-2 border-primary/30 p-1 flex-shrink-0">
-                  <div className="w-full h-full rounded-full bg-slate-800 overflow-hidden relative">
-                    <img 
-                      src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&auto=format&fit=crop" 
-                      alt="Md Jakaria Hasan"
-                      className="w-full h-full object-cover" 
-                    />
-                    <div className="absolute bottom-1 right-1 w-3.5 h-3.5 bg-green-500 border-2 border-[#0f172a] rounded-full shadow-lg" />
+                <div className="relative z-10">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-4">
+                    <Zap className="w-3 h-3 text-primary" />
+                    <span className="text-[10px] font-bold text-primary uppercase tracking-wider">Our Core Vision</span>
                   </div>
-                </div>
-                
-                <div className="relative">
-                  <h4 className="text-white font-bold text-xl mb-0.5">Md Jakaria Hasan</h4>
-                  <p className="text-primary text-sm font-semibold mb-1">CEO & Founder</p>
-                  <div className="flex items-center gap-1.5 text-slate-400 text-xs">
-                    <div className="w-1.5 h-1.5 bg-slate-500 rounded-full" />
-                    Rangpur, Bangladesh
-                  </div>
+                  <h4 className="text-white font-display font-bold text-2xl mb-3 leading-tight">
+                    Driving the Future of <span className="text-primary">Digital Innovation</span> in Bangladesh
+                  </h4>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    We combine creative strategy with technical expertise to build scalable solutions that solve complex business challenges and create meaningful impact.
+                  </p>
                 </div>
               </div>
               
