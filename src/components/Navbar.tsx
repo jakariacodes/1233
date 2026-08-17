@@ -29,9 +29,8 @@ const Navbar = () => {
   return (
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
-      isScrolled 
-        ? "bg-white/95 backdrop-blur-md shadow-md py-3" 
-        : "bg-transparent py-5"
+      "bg-white border-b border-border/5 py-4",
+      isScrolled && "shadow-sm py-3"
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
@@ -40,10 +39,7 @@ const Navbar = () => {
             "text-2xl font-bold tracking-tight transition-colors duration-300",
             isScrolled ? "text-primary" : "text-primary"
           )}>
-            TechCrafter<span className={cn(
-              "transition-colors duration-300",
-              isScrolled ? "text-foreground" : "text-foreground"
-            )}>IT</span>
+            TechCrafter<span className="text-foreground">IT</span>
           </span>
         </Link>
 
@@ -54,8 +50,7 @@ const Navbar = () => {
               key={link.name}
               to={link.href as any}
               className={cn(
-                "text-sm font-medium transition-all duration-300 hover:text-primary flex items-center gap-1",
-                isScrolled ? "text-muted-foreground" : "text-muted-foreground"
+                "text-sm font-medium transition-all duration-300 hover:text-primary flex items-center gap-1 text-muted-foreground"
               )}
               activeProps={{ 
                 className: "text-primary font-semibold" 
@@ -71,10 +66,7 @@ const Navbar = () => {
         <div className="flex items-center gap-6">
           <Link 
             to={"/auth" as any} 
-            className={cn(
-              "hidden md:block text-sm font-medium hover:text-primary transition-colors",
-              isScrolled ? "text-muted-foreground" : "text-muted-foreground"
-            )}
+            className="hidden md:block text-sm font-medium hover:text-primary transition-colors text-muted-foreground"
           >
             Login
           </Link>
