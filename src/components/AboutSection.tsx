@@ -7,8 +7,7 @@ import {
   Shield, 
   Globe, 
   CheckCircle2, 
-  Star, 
-  Facebook,
+  Star,
   Award,
   Users,
   Zap,
@@ -143,7 +142,6 @@ const AboutSection = () => {
                 </div>
                 
                 <Button variant="ghost" className="h-10 px-6 rounded-full bg-blue-500 text-white hover:bg-blue-600 flex items-center gap-2 text-xs font-bold transition-transform hover:scale-105">
-                  <Facebook className="w-4 h-4 fill-current" />
                   Follow on Facebook
                 </Button>
               </div>
