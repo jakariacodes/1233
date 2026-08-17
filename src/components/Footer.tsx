@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Globe, Mail, Phone } from "lucide-react";
+import { Globe, Mail, Phone, MapPin } from "lucide-react";
 import logoFooter from "@/assets/logo-footer.png.asset.json";
 
 const Footer = () => {
@@ -53,19 +53,90 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="section-padding bg-[#011612] text-white overflow-hidden">
+    <footer className="section-padding bg-[#011612] text-white overflow-hidden relative border-t border-white/5">
       <div className="container-custom">
-        {/* Main Footer Content */}
+        {/* Top Info Bar (Integrated Address & Contact) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20 pb-12 border-b border-white/10">
+          <div className="flex flex-col space-y-4">
+            <Link to="/" className="mb-4 block">
+              <img
+                src={logoFooter.url}
+                alt="NextOnline Technology"
+                className="h-10 w-auto object-contain brightness-0 invert"
+              />
+            </Link>
+            <div className="flex gap-4">
+              <a href="https://www.facebook.com/profile.php?id=61559869275150" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+                <Globe className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+                <Globe className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+                <Globe className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+                <Globe className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <div className="mt-1 bg-primary/20 p-2 rounded-lg text-primary">
+                <Mail className="w-4 h-4" />
+              </div>
+              <div>
+                <p className="text-xs text-white/50 uppercase font-bold tracking-widest mb-1">Email Address</p>
+                <a href="mailto:info@thenextonline.com" className="text-sm hover:text-primary transition-colors">info@thenextonline.com</a>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="mt-1 bg-primary/20 p-2 rounded-lg text-primary">
+                <Phone className="w-4 h-4" />
+              </div>
+              <div>
+                <p className="text-xs text-white/50 uppercase font-bold tracking-widest mb-1">Contact Phone</p>
+                <a href="tel:+15055241559" className="text-sm block hover:text-primary transition-colors">USA: +15055241559</a>
+                <a href="tel:+8801711392738" className="text-sm block hover:text-primary transition-colors">BD: +88 01711392738</a>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-3 lg:col-span-2">
+            <div className="mt-1 bg-primary/20 p-2 rounded-lg text-primary">
+              <MapPin className="w-4 h-4" />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+              <div>
+                <p className="text-xs text-white/50 uppercase font-bold tracking-widest mb-1">USA Office</p>
+                <p className="text-sm text-white/80 leading-relaxed">
+                  9169 W STATE ST<br />
+                  GARDEN CITY, ID 83714
+                </p>
+              </div>
+              <div>
+                <p className="text-xs text-white/50 uppercase font-bold tracking-widest mb-1">UK Office</p>
+                <p className="text-sm text-white/80 leading-relaxed">
+                  20-22 Wenlock Road,<br />
+                  London, England, N1 7GU
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Links Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-12 mb-20">
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h3 className="text-lg font-bold mb-8 tracking-tight">{section.title}</h3>
+              <h3 className="text-sm uppercase font-bold mb-8 tracking-[0.2em] text-white/40">{section.title}</h3>
               <ul className="space-y-4">
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href as any}
-                      className="text-[#94a3b8] hover:text-white transition-colors text-sm"
+                      className="text-white/60 hover:text-primary transition-colors text-sm font-medium"
                     >
                       {link.name}
                     </Link>
@@ -78,100 +149,31 @@ const Footer = () => {
 
         {/* Lower Footer Area */}
         <div className="pt-12 border-t border-white/10">
-          <div className="grid lg:grid-cols-5 gap-12 items-start">
-            {/* Branding & Social */}
-            <div className="lg:col-span-1">
-              <Link to="/" className="mb-6 block">
-                <img
-                  src={logoFooter.url}
-                  alt="NextOnline Technology"
-                  className="h-12 w-auto object-contain brightness-0 invert"
-                />
-              </Link>
-              <div className="flex gap-4">
-                <a href="https://www.facebook.com/profile.php?id=61559869275150" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-white hover:text-primary transition-all">
-                  <Globe className="w-4 h-4" />
-                </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-white hover:text-primary transition-all">
-                  <Globe className="w-4 h-4" />
-                </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-white hover:text-primary transition-all">
-                  <Globe className="w-4 h-4" />
-                </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-white hover:text-primary transition-all">
-                  <Globe className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-
-            {/* Contact Info */}
-            <div className="lg:col-span-1 space-y-4">
-              <div className="flex items-center gap-3 text-sm text-[#94a3b8]">
-                <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:info@nextonlinetechnology.com" className="hover:text-white transition-colors">info@nextonlinetechnology.com</a>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-[#94a3b8]">
-                <Phone className="w-4 h-4 text-primary" />
-                <a href="tel:+8801731173992" className="hover:text-white transition-colors">09612223343</a>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-[#94a3b8]">
-                <Phone className="w-4 h-4 text-primary" />
-                <span>+880 1678-077198</span>
-              </div>
-            </div>
-
-            {/* Office Locations */}
-            <div className="lg:col-span-1">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xl">🇺🇸</span>
-                <h5 className="font-bold text-sm">USA Office</h5>
-              </div>
-              <p className="text-xs text-[#94a3b8] leading-relaxed">
-                NextOnline Technology LLC<br />
-                501 Silverside Road, Suit 105 #4987,<br />
-                Wilmington, DE 19809, USA<br />
-                <a href="#" className="hover:text-white">us.nextonline.com</a>
-              </p>
-            </div>
-
-            <div className="lg:col-span-1">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xl">🇬🇧</span>
-                <h5 className="font-bold text-sm">UK Office</h5>
-              </div>
-              <p className="text-xs text-[#94a3b8] leading-relaxed">
-                NextOnline (UK) Ltd<br />
-                71-75 Shelton St, Covent Garden,<br />
-                London, WC2H 9JQ
-              </p>
-            </div>
-
-            <div className="lg:col-span-1">
-              <div className="flex items-center gap-2 mb-3">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-12">
+            {/* Bangladesh Location (Special Highlight) */}
+            <div className="max-w-md">
+              <div className="flex items-center gap-2 mb-4">
                 <span className="text-xl">🇧🇩</span>
-                <h5 className="font-bold text-sm text-red-500">Bangladesh</h5>
+                <h5 className="font-bold text-sm tracking-wider uppercase text-white/80">Bangladesh Headquarters</h5>
               </div>
-              <p className="text-xs text-[#94a3b8] leading-relaxed mb-4">
-                NextOnline Ltd.<br />
-                27 Shaptak Square, Level-12, Plot-2 (Old-380),<br />
-                Road-16 (Old-27), Dhanmondi, Dhaka - 1209<br />
-                <a href="#" className="hover:text-white">nextonline.com</a>
+              <p className="text-sm text-white/60 leading-relaxed">
+                1505/13, 37 Bir Uttam C R Dotto Road, Nahar Plaza,<br />
+                Ramana, Dhaka-1000, Bangladesh.
               </p>
-              <h5 className="font-bold text-xs mb-2">Branch Office</h5>
-              <p className="text-xs text-[#94a3b8] leading-relaxed">
-                Shyamoli Square (Level-7), Plot #23/8-B, Block-B,<br />
-                Bir Uttam A.N.M. Nuruzzaman Sharak, Mirpur Road,<br />
-                Dhaka-1207
+            </div>
+
+            {/* Copyright & Links */}
+            <div className="text-left md:text-right space-y-4">
+              <div className="flex flex-wrap md:justify-end gap-6 text-xs font-bold uppercase tracking-widest text-white/40">
+                <Link to="/about" className="hover:text-white transition-colors">Privacy Policy</Link>
+                <Link to="/about" className="hover:text-white transition-colors">Terms of Service</Link>
+                <Link to="/contact" className="hover:text-white transition-colors">Cookie Settings</Link>
+              </div>
+              <p className="text-white/30 text-xs font-medium uppercase tracking-[0.2em]">
+                Copyright © {currentYear} NextOnline Technology Ltd. All rights reserved.
               </p>
             </div>
           </div>
-        </div>
-
-        {/* Copyright */}
-        <div className="mt-16 pt-8 border-t border-white/5 text-center">
-          <p className="text-[#94a3b8] text-xs">
-            Copyright © {currentYear} NextOnline Technology Ltd. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>

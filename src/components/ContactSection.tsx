@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
+import officeTeam from "@/assets/office-team.jpg.asset.json";
 
 const ContactSection = () => {
   return (
@@ -13,7 +14,7 @@ const ContactSection = () => {
               {/* Form Side */}
               <div className="p-8 md:p-12 lg:p-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Contact us</h2>
-                <p className="text-blue-200/60 mb-12">Fill out the form below and we'll get back to you once we've processed your request.</p>
+                <p className="text-white/60 mb-12">Fill out the form below and we'll get back to you once we've processed your request.</p>
                 
                 <form className="space-y-8">
                   <div className="grid md:grid-cols-2 gap-x-8 gap-y-10">
@@ -118,10 +119,10 @@ const ContactSection = () => {
                   </div>
 
                   <div className="flex justify-end">
-                    <Button className="bg-[#3b82f6] hover:bg-blue-600 text-white px-8 h-12 rounded-full gap-2 text-base font-semibold group shadow-lg shadow-blue-500/20 transition-all">
+                    <Button className="bg-primary hover:bg-primary/90 text-white px-10 h-14 rounded-full gap-3 text-lg font-bold group shadow-lg shadow-primary/20 transition-all uppercase tracking-wider">
                       Submit
-                      <div className="bg-white/20 p-1.5 rounded-full group-hover:bg-white/30 transition-colors">
-                        <Send className="w-4 h-4 fill-white" />
+                      <div className="bg-white/20 p-2 rounded-full group-hover:bg-white/30 transition-colors">
+                        <Send className="w-5 h-5 fill-white" />
                       </div>
                     </Button>
                   </div>
@@ -130,13 +131,13 @@ const ContactSection = () => {
 
               {/* Image Side */}
               <div className="relative hidden lg:block p-8">
-                <div className="h-full w-full rounded-[1.5rem] overflow-hidden">
+                <div className="h-full w-full rounded-[2.5rem] overflow-hidden shadow-2xl">
                   <img 
-                    src="https://images.unsplash.com/photo-152207182399e-4480e726b8c0?q=80&w=2070&auto=format&fit=crop" 
-                    alt="Contact Us"
+                    src={officeTeam.url} 
+                    alt="Our Team"
                     className="h-full w-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-blue-900/10" />
+                  <div className="absolute inset-0 bg-primary/5 mix-blend-overlay" />
                 </div>
               </div>
             </div>
