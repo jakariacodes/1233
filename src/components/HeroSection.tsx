@@ -40,7 +40,7 @@ const codeSnippets = [
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0a1628]">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#061e24]">
       {/* Animated Tech Grid Background */}
       <div className="absolute inset-0 tech-grid opacity-50" />
       
@@ -128,7 +128,7 @@ export const HeroSection = () => {
 
             {/* Subtitle */}
             <p className="text-lg text-white/60 mb-8 max-w-lg leading-relaxed animate-slide-up animation-delay-200">
-              We craft <span className="text-primary font-medium">AI-powered, scalable solutions</span> that drive measurable growth and transform businesses.
+              We craft <span className="text-primary font-bold">next-gen technology solutions</span> that drive measurable growth and transform businesses globally.
             </p>
 
             {/* Services Pills with hover effects */}
@@ -263,7 +263,7 @@ export const HeroSection = () => {
               </div>
 
               {/* Floating Badge - Left */}
-              <div className="absolute -left-4 top-1/3 bg-[#0d1b2a] rounded-2xl p-3 shadow-2xl border border-white/10 hidden lg:flex items-center gap-3 animate-slide-in-left animation-delay-800 hover:scale-105 hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+              <div className="absolute -left-4 top-1/3 bg-[#061e24]/80 backdrop-blur-md rounded-2xl p-3 shadow-2xl border border-white/10 hidden lg:flex items-center gap-3 animate-slide-up hover:scale-105 hover:border-primary/30 transition-all duration-300 cursor-pointer group">
                 <div className="w-11 h-11 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:animate-bounce-gentle">
                   <Shield className="w-5 h-5 text-white" />
                 </div>
@@ -274,7 +274,7 @@ export const HeroSection = () => {
               </div>
 
               {/* Floating Badge - Right */}
-              <div className="absolute -right-2 bottom-1/4 bg-[#0d1b2a] rounded-2xl p-3 shadow-2xl border border-white/10 hidden lg:flex items-center gap-3 animate-slide-in-right animation-delay-1000 hover:scale-105 hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+              <div className="absolute -right-2 bottom-1/4 bg-[#061e24]/80 backdrop-blur-md rounded-2xl p-3 shadow-2xl border border-white/10 hidden lg:flex items-center gap-3 animate-slide-up hover:scale-105 hover:border-primary/30 transition-all duration-300 cursor-pointer group">
                 <div className="w-11 h-11 bg-gradient-to-br from-primary to-blue-600 rounded-xl flex items-center justify-center group-hover:animate-bounce-gentle">
                   <Users className="w-5 h-5 text-white" />
                 </div>
