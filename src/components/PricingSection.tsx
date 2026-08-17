@@ -1,35 +1,99 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+
+const tiers = [
+  { 
+    name: "Starter", 
+    price: "$499", 
+    description: "Perfect for small businesses starting their digital journey.",
+    features: ["Basic SEO", "Responsive Design", "Up to 5 Pages", "1 Month Support", "Contact Form Integration"],
+    popular: false
+  },
+  { 
+    name: "Professional", 
+    price: "$999", 
+    description: "Best for growing companies needing a premium presence.",
+    features: ["Advanced SEO", "Custom UI/UX Design", "Unlimited Pages", "3 Months Support", "CMS Integration", "Performance Audit"],
+    popular: true
+  },
+  { 
+    name: "Enterprise", 
+    price: "Custom", 
+    description: "Tailored solutions for large scale complex requirements.",
+    features: ["Full AI Integration", "Dedicated Project Manager", "24/7 Priority Support", "Custom API Development", "Security Pentesting"],
+    popular: false
+  }
+];
 
 const PricingSection = () => {
-  const tiers = [
-    { name: "Starter", price: "$499", features: ["Basic SEO", "Responsive Design", "5 Pages"] },
-    { name: "Professional", price: "$999", features: ["Advanced SEO", "Custom UI/UX", "Unlimited Pages"] },
-    { name: "Enterprise", price: "Custom", features: ["Full AI Integration", "Dedicated Support", "SLA"] }
-  ];
-
   return (
-    <section className="py-24 bg-secondary/20">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple Pricing</h2>
-          <p className="text-muted-foreground">Choose the perfect plan for your business needs.</p>
+    <section className="py-24 bg-white">
+      <div className="container-custom">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 uppercase tracking-widest">
+            <Sparkles className="w-4 h-4" />
+            Pricing Plans
+          </span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+            Invest in Your <span className="text-primary">Digital Growth</span>
+          </h2>
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            Transparent pricing models designed to scale with your business goals. 
+            No hidden fees, just pure value.
+          </p>
         </div>
+
         <div className="grid md:grid-cols-3 gap-8">
           {tiers.map((tier, i) => (
-            <div key={i} className="bg-card p-8 rounded-3xl border border-border hover:border-primary/50 transition-all flex flex-col">
-              <h3 className="text-xl font-bold mb-2">{tier.name}</h3>
-              <div className="text-3xl font-bold text-primary mb-6">{tier.price}</div>
-              <ul className="space-y-4 mb-8 flex-grow">
+            <div 
+              key={i} 
+              className={`relative bg-card p-10 rounded-[2.5rem] border transition-all duration-500 flex flex-col hover:-translate-y-3 ${
+                tier.popular 
+                  ? "border-primary shadow-2xl shadow-primary/10 ring-4 ring-primary/5" 
+                  : "border-border hover:border-primary/30 hover:shadow-xl"
+              }`}
+            >
+              {tier.popular && (
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-primary text-white text-xs font-bold rounded-full uppercase tracking-widest shadow-lg">
+                  Most Popular
+                </div>
+              )}
+              
+              <div className="mb-8">
+                <h3 className="text-2xl font-display font-bold mb-2">{tier.name}</h3>
+                <p className="text-muted-foreground text-sm">{tier.description}</p>
+              </div>
+              
+              <div className="flex items-baseline gap-1 mb-8">
+                <span className="text-5xl font-display font-bold text-foreground">{tier.price}</span>
+                {tier.price !== "Custom" && <span className="text-muted-foreground">/project</span>}
+              </div>
+              
+              <ul className="space-y-4 mb-10 flex-grow">
                 {tier.features.map((f, j) => (
-                  <li key={j} className="flex items-center gap-2 text-muted-foreground">
-                    <Check className="w-4 h-4 text-primary" />
+                  <li key={j} className="flex items-center gap-3 text-foreground/80 font-medium">
+                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Check className="w-3.5 h-3.5 text-primary" />
+                    </div>
                     {f}
                   </li>
                 ))}
               </ul>
-              <Button className="w-full">Get Started</Button>
+              
+              <Link to="/contact">
+                <Button 
+                  className={`w-full h-14 rounded-2xl text-base font-bold transition-all duration-300 ${
+                    tier.popular 
+                      ? "bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20" 
+                      : "variant-outline border-primary/20 hover:bg-primary/5 text-primary"
+                  }`}
+                  variant={tier.popular ? "default" : "outline"}
+                >
+                  Get Started Now
+                </Button>
+              </Link>
             </div>
           ))}
         </div>
