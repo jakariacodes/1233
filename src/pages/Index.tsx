@@ -1,3 +1,4 @@
+import React from 'react';
 import { HeroSection } from "@/components/HeroSection";
 import { ClientsSection } from "@/components/ClientsSection";
 import { ServicesSection } from "@/components/ServicesSection";
@@ -14,7 +15,7 @@ import { CTASection } from "@/components/CTASection";
 
 const Index = () => {
   return (
-    <div className="flex flex-col gap-0 overflow-hidden">
+    <div className="flex flex-col gap-0 overflow-hidden pt-20">
       <HeroSection />
       <ClientsSection />
       <ServicesSection />
