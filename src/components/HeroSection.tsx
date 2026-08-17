@@ -127,8 +127,8 @@ export const HeroSection = () => {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-lg text-white/60 mb-8 max-w-lg leading-relaxed animate-slide-up animation-delay-200">
-              We craft <span className="text-primary font-bold">next-gen technology solutions</span> that drive measurable growth and transform businesses globally.
+            <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-2xl leading-relaxed animate-slide-up animation-delay-200 font-medium tracking-wide">
+              We craft <span className="text-primary font-extrabold underline underline-offset-8 decoration-primary/30">next-gen technology solutions</span> that drive measurable growth and transform businesses globally.
             </p>
 
             {/* Services Pills with hover effects */}
