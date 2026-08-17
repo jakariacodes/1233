@@ -29,15 +29,10 @@ const Navbar = () => {
 
   return (
     <nav className={cn(
-      "fixed top-4 left-0 right-0 z-50 transition-all duration-300",
-      "flex justify-center px-4"
+      "w-full transition-all duration-300",
+      isScrolled ? "bg-white/95 backdrop-blur-md shadow-md py-2 border-b" : "bg-transparent py-4"
     )}>
-      <div className={cn(
-        "w-full max-w-7xl flex items-center justify-between rounded-full px-6 transition-all duration-300",
-        isScrolled 
-          ? "bg-background/95 backdrop-blur-md shadow-lg py-3 border border-border/50" 
-          : "bg-background/40 backdrop-blur-sm py-4 border border-white/10 shadow-sm"
-      )}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group shrink-0">
           <div className="bg-white/90 p-1.5 rounded-lg shadow-sm border border-border/20 group-hover:scale-105 transition-transform duration-300">
