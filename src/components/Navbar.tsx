@@ -119,8 +119,8 @@ const Navbar = () => {
   return (
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
-      "bg-white/80 backdrop-blur-xl border-b border-border/10 py-5",
-      isScrolled && "shadow-sm py-3"
+      "bg-white border-b border-border/10 py-5",
+      isScrolled && "shadow-md py-3"
     )}>
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
@@ -144,7 +144,7 @@ const Navbar = () => {
               <Link
                 to={link.href as any}
                 className={cn(
-                  "text-sm font-medium transition-all duration-300 hover:text-primary flex items-center gap-1 text-muted-foreground"
+                  "text-sm font-semibold transition-all duration-300 hover:text-primary flex items-center gap-1 text-slate-700"
                 )}
                 activeProps={{ 
                   className: "text-primary font-semibold" 
@@ -262,7 +262,7 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.href as any}
-                  className="text-lg font-medium py-2 hover:text-primary transition-colors"
+                  className="text-lg font-semibold py-2 hover:text-primary transition-colors text-slate-700"
                   activeProps={{ className: "text-primary" }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
