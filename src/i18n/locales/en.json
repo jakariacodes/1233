@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "team": "Team",
+    "blog": "Blog",
+    "contact": "Contact",
+    "getStarted": "Get Started",
+    "login": "Login"
+  },
+  "hero": {
+    "title": "Innovative Digital Solutions for Your Business",
+    "subtitle": "NextOnline Technology is a modern, technology-driven digital service company. We deliver high-quality professional digital solutions worldwide.",
+    "cta": "Get Started"
+  }
+}
