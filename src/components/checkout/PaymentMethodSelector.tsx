@@ -50,8 +50,10 @@ const paymentMethods = [
 
 export default function PaymentMethodSelector({ selectedMethod, onSelect, amount }: PaymentMethodSelectorProps) {
   const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text.split(":")[1].trim().split(" ")[0]);
-    toast.success("Copied to clipboard");
+    if (text) {
+      navigator.clipboard.writeText(text.split(":")[1]?.trim()?.split(" ")[0] || "");
+      toast.success("Copied to clipboard");
+    }
   };
 
   const selected = paymentMethods.find(m => m.id === selectedMethod);
