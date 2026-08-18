@@ -270,12 +270,22 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="pt-4 mt-2 border-t border-border/50 flex flex-col gap-4">
-                <Link to={"/auth" as any} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium py-2">
-                  Login
-                </Link>
-                <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button className="w-full rounded-full h-12 shadow-lg">Get Started</Button>
-                </Link>
+                {!user ? (
+                  <>
+                    <Link to={"/auth" as any} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium py-2">
+                      Login
+                    </Link>
+                    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                      <Button className="w-full rounded-full h-12 shadow-lg">Get Started</Button>
+                    </Link>
+                  </>
+                ) : (
+                  <Link to={isAdmin ? "/admin" : "/dashboard"} onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button className="w-full rounded-full h-12 shadow-lg bg-primary">
+                      {isAdmin ? "Admin Panel" : "Dashboard"}
+                    </Button>
+                  </Link>
+                )}
               </div>
             </div>
           </motion.div>
