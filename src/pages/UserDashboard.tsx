@@ -51,11 +51,11 @@ export default function UserDashboard() {
             <div className="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-100 sticky top-32">
               <div className="flex items-center gap-4 mb-8 px-2">
                 <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
-                  {user?.user_metadata?.full_name?.[0] || user?.email?.[0]?.toUpperCase()}
+                  {user?.user_metadata?.['full_name']?.[0] || user?.email?.[0]?.toUpperCase()}
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 truncate max-w-[150px]">
-                    {user?.user_metadata?.full_name || 'Customer'}
+                    {user?.user_metadata?.['full_name'] || 'Customer'}
                   </h3>
                   <p className="text-xs text-slate-500 truncate max-w-[150px]">{user?.email}</p>
                 </div>
