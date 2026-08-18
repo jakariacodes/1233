@@ -92,12 +92,14 @@ const Navbar = () => {
     };
     window.addEventListener("scroll", handleScroll);
     
-    // Fetch dynamic services
-    import("@/integrations/supabase/client").then(m => {
-      m.supabase.from("services").select("*").order("sort_order").then(({ data }) => {
-        if (data) setDynamicServices(data);
+    // Fetch dynamic services only in browser
+    if (typeof window !== "undefined") {
+      import("@/integrations/supabase/client").then(m => {
+        m.supabase.from("services").select("*").order("sort_order").then(({ data }) => {
+          if (data) setDynamicServices(data);
+        });
       });
-    });
+    }
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
