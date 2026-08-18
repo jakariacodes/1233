@@ -183,7 +183,7 @@ export default function UserDashboard() {
                                 <span className={`inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold border ${getStatusColor(order.status)} uppercase w-fit`}>
                                   {order.status.replace('_', ' ')}
                                 </span>
-                                {order.payment_status === 'pending' && (
+                                {order.payment_status === 'unpaid' && (
                                   <span className="text-[9px] text-orange-500 font-bold flex items-center gap-1">
                                     <div className="w-1 h-1 rounded-full bg-orange-500 animate-pulse" />
                                     Awaiting Payment Approval
