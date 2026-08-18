@@ -63,7 +63,7 @@ const Auth = () => {
         return;
       }
 
-      const { error, data } = await signIn(formData.email, formData.password);
+      const { error } = await signIn(formData.email, formData.password);
       if (error) {
         if (error.message.includes('Invalid login credentials')) {
           toast.error("Invalid email or password.");
