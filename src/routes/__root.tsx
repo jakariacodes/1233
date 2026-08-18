@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import "@/i18n/config";
+// import "@/i18n/config";
 import {
   Outlet,
   createRootRouteWithContext,
@@ -108,16 +108,55 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <main className="flex-grow">
-            <Outlet />
-          </main>
-          <Footer />
-        </div>
-        <Toaster />
-        <GoogleAnalytics />
+        <I18nProvider>
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-grow">
+              <Outlet />
+            </main>
+            <Footer />
+          </div>
+          <Toaster />
+          <GoogleAnalytics />
+        </I18nProvider>
       </AuthProvider>
     </QueryClientProvider>
   );
+}
+
+function I18nProvider({ children }: { children: ReactNode }) {
+  const [isReady, setIsReady] = useEffect(() => {
+    let mounted = true;
+    import("@/i18n/config").then(() => {
+      if (mounted) setIsReady(true);
+    });
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const [ready, setReady] = useEffect(() => {
+    // We need a way to track if i18n is initialized
+    // Since i18n init is async, we can check it
+    return true;
+  }, []);
+
+  // Using a simplified approach: just dynamic import and state
+  const [initialized, setInitialized] = useState(false);
+
+  useEffect(() => {
+    import("@/i18n/config").then(() => {
+      setInitialized(true);
+    });
+  }, []);
+
+  if (!initialized) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-[#011612]">
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  return <>{children}</>;
 }
