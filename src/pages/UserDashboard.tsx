@@ -170,20 +170,42 @@ export default function UserDashboard() {
                             <td className="px-8 py-5">
                               <div>
                                 <h5 className="font-bold text-slate-900">{order.service_type}</h5>
-                                <p className="text-xs text-slate-500 mt-0.5">#{order.order_number}</p>
+                                <div className="flex items-center gap-2 mt-0.5">
+                                  <span className="text-xs text-slate-500">#{order.order_number}</span>
+                                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-400 font-bold uppercase tracking-tighter">
+                                    {new Date(order.created_at).toLocaleDateString()}
+                                  </span>
+                                </div>
                               </div>
                             </td>
                             <td className="px-6 py-5">
-                              <span className={`inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold border ${getStatusColor(order.status)} uppercase`}>
-                                {order.status.replace('_', ' ')}
-                              </span>
+                              <div className="flex flex-col gap-1">
+                                <span className={`inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold border ${getStatusColor(order.status)} uppercase w-fit`}>
+                                  {order.status.replace('_', ' ')}
+                                </span>
+                                {order.payment_status === 'pending' && (
+                                  <span className="text-[9px] text-orange-500 font-bold flex items-center gap-1">
+                                    <div className="w-1 h-1 rounded-full bg-orange-500 animate-pulse" />
+                                    Awaiting Payment Approval
+                                  </span>
+                                )}
+                                {order.payment_status === 'paid' && (
+                                  <span className="text-[9px] text-green-600 font-bold flex items-center gap-1">
+                                    <ShieldCheck className="w-3 h-3" />
+                                    Payment Verified
+                                  </span>
+                                )}
+                              </div>
                             </td>
                             <td className="px-6 py-5">
-                              <span className="font-bold text-slate-900">৳{order.amount.toLocaleString()}</span>
+                              <div className="flex flex-col">
+                                <span className="font-bold text-slate-900">৳{order.amount.toLocaleString()}</span>
+                                <span className="text-[10px] text-slate-400 font-medium">{order.package_name}</span>
+                              </div>
                             </td>
                             <td className="px-8 py-5 text-right">
-                              <button className="p-2 hover:bg-white rounded-lg transition-all border border-transparent hover:border-slate-200">
-                                <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors" />
+                              <button className="px-4 py-2 bg-slate-50 hover:bg-slate-100 text-slate-600 rounded-xl text-xs font-bold transition-all border border-slate-200">
+                                Track Details
                               </button>
                             </td>
                           </motion.tr>
