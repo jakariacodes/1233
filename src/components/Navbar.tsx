@@ -262,7 +262,7 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.href as any}
-                  className="text-lg font-medium py-2 hover:text-primary transition-colors"
+                  className="text-lg font-semibold py-2 hover:text-primary transition-colors text-slate-700"
                   activeProps={{ className: "text-primary" }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
