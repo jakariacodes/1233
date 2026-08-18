@@ -36,9 +36,13 @@ const Auth = () => {
 
   useEffect(() => {
     if (user) {
-      navigate({ to: '/' });
+      if (isAdmin) {
+        navigate({ to: '/admin' });
+      } else {
+        navigate({ to: '/dashboard' });
+      }
     }
-  }, [user, navigate]);
+  }, [user, isAdmin, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
