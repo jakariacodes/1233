@@ -47,7 +47,8 @@ export const createOrder = createServerFn({ method: "POST" })
     }),
     amount: z.number(),
     packageName: z.string().optional(),
-    serviceType: z.string().optional()
+    serviceType: z.string().optional(),
+    paymentMethod: z.string().optional()
   }).parse)
   .handler(async ({ data }) => {
     const { data: order, error } = await supabaseAdmin
@@ -62,7 +63,8 @@ export const createOrder = createServerFn({ method: "POST" })
         package_name: data.packageName,
         amount: data.amount,
         status: 'pending',
-        payment_status: 'unpaid'
+        payment_status: 'unpaid',
+        payment_method: data.paymentMethod
       } as any)
       .select()
       .single();
