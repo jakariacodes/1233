@@ -14,13 +14,23 @@ export const getServices = createServerFn({ method: "GET" }).handler(async () =>
 export const getServiceById = createServerFn({ method: "GET" })
   .inputValidator(z.string().parse)
   .handler(async ({ data: id }) => {
-    const { data, error } = await supabaseAdmin
+    // First try to find by ID if it's a valid UUID
+    const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
+    
+    let query = supabaseAdmin
       .from("services")
-      .select("*, service_packages(*)")
-      .eq("id", id)
-      .or(`slug.eq.${id}`)
-      .single();
+      .select("*, service_packages(*)");
+    
+    if (isUuid) {
+      query = query.or(`id.eq.${id},slug.eq.${id}`);
+    } else {
+      query = query.eq("slug", id);
+    }
+    
+    const { data, error } = await query.maybeSingle();
+    
     if (error) throw error;
+    if (!data) return null;
     return data;
   });
 
