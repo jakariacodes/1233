@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, X, ChevronDown, Sparkles, Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase, Zap, ArrowRight } from "lucide-react";
 import React from "react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const iconMap: Record<string, any> = {
   Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase, Zap
@@ -71,6 +72,7 @@ const services = [
 ];
 
 const Navbar = () => {
+  const { user, isAdmin } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
