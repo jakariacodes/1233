@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
-import { Eye, EyeOff, LogIn, UserPlus, ArrowRight, Sparkles } from "lucide-react";
+import { Eye, EyeOff, LogIn, UserPlus, ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate } from "@tanstack/react-router";
 import { z } from "zod";
@@ -63,16 +63,16 @@ const Auth = () => {
         return;
       }
 
-      const { error } = await signIn(formData.email, formData.password);
+      const { error, data } = await signIn(formData.email, formData.password);
       if (error) {
         if (error.message.includes('Invalid login credentials')) {
-          toast.error("Invalid admin email or password.");
+          toast.error("Invalid email or password.");
         } else {
           toast.error(error.message);
         }
       } else {
-        toast.success("Admin access granted. Welcome back!");
-        navigate({ to: '/admin' });
+        toast.success("Welcome back!");
+        // Redirection will be handled by useEffect
       }
     } catch (error) {
       toast.error("An unexpected error occurred. Please try again.");
@@ -100,14 +100,14 @@ const Auth = () => {
                 {/* Header */}
                 <div className="text-center mb-8 animate-slide-up">
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
-                    <Sparkles className="w-4 h-4" />
-                    <span className="text-sm font-medium">Admin Secure Login</span>
+                    <ShieldCheck className="w-4 h-4" />
+                    <span className="text-sm font-medium">Secure Access Portal</span>
                   </div>
                   <h1 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                    Admin Portal
+                    Welcome Back
                   </h1>
                   <p className="text-muted-foreground">
-                    Please sign in with your administrator credentials
+                    Please sign in to access your account
                   </p>
                 </div>
 
