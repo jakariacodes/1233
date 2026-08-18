@@ -119,8 +119,8 @@ const Navbar = () => {
   return (
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
-      "bg-white/80 backdrop-blur-xl border-b border-border/10 py-5",
-      isScrolled && "shadow-sm py-3"
+      "bg-white border-b border-border/10 py-5",
+      isScrolled && "shadow-md py-3"
     )}>
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
