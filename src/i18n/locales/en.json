@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "team": "Team",
+    "blog": "Blog",
+    "contact": "Contact",
+    "getStarted": "Get Started",
+    "login": "Login"
+  },
+  "hero": {
+    "badge": "NextOnline Technology — Bangladesh's Leading Agency",
+    "digitize": "Digitize Your Imagination",
+    "titlePart1": "Innovative Software",
+    "titlePart2": "Development Company",
+    "titlePart3": "in Bangladesh",
+    "subtitle": "We provide B2B and B2C-based software solutions that develop creative and inventive software solutions for individual industries.",
+    "companyDeck": "Company Deck",
+    "ourProducts": "Our Products",
+    "trustedBy": "Trusted By"
+  },
+  "services": {
+    "title": "Premium Digital Services",
+    "subtitle": "Under One Platform",
+    "description": "We deliver comprehensive digital solutions that transform businesses and create lasting impact in the digital landscape.",
+    "viewAll": "View All Services",
+    "explore": "Explore Service"
+  }
+}
