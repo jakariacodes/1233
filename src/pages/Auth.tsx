@@ -31,7 +31,7 @@ const Auth = () => {
     password: "",
   });
 
-  const { user, signIn } = useAuth();
+  const { user, signIn, isAdmin } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
