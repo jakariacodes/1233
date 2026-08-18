@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { User, Mail, Phone, MapPin, Globe, ArrowRight, Loader2, ShieldCheck } from "lucide-react";
+import { User, Mail, Phone, MapPin, Globe, ArrowRight, Loader2, ShieldCheck, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import PaymentMethodSelector from "./PaymentMethodSelector";
 
 interface CheckoutFormProps {
   formData: any;
@@ -13,6 +14,9 @@ interface CheckoutFormProps {
   step: number;
   nextStep: () => void;
   prevStep: () => void;
+  onPaymentMethodChange: (method: string) => void;
+  selectedPaymentMethod: string;
+  amount: number;
 }
 
 export default function CheckoutForm({ 
@@ -22,21 +26,24 @@ export default function CheckoutForm({
   isSubmitting, 
   step,
   nextStep,
-  prevStep 
+  prevStep,
+  onPaymentMethodChange,
+  selectedPaymentMethod,
+  amount
 }: CheckoutFormProps) {
   return (
     <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-slate-100">
       {/* Stepper */}
       <div className="flex items-center gap-4 mb-12">
-        {[1, 2].map((i) => (
+        {[1, 2, 3].map((i) => (
           <div key={i} className="flex items-center gap-2">
             <div className={`w-10 h-10 rounded-2xl flex items-center justify-center text-sm font-bold transition-all duration-300 ${step >= i ? "bg-primary text-white shadow-lg shadow-primary/20" : "bg-slate-100 text-slate-400"}`}>
               {i}
             </div>
             <span className={`text-sm font-bold ${step >= i ? "text-slate-900" : "text-slate-400"}`}>
-              {i === 1 ? "Details" : "Review"}
+              {i === 1 ? "Details" : i === 2 ? "Payment" : "Review"}
             </span>
-            {i === 1 && <div className="w-12 h-px bg-slate-200 mx-2" />}
+            {i < 3 && <div className="w-12 h-px bg-slate-200 mx-2" />}
           </div>
         ))}
       </div>
@@ -126,6 +133,45 @@ export default function CheckoutForm({
               Review Order <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>
+        ) : step === 2 ? (
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="space-y-8"
+          >
+            <div className="space-y-4">
+              <h3 className="font-bold text-xl flex items-center gap-3 text-slate-900">
+                <CreditCard className="w-6 h-6 text-primary" />
+                Select Payment Method
+              </h3>
+              <p className="text-slate-500">Choose your preferred way to pay securely.</p>
+            </div>
+
+            <PaymentMethodSelector 
+              selectedMethod={selectedPaymentMethod}
+              onSelect={onPaymentMethodChange}
+              amount={amount}
+            />
+
+            <div className="flex flex-col gap-4">
+              <Button 
+                type="button" 
+                onClick={nextStep}
+                disabled={!selectedPaymentMethod}
+                className="w-full h-16 rounded-[1.25rem] font-bold text-lg group bg-slate-900 hover:bg-slate-800 text-white"
+              >
+                Continue to Review <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button 
+                type="button" 
+                variant="ghost" 
+                onClick={prevStep} 
+                className="h-12 rounded-xl text-slate-500 font-semibold hover:bg-slate-50"
+              >
+                Back to Details
+              </Button>
+            </div>
+          </motion.div>
         ) : (
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -161,6 +207,21 @@ export default function CheckoutForm({
               </div>
             </div>
 
+            <div className="bg-slate-50 rounded-3xl p-8 space-y-6 border border-slate-100">
+              <h3 className="font-bold text-lg flex items-center gap-3 text-slate-900">
+                <CreditCard className="w-6 h-6 text-primary" />
+                Payment Summary
+              </h3>
+              <div className="flex justify-between items-center py-2 border-b border-slate-200/50">
+                <span className="text-slate-500 font-medium">Payment Method</span>
+                <span className="font-bold text-slate-900 uppercase">{selectedPaymentMethod}</span>
+              </div>
+              <div className="flex justify-between items-center py-2">
+                <span className="text-slate-500 font-medium">Total Amount</span>
+                <span className="text-xl font-bold text-primary">${amount}</span>
+              </div>
+            </div>
+
             <div className="flex flex-col gap-4">
               <Button 
                 type="submit" 
@@ -172,7 +233,7 @@ export default function CheckoutForm({
                     <Loader2 className="w-6 h-6 animate-spin" /> Processing...
                   </span>
                 ) : (
-                  "Place Secure Order"
+                  "Confirm & Complete Payment"
                 )}
               </Button>
               <Button 
@@ -181,7 +242,7 @@ export default function CheckoutForm({
                 onClick={prevStep} 
                 className="h-12 rounded-xl text-slate-500 font-semibold hover:bg-slate-50"
               >
-                Edit My Details
+                Change Payment Method
               </Button>
             </div>
           </motion.div>

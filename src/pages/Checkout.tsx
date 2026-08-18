@@ -24,6 +24,7 @@ const Checkout = ({ service, package: pkg }: CheckoutProps) => {
     address: "",
     country: "Bangladesh",
   });
+  const [paymentMethod, setPaymentMethod] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
@@ -45,7 +46,8 @@ const Checkout = ({ service, package: pkg }: CheckoutProps) => {
           customerDetails: formData,
           amount: pkg.price,
           packageName: pkg.name,
-          serviceType: service.title
+          serviceType: service.title,
+          paymentMethod: paymentMethod
         }
       });
       
@@ -81,6 +83,9 @@ const Checkout = ({ service, package: pkg }: CheckoutProps) => {
               step={step}
               nextStep={nextStep}
               prevStep={prevStep}
+              onPaymentMethodChange={setPaymentMethod}
+              selectedPaymentMethod={paymentMethod}
+              amount={pkg.price}
             />
           </div>
 
