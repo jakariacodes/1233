@@ -10,12 +10,18 @@ export const Route = createFileRoute('/_authenticated')({
 function AuthenticatedLayout() {
   const { user, isAdmin, loading } = useAuth();
   const navigate = Route.useNavigate();
+  const pathname = window.location.pathname;
   
   useEffect(() => {
     if (!loading && !user) {
       navigate({ to: '/auth' });
     }
-  }, [user, loading, navigate]);
+    
+    // Redirect non-admins away from admin routes
+    if (!loading && user && pathname.startsWith('/admin') && !isAdmin) {
+      navigate({ to: '/dashboard' });
+    }
+  }, [user, loading, navigate, isAdmin, pathname]);
 
   if (loading) {
     return (

@@ -22,6 +22,7 @@ import { Route as RefundRouteImport } from './routes/refund'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AuthenticatedAdminRouteRouteImport } from './routes/_authenticated/admin/route'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogIdRouteImport } from './routes/blog.$id'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -98,6 +99,11 @@ const TermsRoute = TermsRouteImport.update({
 const AuthenticatedAdminRouteRoute = AuthenticatedAdminRouteRouteImport.update({
   id: '/admin',
   path: '/admin',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -186,6 +192,7 @@ export interface FileRoutesByFullPath {
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/admin': typeof AuthenticatedAdminRouteRouteWithChildren
+  '/dashboard': typeof AuthenticatedDashboardRoute
   '/blog/$id': typeof BlogIdRoute
   '/services/$id': typeof ServicesIdRoute
   '/blog/': typeof BlogIndexRoute
@@ -212,6 +219,7 @@ export interface FileRoutesByTo {
   '/refund': typeof RefundRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
   '/blog/$id': typeof BlogIdRoute
   '/services/$id': typeof ServicesIdRoute
   '/blog': typeof BlogIndexRoute
@@ -241,6 +249,7 @@ export interface FileRoutesById {
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteRouteWithChildren
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/blog/$id': typeof BlogIdRoute
   '/services/$id': typeof ServicesIdRoute
   '/blog/': typeof BlogIndexRoute
@@ -270,6 +279,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms'
     | '/admin'
+    | '/dashboard'
     | '/blog/$id'
     | '/services/$id'
     | '/blog/'
@@ -296,6 +306,7 @@ export interface FileRouteTypes {
     | '/refund'
     | '/team'
     | '/terms'
+    | '/dashboard'
     | '/blog/$id'
     | '/services/$id'
     | '/blog'
@@ -324,6 +335,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms'
     | '/_authenticated/admin'
+    | '/_authenticated/dashboard'
     | '/blog/$id'
     | '/services/$id'
     | '/blog/'
@@ -449,6 +461,13 @@ declare module '@tanstack/react-router' {
       path: '/admin'
       fullPath: '/admin'
       preLoaderRoute: typeof AuthenticatedAdminRouteRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
     '/blog/': {
@@ -577,10 +596,12 @@ const AuthenticatedAdminRouteRouteWithChildren =
 
 interface AuthenticatedRouteChildren {
   AuthenticatedAdminRouteRoute: typeof AuthenticatedAdminRouteRouteWithChildren
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
 }
 
 const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
   AuthenticatedAdminRouteRoute: AuthenticatedAdminRouteRouteWithChildren,
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
 }
 
 const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(

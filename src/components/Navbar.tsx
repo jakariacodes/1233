@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, X, ChevronDown, Sparkles, Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase, Zap, ArrowRight } from "lucide-react";
 import React from "react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const iconMap: Record<string, any> = {
   Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase, Zap
@@ -71,6 +72,7 @@ const services = [
 ];
 
 const Navbar = () => {
+  const { user, isAdmin } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -213,18 +215,28 @@ const Navbar = () => {
 
         {/* Right Side Actions */}
         <div className="flex items-center gap-6">
-          <Link 
-            to={"/auth" as any} 
-            className="hidden md:block text-sm font-medium hover:text-primary transition-colors text-muted-foreground"
-          >
-            Login
-          </Link>
-          <Link to="/contact">
-            <Button className="rounded-full px-8 bg-primary hover:bg-primary/90 text-white font-bold h-11 text-sm shadow-lg shadow-primary/25" variant="default">
-              <Sparkles className="w-4 h-4 mr-2" />
-              Get Started
-            </Button>
-          </Link>
+          {!user ? (
+            <>
+              <Link 
+                to={"/auth" as any} 
+                className="hidden md:block text-sm font-medium hover:text-primary transition-colors text-muted-foreground"
+              >
+                Login
+              </Link>
+              <Link to="/contact">
+                <Button className="rounded-full px-8 bg-primary hover:bg-primary/90 text-white font-bold h-11 text-sm shadow-lg shadow-primary/25" variant="default">
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  Get Started
+                </Button>
+              </Link>
+            </>
+          ) : (
+            <Link to={isAdmin ? "/admin" : "/dashboard"}>
+              <Button className="rounded-full px-8 bg-primary hover:bg-primary/90 text-white font-bold h-11 text-sm shadow-lg shadow-primary/25" variant="default">
+                {isAdmin ? "Admin Panel" : "Dashboard"}
+              </Button>
+            </Link>
+          )}
 
           {/* Mobile Toggle */}
           <button 
@@ -258,12 +270,22 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="pt-4 mt-2 border-t border-border/50 flex flex-col gap-4">
-                <Link to={"/auth" as any} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium py-2">
-                  Login
-                </Link>
-                <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button className="w-full rounded-full h-12 shadow-lg">Get Started</Button>
-                </Link>
+                {!user ? (
+                  <>
+                    <Link to={"/auth" as any} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium py-2">
+                      Login
+                    </Link>
+                    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                      <Button className="w-full rounded-full h-12 shadow-lg">Get Started</Button>
+                    </Link>
+                  </>
+                ) : (
+                  <Link to={isAdmin ? "/admin" : "/dashboard"} onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button className="w-full rounded-full h-12 shadow-lg bg-primary">
+                      {isAdmin ? "Admin Panel" : "Dashboard"}
+                    </Button>
+                  </Link>
+                )}
               </div>
             </div>
           </motion.div>
