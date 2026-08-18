@@ -7,7 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -125,29 +125,16 @@ function RootComponent() {
 }
 
 function I18nProvider({ children }: { children: ReactNode }) {
-  const [isReady, setIsReady] = useEffect(() => {
+  const [initialized, setInitialized] = useState(false);
+
+  useEffect(() => {
     let mounted = true;
     import("@/i18n/config").then(() => {
-      if (mounted) setIsReady(true);
+      if (mounted) setInitialized(true);
     });
     return () => {
       mounted = false;
     };
-  }, []);
-
-  const [ready, setReady] = useEffect(() => {
-    // We need a way to track if i18n is initialized
-    // Since i18n init is async, we can check it
-    return true;
-  }, []);
-
-  // Using a simplified approach: just dynamic import and state
-  const [initialized, setInitialized] = useState(false);
-
-  useEffect(() => {
-    import("@/i18n/config").then(() => {
-      setInitialized(true);
-    });
   }, []);
 
   if (!initialized) {
