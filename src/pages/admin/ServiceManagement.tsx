@@ -128,11 +128,13 @@ const ServiceManagement = () => {
         slug: (formData.slug || generateSlug(formData.title)).trim(),
         subtitle: formData.subtitle?.trim() || null,
         description: formData.description?.trim() || null,
-        icon_name: formData.icon_name?.trim() || null,
+        icon_name: formData.icon_name?.trim() || 'Globe',
         image_url: formData.image_url?.trim() || null,
         is_active: formData.is_active,
         sort_order: formData.sort_order,
       };
+
+      let serviceId = editingService?.id;
 
       if (editingService) {
         const { error } = await supabase
@@ -140,14 +142,39 @@ const ServiceManagement = () => {
           .update(serviceData)
           .eq('id', editingService.id);
         if (error) throw error;
-        toast.success('Service updated successfully');
       } else {
-        const { error } = await supabase
+        const { data, error } = await supabase
           .from('services')
-          .insert(serviceData);
+          .insert(serviceData)
+          .select()
+          .single();
         if (error) throw error;
-        toast.success('Service created successfully');
+        serviceId = data.id;
       }
+
+      // Sync Packages
+      if (serviceId) {
+        // Simple approach: delete existing and re-insert for update, or just insert for new
+        if (editingService) {
+          await supabase.from('service_packages').delete().eq('service_id', serviceId);
+        }
+        
+        if (packages.length > 0) {
+          const packagesToInsert = packages.map(pkg => ({
+            service_id: serviceId,
+            name: pkg.name,
+            price: pkg.price,
+            description: pkg.description || null,
+            features: pkg.features || [],
+            is_popular: pkg.is_popular || false,
+            delivery_days: pkg.delivery_days || null,
+          }));
+          const { error: pkgError } = await supabase.from('service_packages').insert(packagesToInsert);
+          if (pkgError) throw pkgError;
+        }
+      }
+
+      toast.success(editingService ? 'Service updated successfully' : 'Service created successfully');
       setIsDialogOpen(false);
       resetForm();
       refetch();
@@ -157,6 +184,7 @@ const ServiceManagement = () => {
       setIsSubmitting(false);
     }
   };
+
 
   const deleteService = async (id: string) => {
     if (!confirm('Are you sure you want to delete this service?')) return;
