@@ -2,6 +2,8 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { useNavigate } from "@tanstack/react-router";
+import { useServices } from "@/hooks/useServices";
+
 
 
 const tiers = [
@@ -30,22 +32,43 @@ const tiers = [
 
 const PricingSection = () => {
   const navigate = useNavigate();
+  const { services } = useServices(true);
 
   const handleOrder = (tierName: string) => {
+    // Try to find matching services in the database
     const slugMap: Record<string, string> = {
       "Starter": "web-design",
       "Professional": "web-development",
       "Enterprise": "ai-solutions"
     };
 
+    const targetSlug = slugMap[tierName] || 'web-design';
+    const service = services.find(s => s.slug === targetSlug) || services[0];
+    
+    if (!service) {
+      navigate({ to: '/contact' });
+      return;
+    }
+
+    // Map tier names to package indices (0: Basic, 1: Standard, 2: Premium)
+    const packageIndexMap: Record<string, number> = {
+      "Starter": 0,
+      "Professional": 1,
+      "Enterprise": 2
+    };
+
+    const pkgIndex = packageIndexMap[tierName] ?? 0;
+    const pkg = service.service_packages?.[Math.min(pkgIndex, (service.service_packages?.length || 1) - 1)];
+
     navigate({
       to: '/checkout',
       search: {
-        serviceId: slugMap[tierName] || 'web-design',
-        packageId: 'basic'
+        serviceId: service.id,
+        packageId: pkg?.id || 'basic'
       }
     });
   };
+
 
 
   return (
