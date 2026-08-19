@@ -19,7 +19,16 @@ export const Route = createFileRoute('/checkout')({
     
     try {
       const service = await getServiceById({ data: serviceId });
-      const pkg = service?.service_packages?.find((p: any) => p.id === packageId);
+      let pkg = service?.service_packages?.find((p: any) => p.id === packageId);
+      
+      // Fallback for generic package IDs like 'basic', 'standard', 'premium'
+      if (!pkg && service?.service_packages?.length) {
+        if (packageId === 'basic') pkg = service.service_packages[0];
+        else if (packageId === 'standard') pkg = service.service_packages[Math.min(1, service.service_packages.length - 1)];
+        else if (packageId === 'premium') pkg = service.service_packages[service.service_packages.length - 1];
+        else pkg = service.service_packages[0];
+      }
+
       
       return { service, package: pkg };
     } catch (error) {
