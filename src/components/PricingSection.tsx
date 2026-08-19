@@ -9,21 +9,21 @@ import { useServices } from "@/hooks/useServices";
 const tiers = [
   { 
     name: "Starter", 
-    price: "$499", 
+    price: "$2000", 
     description: "Perfect for small businesses starting their digital journey.",
     features: ["Basic SEO", "Responsive Design", "Up to 5 Pages", "1 Month Support", "Contact Form Integration"],
     popular: false
   },
   { 
     name: "Professional", 
-    price: "$999", 
+    price: "$3500", 
     description: "Best for growing companies needing a premium presence.",
     features: ["Advanced SEO", "Custom UI/UX Design", "Unlimited Pages", "3 Months Support", "CMS Integration", "Performance Audit"],
     popular: true
   },
   { 
     name: "Enterprise", 
-    price: "Custom", 
+    price: "$5000", 
     description: "Tailored solutions for large scale complex requirements.",
     features: ["Full AI Integration", "Dedicated Project Manager", "24/7 Priority Support", "Custom API Development", "Security Pentesting"],
     popular: false
