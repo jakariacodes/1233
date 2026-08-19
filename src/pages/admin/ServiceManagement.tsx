@@ -361,9 +361,55 @@ const ServiceManagement = () => {
             ))}
           </div>
         )}
+        {/* Package Editor Dialog */}
+        <Dialog open={isPackageDialogOpen} onOpenChange={setIsPackageDialogOpen}>
+          <DialogContent className="max-w-md">
+            <DialogHeader>
+              <DialogTitle>{editingPackage ? 'Edit Package' : 'Add Package'}</DialogTitle>
+            </DialogHeader>
+            <form onSubmit={handlePackageSubmit} className="space-y-4 pt-4">
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Package Name</label>
+                <Input value={packageFormData.name} onChange={(e) => setPackageFormData({...packageFormData, name: e.target.value})} placeholder="e.g. Basic, Standard, Premium" />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Price (BDT)</label>
+                  <Input type="number" value={packageFormData.price} onChange={(e) => setPackageFormData({...packageFormData, price: parseFloat(e.target.value)})} />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Delivery Days</label>
+                  <Input type="number" value={packageFormData.delivery_days} onChange={(e) => setPackageFormData({...packageFormData, delivery_days: parseInt(e.target.value)})} />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Description</label>
+                <Input value={packageFormData.description} onChange={(e) => setPackageFormData({...packageFormData, description: e.target.value})} />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Features (one per line)</label>
+                <Textarea value={packageFormData.features} onChange={(e) => setPackageFormData({...packageFormData, features: e.target.value})} className="h-32" />
+              </div>
+              <div className="flex items-center gap-2 py-2">
+                <input 
+                  type="checkbox" 
+                  id="is_popular" 
+                  checked={packageFormData.is_popular} 
+                  onChange={(e) => setPackageFormData({...packageFormData, is_popular: e.target.checked})}
+                  className="rounded border-border"
+                />
+                <label htmlFor="is_popular" className="text-sm font-medium cursor-pointer">Mark as Popular</label>
+              </div>
+              <Button type="submit" className="w-full">
+                {editingPackage ? 'Update Package' : 'Add Package'}
+              </Button>
+            </form>
+          </DialogContent>
+        </Dialog>
       </div>
     </AdminLayout>
   );
 };
+
 
 export default ServiceManagement;
