@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AdminLayout } from '@/components/admin/AdminLayout';
-import { useServices, Service } from '@/hooks/useServices';
+import { useServices, Service, ServicePackage } from '@/hooks/useServices';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -12,11 +12,20 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
-import { Plus, Edit2, Trash2, Loader2, Search, Settings } from 'lucide-react';
-import { serviceSchema, validateForm } from '@/lib/validation';
-import { motion } from 'framer-motion';
+import { Plus, Edit2, Trash2, Loader2, Search, Settings, Package, X, Check } from 'lucide-react';
+import { serviceSchema, servicePackageSchema, validateForm } from '@/lib/validation';
+import { motion, AnimatePresence } from 'framer-motion';
+
 
 const ServiceManagement = () => {
   const { services, loading, refetch } = useServices(false);
