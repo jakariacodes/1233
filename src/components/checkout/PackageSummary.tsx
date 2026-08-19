@@ -29,7 +29,7 @@ export default function PackageSummary({ service, package: pkg }: PackageSummary
       <div className="space-y-4 mb-10">
         <div className="flex justify-between items-center text-sm">
           <span className="text-slate-500 font-medium">Standard Price</span>
-          <span className="font-bold text-slate-900">৳{pkg.price.toLocaleString()}</span>
+          <span className="font-bold text-slate-900">${pkg.price.toLocaleString()}</span>
         </div>
         <div className="flex justify-between items-center text-sm">
           <span className="text-slate-500 font-medium">Processing Fee</span>
@@ -44,7 +44,7 @@ export default function PackageSummary({ service, package: pkg }: PackageSummary
       <div className="flex justify-between items-center pt-8 border-t border-slate-50 mb-8">
         <span className="text-lg font-bold text-slate-400 uppercase tracking-widest text-[12px]">Total Payable</span>
         <div className="text-right">
-          <span className="text-3xl font-display font-bold text-primary block">৳{pkg.price.toLocaleString()}</span>
+          <span className="text-3xl font-display font-bold text-primary block">${pkg.price.toLocaleString()}</span>
           <span className="text-[10px] text-slate-400 font-bold uppercase">All Taxes Included</span>
         </div>
       </div>
