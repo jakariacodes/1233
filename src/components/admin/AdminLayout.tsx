@@ -12,7 +12,9 @@ export const AdminLayout = ({ children }: { children?: React.ReactNode }) => {
 
   const menuItems = [
     { icon: LayoutDashboard, label: "Dashboard", href: "/admin" },
+    { icon: Briefcase, label: "Services", href: "/admin/services" },
     { icon: FileText, label: "Blog Posts", href: "/admin/blog" },
+
     { icon: Briefcase, label: "Portfolio", href: "/admin/portfolio" },
     { icon: ShoppingCart, label: "Orders", href: "/admin/orders" },
     { icon: MessageSquare, label: "Messages", href: "/admin/messages" },
