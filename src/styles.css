@@ -182,4 +182,12 @@
   .animate-pulse-gentle {
     animation: pulse-gentle 4s ease-in-out infinite;
   }
+
+  .glass-card {
+    @apply bg-white/70 dark:bg-[#011612]/70 backdrop-blur-md border border-white/20 dark:border-white/10;
+  }
+
+  .glass-sidebar {
+    @apply bg-white/90 dark:bg-[#011612]/95 backdrop-blur-xl border-r border-border;
+  }
 }
