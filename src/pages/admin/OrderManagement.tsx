@@ -21,24 +21,25 @@ import {
 } from '@/components/ui/select';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
-import { Plus, Edit2, Trash2, ShoppingCart, Loader2, Search, Clock, DollarSign, CheckCircle, AlertCircle, PlayCircle } from 'lucide-react';
+import { Plus, Edit2, Trash2, ShoppingCart, Loader2, Search, Clock, DollarSign, CheckCircle, AlertCircle, PlayCircle, Filter } from 'lucide-react';
 import { orderSchema, validateForm } from '@/lib/validation';
+import { motion } from 'framer-motion';
 
 const statusOptions = [
-  { value: 'pending', label: 'Pending', color: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400' },
+  { value: 'pending', label: 'Pending', color: 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400' },
   { value: 'approved', label: 'Approved', color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400' },
   { value: 'in_progress', label: 'In Progress', color: 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400' },
   { value: 'review', label: 'Review', color: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400' },
   { value: 'revision', label: 'Revision', color: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400' },
-  { value: 'completed', label: 'Completed', color: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' },
-  { value: 'cancelled', label: 'Cancelled', color: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' },
+  { value: 'completed', label: 'Completed', color: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' },
+  { value: 'cancelled', label: 'Cancelled', color: 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400' },
 ];
 
 const paymentStatusOptions = [
-  { value: 'unpaid', label: 'Unpaid', color: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' },
-  { value: 'partial', label: 'Partial', color: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400' },
-  { value: 'paid', label: 'Paid', color: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' },
-  { value: 'refunded', label: 'Refunded', color: 'bg-gray-100 text-gray-700 dark:bg-gray-900/30 dark:text-gray-400' },
+  { value: 'unpaid', label: 'Unpaid', color: 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400' },
+  { value: 'partial', label: 'Partial', color: 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400' },
+  { value: 'paid', label: 'Paid', color: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' },
+  { value: 'refunded', label: 'Refunded', color: 'bg-slate-100 text-slate-700 dark:bg-slate-900/30 dark:text-slate-400' },
 ];
 
 const OrderManagement = () => {
@@ -126,8 +127,6 @@ const OrderManagement = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Validate form data
     const validation = validateForm(orderSchema, {
       customer_name: formData.customer_name,
       customer_email: formData.customer_email,
@@ -185,7 +184,6 @@ const OrderManagement = () => {
 
         if (error) throw error;
 
-        // Send email notification for new order
         supabase.functions.invoke('send-notification', {
           body: {
             type: 'order',
@@ -250,14 +248,6 @@ const OrderManagement = () => {
     }
   };
 
-  const getStatusColor = (status: string) => {
-    return statusOptions.find(s => s.value === status)?.color || 'bg-gray-100 text-gray-700';
-  };
-
-  const getPaymentStatusColor = (status: string) => {
-    return paymentStatusOptions.find(s => s.value === status)?.color || 'bg-gray-100 text-gray-700';
-  };
-
   const formatDate = (dateString: string | null) => {
     if (!dateString) return '-';
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -271,227 +261,59 @@ const OrderManagement = () => {
 
   return (
     <AdminLayout>
-      <div className="space-y-6">
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Card>
-            <CardContent className="p-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center">
-                  <AlertCircle className="w-5 h-5 text-yellow-600" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold">{pendingCount}</p>
-                  <p className="text-sm text-muted-foreground">Pending</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                  <PlayCircle className="w-5 h-5 text-purple-600" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold">{inProgressCount}</p>
-                  <p className="text-sm text-muted-foreground">In Progress</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold">{completedCount}</p>
-                  <p className="text-sm text-muted-foreground">Completed</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                  <DollarSign className="w-5 h-5 text-blue-600" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold">৳{totalRevenue.toLocaleString()}</p>
-                  <p className="text-sm text-muted-foreground">Revenue</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div className="space-y-8">
+        {/* Header Section */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-display font-bold">Orders</h1>
-            <p className="text-muted-foreground mt-1">
-              Manage customer orders
-            </p>
+            <h1 className="text-4xl font-display font-bold tracking-tight">Orders</h1>
+            <p className="text-muted-foreground mt-2 text-lg">Manage your customer transactions</p>
           </div>
-          <Dialog open={isDialogOpen} onOpenChange={(open) => {
-            setIsDialogOpen(open);
-            if (!open) resetForm();
-          }}>
+          <Dialog open={isDialogOpen} onOpenChange={(open) => { setIsDialogOpen(open); if (!open) resetForm(); }}>
             <DialogTrigger asChild>
-              <Button className="gap-2">
-                <Plus className="w-4 h-4" />
-                New Order
+              <Button size="lg" className="rounded-2xl gap-2 shadow-xl shadow-primary/20">
+                <Plus className="w-5 h-5" />
+                Create New Order
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+            <DialogContent className="max-w-3xl glass-card border-none shadow-2xl p-8 rounded-3xl">
               <DialogHeader>
-                <DialogTitle>
+                <DialogTitle className="text-2xl font-display font-bold">
                   {editingOrder ? `Edit Order ${editingOrder.order_number}` : 'Create New Order'}
                 </DialogTitle>
               </DialogHeader>
-              <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="space-y-6 mt-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Customer Name *</label>
-                    <Input
-                      value={formData.customer_name}
-                      onChange={(e) => setFormData({ ...formData, customer_name: e.target.value })}
-                      required
-                    />
+                    <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-muted-foreground">Customer Name</label>
+                    <Input value={formData.customer_name} onChange={(e) => setFormData({ ...formData, customer_name: e.target.value })} required className="rounded-xl h-12" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Customer Email *</label>
-                    <Input
-                      type="email"
-                      value={formData.customer_email}
-                      onChange={(e) => setFormData({ ...formData, customer_email: e.target.value })}
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Phone</label>
-                    <Input
-                      value={formData.customer_phone}
-                      onChange={(e) => setFormData({ ...formData, customer_phone: e.target.value })}
-                    />
+                    <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-muted-foreground">Customer Email</label>
+                    <Input type="email" value={formData.customer_email} onChange={(e) => setFormData({ ...formData, customer_email: e.target.value })} required className="rounded-xl h-12" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Service Type *</label>
-                    <Input
-                      value={formData.service_type}
-                      onChange={(e) => setFormData({ ...formData, service_type: e.target.value })}
-                      placeholder="Web Design, Development, etc."
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Package</label>
-                    <Input
-                      value={formData.package_name}
-                      onChange={(e) => setFormData({ ...formData, package_name: e.target.value })}
-                      placeholder="Basic, Standard, Premium"
-                    />
+                    <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-muted-foreground">Phone</label>
+                    <Input value={formData.customer_phone} onChange={(e) => setFormData({ ...formData, customer_phone: e.target.value })} className="rounded-xl h-12" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Deadline</label>
-                    <Input
-                      type="date"
-                      value={formData.deadline}
-                      onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Service Details</label>
-                  <Textarea
-                    value={formData.service_details}
-                    onChange={(e) => setFormData({ ...formData, service_details: e.target.value })}
-                    rows={3}
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Amount *</label>
-                    <Input
-                      type="number"
-                      value={formData.amount}
-                      onChange={(e) => setFormData({ ...formData, amount: parseFloat(e.target.value) || 0 })}
-                      required
-                    />
+                    <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-muted-foreground">Service Type</label>
+                    <Input value={formData.service_type} onChange={(e) => setFormData({ ...formData, service_type: e.target.value })} required className="rounded-xl h-12" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Currency</label>
-                    <Select value={formData.currency} onValueChange={(v) => setFormData({ ...formData, currency: v })}>
-                      <SelectTrigger><SelectValue /></SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="BDT">BDT (৳)</SelectItem>
-                        <SelectItem value="USD">USD ($)</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-muted-foreground">Amount</label>
+                    <Input type="number" value={formData.amount} onChange={(e) => setFormData({ ...formData, amount: parseFloat(e.target.value) || 0 })} required className="rounded-xl h-12" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Payment Method</label>
-                    <Input
-                      value={formData.payment_method}
-                      onChange={(e) => setFormData({ ...formData, payment_method: e.target.value })}
-                      placeholder="bKash, Bank, etc."
-                    />
+                    <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-muted-foreground">Deadline</label>
+                    <Input type="date" value={formData.deadline} onChange={(e) => setFormData({ ...formData, deadline: e.target.value })} className="rounded-xl h-12" />
                   </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Order Status</label>
-                    <Select value={formData.status} onValueChange={(v: Order['status']) => setFormData({ ...formData, status: v })}>
-                      <SelectTrigger><SelectValue /></SelectTrigger>
-                      <SelectContent>
-                        {statusOptions.map(opt => (
-                          <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Payment Status</label>
-                    <Select value={formData.payment_status} onValueChange={(v: Order['payment_status']) => setFormData({ ...formData, payment_status: v })}>
-                      <SelectTrigger><SelectValue /></SelectTrigger>
-                      <SelectContent>
-                        {paymentStatusOptions.map(opt => (
-                          <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Admin Notes</label>
-                  <Textarea
-                    value={formData.admin_notes}
-                    onChange={(e) => setFormData({ ...formData, admin_notes: e.target.value })}
-                    placeholder="Internal notes..."
-                    rows={2}
-                  />
                 </div>
 
                 <div className="flex justify-end gap-3 pt-4">
-                  <Button type="button" variant="outline" onClick={() => { resetForm(); setIsDialogOpen(false); }}>
-                    Cancel
-                  </Button>
-                  <Button type="submit" disabled={isSubmitting}>
+                  <Button type="button" variant="ghost" onClick={() => { resetForm(); setIsDialogOpen(false); }} className="rounded-xl px-8 h-12">Cancel</Button>
+                  <Button type="submit" disabled={isSubmitting} className="rounded-xl px-8 h-12 bg-primary hover:bg-primary/90 text-white shadow-lg">
                     {isSubmitting && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
-                    {editingOrder ? 'Update' : 'Create'} Order
+                    {editingOrder ? 'Update Order' : 'Create Order'}
                   </Button>
                 </div>
               </form>
@@ -499,119 +321,82 @@ const OrderManagement = () => {
           </Dialog>
         </div>
 
-        {/* Filters */}
-        <Card>
-          <CardContent className="p-4">
-            <div className="flex flex-col sm:flex-row gap-4">
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            { label: 'Pending', value: pendingCount, icon: AlertCircle, color: 'text-amber-500', bg: 'bg-amber-500/10' },
+            { label: 'In Progress', value: inProgressCount, icon: PlayCircle, color: 'text-purple-500', bg: 'bg-purple-500/10' },
+            { label: 'Completed', value: completedCount, icon: CheckCircle, color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
+            { label: 'Total Revenue', value: `৳${totalRevenue.toLocaleString()}`, icon: DollarSign, color: 'text-blue-500', bg: 'bg-blue-500/10' },
+          ].map((stat) => (
+            <Card key={stat.label} className="glass-card border-none shadow-lg">
+              <CardContent className="p-6 flex items-center gap-4">
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${stat.bg}`}>
+                  <stat.icon className={`w-7 h-7 ${stat.color}`} />
+                </div>
+                <div>
+                  <p className="text-3xl font-black font-display">{stat.value}</p>
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">{stat.label}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Orders Table */}
+        <Card className="glass-card border-none shadow-xl overflow-hidden">
+          <CardContent className="p-6">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <Input
-                  placeholder="Search orders..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
-                />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Input placeholder="Search orders, clients, services..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-12 h-14 rounded-2xl border-border/50" />
               </div>
               <Select value={statusFilter} onValueChange={setStatusFilter}>
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Filter by status" />
+                <SelectTrigger className="w-[200px] h-14 rounded-2xl border-border/50">
+                  <Filter className="w-4 h-4 mr-2" />
+                  <SelectValue placeholder="All Status" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">All Status</SelectItem>
-                  {statusOptions.map(opt => (
-                    <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
-                  ))}
+                  {statusOptions.map(opt => <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>)}
                 </SelectContent>
               </Select>
             </div>
+
+            {loading ? (
+              <div className="py-20 text-center"><Loader2 className="w-10 h-10 animate-spin mx-auto text-primary" /></div>
+            ) : (
+              <div className="grid gap-4">
+                {filteredOrders.map((order) => (
+                  <motion.div key={order.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                    <Card className="hover:shadow-lg transition-all duration-300">
+                      <CardContent className="p-6 flex flex-col md:flex-row md:items-center gap-6">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-2">
+                             <h3 className="font-bold font-display text-lg tracking-tight">{order.order_number}</h3>
+                             <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase ${statusOptions.find(s => s.value === order.status)?.color}`}>
+                               {statusOptions.find(s => s.value === order.status)?.label}
+                             </span>
+                          </div>
+                          <p className="font-bold text-xl">{order.customer_name}</p>
+                          <p className="text-sm text-muted-foreground">{order.customer_email}</p>
+                        </div>
+                        <div className="text-left md:text-right">
+                          <p className="text-3xl font-black font-display text-primary">৳{order.amount.toLocaleString()}</p>
+                          <p className="text-xs font-bold text-muted-foreground uppercase">{order.service_type}</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Button variant="outline" size="sm" onClick={() => openEditDialog(order)} className="rounded-xl px-4">Edit</Button>
+                          <Button variant="ghost" size="sm" className="text-rose-500 rounded-xl" onClick={() => handleDelete(order.id)}>Delete</Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            )}
           </CardContent>
         </Card>
-
-        {/* Orders List */}
-        {loading ? (
-          <div className="flex items-center justify-center py-12">
-            <Loader2 className="w-8 h-8 animate-spin text-primary" />
-          </div>
-        ) : filteredOrders.length === 0 ? (
-          <Card>
-            <CardContent className="flex flex-col items-center justify-center py-12">
-              <ShoppingCart className="w-16 h-16 text-muted-foreground mb-4" />
-              <h3 className="text-lg font-semibold mb-2">No orders found</h3>
-              <p className="text-muted-foreground mb-4">Create your first order</p>
-              <Button onClick={() => setIsDialogOpen(true)} className="gap-2">
-                <Plus className="w-4 h-4" />
-                New Order
-              </Button>
-            </CardContent>
-          </Card>
-        ) : (
-          <div className="grid gap-4">
-            {filteredOrders.map((order) => (
-              <Card key={order.id}>
-                <CardContent className="p-4">
-                  <div className="flex flex-col md:flex-row md:items-center gap-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <h3 className="font-bold font-mono">{order.order_number}</h3>
-                        <span className={`px-2 py-0.5 rounded-full text-xs ${getStatusColor(order.status)}`}>
-                          {statusOptions.find(s => s.value === order.status)?.label}
-                        </span>
-                        <span className={`px-2 py-0.5 rounded-full text-xs ${getPaymentStatusColor(order.payment_status)}`}>
-                          {paymentStatusOptions.find(s => s.value === order.payment_status)?.label}
-                        </span>
-                      </div>
-                      <p className="font-medium mt-1">{order.customer_name}</p>
-                      <p className="text-sm text-muted-foreground">{order.customer_email}</p>
-                      <div className="flex items-center gap-4 mt-2 text-sm">
-                        <span className="font-semibold">{order.service_type}</span>
-                        {order.package_name && <span className="text-muted-foreground">• {order.package_name}</span>}
-                      </div>
-                    </div>
-
-                    <div className="text-right">
-                      <p className="text-2xl font-bold">
-                        {order.currency === 'BDT' ? '৳' : '$'}{order.amount.toLocaleString()}
-                      </p>
-                      <div className="flex items-center gap-1 text-sm text-muted-foreground mt-1">
-                        <Clock className="w-3 h-3" />
-                        {formatDate(order.created_at)}
-                      </div>
-                      {order.deadline && (
-                        <p className="text-xs text-muted-foreground mt-1">
-                          Deadline: {formatDate(order.deadline)}
-                        </p>
-                      )}
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      {order.status === 'pending' && (
-                        <Button size="sm" onClick={() => updateStatus(order.id, 'approved')}>
-                          Approve
-                        </Button>
-                      )}
-                      {order.status === 'approved' && (
-                        <Button size="sm" onClick={() => updateStatus(order.id, 'in_progress')}>
-                          Start
-                        </Button>
-                      )}
-                      {order.status === 'in_progress' && (
-                        <Button size="sm" onClick={() => updateStatus(order.id, 'completed')}>
-                          Complete
-                        </Button>
-                      )}
-                      <Button variant="outline" size="icon" onClick={() => openEditDialog(order)}>
-                        <Edit2 className="w-4 h-4" />
-                      </Button>
-                      <Button variant="outline" size="icon" className="text-destructive" onClick={() => handleDelete(order.id)}>
-                        <Trash2 className="w-4 h-4" />
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
       </div>
     </AdminLayout>
   );
