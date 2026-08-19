@@ -283,15 +283,17 @@ const ServiceManagement = () => {
                       slug: service.slug,
                       subtitle: service.subtitle || '',
                       description: service.description || '',
-                      icon_name: service.icon_name || '',
+                      icon_name: service.icon_name || 'Globe',
                       image_url: service.image_url || '',
                       is_active: service.is_active,
                       sort_order: service.sort_order,
                     }); 
+                    setPackages(service.service_packages || []);
                     setIsDialogOpen(true); 
                   }}>
                     <Edit2 className="w-4 h-4" />
                   </Button>
+
 
                   <Button variant="ghost" size="icon" onClick={() => deleteService(service.id)}>
                     <Trash2 className="w-4 h-4 text-destructive" />
