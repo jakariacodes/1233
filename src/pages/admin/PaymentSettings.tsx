@@ -105,7 +105,7 @@ const PaymentSettings = () => {
                     <Label htmlFor="stripe-active" className="text-xs font-bold uppercase tracking-wider cursor-pointer">Status</Label>
                     <Switch 
                       id="stripe-active" 
-                      checked={configs.stripe?.is_active || false}
+                      checked={configs['stripe']?.is_active || false}
                       onCheckedChange={(val) => handleConfigChange('stripe', 'is_active', val)}
                     />
                   </div>
@@ -118,7 +118,7 @@ const PaymentSettings = () => {
                     <Input 
                       placeholder="pk_test_..." 
                       className="h-12 rounded-xl bg-secondary/30 border-none"
-                      value={configs.stripe?.publishableKey || ''}
+                      value={configs['stripe']?.publishableKey || ''}
                       onChange={(e) => handleConfigChange('stripe', 'publishableKey', e.target.value)}
                     />
                   </div>
@@ -128,7 +128,7 @@ const PaymentSettings = () => {
                       type="password"
                       placeholder="sk_test_..." 
                       className="h-12 rounded-xl bg-secondary/30 border-none"
-                      value={configs.stripe?.secretKey || ''}
+                      value={configs['stripe']?.secretKey || ''}
                       onChange={(e) => handleConfigChange('stripe', 'secretKey', e.target.value)}
                     />
                   </div>
@@ -138,7 +138,7 @@ const PaymentSettings = () => {
                       type="password"
                       placeholder="whsec_..." 
                       className="h-12 rounded-xl bg-secondary/30 border-none"
-                      value={configs.stripe?.webhookSecret || ''}
+                      value={configs['stripe']?.webhookSecret || ''}
                       onChange={(e) => handleConfigChange('stripe', 'webhookSecret', e.target.value)}
                     />
                   </div>
@@ -174,7 +174,7 @@ const PaymentSettings = () => {
                     <Label htmlFor="paypal-active" className="text-xs font-bold uppercase tracking-wider cursor-pointer">Status</Label>
                     <Switch 
                       id="paypal-active" 
-                      checked={configs.paypal?.is_active || false}
+                      checked={configs['paypal']?.is_active || false}
                       onCheckedChange={(val) => handleConfigChange('paypal', 'is_active', val)}
                     />
                   </div>
@@ -187,7 +187,7 @@ const PaymentSettings = () => {
                     <Input 
                       placeholder="PayPal Client ID" 
                       className="h-12 rounded-xl bg-secondary/30 border-none"
-                      value={configs.paypal?.clientId || ''}
+                      value={configs['paypal']?.clientId || ''}
                       onChange={(e) => handleConfigChange('paypal', 'clientId', e.target.value)}
                     />
                   </div>
@@ -197,7 +197,7 @@ const PaymentSettings = () => {
                       type="password"
                       placeholder="PayPal Client Secret" 
                       className="h-12 rounded-xl bg-secondary/30 border-none"
-                      value={configs.paypal?.clientSecret || ''}
+                      value={configs['paypal']?.clientSecret || ''}
                       onChange={(e) => handleConfigChange('paypal', 'clientSecret', e.target.value)}
                     />
                   </div>
@@ -205,7 +205,7 @@ const PaymentSettings = () => {
                     <Label className="text-sm font-bold ml-1">Environment Mode</Label>
                     <select 
                       className="w-full h-12 rounded-xl bg-secondary/30 border-none px-4 text-sm font-medium focus:ring-2 focus:ring-primary outline-none appearance-none"
-                      value={configs.paypal?.mode || 'sandbox'}
+                      value={configs['paypal']?.mode || 'sandbox'}
                       onChange={(e) => handleConfigChange('paypal', 'mode', e.target.value)}
                     >
                       <option value="sandbox">Sandbox (Testing)</option>
