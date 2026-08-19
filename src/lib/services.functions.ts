@@ -17,7 +17,7 @@ export const getServiceById = createServerFn({ method: "GET" })
     // First try to find by ID if it's a valid UUID
     const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
     
-    let query = supabaseAdmin
+    let query = supabase
       .from("services")
       .select("*, service_packages(*)");
     
