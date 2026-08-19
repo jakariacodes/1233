@@ -214,44 +214,102 @@ const ServiceManagement = () => {
                 <Plus className="w-4 h-4" /> Add Service
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
               <DialogHeader>
                 <DialogTitle>{editingService ? 'Edit Service' : 'Add New Service'}</DialogTitle>
               </DialogHeader>
-              <form onSubmit={handleSubmit} className="space-y-4 pt-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Title</label>
-                    <Input value={formData.title} onChange={(e) => setFormData({...formData, title: e.target.value})} />
+              <form onSubmit={handleSubmit} className="space-y-6 pt-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <h3 className="text-sm font-bold uppercase tracking-widest text-primary/70">General Information</h3>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Title</label>
+                      <Input value={formData.title} onChange={(e) => setFormData({...formData, title: e.target.value})} />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Slug</label>
+                      <Input value={formData.slug} onChange={(e) => setFormData({...formData, slug: e.target.value})} placeholder={generateSlug(formData.title)} />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Subtitle</label>
+                      <Input value={formData.subtitle} onChange={(e) => setFormData({...formData, subtitle: e.target.value})} />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Description</label>
+                      <Textarea value={formData.description} className="h-32" onChange={(e) => setFormData({...formData, description: e.target.value})} />
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium">Icon Name</label>
+                        <Input value={formData.icon_name} onChange={(e) => setFormData({...formData, icon_name: e.target.value})} />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium">Sort Order</label>
+                        <Input type="number" value={formData.sort_order} onChange={(e) => setFormData({...formData, sort_order: parseInt(e.target.value)})} />
+                      </div>
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Slug</label>
-                    <Input value={formData.slug} onChange={(e) => setFormData({...formData, slug: e.target.value})} placeholder={generateSlug(formData.title)} />
+
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <h3 className="text-sm font-bold uppercase tracking-widest text-primary/70">Service Packages</h3>
+                      <Button type="button" variant="outline" size="sm" onClick={() => { setEditingPackage(null); setPackageFormData({ name: '', price: 0, description: '', features: '', is_popular: false, delivery_days: 7 }); setIsPackageDialogOpen(true); }}>
+                        <Plus className="w-3 h-3 mr-1" /> Add Package
+                      </Button>
+                    </div>
+
+                    <div className="space-y-3">
+                      {packages.length === 0 ? (
+                        <div className="text-center py-8 bg-secondary/20 rounded-2xl border border-dashed border-border/50">
+                          <Package className="w-8 h-8 mx-auto mb-2 text-muted-foreground opacity-50" />
+                          <p className="text-xs text-muted-foreground font-medium">No packages added yet</p>
+                        </div>
+                      ) : (
+                        <div className="grid gap-3">
+                          {packages.map((pkg, idx) => (
+                            <div key={idx} className="flex items-center justify-between p-3 rounded-xl bg-secondary/30 border border-border/50">
+                              <div>
+                                <div className="flex items-center gap-2">
+                                  <span className="font-bold text-sm">{pkg.name}</span>
+                                  {pkg.is_popular && <span className="text-[10px] bg-primary/20 text-primary px-2 py-0.5 rounded-full font-bold">POPULAR</span>}
+                                </div>
+                                <p className="text-xs text-muted-foreground">৳{pkg.price?.toLocaleString()} • {pkg.delivery_days} days</p>
+                              </div>
+                              <div className="flex gap-1">
+                                <Button type="button" variant="ghost" size="icon" className="h-8 w-8" onClick={() => { 
+                                  setEditingPackage(pkg); 
+                                  setPackageFormData({
+                                    name: pkg.name || '',
+                                    price: pkg.price || 0,
+                                    description: pkg.description || '',
+                                    features: pkg.features?.join('\n') || '',
+                                    is_popular: !!pkg.is_popular,
+                                    delivery_days: pkg.delivery_days || 7,
+                                  });
+                                  setIsPackageDialogOpen(true);
+                                }}>
+                                  <Edit2 className="w-3 h-3" />
+                                </Button>
+                                <Button type="button" variant="ghost" size="icon" className="h-8 w-8 text-destructive" onClick={() => setPackages(packages.filter(p => p !== pkg))}>
+                                  <Trash2 className="w-3 h-3" />
+                                </Button>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Subtitle</label>
-                  <Input value={formData.subtitle} onChange={(e) => setFormData({...formData, subtitle: e.target.value})} />
+
+                <div className="pt-6 border-t border-border/50">
+                  <Button type="submit" disabled={isSubmitting} className="w-full h-12 rounded-2xl shadow-lg shadow-primary/25">
+                    {isSubmitting ? <Loader2 className="animate-spin" /> : (editingService ? 'Update Service' : 'Create Service')}
+                  </Button>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Description</label>
-                  <Textarea value={formData.description} onChange={(e) => setFormData({...formData, description: e.target.value})} />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Icon Name</label>
-                    <Input value={formData.icon_name} onChange={(e) => setFormData({...formData, icon_name: e.target.value})} />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Sort Order</label>
-                    <Input type="number" value={formData.sort_order} onChange={(e) => setFormData({...formData, sort_order: parseInt(e.target.value)})} />
-                  </div>
-                </div>
-                <Button type="submit" disabled={isSubmitting} className="w-full">
-                  {isSubmitting ? <Loader2 className="animate-spin" /> : 'Save Service'}
-                </Button>
               </form>
             </DialogContent>
+
           </Dialog>
         </div>
 
