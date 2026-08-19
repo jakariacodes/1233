@@ -2,25 +2,31 @@ import { Button } from "@/components/ui/button";
 import { Link, useLoaderData } from "@tanstack/react-router";
 import { 
   ArrowRight, Globe, Code2, Palette, Video, TrendingUp, Search, 
-  Sparkles, Zap, Star, Clock, Briefcase
+  Sparkles, Zap, Star, Clock, Briefcase, Rocket, Layout, Database, Layers
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { PricingCard } from "@/components/PricingCard";
+
 
 const iconMap: Record<string, any> = {
-  Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase, Zap
+  Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase, Zap, Rocket, Layout, Database, Layers
 };
+
 
 const Services = () => {
   const services = useLoaderData({ from: '/services/' }) || [];
 
-  const popularServices = services.slice(0, 4).map((s: any) => ({
+  const activeServices = services.filter((s: any) => s.is_active);
+  
+  const popularServices = activeServices.slice(0, 4).map((s: any) => ({
     id: s.id,
     icon: iconMap[s.icon_name] || Globe,
     title: s.title,
     stats: "4.9 • Done",
-    color: "from-blue-500/20 to-cyan-500/20",
-    iconColor: "text-blue-500"
+    color: "from-teal-500/20 to-cyan-500/20",
+    iconColor: "text-teal-600"
   }));
+
 
   const processSteps = [
     { number: "01", title: "Discovery", description: "Understanding your needs and goals." },
@@ -44,7 +50,7 @@ const Services = () => {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-8"
           >
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-semibold text-primary">Premium Digital Services</span>
+            <span className="text-sm font-semibold text-primary">Premium Digital Solutions</span>
           </motion.div>
           
           <motion.h1 
@@ -53,8 +59,8 @@ const Services = () => {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-6xl font-display font-bold mb-8 leading-tight"
           >
-            Transform Your Business With <br />
-            <span className="text-primary">Expert Solutions</span>
+            Empower Your Brand With <br />
+            <span className="text-primary">Next-Gen Innovation</span>
           </motion.h1>
           
           <motion.p 
@@ -63,10 +69,43 @@ const Services = () => {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto"
           >
-            Choose from our wide range of professional digital services. Each service comes with dedicated experts tailored to your specific needs.
+            Transform your digital presence with our comprehensive suite of expert services. 
+            From development to growth strategy, we deliver excellence at every step.
           </motion.p>
         </div>
+
+        {/* Dynamic Hero Grid - Step by Step Premium Boxes */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+          {activeServices.slice(0, 8).map((service: any, i: number) => {
+            const Icon = iconMap[service.icon_name] || Globe;
+            return (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 + i * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="group relative p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col items-center text-center gap-4 transition-all duration-300 hover:shadow-xl hover:border-primary/30"
+              >
+                <div className="absolute top-4 right-4 text-slate-100 font-display font-bold text-4xl group-hover:text-primary/10 transition-colors">
+                  0{i + 1}
+                </div>
+                <div className="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-700 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm relative z-10">
+                  <Icon className="w-8 h-8" />
+                </div>
+                <div className="relative z-10">
+                  <h3 className="font-bold text-lg group-hover:text-primary transition-colors">{service.title}</h3>
+                  <p className="text-xs text-muted-foreground mt-2 line-clamp-2">{service.description}</p>
+                </div>
+                <Link to={`/services/$id`} params={{ id: service.id }} className="mt-auto pt-4 text-primary text-xs font-bold flex items-center gap-1 group/link">
+                  Learn More <ArrowRight className="w-3 h-3 transition-transform group-hover/link:translate-x-1" />
+                </Link>
+              </motion.div>
+            );
+          })}
+        </div>
       </section>
+
 
       {/* Popular Services Section */}
       <section className="container-custom mb-24">
@@ -99,47 +138,70 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Full Range of Services Section */}
+      {/* Full Range of Services with Pricing Section */}
       <section className="bg-white py-24 border-y border-slate-200">
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="text-primary font-bold text-sm mb-4 uppercase tracking-widest">All Services</div>
+            <div className="text-primary font-bold text-sm mb-4 uppercase tracking-widest">Our Offerings</div>
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 leading-tight">
-              Explore Our <span className="text-primary">Full Range</span> of Services
+              Explore Our <span className="text-primary">Full Solutions</span>
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service: any, i: number) => {
+          <div className="space-y-24">
+            {activeServices.map((service: any, i: number) => {
               const Icon = iconMap[service.icon_name] || Globe;
+              const packages = service.service_packages || [];
+              
               return (
-                <motion.div
-                  key={service.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="group p-8 rounded-2xl bg-white border border-slate-100 hover:border-primary/30 hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] transition-all duration-500 flex flex-col h-full"
-                >
-                  <div className="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-700 group-hover:bg-primary group-hover:text-white transition-all duration-500 group-hover:rotate-6 mb-8">
-                    <Icon className="w-8 h-8" />
+                <div key={service.id} className="scroll-mt-32">
+                  <div className="flex flex-col lg:flex-row gap-12 items-start mb-12">
+                    <div className="lg:w-1/3">
+                      <div className="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-primary mb-6 shadow-sm">
+                        <Icon className="w-8 h-8" />
+                      </div>
+                      <h3 className="text-3xl font-display font-bold mb-4">{service.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed mb-6">
+                        {service.description}
+                      </p>
+                      <Link 
+                        to={`/services/$id`} 
+                        params={{ id: service.id }} 
+                        className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all"
+                      >
+                        Detailed Overview <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                    
+                    <div className="lg:w-2/3 w-full">
+                      <div className={`grid gap-6 ${packages.length === 2 ? 'md:grid-cols-2' : packages.length >= 3 ? 'md:grid-cols-3' : 'max-w-md'}`}>
+                        {packages.length > 0 ? (
+                          packages.map((pkg: any) => (
+                            <PricingCard 
+                              key={pkg.id} 
+                              pkg={pkg} 
+                              serviceId={service.id} 
+                            />
+                          ))
+                        ) : (
+                          <div className="p-8 rounded-[2rem] border border-dashed border-slate-200 flex flex-col items-center justify-center text-center min-h-[200px]">
+                            <p className="text-muted-foreground text-sm italic">Standard packages coming soon.</p>
+                            <Link to="/contact" className="mt-4">
+                              <Button variant="link" className="text-primary">Custom Quote</Button>
+                            </Link>
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  
-                  <h3 className="text-xl font-display font-bold mb-4 group-hover:text-primary transition-colors">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
-                    {service.description}
-                  </p>
-                  
-                  <Link to={`/services/$id`} params={{ id: service.id }} className="inline-flex items-center text-primary text-sm font-bold group/link">
-                    View Details
-                    <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover/link:translate-x-1" />
-                  </Link>
-                </motion.div>
+                  {i < activeServices.length - 1 && <div className="h-px w-full bg-slate-100 mt-24" />}
+                </div>
               );
             })}
           </div>
         </div>
       </section>
+
 
       {/* Process Section */}
       <section className="py-24 bg-slate-50/50">

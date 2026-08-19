@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Check, Sparkles } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { Check } from "lucide-react";
+import { useNavigate } from "@tanstack/react-router";
+
 
 const tiers = [
   { 
@@ -28,6 +29,27 @@ const tiers = [
 ];
 
 const PricingSection = () => {
+  const navigate = useNavigate();
+
+  const handleOrder = (tierName: string) => {
+    // For homepage pricing, we map to standard IDs or generic checkout
+    // If these names match slugs in the DB, we can use them
+    const slugMap: Record<string, string> = {
+      "Starter": "web-design",
+      "Professional": "web-development",
+      "Enterprise": "ai-solutions"
+    };
+
+    navigate({
+      to: '/checkout',
+      search: {
+        serviceId: slugMap[tierName] || 'web-design',
+        // Redirecting to basic package by default for simple tiers
+        packageId: 'basic' 
+      }
+    });
+  };
+
   return (
     <section className="section-padding bg-secondary/30 relative overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-10" />
@@ -79,18 +101,18 @@ const PricingSection = () => {
                 ))}
               </ul>
               
-              <Link to="/contact">
-                <Button 
-                  className={`w-full h-14 rounded-2xl text-base font-bold transition-all duration-300 ${
-                    tier.popular 
-                      ? "bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20" 
-                      : "variant-outline border-primary/20 hover:bg-primary/5 text-primary"
-                  }`}
-                  variant={tier.popular ? "default" : "outline"}
-                >
-                  Get Started Now
-                </Button>
-              </Link>
+              <Button 
+                onClick={() => handleOrder(tier.name)}
+                className={`w-full h-14 rounded-2xl text-base font-bold transition-all duration-300 ${
+                  tier.popular 
+                    ? "bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20" 
+                    : "variant-outline border-primary/20 hover:bg-primary/5 text-primary"
+                }`}
+                variant={tier.popular ? "default" : "outline"}
+              >
+                Get Started Now
+              </Button>
+
             </div>
           ))}
         </div>

@@ -1,25 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { Link, useLoaderData, useNavigate } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Star, CheckCircle2, Users, Zap, Shield, Play, Award, Sparkles } from "lucide-react";
+import { Link, useLoaderData } from "@tanstack/react-router";
+import { ArrowLeft, ArrowRight, Star, Users, Award, Play, Sparkles } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { PricingCard } from "@/components/PricingCard";
+
 
 const ServiceDetail = () => {
   const service = useLoaderData({ from: '/services/$id' });
-  const navigate = useNavigate();
 
   if (!service) return null;
 
   const packages = service.service_packages || [];
 
-  const handleOrder = (pkg: any) => {
-    navigate({
-      to: '/checkout',
-      search: {
-        serviceId: service.id,
-        packageId: pkg.id
-      }
-    });
-  };
 
   return (
     <div className="min-h-screen bg-slate-50/50 pt-32 pb-24">
@@ -90,34 +82,14 @@ const ServiceDetail = () => {
                     <p className="text-muted-foreground italic">Pricing for this service will be available soon.</p>
                   </div>
                 ) : (
-                  packages.map((pkg: any, i: number) => (
-                    <div key={pkg.id} className={`group relative p-8 rounded-[2.5rem] border transition-all duration-500 hover:-translate-y-2 ${pkg.is_popular ? "border-primary bg-white shadow-2xl scale-105 z-10" : "bg-white border-slate-100 shadow-sm"}`}>
-                        {pkg.is_popular && (
-                          <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-6 py-2 rounded-full shadow-lg">
-                            MOST POPULAR
-                          </div>
-                        )}
-                        <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">{pkg.name}</h3>
-                        <div className="flex items-baseline gap-1 mb-8">
-                          <span className="text-4xl font-bold text-slate-900">৳{pkg.price.toLocaleString()}</span>
-                        </div>
-                        <ul className="space-y-4 mb-10 min-h-[200px]">
-                            {(pkg.features || []).map((f: string, idx: number) => (
-                              <li key={idx} className="flex items-start gap-3 text-muted-foreground text-sm group-hover:text-slate-900 transition-colors">
-                                <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> 
-                                {f}
-                              </li>
-                            ))}
-                        </ul>
-                        <Button 
-                          onClick={() => handleOrder(pkg)}
-                          className="w-full rounded-2xl h-12 text-sm font-bold shadow-lg shadow-primary/10 group-hover:shadow-primary/20 transition-all" 
-                          variant={pkg.is_popular ? "default" : "outline"}
-                        >
-                          Order Now
-                        </Button>
-                    </div>
+                  packages.map((pkg: any) => (
+                    <PricingCard 
+                      key={pkg.id} 
+                      pkg={pkg} 
+                      serviceId={service.id} 
+                    />
                   ))
+
                 )}
             </div>
 
