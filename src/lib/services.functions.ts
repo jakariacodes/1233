@@ -35,6 +35,7 @@ export const getServiceById = createServerFn({ method: "GET" })
   });
 
 export const createOrder = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator(z.object({
     userId: z.string().optional(),
     packageId: z.string(),
