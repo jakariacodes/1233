@@ -1,15 +1,9 @@
 import { Link, Outlet, useNavigate } from "@tanstack/react-router";
-import { LayoutDashboard, FileText, Briefcase, Settings, LogOut, Menu, X, ShoppingCart, MessageSquare, Users } from "lucide-react";
-import { useState, useEffect } from "react";
-import { useAuth } from "@/contexts/AuthContext";
-import { Button } from "@/components/ui/button";
-
-import { Link, Outlet, useNavigate } from "@tanstack/react-router";
 import { LayoutDashboard, FileText, Briefcase, Settings, LogOut, Menu, X, ShoppingCart, MessageSquare, Users, Bell } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export const AdminLayout = ({ children }: { children?: React.ReactNode }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -111,7 +105,5 @@ export const AdminLayout = ({ children }: { children?: React.ReactNode }) => {
     </div>
   );
 };
-
-export default AdminLayout;
 
 export default AdminLayout;
