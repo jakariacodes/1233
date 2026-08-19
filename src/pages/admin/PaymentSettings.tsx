@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
 import { usePaymentSettings } from "@/hooks/usePaymentSettings";
-import { Loader2, Save, CreditCard, ShieldCheck, Landmark } from "lucide-react";
+import { Loader2, Save, CreditCard, ShieldCheck, Landmark, Lock } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const PaymentSettings = () => {
@@ -227,6 +227,29 @@ const PaymentSettings = () => {
             </Card>
           </TabsContent>
         </Tabs>
+
+        <Card className="glass-card border-none shadow-xl overflow-hidden mb-8">
+          <CardHeader className="bg-gradient-to-r from-blue-500/10 to-transparent">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-blue-500/20 flex items-center justify-center text-blue-500">
+                <Lock className="w-6 h-6" />
+              </div>
+              <div>
+                <CardTitle className="text-2xl">Security Credentials</CardTitle>
+                <CardDescription>Configure sensitive API keys and certificates.</CardDescription>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent className="p-8">
+            <div className="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-6 mb-6 flex gap-4">
+              <ShieldCheck className="w-6 h-6 text-amber-500 shrink-0" />
+              <p className="text-sm text-amber-700 dark:text-amber-400">
+                Credentials are saved securely in your backend database with limited access. Ensure you are using production keys for live transactions.
+              </p>
+            </div>
+            <p className="text-muted-foreground">Select a gateway above to configure its specific secure parameters.</p>
+          </CardContent>
+        </Card>
 
         <Card className="border-dashed bg-transparent border-border/50">
           <CardContent className="p-8 flex items-center gap-6">

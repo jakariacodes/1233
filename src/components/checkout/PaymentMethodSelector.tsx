@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Wallet, Smartphone, Globe, Info, Copy } from "lucide-react";
+import { Check, Wallet, Smartphone, Globe, Info, Copy, CreditCard, Landmark } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 
@@ -12,25 +12,25 @@ interface PaymentMethodSelectorProps {
 
 const paymentMethods = [
   {
-    id: "bkash",
-    name: "bKash",
-    icon: Smartphone,
-    color: "bg-[#D81B60]",
-    instructions: "Send money to: +8801700000000 (Personal)",
+    id: "stripe",
+    name: "Credit Card (Stripe)",
+    icon: CreditCard,
+    color: "bg-[#635BFF]",
+    instructions: "Pay securely with your credit or debit card via Stripe.",
   },
   {
-    id: "nagad",
-    name: "Nagad",
-    icon: Smartphone,
-    color: "bg-[#F44336]",
-    instructions: "Send money to: +8801700000000 (Personal)",
+    id: "paypal",
+    name: "PayPal",
+    icon: Wallet,
+    color: "bg-[#003087]",
+    instructions: "Complete your purchase securely using your PayPal account.",
   },
   {
-    id: "rocket",
-    name: "Rocket",
-    icon: Smartphone,
-    color: "bg-[#8E24AA]",
-    instructions: "Send money to: +8801700000000-0 (Personal)",
+    id: "bank",
+    name: "Bank Transfer",
+    icon: Landmark,
+    color: "bg-[#0D47A1]",
+    instructions: "Account: NextOnline Technology, A/C: 123456789, International Bank",
   },
   {
     id: "crypto",
@@ -38,13 +38,6 @@ const paymentMethods = [
     icon: Globe,
     color: "bg-[#26A17B]",
     instructions: "Address: 0x1234567890abcdef1234567890abcdef12345678 (TRC20)",
-  },
-  {
-    id: "bank",
-    name: "Bank Transfer",
-    icon: Wallet,
-    color: "bg-[#0D47A1]",
-    instructions: "Account: NextOnline Technology, A/C: 123456789, City Bank",
   }
 ];
 
