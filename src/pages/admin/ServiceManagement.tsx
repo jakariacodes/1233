@@ -161,17 +161,18 @@ const ServiceManagement = () => {
         
         if (packages.length > 0) {
           const packagesToInsert = packages.map(pkg => ({
-            service_id: serviceId,
-            name: pkg.name,
-            price: pkg.price,
+            service_id: serviceId as string,
+            name: pkg.name || 'Standard',
+            price: pkg.price || 0,
             description: pkg.description || null,
             features: pkg.features || [],
             is_popular: pkg.is_popular || false,
             delivery_days: pkg.delivery_days || null,
           }));
-          const { error: pkgError } = await supabase.from('service_packages').insert(packagesToInsert);
+          const { error: pkgError } = await supabase.from('service_packages').insert(packagesToInsert as any);
           if (pkgError) throw pkgError;
         }
+
       }
 
       toast.success(editingService ? 'Service updated successfully' : 'Service created successfully');
