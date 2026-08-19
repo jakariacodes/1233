@@ -93,7 +93,29 @@ export const portfolioSchema = z.object({
   technologies: z.array(z.string().max(50)).max(20, 'Maximum 20 technologies').optional(),
 });
 
-// Order Validation Schema
+// Service Validation Schema
+export const serviceSchema = z.object({
+  title: z.string().trim().min(1, 'Title is required').max(200, 'Title must be less than 200 characters'),
+  slug: z.string().trim().min(1, 'Slug is required').max(200, 'Slug must be less than 200 characters')
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Slug must be lowercase with hyphens only'),
+  subtitle: z.string().max(200, 'Subtitle must be less than 200 characters').optional(),
+  description: z.string().max(2000, 'Description must be less than 2000 characters').optional(),
+  icon_name: z.string().max(100, 'Icon name must be less than 100 characters').optional(),
+  image_url: z.string().max(500, 'URL too long').refine((val) => !val || isValidUrl(val), 'Invalid image URL').optional(),
+  is_active: z.boolean().default(true),
+  sort_order: z.number().int().default(0),
+});
+
+// Service Package Validation Schema
+export const servicePackageSchema = z.object({
+  name: z.string().trim().min(1, 'Name is required').max(100, 'Name must be less than 100 characters'),
+  price: z.number().min(0, 'Price must be positive'),
+  description: z.string().max(500, 'Description must be less than 500 characters').optional(),
+  features: z.array(z.string().max(100)).max(20, 'Maximum 20 features').optional(),
+  is_popular: z.boolean().default(false),
+  delivery_days: z.number().int().min(0).optional(),
+});
+
 export const orderSchema = z.object({
   customer_name: z.string().trim().min(1, 'Customer name is required').max(100, 'Name must be less than 100 characters'),
   customer_email: z.string().trim().email('Invalid email address').max(255, 'Email must be less than 255 characters'),
