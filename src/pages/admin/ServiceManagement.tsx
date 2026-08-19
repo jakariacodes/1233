@@ -63,13 +63,37 @@ const ServiceManagement = () => {
       slug: '',
       subtitle: '',
       description: '',
-      icon_name: '',
+      icon_name: 'Globe',
       image_url: '',
       is_active: true,
       sort_order: 0,
     });
+    setPackages([]);
     setEditingService(null);
   };
+
+  const handlePackageSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const validation = validateForm(servicePackageSchema, {
+      ...packageFormData,
+      features: packageFormData.features.split('\n').filter(f => f.trim())
+    });
+
+    if (!validation.success) {
+      toast.error(Object.values(validation.errors || {})[0]);
+      return;
+    }
+
+    if (editingPackage) {
+      setPackages(packages.map(p => p === editingPackage ? { ...packageFormData, features: packageFormData.features.split('\n').filter(f => f.trim()) } : p));
+    } else {
+      setPackages([...packages, { ...packageFormData, id: crypto.randomUUID(), features: packageFormData.features.split('\n').filter(f => f.trim()) }]);
+    }
+    setIsPackageDialogOpen(false);
+    setPackageFormData({ name: '', price: 0, description: '', features: '', is_popular: false, delivery_days: 7 });
+    setEditingPackage(null);
+  };
+
 
   const generateSlug = (title: string) => {
     return title
