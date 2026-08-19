@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { User, Mail, Phone, MapPin, Globe, ArrowRight, Loader2, ShieldCheck, CreditCard } from "lucide-react";
+import { User, Mail, Phone, MapPin, Globe, ArrowRight, Loader2, ShieldCheck, CreditCard, Lock, Eye, EyeOff } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -31,6 +32,8 @@ export default function CheckoutForm({
   selectedPaymentMethod,
   amount
 }: CheckoutFormProps) {
+  const { user } = useAuth();
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-slate-100">
       {/* Stepper */}
@@ -86,6 +89,33 @@ export default function CheckoutForm({
                 </div>
               </div>
             </div>
+
+            {!user && (
+              <div className="space-y-2">
+                <Label htmlFor="password" title="Set a password to create your account" className="text-slate-700 font-bold ml-1 flex items-center gap-2">
+                  Account Password <span className="text-xs font-normal text-muted-foreground">(Required for new account)</span>
+                </Label>
+                <div className="relative group">
+                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors" />
+                  <Input 
+                    id="password" 
+                    type={showPassword ? "text" : "password"}
+                    value={formData.password} 
+                    onChange={onChange} 
+                    className="pl-12 pr-12 h-14 rounded-2xl border-slate-200 focus:border-primary focus:ring-primary/20 bg-slate-50/50" 
+                    placeholder="Create a secure password"
+                    required 
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors"
+                  >
+                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  </button>
+                </div>
+              </div>
+            )}
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
