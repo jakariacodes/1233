@@ -1,9 +1,9 @@
 import { createServerFn } from "@tanstack/react-start";
-import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
 
 export const getServices = createServerFn({ method: "GET" }).handler(async () => {
-  const { data, error } = await supabaseAdmin
+  const { data, error } = await supabase
     .from("services")
     .select("*, service_packages(*)")
     .order("sort_order");
@@ -17,7 +17,7 @@ export const getServiceById = createServerFn({ method: "GET" })
     // First try to find by ID if it's a valid UUID
     const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
     
-    let query = supabaseAdmin
+    let query = supabase
       .from("services")
       .select("*, service_packages(*)");
     
@@ -51,6 +51,7 @@ export const createOrder = createServerFn({ method: "POST" })
     paymentMethod: z.string().optional()
   }).parse)
   .handler(async ({ data }) => {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: order, error } = await supabaseAdmin
       .from("orders")
       .insert({
