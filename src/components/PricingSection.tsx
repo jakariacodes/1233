@@ -32,8 +32,6 @@ const PricingSection = () => {
   const navigate = useNavigate();
 
   const handleOrder = (tierName: string) => {
-    // For homepage pricing, we map to standard IDs or generic checkout
-    // If these names match slugs in the DB, we can use them
     const slugMap: Record<string, string> = {
       "Starter": "web-design",
       "Professional": "web-development",
@@ -44,11 +42,11 @@ const PricingSection = () => {
       to: '/checkout',
       search: {
         serviceId: slugMap[tierName] || 'web-design',
-        // Redirecting to basic package by default for simple tiers
-        packageId: 'basic' 
+        packageId: 'basic'
       }
     });
   };
+
 
   return (
     <section className="section-padding bg-secondary/30 relative overflow-hidden">
