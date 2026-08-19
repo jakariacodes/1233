@@ -35,7 +35,7 @@ export const PricingCard = ({ pkg, serviceId }: PricingCardProps) => {
       )}
       <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">{pkg.name}</h3>
       <div className="flex items-baseline gap-1 mb-8">
-        <span className="text-4xl font-bold text-slate-900">৳{pkg.price.toLocaleString()}</span>
+        <span className="text-4xl font-bold text-slate-900">${pkg.price.toLocaleString()}</span>
       </div>
       <ul className="space-y-4 mb-10 min-h-[200px]">
         {(pkg.features || []).map((f: string, idx: number) => (
