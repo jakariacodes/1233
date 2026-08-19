@@ -51,6 +51,7 @@ export const createOrder = createServerFn({ method: "POST" })
     paymentMethod: z.string().optional()
   }).parse)
   .handler(async ({ data }) => {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: order, error } = await supabaseAdmin
       .from("orders")
       .insert({
