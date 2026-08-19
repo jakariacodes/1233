@@ -84,10 +84,15 @@ const ServiceDetail = () => {
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Choose Your <span className="text-primary">Package</span></h2>
               <p className="text-muted-foreground">Transparent pricing with no hidden fees. Pick the plan that matches your needs.</p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
-                {packages.map((pkg: any, i: number) => (
-                    <div key={pkg.id} className={`group relative p-8 rounded-[2.5rem] border transition-all duration-500 hover:-translate-y-2 ${i === 1 ? "border-primary bg-white shadow-2xl scale-105 z-10" : "bg-white border-slate-100 shadow-sm"}`}>
-                        {i === 1 && (
+            <div className={`grid gap-8 ${packages.length === 1 ? 'max-w-md mx-auto' : packages.length === 2 ? 'max-w-4xl mx-auto md:grid-cols-2' : 'md:grid-cols-3'}`}>
+                {packages.length === 0 ? (
+                  <div className="col-span-full text-center py-12 bg-white rounded-[2.5rem] border border-slate-100 shadow-sm">
+                    <p className="text-muted-foreground italic">Pricing for this service will be available soon.</p>
+                  </div>
+                ) : (
+                  packages.map((pkg: any, i: number) => (
+                    <div key={pkg.id} className={`group relative p-8 rounded-[2.5rem] border transition-all duration-500 hover:-translate-y-2 ${pkg.is_popular ? "border-primary bg-white shadow-2xl scale-105 z-10" : "bg-white border-slate-100 shadow-sm"}`}>
+                        {pkg.is_popular && (
                           <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-6 py-2 rounded-full shadow-lg">
                             MOST POPULAR
                           </div>
@@ -107,13 +112,15 @@ const ServiceDetail = () => {
                         <Button 
                           onClick={() => handleOrder(pkg)}
                           className="w-full rounded-2xl h-12 text-sm font-bold shadow-lg shadow-primary/10 group-hover:shadow-primary/20 transition-all" 
-                          variant={i === 1 ? "default" : "outline"}
+                          variant={pkg.is_popular ? "default" : "outline"}
                         >
                           Order Now
                         </Button>
                     </div>
-                ))}
+                  ))
+                )}
             </div>
+
         </section>
 
         {/* Deliver Excellence Section */}
