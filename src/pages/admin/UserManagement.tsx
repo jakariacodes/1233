@@ -3,7 +3,7 @@ import { AdminLayout } from "@/components/admin/AdminLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableTableRow } from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { useUsers } from "@/hooks/useUsers";
 import { Search, UserCircle, Mail, Phone, MapPin, Calendar, Loader2, RefreshCw } from "lucide-react";
@@ -75,7 +75,7 @@ const UserManagement = () => {
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
-                    <TableTableRow className="hover:bg-transparent border-border/50">
+                    <TableRow className="hover:bg-transparent border-border/50">
                       <TableHead className="font-bold uppercase tracking-wider text-[10px] text-muted-foreground">User</TableHead>
                       <TableHead className="font-bold uppercase tracking-wider text-[10px] text-muted-foreground">Contact</TableHead>
                       <TableHead className="font-bold uppercase tracking-wider text-[10px] text-muted-foreground">Location</TableHead>
