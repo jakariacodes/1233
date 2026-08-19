@@ -81,7 +81,7 @@ const UserManagement = () => {
                       <TableHead className="font-bold uppercase tracking-wider text-[10px] text-muted-foreground">Location</TableHead>
                       <TableHead className="font-bold uppercase tracking-wider text-[10px] text-muted-foreground">Joined</TableHead>
                       <TableHead className="font-bold uppercase tracking-wider text-[10px] text-muted-foreground">Status</TableHead>
-                    </TableTableRow>
+                    </TableRow>
                   </TableHeader>
                   <TableBody>
                     {filteredUsers.map((user, index) => (
