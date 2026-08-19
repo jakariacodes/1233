@@ -6,8 +6,9 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
-import { Plus, Edit2, Trash2, FileText, Loader2, Eye, EyeOff, Search, Calendar } from 'lucide-react';
+import { Plus, Edit2, Trash2, FileText, Loader2, Eye, EyeOff, Search, Calendar, Filter } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
+import { motion } from 'framer-motion';
 
 const BlogManagement = () => {
   const { posts, loading, refetch } = useBlogPosts(false);
@@ -60,44 +61,44 @@ const BlogManagement = () => {
 
   return (
     <AdminLayout>
-      <div className="space-y-6">
+      <div className="space-y-8">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-display font-bold">Blog Management</h1>
-            <p className="text-muted-foreground mt-1">
-              Create and manage your blog posts
+            <h1 className="text-4xl font-display font-bold tracking-tight">Blog Posts</h1>
+            <p className="text-muted-foreground mt-2 text-lg">
+              Manage your brand's digital presence and news
             </p>
           </div>
           <Link to="/admin/blog/editor">
-            <Button className="gap-2">
-              <Plus className="w-4 h-4" />
-              New Post
+            <Button size="lg" className="rounded-2xl gap-2 shadow-xl shadow-primary/20">
+              <Plus className="w-5 h-5" />
+              Write New Post
             </Button>
           </Link>
         </div>
 
-        {/* Filters */}
-        <Card>
-          <CardContent className="p-4">
+        {/* Search & Filters */}
+        <Card className="glass-card border-none shadow-lg overflow-visible">
+          <CardContent className="p-6">
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                 <Input
-                  placeholder="Search posts..."
+                  placeholder="Search articles by title..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
+                  className="pl-12 h-14 rounded-2xl border-border/50"
                 />
               </div>
-              <div className="flex gap-2">
+              <div className="flex p-1 bg-secondary/50 rounded-2xl self-start">
                 {(['all', 'published', 'draft'] as const).map((f) => (
                   <Button
                     key={f}
-                    variant={filter === f ? 'default' : 'outline'}
+                    variant={filter === f ? 'default' : 'ghost'}
                     size="sm"
                     onClick={() => setFilter(f)}
-                    className="capitalize"
+                    className={`capitalize h-12 px-6 rounded-xl transition-all duration-300 ${filter === f ? 'shadow-md' : ''}`}
                   >
                     {f}
                   </Button>
@@ -109,25 +110,26 @@ const BlogManagement = () => {
 
         {/* Posts List */}
         {loading ? (
-          <div className="flex items-center justify-center py-12">
-            <Loader2 className="w-8 h-8 animate-spin text-primary" />
+          <div className="flex items-center justify-center py-20">
+            <Loader2 className="w-10 h-10 animate-spin text-primary" />
           </div>
         ) : filteredPosts.length === 0 ? (
-          <Card>
-            <CardContent className="flex flex-col items-center justify-center py-12">
-              <FileText className="w-16 h-16 text-muted-foreground mb-4" />
-              <h3 className="text-lg font-semibold mb-2">
-                {posts.length === 0 ? 'No posts yet' : 'No posts found'}
+          <Card className="glass-card border-none shadow-xl">
+            <CardContent className="flex flex-col items-center justify-center py-24 text-center">
+              <div className="w-20 h-20 rounded-3xl bg-secondary/50 flex items-center justify-center mb-6">
+                <FileText className="w-10 h-10 text-muted-foreground" />
+              </div>
+              <h3 className="text-2xl font-display font-bold mb-2">
+                {posts.length === 0 ? 'No articles yet' : 'No results found'}
               </h3>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground max-w-xs mx-auto mb-8">
                 {posts.length === 0
-                  ? 'Create your first blog post to get started'
-                  : 'Try adjusting your search or filters'}
+                  ? 'Start sharing your knowledge by creating your first blog post.'
+                  : 'We couldn\'t find any posts matching your current search or filter.'}
               </p>
               {posts.length === 0 && (
                 <Link to="/admin/blog/editor">
-                  <Button className="gap-2">
-                    <Plus className="w-4 h-4" />
+                  <Button size="lg" className="rounded-xl px-8">
                     Create Post
                   </Button>
                 </Link>
@@ -136,84 +138,100 @@ const BlogManagement = () => {
           </Card>
         ) : (
           <div className="grid gap-4">
-            {filteredPosts.map((post) => (
-              <Card key={post.id} className={`${!post.is_published ? 'opacity-70' : ''}`}>
-                <CardContent className="flex items-center gap-4 p-4">
-                  {post.featured_image ? (
-                    <img
-                      src={post.featured_image}
-                      alt={post.title}
-                      className="w-20 h-14 rounded-lg object-cover flex-shrink-0"
-                    />
-                  ) : (
-                    <div className="w-20 h-14 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
-                      <FileText className="w-6 h-6 text-muted-foreground" />
-                    </div>
-                  )}
-
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <h3 className="font-semibold truncate">{post.title}</h3>
-                      <span
-                        className={`px-2 py-0.5 rounded-full text-xs ${
-                          post.is_published
-                            ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'
-                            : 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400'
-                        }`}
-                      >
-                        {post.is_published ? 'Published' : 'Draft'}
-                      </span>
-                      {post.is_featured && (
-                        <span className="px-2 py-0.5 rounded-full text-xs bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400">
-                          Featured
-                        </span>
-                      )}
-                    </div>
-                    {post.excerpt && (
-                      <p className="text-sm text-muted-foreground mt-1 line-clamp-1">
-                        {post.excerpt}
-                      </p>
+            {filteredPosts.map((post, idx) => (
+              <motion.div
+                key={post.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.05 }}
+              >
+                <Card className={`glass-card border-none shadow-md hover:shadow-xl transition-all duration-300 group ${!post.is_published ? 'opacity-80' : ''}`}>
+                  <CardContent className="flex flex-col sm:flex-row items-center gap-6 p-6">
+                    {post.featured_image ? (
+                      <div className="relative w-full sm:w-32 h-24 rounded-2xl overflow-hidden flex-shrink-0 group-hover:scale-105 transition-transform duration-500">
+                        <img
+                          src={post.featured_image}
+                          alt={post.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-full sm:w-32 h-24 rounded-2xl bg-secondary/80 flex items-center justify-center flex-shrink-0">
+                        <FileText className="w-8 h-8 text-muted-foreground" />
+                      </div>
                     )}
-                    <div className="flex items-center gap-4 mt-2 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-3 h-3" />
-                        {new Date(post.created_at).toLocaleDateString()}
-                      </span>
-                      {post.tags && post.tags.length > 0 && (
-                        <span>{post.tags.slice(0, 2).join(', ')}</span>
-                      )}
-                    </div>
-                  </div>
 
-                  <div className="flex items-center gap-2">
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => togglePublish(post)}
-                      title={post.is_published ? 'Unpublish' : 'Publish'}
-                    >
-                      {post.is_published ? (
-                        <EyeOff className="w-4 h-4" />
-                      ) : (
-                        <Eye className="w-4 h-4" />
+                    <div className="flex-1 min-w-0 w-full">
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <div className="flex items-center gap-2 mb-2 flex-wrap">
+                            <span
+                              className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                                post.is_published
+                                  ? 'bg-emerald-500/10 text-emerald-500'
+                                  : 'bg-amber-500/10 text-amber-500'
+                              }`}
+                            >
+                              {post.is_published ? 'Published' : 'Draft'}
+                            </span>
+                            {post.is_featured && (
+                              <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary">
+                                Featured
+                              </span>
+                            )}
+                          </div>
+                          <h3 className="text-xl font-bold font-display tracking-tight group-hover:text-primary transition-colors line-clamp-1">{post.title}</h3>
+                        </div>
+                      </div>
+                      
+                      {post.excerpt && (
+                        <p className="text-sm text-muted-foreground mt-2 line-clamp-1">
+                          {post.excerpt}
+                        </p>
                       )}
-                    </Button>
-                    <Link to="/admin/blog/editor" search={{ id: post.id }}>
-                      <Button variant="outline" size="icon">
-                        <Edit2 className="w-4 h-4" />
+                      
+                      <div className="flex items-center gap-4 mt-4 text-xs font-bold text-muted-foreground/60 uppercase tracking-widest">
+                        <span className="flex items-center gap-2">
+                          <Calendar className="w-3 h-3" />
+                          {new Date(post.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
+                        </span>
+                        {post.tags && post.tags.length > 0 && (
+                          <span className="hidden sm:inline">• {post.tags.slice(0, 2).join(', ')}</span>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 self-end sm:self-center bg-secondary/30 p-2 rounded-2xl border border-white/5">
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => togglePublish(post)}
+                        className="rounded-xl h-10 w-10 hover:bg-white/10"
+                        title={post.is_published ? 'Unpublish' : 'Publish'}
+                      >
+                        {post.is_published ? (
+                          <EyeOff className="w-4.5 h-4.5" />
+                        ) : (
+                          <Eye className="w-4.5 h-4.5" />
+                        )}
                       </Button>
-                    </Link>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="text-destructive hover:text-destructive"
-                      onClick={() => handleDelete(post.id)}
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                      <Link to="/admin/blog/editor" search={{ id: post.id }}>
+                        <Button variant="ghost" size="icon" className="rounded-xl h-10 w-10 hover:bg-white/10">
+                          <Edit2 className="w-4.5 h-4.5" />
+                        </Button>
+                      </Link>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="rounded-xl h-10 w-10 text-rose-500 hover:text-rose-600 hover:bg-rose-500/10"
+                        onClick={() => handleDelete(post.id)}
+                      >
+                        <Trash2 className="w-4.5 h-4.5" />
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         )}
