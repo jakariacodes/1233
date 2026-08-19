@@ -38,11 +38,24 @@ const ServiceManagement = () => {
     slug: '',
     subtitle: '',
     description: '',
-    icon_name: '',
+    icon_name: 'Globe',
     image_url: '',
     is_active: true,
     sort_order: 0,
   });
+
+  const [packages, setPackages] = useState<Partial<ServicePackage>[]>([]);
+  const [isPackageDialogOpen, setIsPackageDialogOpen] = useState(false);
+  const [editingPackage, setEditingPackage] = useState<Partial<ServicePackage> | null>(null);
+  const [packageFormData, setPackageFormData] = useState({
+    name: '',
+    price: 0,
+    description: '',
+    features: '',
+    is_popular: false,
+    delivery_days: 7,
+  });
+
 
   const resetForm = () => {
     setFormData({
