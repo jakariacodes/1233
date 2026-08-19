@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase, Zap, ArrowRight, ArrowUpRight,  } from "lucide-react";
-import { useTranslation } from "react-i18next";
 
 const services = [
   {
@@ -63,7 +62,6 @@ const services = [
 ];
 
 export const ServicesSection = () => {
-  const { t } = useTranslation();
   return (
     <section className="section-padding relative overflow-hidden bg-slate-50/50" id="services">
       {/* Background Elements */}
@@ -77,17 +75,18 @@ export const ServicesSection = () => {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 leading-tight tracking-tight">
-              {t("services.title")}{" "}
-              <span className="text-gradient-animated">{t("services.subtitle")}</span>
+              Premium Digital Services{" "}
+              <span className="text-gradient-animated">Under One Platform</span>
             </h2>
             <p className="text-muted-foreground text-xl leading-relaxed max-w-xl">
-              {t("services.description")}
+              We deliver comprehensive digital solutions that transform businesses 
+              and create lasting impact in the digital landscape.
             </p>
           </div>
           <div className="animate-slide-up animation-delay-300">
             <Link to="/services">
               <Button variant="outline" size="lg" className="gap-2 group hover-glow">
-                {t("services.viewAll")}
+                View All Services
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </Button>
             </Link>
@@ -122,7 +121,7 @@ export const ServicesSection = () => {
 
                 {/* Link */}
                 <div className="flex items-center gap-2 text-sm font-bold text-primary translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <span>{t("services.explore")}</span>
+                  <span>Explore Service</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>

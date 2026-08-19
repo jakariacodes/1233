@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Play, CheckCircle2, Sparkles, Users, Award, Zap, Code, Palette, TrendingUp, Globe, Star, Shield, Terminal, Database, Cpu, Wifi } from "lucide-react";
-import { useTranslation } from "react-i18next";
 
 const stats = [
   { value: "850+", label: "Projects Done", icon: Zap, color: "from-blue-500 to-cyan-500" },
@@ -40,7 +39,6 @@ const codeSnippets = [
 ];
 
 export const HeroSection = () => {
-  const { t } = useTranslation();
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#011612] py-20 lg:py-0">
       {/* Animated Tech Grid Background */}
@@ -109,7 +107,7 @@ export const HeroSection = () => {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
               <span className="text-sm text-white/80 font-medium group-hover:text-white transition-colors">
-                {t("hero.badge")}
+                NextOnline Technology — Bangladesh's Leading Agency
               </span>
               <span className="text-xs text-white/50 border-l border-white/20 pl-3">Est. 2021</span>
             </div>
@@ -117,18 +115,18 @@ export const HeroSection = () => {
             {/* Heading with reference-based design */}
             <div className="mb-8 animate-slide-up animation-delay-100">
               <div className="inline-block px-4 py-1.5 rounded-lg bg-teal-500/10 text-teal-400 font-bold text-xs uppercase tracking-widest mb-6 border border-teal-500/20">
-                {t("hero.digitize")}
+                Digitize Your Imagination
               </div>
               <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15] tracking-tight">
-                <span className="text-white">{t("hero.titlePart1")} </span><br />
-                <span className="text-primary animate-pulse-gentle">{t("hero.titlePart2")} </span><br />
-                <span className="text-white">{t("hero.titlePart3")}</span>
+                <span className="text-white">Innovative Software </span><br />
+                <span className="text-primary animate-pulse-gentle">Development Company </span><br />
+                <span className="text-white">in Bangladesh</span>
               </h1>
             </div>
 
             {/* Subtitle */}
             <p className="text-base md:text-lg text-white/70 mb-10 max-w-xl leading-relaxed animate-slide-up animation-delay-200">
-              {t("hero.subtitle")}
+              We provide B2B and B2C-based software solutions that develop creative and inventive software solutions for individual industries.
             </p>
 
             {/* Services Pills with hover effects */}
@@ -151,7 +149,7 @@ export const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 mb-10 animate-slide-up animation-delay-400">
               <Link to="/contact">
                 <Button className="h-12 px-8 text-sm bg-blue-700 hover:bg-blue-600 rounded-full group relative overflow-hidden font-bold shadow-lg shadow-blue-900/20 border border-blue-600/30 uppercase tracking-wider">
-                  {t("hero.companyDeck")}
+                  Company Deck
                 </Button>
               </Link>
               <Link to="/portfolio">
@@ -159,7 +157,7 @@ export const HeroSection = () => {
                   variant="outline" 
                   className="gap-2 h-12 px-8 text-sm border-teal-500/50 text-teal-400 hover:bg-teal-500/10 rounded-full group font-bold backdrop-blur-sm uppercase tracking-wider"
                 >
-                  {t("hero.ourProducts")}
+                  Our Products
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
@@ -167,7 +165,7 @@ export const HeroSection = () => {
 
             {/* Trusted By with stagger animation */}
             <div className="animate-slide-up animation-delay-500">
-              <p className="text-xs uppercase tracking-widest text-white/40 mb-3">{t("hero.trustedBy")}</p>
+              <p className="text-xs uppercase tracking-widest text-white/40 mb-3">Trusted By</p>
               <div className="flex flex-wrap items-center gap-5">
                 {trustedBy.map((item, index) => (
                   <div 

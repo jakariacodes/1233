@@ -1,8 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, X, ChevronDown, Sparkles, Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase, Zap, ArrowRight, Languages } from "lucide-react";
+import { Menu, X, ChevronDown, Sparkles, Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase, Zap, ArrowRight } from "lucide-react";
 import React from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { useTranslation } from "react-i18next";
 
 const iconMap: Record<string, any> = {
   Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase, Zap
@@ -74,17 +73,11 @@ const services = [
 
 const Navbar = () => {
   const { user, isAdmin } = useAuth();
-  const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [dynamicServices, setDynamicServices] = useState<any[]>([]);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  const toggleLanguage = () => {
-    const newLang = i18n.language === 'en' ? 'ar' : 'en';
-    i18n.changeLanguage(newLang);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -92,14 +85,12 @@ const Navbar = () => {
     };
     window.addEventListener("scroll", handleScroll);
     
-    // Fetch dynamic services only in browser
-    if (typeof window !== "undefined") {
-      import("@/integrations/supabase/client").then(m => {
-        m.supabase.from("services").select("*").order("sort_order").then(({ data }) => {
-          if (data) setDynamicServices(data);
-        });
+    // Fetch dynamic services
+    import("@/integrations/supabase/client").then(m => {
+      m.supabase.from("services").select("*").order("sort_order").then(({ data }) => {
+        if (data) setDynamicServices(data);
       });
-    }
+    });
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -116,13 +107,13 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: t("nav.home"), href: "/" },
-    { name: t("nav.about"), href: "/about" },
-    { name: t("nav.services"), href: "/services", hasDropdown: true },
-    { name: t("nav.portfolio"), href: "/portfolio" },
-    { name: t("nav.team"), href: "/team" },
-    { name: t("nav.blog"), href: "/blog" },
-    { name: t("nav.contact"), href: "/contact" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services", hasDropdown: true },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Team", href: "/team" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -177,7 +168,7 @@ const Navbar = () => {
                       <div className="p-8">
                         <div className="flex items-center justify-between mb-8">
                           <div>
-                            <h3 className="text-xl font-display font-bold text-slate-900">{t("nav.services")}</h3>
+                            <h3 className="text-xl font-display font-bold text-slate-900">Our Services</h3>
                             <p className="text-sm text-muted-foreground mt-1">Premium digital solutions for your business</p>
                           </div>
                           <Link to="/services" className="text-sm font-bold text-primary flex items-center gap-1 hover:underline">
@@ -223,28 +214,19 @@ const Navbar = () => {
         </div>
 
         {/* Right Side Actions */}
-        <div className="flex items-center gap-4 lg:gap-6">
-          {/* Language Toggle */}
-          <button
-            onClick={toggleLanguage}
-            className="p-2 rounded-full hover:bg-slate-100 transition-colors flex items-center gap-1 text-slate-700"
-            title={i18n.language === 'en' ? 'Switch to Arabic' : 'Switch to English'}
-          >
-            <Languages className="w-5 h-5" />
-            <span className="text-xs font-bold uppercase">{i18n.language === 'en' ? 'AR' : 'EN'}</span>
-          </button>
+        <div className="flex items-center gap-6">
           {!user ? (
             <>
               <Link 
                 to={"/auth" as any} 
                 className="hidden md:block text-sm font-medium hover:text-primary transition-colors text-muted-foreground"
               >
-                {t("nav.login")}
+                Login
               </Link>
               <Link to="/contact">
                 <Button className="rounded-full px-8 bg-primary hover:bg-primary/90 text-white font-bold h-11 text-sm shadow-lg shadow-primary/25" variant="default">
                   <Sparkles className="w-4 h-4 mr-2" />
-                  {t("nav.getStarted")}
+                  Get Started
                 </Button>
               </Link>
             </>
