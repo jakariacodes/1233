@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client";
 import { createOrder } from "@/lib/services.functions";
 import { toast } from "sonner";
 import CheckoutForm from "@/components/checkout/CheckoutForm";
@@ -20,6 +21,7 @@ const Checkout = ({ service, package: pkg }: CheckoutProps) => {
   const [formData, setFormData] = useState({
     name: user?.user_metadata?.['full_name'] || "",
     email: user?.email || "",
+    password: "",
     phone: "",
     address: "",
     country: "Bangladesh",
@@ -39,9 +41,37 @@ const Checkout = ({ service, package: pkg }: CheckoutProps) => {
     setIsSubmitting(true);
 
     try {
+      let currentUserId = user?.id;
+
+      // If user is not logged in, sign them up first
+      if (!user) {
+        if (!formData.password) {
+          throw new Error("Password is required to create an account.");
+        }
+        
+        const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+          email: formData.email,
+          password: formData.password,
+          options: {
+            data: {
+              full_name: formData.name,
+            },
+          },
+        });
+
+        if (signUpError) throw signUpError;
+        currentUserId = signUpData.user?.id;
+        
+        if (!currentUserId) {
+          throw new Error("Failed to create account. Please try again.");
+        }
+        
+        toast.success("Account created successfully!");
+      }
+
       const order = await createOrder({
         data: {
-          userId: user?.id,
+          userId: currentUserId,
           packageId: pkg.id,
           customerDetails: formData,
           amount: pkg.price,
