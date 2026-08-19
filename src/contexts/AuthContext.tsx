@@ -27,12 +27,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         return;
       }
       
-      const { data, error } = await supabase
-        .from('user_roles')
-        .select('role')
-        .eq('user_id', u.id)
-        .eq('role', 'admin')
-        .single();
+      const { data, error } = await supabase.rpc('has_role', { 
+        _user_id: u.id, 
+        _role: 'admin' 
+      });
         
       setIsAdmin(!!data && !error);
     };

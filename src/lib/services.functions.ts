@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
+import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 export const getServices = createServerFn({ method: "GET" }).handler(async () => {
   const { data, error } = await supabase
@@ -35,6 +36,7 @@ export const getServiceById = createServerFn({ method: "GET" })
   });
 
 export const createOrder = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator(z.object({
     userId: z.string().optional(),
     packageId: z.string(),
