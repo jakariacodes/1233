@@ -85,11 +85,8 @@ const UserManagement = () => {
                   </TableHeader>
                   <TableBody>
                     {filteredUsers.map((user, index) => (
-                      <motion.tr
+                      <TableRow
                         key={user.id}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.05 }}
                         className="hover:bg-secondary/30 transition-colors border-border/50"
                       >
                         <TableCell>
@@ -148,7 +145,7 @@ const UserManagement = () => {
                             {user.status || 'Registered'}
                           </Badge>
                         </TableCell>
-                      </motion.tr>
+                      </TableRow>
                     ))}
                   </TableBody>
                 </Table>
