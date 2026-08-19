@@ -201,9 +201,23 @@ const ServiceManagement = () => {
                   <p className="text-sm text-muted-foreground">{service.subtitle}</p>
                 </div>
                 <div className="flex gap-2">
-                  <Button variant="ghost" size="icon" onClick={() => { setEditingService(service); setFormData({...service}); setIsDialogOpen(true); }}>
+                  <Button variant="ghost" size="icon" onClick={() => { 
+                    setEditingService(service); 
+                    setFormData({
+                      title: service.title,
+                      slug: service.slug,
+                      subtitle: service.subtitle || '',
+                      description: service.description || '',
+                      icon_name: service.icon_name || '',
+                      image_url: service.image_url || '',
+                      is_active: service.is_active,
+                      sort_order: service.sort_order,
+                    }); 
+                    setIsDialogOpen(true); 
+                  }}>
                     <Edit2 className="w-4 h-4" />
                   </Button>
+
                   <Button variant="ghost" size="icon" onClick={() => deleteService(service.id)}>
                     <Trash2 className="w-4 h-4 text-destructive" />
                   </Button>
