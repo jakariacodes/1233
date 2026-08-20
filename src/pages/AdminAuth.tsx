@@ -151,7 +151,7 @@ const AdminAuth = () => {
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
-              {errors.password && <p className="text-xs text-red-400 mt-1">{errors.password}</p>}
+              {errors['password'] && <p className="text-xs text-red-400 mt-1">{errors['password']}</p>}
             </div>
 
             <Button
