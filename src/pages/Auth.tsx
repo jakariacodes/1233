@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
-import { Eye, EyeOff, LogIn, UserPlus, ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
+import { Eye, EyeOff, LogIn, UserPlus, ArrowRight, Sparkles, ShieldCheck, Mail, Lock, User, ArrowLeft } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
-import { useNavigate } from "@tanstack/react-router";
+import { useNavigate, Link, useSearch } from "@tanstack/react-router";
 import { z } from "zod";
 
 const loginSchema = z.object({
@@ -23,15 +23,22 @@ const signupSchema = z.object({
 });
 
 const Auth = () => {
+  const search = useSearch({ from: '/auth' }) as any;
+  const isRecovery = search.type === 'recovery';
+  
+  const [isLogin, setIsLogin] = useState(!isRecovery);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isResetting, setIsResetting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
+    fullName: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
-  const { user, signIn, isAdmin } = useAuth();
+  const { user, signIn, signUp, isAdmin, resetPassword } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
