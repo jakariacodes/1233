@@ -113,8 +113,9 @@ const AboutSection = () => {
                     <span className="text-[10px] font-bold text-primary uppercase tracking-wider">Our Core Vision</span>
                   </div>
                   <h4 className="text-white font-display font-bold text-2xl mb-3 leading-tight">
-                    Driving the Future of <span className="text-primary">Digital Innovation</span> in Bangladesh
+                    Driving the Future of <span className="text-primary">Digital Innovation</span> Worldwide
                   </h4>
+
                   <p className="text-slate-400 text-sm leading-relaxed">
                     We combine creative strategy with technical expertise to build scalable solutions that solve complex business challenges and create meaningful impact.
                   </p>
