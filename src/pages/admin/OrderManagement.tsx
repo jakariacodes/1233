@@ -369,7 +369,7 @@ const OrderManagement = () => {
               <div className="grid gap-4">
                 {filteredOrders.map((order) => (
                   <motion.div key={order.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-                    <Card className="hover:shadow-lg transition-all duration-300">
+                    <Card className={`hover:shadow-lg transition-all duration-300 border-l-4 ${order.status === 'pending' ? 'border-l-amber-500' : 'border-l-transparent'}`}>
                       <CardContent className="p-6 flex flex-col md:flex-row md:items-center gap-6">
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
@@ -377,15 +377,34 @@ const OrderManagement = () => {
                              <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase ${statusOptions.find(s => s.value === order.status)?.color}`}>
                                {statusOptions.find(s => s.value === order.status)?.label}
                              </span>
+                             {order.payment_status === 'unpaid' && (
+                               <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-rose-100 text-rose-700">
+                                 Awaiting Payment
+                               </span>
+                             )}
                           </div>
                           <p className="font-bold text-xl">{order.customer_name}</p>
                           <p className="text-sm text-muted-foreground">{order.customer_email}</p>
+                          {order.payment_method && (
+                            <p className="text-xs font-medium text-slate-500 mt-2 flex items-center gap-1">
+                              Method: <span className="text-slate-900">{order.payment_method}</span>
+                            </p>
+                          )}
                         </div>
                         <div className="text-left md:text-right">
-                          <p className="text-3xl font-black font-display text-primary">৳{order.amount.toLocaleString()}</p>
+                          <p className="text-3xl font-black font-display text-primary">${order.amount.toLocaleString()}</p>
                           <p className="text-xs font-bold text-muted-foreground uppercase">{order.service_type}</p>
                         </div>
                         <div className="flex items-center gap-2">
+                          {order.status === 'pending' && (
+                            <Button 
+                              size="sm" 
+                              onClick={() => updateStatus(order.id, 'approved')}
+                              className="bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl"
+                            >
+                              Approve
+                            </Button>
+                          )}
                           <Button variant="outline" size="sm" onClick={() => openEditDialog(order)} className="rounded-xl px-4">Edit</Button>
                           <Button variant="ghost" size="sm" className="text-rose-500 rounded-xl" onClick={() => handleDelete(order.id)}>Delete</Button>
                         </div>
