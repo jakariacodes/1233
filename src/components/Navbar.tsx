@@ -230,8 +230,8 @@ const Navbar = () => {
           {!user ? (
             <>
               <Link 
-                to={"/auth" as any} 
-                className="hidden md:block text-sm font-medium hover:text-primary transition-colors text-muted-foreground"
+                to="/auth"
+                className="hidden md:block text-sm font-medium hover:text-primary transition-colors text-slate-600"
               >
                 Login
               </Link>
