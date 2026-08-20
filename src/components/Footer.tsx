@@ -7,45 +7,44 @@ const Footer = () => {
 
   const footerSections = [
     {
-      title: "Services",
+      title: "Help",
       links: [
-        { name: "Custom Software", href: "/services" },
-        { name: "Mobile App Development", href: "/services" },
-        { name: "Web Design & Development", href: "/services" },
-        { name: "MVPs & Product Design", href: "/services" },
-        { name: "Cybersecurity", href: "/services" },
-        { name: "Web & Search Experience", href: "/services" },
-      ],
-    },
-    {
-      title: "Industries",
-      links: [
-        { name: "E-Gov Solutions", href: "/services" },
-        { name: "EdTech", href: "/services" },
-        { name: "Maritime & PorTech", href: "/services" },
-        { name: "FinTech", href: "/services" },
-        { name: "HealthTech", href: "/services" },
-        { name: "Telecom & Media", href: "/services" },
+        { name: "Payment", href: "/help/payment" },
+        { name: "Delivery", href: "/help/delivery" },
+        { name: "Chat with us", href: "/help/support" },
+        { name: "Technical issue", href: "/help/technical-issue" },
+        { name: "Offers & Campaigns", href: "/help/offers" },
+        { name: "Next Online Support", href: "/help/support" },
       ],
     },
     {
       title: "Products",
       links: [
-        { name: "Modulexa", href: "#" },
-        { name: "Educator LMS", href: "#" },
-        { name: "Fintracko", href: "#" },
-        { name: "EduFano University", href: "#" },
-        { name: "EduFano School", href: "#" },
-        { name: "HRworkout", href: "#" },
+        { name: "Modulexa", href: "/products/modulexa" },
+        { name: "Domain", href: "/products/domain" },
+        { name: "Hosting", href: "/products/hosting" },
+        { name: "Business Management", href: "/products/business-management" },
+        { name: "Hospital Management", href: "/products/hospital-management" },
+        { name: "Web Template", href: "/products/web-templates" },
+      ],
+    },
+    {
+      title: "Services",
+      links: [
+        { name: "Custom Software", href: "/services" },
+        { name: "Web Design & Development", href: "/services" },
+        { name: "SEO Optimization", href: "/services" },
+        { name: "Graphic Design", href: "/services" },
+        { name: "Digital Marketing", href: "/services" },
       ],
     },
     {
       title: "Insights",
       links: [
-        { name: "Company Overview", href: "/about" },
+        { name: "About Us", href: "/about" },
         { name: "Our Team", href: "/team" },
-        { name: "Career", href: "/contact" },
         { name: "Case Studies", href: "/portfolio" },
+        { name: "Career", href: "/careers" },
         { name: "Blog", href: "/blog" },
         { name: "News", href: "/blog" },
       ],
@@ -148,13 +147,13 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-12 mb-20">
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h3 className="text-sm uppercase font-bold mb-8 tracking-[0.2em] text-white/60">{section.title}</h3>
+              <h3 className="text-sm uppercase font-bold mb-8 tracking-[0.2em] text-white">{section.title}</h3>
               <ul className="space-y-4">
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href as any}
-                      className="text-white/80 hover:text-primary transition-colors text-sm font-medium"
+                      className="text-white hover:text-primary transition-colors text-sm font-medium"
                     >
                       {link.name}
                     </Link>
@@ -170,21 +169,21 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-12">
             {/* Tagline or Brief Description */}
             <div className="max-w-md">
-              <p className="text-sm text-white/50 leading-relaxed italic">
+              <p className="text-sm text-white/70 leading-relaxed italic">
                 Empowering businesses globally with cutting-edge software solutions and digital innovation.
               </p>
             </div>
 
             {/* Copyright & Links */}
             <div className="text-left md:text-right space-y-4">
-              <div className="flex flex-wrap md:justify-end gap-6 text-xs font-bold uppercase tracking-widest text-white/60">
+              <div className="flex flex-wrap md:justify-end gap-6 text-xs font-bold uppercase tracking-widest text-white/80">
                 <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
                 <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
                 <Link to="/refund" className="hover:text-white transition-colors">Refund Policy</Link>
 
               </div>
-              <p className="text-white/50 text-xs font-medium uppercase tracking-[0.2em]">
-                Copyright © {currentYear} NextOnline Technology Ltd. All rights reserved.
+              <p className="text-white/70 text-xs font-medium uppercase tracking-[0.2em]">
+                Copyright © {currentYear} NextOnline Technology. All rights reserved.
               </p>
             </div>
           </div>
