@@ -147,13 +147,13 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-12 mb-20">
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h3 className="text-sm uppercase font-bold mb-8 tracking-[0.2em] text-[#FFFFFF]/70">{section.title}</h3>
+              <h3 className="text-sm uppercase font-bold mb-8 tracking-[0.2em] text-white">{section.title}</h3>
               <ul className="space-y-4">
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href as any}
-                      className="text-[#FFFFFF] hover:text-primary transition-colors text-sm font-medium"
+                      className="text-white hover:text-primary transition-colors text-sm font-medium"
                     >
                       {link.name}
                     </Link>
@@ -183,7 +183,7 @@ const Footer = () => {
 
               </div>
               <p className="text-white/50 text-xs font-medium uppercase tracking-[0.2em]">
-                Copyright © {currentYear} NextOnline Technology Ltd. All rights reserved.
+                Copyright © {currentYear} NextOnline Technology. All rights reserved.
               </p>
             </div>
           </div>
