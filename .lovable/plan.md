@@ -1,48 +1,26 @@
-# Plan: Admin-Controlled Hero & Global Content Internationalization
+# Plan: Global Office Addresses in Footer
 
-Move Hero section content to a database-driven model manageable via the Admin Panel and rewrite all website content to reflect a global brand positioning instead of a Bangladesh-only focus.
-
-## User Review Required
-
-> [!IMPORTANT]
-> - This update will change hardcoded text in components to dynamic data fetched from `site_settings` or a new `hero_settings` table.
-> - Global text changes will remove phrases like "in Bangladesh" and replace them with "Worldwide" or "Global" across all sections.
+Update the footer to display the company's official global addresses (UK, USA, and Bangladesh) with a premium, smart design featuring location icons/flags.
 
 ## Proposed Changes
 
-### Database & Backend
-- Create a `site_content` table to store key-value pairs for section-specific text (Hero title, descriptions, CTA labels).
-- Seed the table with initial "Global-focused" values.
-- Update RLS policies to allow public read and admin-only update.
+### Components
+#### [Footer.tsx](src/components/Footer.tsx)
+- Reorganize the address section to use a structured grid similar to the reference image.
+- Add flag icons or stylized markers for each region.
+- Update the address text for:
+    - **UK Office**: NEXT ONLINE GLOBAL LTD, 20-22 WENLOCK ROAD, LONDON, ENGLAND, N1 7GU UK.
+    - **USA Office**: Next Online LLC, 1209 Mountain Road Pl NE, Ste N, Albuquerque, NM, 87110 USA.
+    - **Bangladesh Office**: Next Online Technology, 1505/13, 37 Bir Uttam C R Dotto Road, Nahar Plaza, Ramana, Dhaka-1000, Bangladesh.
+- Ensure the layout is responsive and maintains high visual contrast (bright white text on dark background).
+- Refine the social icons and contact info alignment to match the "smart and premium" aesthetic.
 
-### Admin Panel (Hero Management)
-- Create a new tab in the Admin Settings page specifically for "Hero Section Control".
-- Add fields for:
-    - Hero Heading/Title
-    - Hero Description
-    - Primary/Secondary Button Text & URLs
-    - Service Pills (Labels & Icons)
-    - Featured Images/Backgrounds
-- Integrate `useSiteSettings` (or a specialized hook) to handle updates.
-
-### Content Internationalization
-- **Hero Section**: Change "Development Company in Bangladesh" to "Development Company Worldwide".
-- **About Section**: Rewrite descriptions to emphasize global service areas (UK, USA, Canada, Europe) rather than just being "based in Bangladesh".
-- **Footer**: Ensure address/branding reflects global availability.
-- **Across the site**: Replace "Bangladesh's Leading Agency" with "A Leading Global Digital Agency".
-
-### Technical Details
-- Use `src/hooks/useSiteSettings.ts` as a base for fetching content.
-- Update `src/components/HeroSection.tsx` to use the dynamic settings.
-- Add Zod validation for admin inputs to ensure URLs and text lengths are safe.
+## Technical Details
+- Use `lucide-react` for generic icons if specific flags aren't available as SVG components, or use emoji flags for simplicity and high visibility as seen in the current implementation.
+- Apply Tailwind utility classes for the multi-column layout (`grid-cols-1 md:grid-cols-3` etc.).
+- Maintain the existing color palette (`bg-[#011612]` and primary accents).
 
 ## Verification Plan
-
-### Automated Tests
-- Verify `site_content` table accessibility via Supabase client.
-- Test Admin Panel update functionality by changing a Hero title and verifying the preview updates.
-
-### Manual Verification
-- Check every page for mentions of "Bangladesh" that should be "Worldwide".
-- Verify that Hero button links correctly update from the Admin Panel.
-- Ensure visual consistency after text length changes.
+- Check the footer on mobile and desktop viewports to ensure the address grid wraps correctly.
+- Verify text accuracy for all three addresses.
+- Confirm that links and contact buttons remain functional.
