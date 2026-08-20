@@ -57,34 +57,69 @@ const Auth = () => {
     setIsLoading(true);
 
     try {
-      const result = loginSchema.safeParse(formData);
-      if (!result.success) {
-        const fieldErrors: Record<string, string> = {};
-        (result.error as any).errors.forEach((err: any) => {
-          if (err.path[0]) {
-            fieldErrors[err.path[0] as string] = err.message;
-          }
-        });
-        setErrors(fieldErrors);
-        setIsLoading(false);
-        return;
-      }
+      if (isLogin) {
+        const result = loginSchema.safeParse(formData);
+        if (!result.success) {
+          const fieldErrors: Record<string, string> = {};
+          result.error.issues.forEach((issue: any) => {
+            if (issue.path[0]) fieldErrors[issue.path[0] as string] = issue.message;
+          });
+          setErrors(fieldErrors);
+          setIsLoading(false);
+          return;
+        }
 
-      const { error } = await signIn(formData.email, formData.password);
-      if (error) {
-        if (error.message.includes('Invalid login credentials')) {
-          toast.error("Invalid email or password.");
-        } else {
+        const { error } = await signIn(formData.email, formData.password);
+        if (error) {
           toast.error(error.message);
+        } else {
+          toast.success("Welcome back!");
         }
       } else {
-        toast.success("Welcome back!");
-        // Redirection will be handled by useEffect
+        const result = signupSchema.safeParse(formData);
+        if (!result.success) {
+          const fieldErrors: Record<string, string> = {};
+          result.error.issues.forEach((issue: any) => {
+            if (issue.path[0]) fieldErrors[issue.path[0] as string] = issue.message;
+          });
+          setErrors(fieldErrors);
+          setIsLoading(false);
+          return;
+        }
+
+        const { error } = await signUp(formData.email, formData.password, formData.fullName);
+        if (error) {
+          toast.error(error.message);
+        } else {
+          toast.success("Account created! Please check your email to verify.");
+          setIsLogin(true);
+        }
       }
     } catch (error) {
-      toast.error("An unexpected error occurred. Please try again.");
+      toast.error("An unexpected error occurred.");
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleForgotPassword = async () => {
+    if (!formData.email) {
+      setErrors({ email: "Please enter your email address first" });
+      return;
+    }
+    
+    setIsResetting(true);
+    try {
+      const { error } = await resetPassword(formData.email);
+      if (error) {
+        toast.error(error.message);
+      } else {
+        toast.success("Password reset email sent!");
+      }
+    } catch (error) {
+      toast.error("Failed to send reset email.");
+    } finally {
+      setIsResetting(false);
     }
   };
 
