@@ -52,11 +52,12 @@ const AboutSection = () => {
             </h2>
             
             <p className="text-slate-600 text-lg mb-10 leading-relaxed max-w-xl">
-              NextOnline Technology is a leading web development and digital service company based in Bangladesh, 
-              serving clients in UK, USA, Canada and worldwide. With over 5 years of experience, we provide 
-              professional web design service, web development service, SEO service and problem solutions that help 
-              businesses thrive in the digital age.
+              NextOnline Technology is a premier global software development and digital strategy agency. 
+              Serving enterprise clients across the UK, USA, Europe, and the Middle East, we specialize in 
+              high-performance web architecture, bespoke software engineering, and innovative digital solutions 
+              that scale businesses globally.
             </p>
+
             
             {/* 2x2 Feature Grid */}
             <div className="grid sm:grid-cols-2 gap-4 mb-12">
