@@ -6,9 +6,10 @@ export const useHeroContent = () => {
     queryKey: ["hero-content"],
     queryFn: async () => {
       const { data, error } = await supabase
-        .from("hero_content")
+        .from("hero_content" as any)
         .select("*")
         .single();
+
       
       if (error) {
         console.error("Error fetching hero content:", error);
