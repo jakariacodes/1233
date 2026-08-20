@@ -41,6 +41,30 @@ const codeSnippets = [
 ];
 
 export const HeroSection = () => {
+  const { data: heroData, isLoading } = useHeroContent();
+
+  if (isLoading) {
+    return (
+      <section className="relative min-h-screen flex items-center justify-center bg-[#011612]">
+        <Loader2 className="w-8 h-8 text-primary animate-spin" />
+      </section>
+    );
+  }
+
+  const content = heroData || {
+    badge_text: "NextOnline Technology — Driving Global Innovation",
+    badge_subtext: "Est. 2021",
+    top_label: "Innovate. Scale. Succeed.",
+    heading_line1: "Driving the Future of",
+    heading_accent: "Digital Innovation",
+    heading_line2: "Worldwide",
+    description: "We empower businesses globally with next-generation software solutions, cutting-edge technology, and creative digital strategies designed for the modern era.",
+    primary_btn_text: "Get Started",
+    primary_btn_link: "/contact",
+    secondary_btn_text: "View Solutions",
+    secondary_btn_link: "/services",
+  };
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#011612] py-20 lg:py-0">
       {/* Animated Tech Grid Background */}
@@ -109,26 +133,26 @@ export const HeroSection = () => {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
               <span className="text-sm text-white/80 font-medium group-hover:text-white transition-colors">
-                NextOnline Technology — Bangladesh's Leading Agency
+                {content.badge_text}
               </span>
-              <span className="text-xs text-white/50 border-l border-white/20 pl-3">Est. 2021</span>
+              <span className="text-xs text-white/50 border-l border-white/20 pl-3">{content.badge_subtext}</span>
             </div>
 
             {/* Heading with reference-based design */}
             <div className="mb-8 animate-slide-up animation-delay-100">
               <div className="inline-block px-4 py-1.5 rounded-lg bg-teal-500/10 text-teal-400 font-bold text-xs uppercase tracking-widest mb-6 border border-teal-500/20">
-                Digitize Your Imagination
+                {content.top_label}
               </div>
               <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15] tracking-tight">
-                <span className="text-white">Innovative Software </span><br />
-                <span className="text-primary animate-pulse-gentle">Development Company </span><br />
-                <span className="text-white">in Bangladesh</span>
+                <span className="text-white">{content.heading_line1} </span><br />
+                <span className="text-primary animate-pulse-gentle">{content.heading_accent} </span><br />
+                <span className="text-white">{content.heading_line2}</span>
               </h1>
             </div>
 
             {/* Subtitle */}
             <p className="text-base md:text-lg text-white/70 mb-10 max-w-xl leading-relaxed animate-slide-up animation-delay-200">
-              We provide B2B and B2C-based software solutions that develop creative and inventive software solutions for individual industries.
+              {content.description}
             </p>
 
             {/* Services Pills with hover effects */}
@@ -149,21 +173,22 @@ export const HeroSection = () => {
 
             {/* CTA Buttons with enhanced animations */}
             <div className="flex flex-col sm:flex-row gap-4 mb-10 animate-slide-up animation-delay-400">
-              <Link to="/contact">
+              <Link to={content.primary_btn_link}>
                 <Button className="h-12 px-8 text-sm bg-blue-700 hover:bg-blue-600 rounded-full group relative overflow-hidden font-bold shadow-lg shadow-blue-900/20 border border-blue-600/30 uppercase tracking-wider">
-                  Company Deck
+                  {content.primary_btn_text}
                 </Button>
               </Link>
-              <Link to="/portfolio">
+              <Link to={content.secondary_btn_link}>
                 <Button 
                   variant="outline" 
                   className="gap-2 h-12 px-8 text-sm border-teal-500/50 text-teal-400 hover:bg-teal-500/10 rounded-full group font-bold backdrop-blur-sm uppercase tracking-wider"
                 >
-                  Our Products
+                  {content.secondary_btn_text}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
             </div>
+
 
             {/* Trusted By with stagger animation */}
             <div className="animate-slide-up animation-delay-500">
