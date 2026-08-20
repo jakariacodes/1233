@@ -86,7 +86,7 @@ const ServiceDetail = () => {
                     <PricingCard 
                       key={pkg.id} 
                       pkg={pkg} 
-                      serviceId={service.id} 
+                      serviceId={service.slug || service.id} 
                     />
                   ))
 
