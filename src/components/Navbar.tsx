@@ -191,7 +191,8 @@ const Navbar = () => {
                             {(dynamicServices.length > 0 ? dynamicServices : services).map((service, idx) => (
                               <Link 
                                 key={idx} 
-                                to={(service.href || `/services/${service.id}`) as any} 
+                                to={"/services/$id" as any}
+                                params={{ id: service.slug || service.id } as any}
                                 className="group flex items-start gap-4 p-2 rounded-xl hover:bg-slate-50 transition-colors"
                                 onClick={() => setIsServicesOpen(false)}
                               >
