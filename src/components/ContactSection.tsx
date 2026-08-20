@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
-import officeTeam from "@/assets/office-team.jpg.asset.json";
+import officeTeam from "@/assets/office-team.png";
 
 const ContactSection = () => {
   return (
@@ -145,7 +145,7 @@ const ContactSection = () => {
               <div className="relative hidden lg:flex items-center justify-center p-8 md:p-12">
                 <div className="h-full w-full rounded-[2.5rem] overflow-hidden shadow-2xl relative">
                   <img 
-                    src={officeTeam.url} 
+                    src={officeTeam} 
                     alt="Our Team"
                     className="h-full w-full object-cover relative z-10"
                   />

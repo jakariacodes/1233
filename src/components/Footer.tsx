@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Globe, Mail, Phone, MapPin } from "lucide-react";
-import logoFooter from "@/assets/logo-footer.png.asset.json";
+import logoFooter from "@/assets/logo-footer.webp";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -59,7 +59,7 @@ const Footer = () => {
           <div className="flex flex-col space-y-6">
             <Link to="/" className="block">
               <img
-                src={logoFooter.url}
+                src={logoFooter}
                 alt="NextOnline LLC"
                 className="h-10 w-auto object-contain brightness-0 invert"
               />
