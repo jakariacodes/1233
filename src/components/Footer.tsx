@@ -169,20 +169,20 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-12">
             {/* Tagline or Brief Description */}
             <div className="max-w-md">
-              <p className="text-sm text-white/50 leading-relaxed italic">
+              <p className="text-sm text-white/70 leading-relaxed italic">
                 Empowering businesses globally with cutting-edge software solutions and digital innovation.
               </p>
             </div>
 
             {/* Copyright & Links */}
             <div className="text-left md:text-right space-y-4">
-              <div className="flex flex-wrap md:justify-end gap-6 text-xs font-bold uppercase tracking-widest text-white/60">
+              <div className="flex flex-wrap md:justify-end gap-6 text-xs font-bold uppercase tracking-widest text-white/80">
                 <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
                 <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
                 <Link to="/refund" className="hover:text-white transition-colors">Refund Policy</Link>
 
               </div>
-              <p className="text-white/50 text-xs font-medium uppercase tracking-[0.2em]">
+              <p className="text-white/70 text-xs font-medium uppercase tracking-[0.2em]">
                 Copyright © {currentYear} NextOnline Technology. All rights reserved.
               </p>
             </div>
