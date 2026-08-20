@@ -10,7 +10,7 @@ import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-import logoHeader from "@/assets/logo-header.png.asset.json";
+import logoHeader from "@/assets/logo-header.png";
 
 const services = [
   {
@@ -126,7 +126,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group shrink-0">
           <img 
-            src={logoHeader.url} 
+            src={logoHeader} 
             alt="NextOnline LLC" 
             className="h-10 w-auto object-contain"
           />
