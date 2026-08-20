@@ -40,9 +40,9 @@ const AdminAuth = () => {
       const result = loginSchema.safeParse(formData);
       if (!result.success) {
         const fieldErrors: Record<string, string> = {};
-        result.error.errors.forEach((err: any) => {
-          if (err.path[0]) {
-            fieldErrors[err.path[0] as string] = err.message;
+        result.error.issues.forEach((issue: any) => {
+          if (issue.path[0]) {
+            fieldErrors[issue.path[0] as string] = issue.message;
           }
         });
         setErrors(fieldErrors);
