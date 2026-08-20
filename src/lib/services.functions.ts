@@ -50,7 +50,9 @@ export const createOrder = createServerFn({ method: "POST" })
     amount: z.number(),
     packageName: z.string().optional(),
     serviceType: z.string().optional(),
-    paymentMethod: z.string().optional()
+    paymentMethod: z.string().optional(),
+    status: z.string().optional(),
+    paymentStatus: z.string().optional()
   }).parse)
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
@@ -65,8 +67,8 @@ export const createOrder = createServerFn({ method: "POST" })
         service_type: data.serviceType || 'Digital Service',
         package_name: data.packageName,
         amount: data.amount,
-        status: 'pending',
-        payment_status: 'unpaid',
+        status: data.status || 'pending',
+        payment_status: data.paymentStatus || 'unpaid',
         payment_method: data.paymentMethod
       } as any)
       .select()

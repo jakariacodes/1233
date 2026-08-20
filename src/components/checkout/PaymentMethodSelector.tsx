@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Check, Wallet, Smartphone, Globe, Info, Copy, CreditCard, Landmark, Clock } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 interface PaymentMethodSelectorProps {
   selectedMethod: string;
