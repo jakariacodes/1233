@@ -3,134 +3,107 @@ import { Shield, ArrowLeft } from "lucide-react";
 
 const PrivacyPolicy = () => {
   return (
-    <>
-
-      <div className="min-h-screen bg-background">
-
-        <main className="pt-24">
-          {/* Hero */}
-          <section className="py-16 bg-secondary/30 border-b border-border">
-            <div className="container-custom">
-              <Link
-                to="/"
-                className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-6"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Home
-              </Link>
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <Shield className="w-7 h-7 text-primary" />
-                </div>
-                <div>
-                  <h1 className="font-display text-3xl md:text-4xl font-bold">Privacy Policy</h1>
-                  <p className="text-muted-foreground">Last updated: January 1, 2026</p>
-                </div>
+    <div className="min-h-screen bg-background">
+      <main className="pt-24">
+        {/* Hero */}
+        <section className="py-16 bg-secondary/30 border-b border-border">
+          <div className="container-custom">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-6"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+                <Shield className="w-7 h-7 text-primary" />
+              </div>
+              <div>
+                <h1 className="font-display text-3xl md:text-4xl font-bold">Privacy Policy</h1>
+                <p className="text-muted-foreground">Last updated: August 20, 2026</p>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Content */}
-          <section className="py-16">
-            <div className="container-custom">
-              <div className="max-w-4xl mx-auto prose prose-lg prose-headings:font-display prose-headings:font-bold prose-p:text-muted-foreground prose-li:text-muted-foreground">
-                <h2>1. Introduction</h2>
-                <p>
-                  Welcome to NextOnline Technology ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
-                </p>
+        {/* Content */}
+        <section className="py-16">
+          <div className="container-custom">
+            <div className="max-w-4xl mx-auto prose prose-invert prose-lg prose-headings:font-display prose-headings:font-bold prose-p:text-white/70 prose-li:text-white/70">
+              <p>
+                Next Online is a webdesign agency who is providing services for more than eight years with proven success records. From the very inception of its journey, it gives promising services to customers worldwide and has become the best digital marketing agency all over world.
+              </p>
+              
+              <h2>Next Online Privacy Policy</h2>
+              <p>
+                Next Online is committed to protecting and respecting your privacy, including any personal information you may choose to provide us. This Privacy Policy, including Cookie Policy, describes how your personal information is collected, used, and shared when you visit or purchase from thenextonline.com (the "Site").
+              </p>
+              <p>
+                Please read the following carefully to understand our views and practices regarding your personal information and how we will treat it.
+              </p>
 
-                <h2>2. Information We Collect</h2>
-                <h3>Personal Information</h3>
-                <p>We may collect personal information that you voluntarily provide, including:</p>
-                <ul>
-                  <li>Name and contact information (email, phone number, address)</li>
-                  <li>Company name and job title</li>
-                  <li>Payment and billing information</li>
-                  <li>Project requirements and communications</li>
-                </ul>
+              <h2>PERSONAL INFORMATION WE COLLECT</h2>
+              <p>
+                When you visit the site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the installed cookies on your device.
+              </p>
+              <p>
+                Additionally, as you browse the site, we collect information about the individual web pages or products you view, what websites or search terms referred you to the site, and how you interact with the site. We refer to this automatically-collected information as "Device Information."
+              </p>
+              <p>We collect Device Information using the following technologies:</p>
+              <ul>
+                <li>"Cookies" are data files that are placed on your device or computer and often include a unique anonymous identifier.</li>
+                <li>"Log files" track actions occurring on the site, and collect data including your IP address, browser type, Internet service provider, referring/exit pages, and date/time stamps.</li>
+                <li>"Web beacons," "tags," and "pixels" are electronic files used to record information about how you browse the site.</li>
+                <li>"Google Analytics," "events" and "pixels" that records traffic-related information and how you interact with the site.</li>
+              </ul>
+              <p>
+                Additionally, when you make a purchase or attempt to purchase through the site, we collect certain information from you, including your name, billing address, shipping address, payment information (including credit card numbers, PayPal e-mail, bank details), e-mail address, and phone number. We refer to this information as "Order Information."
+              </p>
+              <p>
+                When we talk about "Personal Information" in this Privacy Policy, we are talking both about Device Information and Order Information.
+              </p>
 
-                <h3>Automatically Collected Information</h3>
-                <p>When you visit our website, we automatically collect:</p>
-                <ul>
-                  <li>IP address and browser type</li>
-                  <li>Device information and operating system</li>
-                  <li>Pages visited and time spent on our site</li>
-                  <li>Referring website addresses</li>
-                </ul>
+              <h2>HOW DO WE USE YOUR PERSONAL INFORMATION?</h2>
+              <p>
+                We use the Order Information that we generally collect to fulfill any orders placed through the site (including processing your payment information, arranging for shipping, and providing you with invoices and/or order confirmations). Additionally, we use this Order Information to:
+              </p>
+              <ul>
+                <li>Communicate with you;</li>
+                <li>Screen our orders for potential risk or fraud; and</li>
+                <li>When in line with the preferences you have shared with us, provide you with information or advertising relating to our products or services.</li>
+              </ul>
+              <p>
+                We use the Device Information that we collect to help us screen for potential risk and fraud (in particular, your IP address), and more generally, to improve and optimize our site (for example, by generating analytics about how our customers browse and interact with the site).
+              </p>
 
-                <h2>3. How We Use Your Information</h2>
-                <p>We use the collected information for:</p>
-                <ul>
-                  <li>Providing and improving our services</li>
-                  <li>Communicating with you about projects and updates</li>
-                  <li>Processing payments and managing accounts</li>
-                  <li>Sending marketing communications (with your consent)</li>
-                  <li>Analyzing website usage and improving user experience</li>
-                  <li>Complying with legal obligations</li>
-                </ul>
+              <h2>SHARING YOUR PERSONAL INFORMATION</h2>
+              <p>
+                We share your Personal Information with third parties to help us use your Personal Information, as described above. For example, we use WooCommerce to power our online store and Google Analytics to help us understand how our customers use the site.
+              </p>
+              <p>
+                Finally, we may also share your Personal Information to comply with applicable laws and regulations, respond to a subpoena, search warrant, or other lawful requests for information we receive, or protect our rights otherwise.
+              </p>
 
-                <h2>4. Information Sharing</h2>
-                <p>
-                  We do not sell, trade, or rent your personal information to third parties. We may share your information with:
-                </p>
-                <ul>
-                  <li>Service providers who assist in our operations</li>
-                  <li>Professional advisors (lawyers, accountants)</li>
-                  <li>Government authorities when required by law</li>
-                </ul>
+              <h2>YOUR RIGHTS</h2>
+              <p>
+                You have the right to access the personal information we hold about you and to ask that your personal information be corrected, updated, or deleted. If you would like to exercise this right, please contact us through the contact information below.
+              </p>
 
-                <h2>5. Data Security</h2>
-                <p>
-                  We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure.
-                </p>
+              <h2>DATA RETENTION</h2>
+              <p>
+                When you place an order through the site, we will maintain your Order Information for our records unless and until you ask us to delete this information.
+              </p>
 
-                <h2>6. Your Rights</h2>
-                <p>You have the right to:</p>
-                <ul>
-                  <li>Access your personal data</li>
-                  <li>Correct inaccurate data</li>
-                  <li>Request deletion of your data</li>
-                  <li>Object to processing of your data</li>
-                  <li>Request data portability</li>
-                  <li>Withdraw consent at any time</li>
-                </ul>
-
-                <h2>7. Cookies</h2>
-                <p>
-                  We use cookies and similar tracking technologies to enhance your browsing experience. You can control cookie preferences through your browser settings.
-                </p>
-
-                <h2>8. Third-Party Links</h2>
-                <p>
-                  Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites.
-                </p>
-
-                <h2>9. Children's Privacy</h2>
-                <p>
-                  Our services are not directed to individuals under 18. We do not knowingly collect personal information from children.
-                </p>
-
-                <h2>10. Changes to This Policy</h2>
-                <p>
-                  We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date.
-                </p>
-
-                <h2>11. Contact Us</h2>
-                <p>
-                  If you have questions about this privacy policy or our data practices, please contact us at:
-                </p>
-                <ul>
-                  <li>Email: info@techcrafterit.com</li>
-                  <li>Phone: +880 1731-173992</li>
-                  <li>Address: 1505/13, 37 Bir Uttam C R Dotto Road, Nahar Plaza, Ramana, Dhaka-1000, Bangladesh.</li>
-                </ul>
-              </div>
+              <h2>CONTACT US</h2>
+              <p>
+                For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at info@thenextonline.com.
+              </p>
             </div>
-          </section>
-        </main>
-
-      </div>
-    </>
+          </div>
+        </section>
+      </main>
+    </div>
   );
 };
 

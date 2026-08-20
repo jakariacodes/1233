@@ -3,132 +3,103 @@ import { FileText, ArrowLeft } from "lucide-react";
 
 const TermsOfService = () => {
   return (
-    <>
-
-      <div className="min-h-screen bg-background">
-
-        <main className="pt-24">
-          {/* Hero */}
-          <section className="py-16 bg-secondary/30 border-b border-border">
-            <div className="container-custom">
-              <Link
-                to="/"
-                className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-6"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Home
-              </Link>
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <FileText className="w-7 h-7 text-primary" />
-                </div>
-                <div>
-                  <h1 className="font-display text-3xl md:text-4xl font-bold">Terms of Service</h1>
-                  <p className="text-muted-foreground">Last updated: January 1, 2026</p>
-                </div>
+    <div className="min-h-screen bg-background">
+      <main className="pt-24">
+        {/* Hero */}
+        <section className="py-16 bg-secondary/30 border-b border-border">
+          <div className="container-custom">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-6"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+                <FileText className="w-7 h-7 text-primary" />
+              </div>
+              <div>
+                <h1 className="font-display text-3xl md:text-4xl font-bold">Terms & Condition</h1>
+                <p className="text-muted-foreground">Last updated: August 20, 2026</p>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Content */}
-          <section className="py-16">
-            <div className="container-custom">
-              <div className="max-w-4xl mx-auto prose prose-lg prose-headings:font-display prose-headings:font-bold prose-p:text-muted-foreground prose-li:text-muted-foreground">
-                <h2>1. Acceptance of Terms</h2>
-                <p>
-                  By accessing and using NextOnline Technology's website and services, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
-                </p>
+        {/* Content */}
+        <section className="py-16">
+          <div className="container-custom">
+            <div className="max-w-4xl mx-auto prose prose-invert prose-lg prose-headings:font-display prose-headings:font-bold prose-p:text-white/70 prose-li:text-white/70">
+              <h2>1. Acceptance of Terms</h2>
+              <p>
+                By engaging with or using the services provided by NextOnline Technology, clients agree to be bound by the terms and conditions outlined herein.
+              </p>
 
-                <h2>2. Services Description</h2>
-                <p>
-                  NextOnline Technology provides digital services including but not limited to web design, web development, graphic design, video editing, digital marketing, and SEO optimization. The specific scope of services will be defined in individual project agreements.
-                </p>
+              <h2>2. Scope of Work</h2>
+              <p>
+                NextOnline Technology will provide web design and development services as agreed upon with the client. The scope of work, deliverables, and project timeline will be defined in a separate agreement or proposal.
+              </p>
 
-                <h2>3. User Responsibilities</h2>
-                <p>As a user of our services, you agree to:</p>
-                <ul>
-                  <li>Provide accurate and complete information</li>
-                  <li>Maintain the confidentiality of any account credentials</li>
-                  <li>Notify us immediately of any unauthorized use</li>
-                  <li>Use our services only for lawful purposes</li>
-                  <li>Not interfere with or disrupt our services</li>
-                </ul>
+              <h2>3. Client Responsibilities</h2>
+              <p>
+                The client is responsible for providing all necessary materials, content, and approvals required for the project. Timely and clear communication is essential to ensure project progress and completion.
+              </p>
 
-                <h2>4. Intellectual Property</h2>
-                <h3>Our Content</h3>
-                <p>
-                  All content on our website, including text, graphics, logos, and software, is the property of NextOnline Technology and is protected by intellectual property laws.
-                </p>
-                <h3>Client Work</h3>
-                <p>
-                  Upon full payment, clients receive ownership of the final deliverables as specified in the project agreement. We retain the right to display completed work in our portfolio unless otherwise agreed.
-                </p>
+              <h2>4. Intellectual Property</h2>
+              <p>
+                All intellectual property rights, including copyrights, trademarks, and any original design elements created by the company, shall remain our property unless otherwise specified. The client is granted a non-exclusive license to use the finalized website design for its intended purpose.
+              </p>
 
-                <h2>5. Payment Terms</h2>
-                <ul>
-                  <li>Payment terms will be specified in individual project proposals</li>
-                  <li>A deposit may be required before work commences</li>
-                  <li>All prices are in USD unless otherwise specified</li>
-                  <li>Late payments may incur additional fees</li>
-                  <li>Work may be paused for overdue payments</li>
-                </ul>
+              <h2>5. Website Content</h2>
+              <p>
+                The client is solely responsible for the accuracy, legality, and appropriateness of all content provided. The client must ensure that the content does not infringe upon any intellectual property rights or violate any laws.
+              </p>
 
-                <h2>6. Project Timeline</h2>
-                <p>
-                  Project timelines are estimates based on the agreed scope. Delays caused by client-side issues (delayed feedback, content delivery, etc.) may extend the timeline. We will communicate any significant delays promptly.
-                </p>
+              <h2>6. Payment and Fees</h2>
+              <p>
+                The client agrees to pay the agreed-upon fees for the services provided. Payment terms, including deposit amounts, milestone payments, and the final payment, will be outlined in the agreement or proposal. Late payments may incur additional charges or project delays.
+              </p>
 
-                <h2>7. Revisions and Changes</h2>
-                <p>
-                  The number of revisions included in a project will be specified in the proposal. Additional revisions or scope changes may incur extra charges. Major scope changes require a new agreement.
-                </p>
+              <h2>7. Revisions and Change Requests</h2>
+              <p>
+                The client may request revisions during the project's development stage, subject to the scope of work and agreed-upon number of revisions. Additional revisions or significant scope changes may require an adjustment to the project timeline and fees.
+              </p>
 
-                <h2>8. Confidentiality</h2>
-                <p>
-                  We treat all client information as confidential. We will not disclose your business information to third parties without your consent, except as required by law.
-                </p>
+              <h2>8. Website Maintenance and Updates</h2>
+              <p>
+                Unless otherwise agreed upon, ongoing website maintenance and updates are not included in the initial project. We may offer maintenance services separately, and fees and terms will be discussed and agreed upon.
+              </p>
 
-                <h2>9. Limitation of Liability</h2>
-                <p>
-                  NextOnline Technology shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our services. Our total liability shall not exceed the amount paid for the specific service.
-                </p>
+              <h2>9. Confidentiality</h2>
+              <p>
+                NextOnline Technology will keep all client information and project details confidential unless required by law or with the client's explicit consent.
+              </p>
 
-                <h2>10. Warranty Disclaimer</h2>
-                <p>
-                  Our services are provided "as is" without warranties of any kind. We do not guarantee that our services will be error-free, uninterrupted, or meet all your requirements.
-                </p>
+              <h2>10. Termination</h2>
+              <p>
+                Either party may terminate the project or contract in writing if there is a material breach of the agreement. In such cases, the client may be responsible for payment for services rendered up to the termination date.
+              </p>
 
-                <h2>11. Termination</h2>
-                <p>
-                  Either party may terminate a project with written notice. Upon termination, you agree to pay for all work completed up to the termination date. We may terminate services for breach of these terms.
-                </p>
+              <h2>11. Limitation of Liability</h2>
+              <p>
+                NextOnline Technology shall not be liable for any direct, indirect, incidental, consequential, or exemplary damages arising from the use or inability to use the website or any related services.
+              </p>
 
-                <h2>12. Governing Law</h2>
-                <p>
-                  These terms shall be governed by the laws of Bangladesh. Any disputes shall be resolved in the courts of Bangladesh.
-                </p>
+              <h2>12. Governing Law and Jurisdiction</h2>
+              <p>
+                These terms and conditions shall be governed by and construed in accordance with the laws of the jurisdiction where the company is located.
+              </p>
 
-                <h2>13. Changes to Terms</h2>
-                <p>
-                  We reserve the right to modify these terms at any time. Continued use of our services after changes constitutes acceptance of the modified terms.
-                </p>
-
-                <h2>14. Contact Information</h2>
-                <p>
-                  For questions about these Terms of Service, please contact us:
-                </p>
-                <ul>
-                  <li>Email: info@techcrafterit.com</li>
-                  <li>Phone: +880 1731-173992</li>
-                  <li>Address: 1505/13, 37 Bir Uttam C R Dotto Road, Nahar Plaza, Ramana, Dhaka-1000, Bangladesh.</li>
-                </ul>
-              </div>
+              <h2>13. Amendments</h2>
+              <p>
+                We may update or modify these terms and conditions from time to time. Clients will be notified of any material changes, and continued engagement constitutes acceptance of the revised terms.
+              </p>
             </div>
-          </section>
-        </main>
-
-      </div>
-    </>
+          </div>
+        </section>
+      </main>
+    </div>
   );
 };
 
