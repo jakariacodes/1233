@@ -7,14 +7,13 @@ const Footer = () => {
 
   const footerSections = [
     {
-      title: "Help",
+      title: "Services",
       links: [
-        { name: "Payment", href: "/help/payment" },
-        { name: "Delivery", href: "/help/delivery" },
-        { name: "Chat with us", href: "/help/support" },
-        { name: "Technical issue", href: "/help/technical-issue" },
-        { name: "Offers & Campaigns", href: "/help/offers" },
-        { name: "Next Online Support", href: "/help/support" },
+        { name: "Custom Software", href: "/services" },
+        { name: "Web Design & Development", href: "/services" },
+        { name: "SEO Optimization", href: "/services" },
+        { name: "Graphic Design", href: "/services" },
+        { name: "Digital Marketing", href: "/services" },
       ],
     },
     {
@@ -29,13 +28,14 @@ const Footer = () => {
       ],
     },
     {
-      title: "Services",
+      title: "Help",
       links: [
-        { name: "Custom Software", href: "/services" },
-        { name: "Web Design & Development", href: "/services" },
-        { name: "SEO Optimization", href: "/services" },
-        { name: "Graphic Design", href: "/services" },
-        { name: "Digital Marketing", href: "/services" },
+        { name: "Payment", href: "/help/payment" },
+        { name: "Delivery", href: "/help/delivery" },
+        { name: "Chat with us", href: "/help/support" },
+        { name: "Technical issue", href: "/help/technical-issue" },
+        { name: "Offers & Campaigns", href: "/help/offers" },
+        { name: "Next Online Support", href: "/help/support" },
       ],
     },
     {
