@@ -109,8 +109,8 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
+    { name: "Hosting", href: "#" },
     { name: "Services", href: "/services", hasDropdown: true },
-    { name: "Portfolio", href: "/portfolio" },
     { name: "Team", href: "/team" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },

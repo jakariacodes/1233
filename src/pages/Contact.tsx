@@ -48,7 +48,7 @@ const Contact = () => {
                 </div>
                 <div>
                    <h3 className="font-bold">Email Us</h3>
-                   <p className="text-muted-foreground">contact@techcrafterit.com</p>
+                   <p className="text-muted-foreground">info@thenextonline.com</p>
                 </div>
              </div>
              <div className="flex gap-4">
@@ -57,7 +57,7 @@ const Contact = () => {
                 </div>
                 <div>
                    <h3 className="font-bold">Call Us</h3>
-                   <p className="text-muted-foreground">+880 1234 567890</p>
+                   <p className="text-muted-foreground">+1 (413) 628-1326</p>
                 </div>
              </div>
              <div className="flex gap-4">
