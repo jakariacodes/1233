@@ -77,7 +77,9 @@ const Checkout = ({ service, package: pkg }: CheckoutProps) => {
           amount: pkg.price,
           packageName: pkg.name,
           serviceType: service.title,
-          paymentMethod: paymentMethod
+          paymentMethod: paymentMethod,
+          status: 'pending',
+          paymentStatus: paymentMethod === 'pay_later' ? 'unpaid' : 'unpaid' // Both start as unpaid, but 'pay_later' implies manual verification
         }
       });
       
