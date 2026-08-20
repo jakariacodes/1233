@@ -14,7 +14,11 @@ function AuthenticatedLayout() {
   
   useEffect(() => {
     if (!loading && !user) {
-      navigate({ to: '/auth' });
+      if (pathname.startsWith('/admin')) {
+        navigate({ to: '/admin-login' });
+      } else {
+        navigate({ to: '/auth' });
+      }
     }
     
     // Redirect non-admins away from admin routes
