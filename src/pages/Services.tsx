@@ -97,7 +97,7 @@ const Services = () => {
                   <h3 className="font-bold text-lg group-hover:text-primary transition-colors">{service.title}</h3>
                   <p className="text-xs text-muted-foreground mt-2 line-clamp-2">{service.description}</p>
                 </div>
-                <Link to={`/services/$id`} params={{ id: service.id }} className="mt-auto pt-4 text-primary text-xs font-bold flex items-center gap-1 group/link">
+                <Link to={`/services/$id`} params={{ id: service.slug || service.id }} className="mt-auto pt-4 text-primary text-xs font-bold flex items-center gap-1 group/link">
                   Learn More <ArrowRight className="w-3 h-3 transition-transform group-hover/link:translate-x-1" />
                 </Link>
               </motion.div>
@@ -125,7 +125,7 @@ const Services = () => {
                 <service.icon className={`w-7 h-7 ${service.iconColor}`} />
               </div>
               <div>
-                <Link to={`/services/$id`} params={{ id: service.id }}>
+                <Link to={`/services/$id`} params={{ id: service.slug || service.id }}>
                   <h3 className="font-bold text-lg group-hover:text-primary transition-colors">{service.title}</h3>
                 </Link>
                 <div className="flex items-center gap-1 mt-1">
@@ -166,7 +166,8 @@ const Services = () => {
                       </p>
                       <Link 
                         to={`/services/$id`} 
-                        params={{ id: service.id }} 
+                        params={{ id: service.slug || service.id }} 
+
                         className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all"
                       >
                         Detailed Overview <ArrowRight className="w-4 h-4" />
@@ -180,7 +181,7 @@ const Services = () => {
                             <PricingCard 
                               key={pkg.id} 
                               pkg={pkg} 
-                              serviceId={service.id} 
+                              serviceId={service.slug || service.id} 
                             />
                           ))
                         ) : (
