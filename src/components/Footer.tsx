@@ -167,16 +167,11 @@ const Footer = () => {
 
         {/* Lower Footer Area */}
         <div className="pt-12 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-12">
-            {/* Bangladesh Location (Special Highlight) */}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-12">
+            {/* Tagline or Brief Description */}
             <div className="max-w-md">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-xl">🇧🇩</span>
-                <h5 className="font-bold text-sm tracking-wider uppercase text-white">Bangladesh Headquarters</h5>
-              </div>
-              <p className="text-sm text-white/80 leading-relaxed font-medium">
-                1505/13, 37 Bir Uttam C R Dotto Road, Nahar Plaza,<br />
-                Ramana, Dhaka-1000, Bangladesh.
+              <p className="text-sm text-white/50 leading-relaxed italic">
+                Empowering businesses globally with cutting-edge software solutions and digital innovation.
               </p>
             </div>
 
