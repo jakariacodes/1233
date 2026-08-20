@@ -25,6 +25,17 @@ import { Route as AuthenticatedAdminRouteRouteImport } from './routes/_authentic
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogIdRouteImport } from './routes/blog.$id'
+import { Route as HelpDeliveryRouteImport } from './routes/help/delivery'
+import { Route as HelpOffersRouteImport } from './routes/help/offers'
+import { Route as HelpPaymentRouteImport } from './routes/help/payment'
+import { Route as HelpSupportRouteImport } from './routes/help/support'
+import { Route as HelpTechnicalIssueRouteImport } from './routes/help/technical-issue'
+import { Route as ProductsBusinessManagementRouteImport } from './routes/products/business-management'
+import { Route as ProductsDomainRouteImport } from './routes/products/domain'
+import { Route as ProductsHospitalManagementRouteImport } from './routes/products/hospital-management'
+import { Route as ProductsHostingRouteImport } from './routes/products/hosting'
+import { Route as ProductsModulexaRouteImport } from './routes/products/modulexa'
+import { Route as ProductsWebTemplatesRouteImport } from './routes/products/web-templates'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesIdRouteImport } from './routes/services.$id'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin/index'
@@ -117,6 +128,63 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
 const BlogIdRoute = BlogIdRouteImport.update({
   id: '/blog/$id',
   path: '/blog/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpDeliveryRoute = HelpDeliveryRouteImport.update({
+  id: '/help/delivery',
+  path: '/help/delivery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpOffersRoute = HelpOffersRouteImport.update({
+  id: '/help/offers',
+  path: '/help/offers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpPaymentRoute = HelpPaymentRouteImport.update({
+  id: '/help/payment',
+  path: '/help/payment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpSupportRoute = HelpSupportRouteImport.update({
+  id: '/help/support',
+  path: '/help/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpTechnicalIssueRoute = HelpTechnicalIssueRouteImport.update({
+  id: '/help/technical-issue',
+  path: '/help/technical-issue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsBusinessManagementRoute =
+  ProductsBusinessManagementRouteImport.update({
+    id: '/products/business-management',
+    path: '/products/business-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductsDomainRoute = ProductsDomainRouteImport.update({
+  id: '/products/domain',
+  path: '/products/domain',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsHospitalManagementRoute =
+  ProductsHospitalManagementRouteImport.update({
+    id: '/products/hospital-management',
+    path: '/products/hospital-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductsHostingRoute = ProductsHostingRouteImport.update({
+  id: '/products/hosting',
+  path: '/products/hosting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsModulexaRoute = ProductsModulexaRouteImport.update({
+  id: '/products/modulexa',
+  path: '/products/modulexa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsWebTemplatesRoute = ProductsWebTemplatesRouteImport.update({
+  id: '/products/web-templates',
+  path: '/products/web-templates',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
@@ -214,6 +282,17 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AuthenticatedAdminRouteRouteWithChildren
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/blog/$id': typeof BlogIdRoute
+  '/help/delivery': typeof HelpDeliveryRoute
+  '/help/offers': typeof HelpOffersRoute
+  '/help/payment': typeof HelpPaymentRoute
+  '/help/support': typeof HelpSupportRoute
+  '/help/technical-issue': typeof HelpTechnicalIssueRoute
+  '/products/business-management': typeof ProductsBusinessManagementRoute
+  '/products/domain': typeof ProductsDomainRoute
+  '/products/hospital-management': typeof ProductsHospitalManagementRoute
+  '/products/hosting': typeof ProductsHostingRoute
+  '/products/modulexa': typeof ProductsModulexaRoute
+  '/products/web-templates': typeof ProductsWebTemplatesRoute
   '/services/$id': typeof ServicesIdRoute
   '/blog/': typeof BlogIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -244,6 +323,17 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/blog/$id': typeof BlogIdRoute
+  '/help/delivery': typeof HelpDeliveryRoute
+  '/help/offers': typeof HelpOffersRoute
+  '/help/payment': typeof HelpPaymentRoute
+  '/help/support': typeof HelpSupportRoute
+  '/help/technical-issue': typeof HelpTechnicalIssueRoute
+  '/products/business-management': typeof ProductsBusinessManagementRoute
+  '/products/domain': typeof ProductsDomainRoute
+  '/products/hospital-management': typeof ProductsHospitalManagementRoute
+  '/products/hosting': typeof ProductsHostingRoute
+  '/products/modulexa': typeof ProductsModulexaRoute
+  '/products/web-templates': typeof ProductsWebTemplatesRoute
   '/services/$id': typeof ServicesIdRoute
   '/blog': typeof BlogIndexRoute
   '/services': typeof ServicesIndexRoute
@@ -277,6 +367,17 @@ export interface FileRoutesById {
   '/_authenticated/admin': typeof AuthenticatedAdminRouteRouteWithChildren
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/blog/$id': typeof BlogIdRoute
+  '/help/delivery': typeof HelpDeliveryRoute
+  '/help/offers': typeof HelpOffersRoute
+  '/help/payment': typeof HelpPaymentRoute
+  '/help/support': typeof HelpSupportRoute
+  '/help/technical-issue': typeof HelpTechnicalIssueRoute
+  '/products/business-management': typeof ProductsBusinessManagementRoute
+  '/products/domain': typeof ProductsDomainRoute
+  '/products/hospital-management': typeof ProductsHospitalManagementRoute
+  '/products/hosting': typeof ProductsHostingRoute
+  '/products/modulexa': typeof ProductsModulexaRoute
+  '/products/web-templates': typeof ProductsWebTemplatesRoute
   '/services/$id': typeof ServicesIdRoute
   '/blog/': typeof BlogIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -310,6 +411,17 @@ export interface FileRouteTypes {
     | '/admin'
     | '/dashboard'
     | '/blog/$id'
+    | '/help/delivery'
+    | '/help/offers'
+    | '/help/payment'
+    | '/help/support'
+    | '/help/technical-issue'
+    | '/products/business-management'
+    | '/products/domain'
+    | '/products/hospital-management'
+    | '/products/hosting'
+    | '/products/modulexa'
+    | '/products/web-templates'
     | '/services/$id'
     | '/blog/'
     | '/services/'
@@ -340,6 +452,17 @@ export interface FileRouteTypes {
     | '/terms'
     | '/dashboard'
     | '/blog/$id'
+    | '/help/delivery'
+    | '/help/offers'
+    | '/help/payment'
+    | '/help/support'
+    | '/help/technical-issue'
+    | '/products/business-management'
+    | '/products/domain'
+    | '/products/hospital-management'
+    | '/products/hosting'
+    | '/products/modulexa'
+    | '/products/web-templates'
     | '/services/$id'
     | '/blog'
     | '/services'
@@ -372,6 +495,17 @@ export interface FileRouteTypes {
     | '/_authenticated/admin'
     | '/_authenticated/dashboard'
     | '/blog/$id'
+    | '/help/delivery'
+    | '/help/offers'
+    | '/help/payment'
+    | '/help/support'
+    | '/help/technical-issue'
+    | '/products/business-management'
+    | '/products/domain'
+    | '/products/hospital-management'
+    | '/products/hosting'
+    | '/products/modulexa'
+    | '/products/web-templates'
     | '/services/$id'
     | '/blog/'
     | '/services/'
@@ -403,6 +537,17 @@ export interface RootRouteChildren {
   TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
   BlogIdRoute: typeof BlogIdRoute
+  HelpDeliveryRoute: typeof HelpDeliveryRoute
+  HelpOffersRoute: typeof HelpOffersRoute
+  HelpPaymentRoute: typeof HelpPaymentRoute
+  HelpSupportRoute: typeof HelpSupportRoute
+  HelpTechnicalIssueRoute: typeof HelpTechnicalIssueRoute
+  ProductsBusinessManagementRoute: typeof ProductsBusinessManagementRoute
+  ProductsDomainRoute: typeof ProductsDomainRoute
+  ProductsHospitalManagementRoute: typeof ProductsHospitalManagementRoute
+  ProductsHostingRoute: typeof ProductsHostingRoute
+  ProductsModulexaRoute: typeof ProductsModulexaRoute
+  ProductsWebTemplatesRoute: typeof ProductsWebTemplatesRoute
   ServicesIdRoute: typeof ServicesIdRoute
   BlogIndexRoute: typeof BlogIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
@@ -520,6 +665,83 @@ declare module '@tanstack/react-router' {
       path: '/blog/$id'
       fullPath: '/blog/$id'
       preLoaderRoute: typeof BlogIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help/delivery': {
+      id: '/help/delivery'
+      path: '/help/delivery'
+      fullPath: '/help/delivery'
+      preLoaderRoute: typeof HelpDeliveryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help/offers': {
+      id: '/help/offers'
+      path: '/help/offers'
+      fullPath: '/help/offers'
+      preLoaderRoute: typeof HelpOffersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help/payment': {
+      id: '/help/payment'
+      path: '/help/payment'
+      fullPath: '/help/payment'
+      preLoaderRoute: typeof HelpPaymentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help/support': {
+      id: '/help/support'
+      path: '/help/support'
+      fullPath: '/help/support'
+      preLoaderRoute: typeof HelpSupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help/technical-issue': {
+      id: '/help/technical-issue'
+      path: '/help/technical-issue'
+      fullPath: '/help/technical-issue'
+      preLoaderRoute: typeof HelpTechnicalIssueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/business-management': {
+      id: '/products/business-management'
+      path: '/products/business-management'
+      fullPath: '/products/business-management'
+      preLoaderRoute: typeof ProductsBusinessManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/domain': {
+      id: '/products/domain'
+      path: '/products/domain'
+      fullPath: '/products/domain'
+      preLoaderRoute: typeof ProductsDomainRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/hospital-management': {
+      id: '/products/hospital-management'
+      path: '/products/hospital-management'
+      fullPath: '/products/hospital-management'
+      preLoaderRoute: typeof ProductsHospitalManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/hosting': {
+      id: '/products/hosting'
+      path: '/products/hosting'
+      fullPath: '/products/hosting'
+      preLoaderRoute: typeof ProductsHostingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/modulexa': {
+      id: '/products/modulexa'
+      path: '/products/modulexa'
+      fullPath: '/products/modulexa'
+      preLoaderRoute: typeof ProductsModulexaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/web-templates': {
+      id: '/products/web-templates'
+      path: '/products/web-templates'
+      fullPath: '/products/web-templates'
+      preLoaderRoute: typeof ProductsWebTemplatesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
@@ -687,6 +909,17 @@ const rootRouteChildren: RootRouteChildren = {
   TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
   BlogIdRoute: BlogIdRoute,
+  HelpDeliveryRoute: HelpDeliveryRoute,
+  HelpOffersRoute: HelpOffersRoute,
+  HelpPaymentRoute: HelpPaymentRoute,
+  HelpSupportRoute: HelpSupportRoute,
+  HelpTechnicalIssueRoute: HelpTechnicalIssueRoute,
+  ProductsBusinessManagementRoute: ProductsBusinessManagementRoute,
+  ProductsDomainRoute: ProductsDomainRoute,
+  ProductsHospitalManagementRoute: ProductsHospitalManagementRoute,
+  ProductsHostingRoute: ProductsHostingRoute,
+  ProductsModulexaRoute: ProductsModulexaRoute,
+  ProductsWebTemplatesRoute: ProductsWebTemplatesRoute,
   ServicesIdRoute: ServicesIdRoute,
   BlogIndexRoute: BlogIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
