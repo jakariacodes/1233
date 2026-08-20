@@ -126,8 +126,9 @@ const AboutSection = () => {
               <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 mb-8 relative">
                 <MessageSquare className="absolute top-4 left-4 w-5 h-5 text-primary opacity-20" />
                 <p className="text-slate-600 text-sm leading-relaxed pl-6 italic">
-                  "Our mission is to become Bangladesh's leading digital agency, delivering innovative solutions that help businesses succeed in the digital world."
+                  "Our mission is to lead the global digital frontier, delivering unparalleled innovation that empowers businesses to redefine excellence in the digital age."
                 </p>
+
               </div>
               
               {/* Badges & Social */}
