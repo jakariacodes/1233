@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Play, CheckCircle2, Sparkles, Users, Award, Zap, Code, Palette, TrendingUp, Globe, Star, Shield, Terminal, Database, Cpu, Wifi } from "lucide-react";
+import { ArrowRight, Play, CheckCircle2, Sparkles, Users, Award, Zap, Code, Palette, TrendingUp, Globe, Star, Shield, Terminal, Database, Cpu, Wifi, Loader2 } from "lucide-react";
+import { useHeroContent } from "@/hooks/useHeroContent";
+
 
 const stats = [
   { value: "850+", label: "Projects Done", icon: Zap, color: "from-blue-500 to-cyan-500" },
