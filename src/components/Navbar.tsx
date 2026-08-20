@@ -132,85 +132,97 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <div 
-              key={link.name} 
-              className="relative py-2"
-              onMouseEnter={link.hasDropdown ? handleMouseEnter : undefined}
-              onMouseLeave={link.hasDropdown ? handleMouseLeave : undefined}
-            >
-              <Link
-                to={link.href as any}
-                className={cn(
-                  "text-sm font-semibold transition-all duration-300 hover:text-primary flex items-center gap-1 text-slate-700"
-                )}
-                activeProps={{ 
-                  className: "text-primary font-semibold" 
-                }}
+        {/* Desktop Menu - Pill Design */}
+        <div className="hidden lg:flex items-center bg-slate-50/80 backdrop-blur-md border border-slate-200/50 rounded-full p-1.5 shadow-sm">
+          {navLinks.map((link) => {
+            const isContact = link.name === "Contact";
+            return (
+              <div 
+                key={link.name} 
+                className="relative"
+                onMouseEnter={link.hasDropdown ? handleMouseEnter : undefined}
+                onMouseLeave={link.hasDropdown ? handleMouseLeave : undefined}
               >
-                {link.name}
-                {link.hasDropdown && <ChevronDown className={cn("w-3 h-3 transition-transform duration-300", isServicesOpen && "rotate-180")} />}
-              </Link>
+                {isContact ? (
+                  <Link
+                    to={link.href as any}
+                    className="flex items-center justify-center bg-primary hover:bg-primary/90 text-white text-sm font-bold h-9 px-6 rounded-full transition-all duration-300 shadow-sm"
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <Link
+                    to={link.href as any}
+                    className={cn(
+                      "text-sm font-semibold transition-all duration-300 hover:text-primary flex items-center gap-1 text-slate-600 px-5 py-2 whitespace-nowrap"
+                    )}
+                    activeProps={{ 
+                      className: "text-primary font-bold" 
+                    }}
+                  >
+                    {link.name}
+                    {link.hasDropdown && <ChevronDown className={cn("w-3 h-3 transition-transform duration-300", isServicesOpen && "rotate-180")} />}
+                  </Link>
+                )}
 
-              {/* Mega Menu */}
-              {link.hasDropdown && (
-                <AnimatePresence>
-                  {isServicesOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[700px] bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden"
-                    >
-                      <div className="p-8">
-                        <div className="flex items-center justify-between mb-8">
-                          <div>
-                            <h3 className="text-xl font-display font-bold text-slate-900">Our Services</h3>
-                            <p className="text-sm text-muted-foreground mt-1">Premium digital solutions for your business</p>
+                {/* Mega Menu */}
+                {link.hasDropdown && (
+                  <AnimatePresence>
+                    {isServicesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[700px] bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100 overflow-hidden"
+                      >
+                        <div className="p-8">
+                          <div className="flex items-center justify-between mb-8">
+                            <div>
+                              <h3 className="text-xl font-display font-bold text-slate-900">Our Services</h3>
+                              <p className="text-sm text-muted-foreground mt-1">Premium digital solutions for your business</p>
+                            </div>
+                            <Link to="/services" className="text-sm font-bold text-primary flex items-center gap-1 hover:underline">
+                              View All <ArrowRight className="w-4 h-4" />
+                            </Link>
                           </div>
-                          <Link to="/services" className="text-sm font-bold text-primary flex items-center gap-1 hover:underline">
-                            View All <ArrowRight className="w-4 h-4" />
+
+                          <div className="grid grid-cols-2 gap-x-8 gap-y-6">
+                            {(dynamicServices.length > 0 ? dynamicServices : services).map((service, idx) => (
+                              <Link 
+                                key={idx} 
+                                to={(service.href || `/services/${service.id}`) as any} 
+                                className="group flex items-start gap-4 p-2 rounded-xl hover:bg-slate-50 transition-colors"
+                                onClick={() => setIsServicesOpen(false)}
+                              >
+                                <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center text-white shrink-0 group-hover:scale-110 transition-transform", service.color || "bg-primary")}>
+                                  {service.icon ? <service.icon className="w-5 h-5" /> : (iconMap[service.icon_name] ? React.createElement(iconMap[service.icon_name], { className: "w-5 h-5" }) : <Globe className="w-5 h-5" />)}
+                                </div>
+                                <div>
+                                  <h4 className="text-sm font-bold text-slate-900 group-hover:text-primary transition-colors">{service.title}</h4>
+                                  <p className="text-xs text-muted-foreground mt-1 line-clamp-1">{service.description}</p>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                        
+                        <div className="bg-slate-50 p-6 flex items-center justify-between">
+                          <span className="text-sm text-muted-foreground">Need something custom?</span>
+                          <Link to="/contact">
+                            <Button size="sm" className="rounded-full bg-primary hover:bg-primary/90 text-white gap-2 h-10 px-6">
+                              <Sparkles className="w-4 h-4" />
+                              Get Free Quote
+                            </Button>
                           </Link>
                         </div>
-
-                        <div className="grid grid-cols-2 gap-x-8 gap-y-6">
-                          {(dynamicServices.length > 0 ? dynamicServices : services).map((service, idx) => (
-                            <Link 
-                              key={idx} 
-                              to={(service.href || `/services/${service.id}`) as any} 
-                              className="group flex items-start gap-4 p-2 rounded-xl hover:bg-slate-50 transition-colors"
-                              onClick={() => setIsServicesOpen(false)}
-                            >
-                              <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center text-white shrink-0 group-hover:scale-110 transition-transform", service.color || "bg-primary")}>
-                                {service.icon ? <service.icon className="w-5 h-5" /> : (iconMap[service.icon_name] ? React.createElement(iconMap[service.icon_name], { className: "w-5 h-5" }) : <Globe className="w-5 h-5" />)}
-                              </div>
-                              <div>
-                                <h4 className="text-sm font-bold text-slate-900 group-hover:text-primary transition-colors">{service.title}</h4>
-                                <p className="text-xs text-muted-foreground mt-1 line-clamp-1">{service.description}</p>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div className="bg-slate-50 p-6 flex items-center justify-between">
-                        <span className="text-sm text-muted-foreground">Need something custom?</span>
-                        <Link to="/contact">
-                          <Button size="sm" className="rounded-full bg-primary hover:bg-primary/90 text-white gap-2 h-10 px-6">
-                            <Sparkles className="w-4 h-4" />
-                            Get Free Quote
-                          </Button>
-                        </Link>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              )}
-            </div>
-          ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         {/* Right Side Actions */}
