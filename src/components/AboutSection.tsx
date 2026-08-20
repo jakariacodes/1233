@@ -52,7 +52,7 @@ const AboutSection = () => {
             </h2>
             
             <p className="text-slate-600 text-lg mb-10 leading-relaxed max-w-xl">
-              NextOnline Technology is a premier global software development and digital strategy agency. 
+              NextOnline LLC is a premier global software development and digital strategy agency. 
               Serving enterprise clients across the UK, USA, Europe, and the Middle East, we specialize in 
               high-performance web architecture, bespoke software engineering, and innovative digital solutions 
               that scale businesses globally.

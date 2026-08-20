@@ -4,7 +4,7 @@ import { getServices } from '@/lib/services.functions';
 
 export const Route = createFileRoute('/services/')({
   head: () => ({
-    title: 'Professional Digital Services | NextOnline Technology',
+    title: 'Professional Digital Services | NextOnline LLC',
     meta: [
       {
         name: 'description',
@@ -12,7 +12,7 @@ export const Route = createFileRoute('/services/')({
       },
       {
         property: 'og:title',
-        content: 'Professional Digital Services | NextOnline Technology',
+        content: 'Professional Digital Services | NextOnline LLC',
       },
       {
         property: 'og:description',

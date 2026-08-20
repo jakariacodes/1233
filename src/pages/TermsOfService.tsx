@@ -33,12 +33,12 @@ const TermsOfService = () => {
             <div className="max-w-4xl mx-auto prose prose-invert prose-lg prose-headings:font-display prose-headings:font-bold prose-p:text-white/70 prose-li:text-white/70">
               <h2>1. Acceptance of Terms</h2>
               <p>
-                By engaging with or using the services provided by NextOnline Technology, clients agree to be bound by the terms and conditions outlined herein.
+                By engaging with or using the services provided by NextOnline LLC, clients agree to be bound by the terms and conditions outlined herein.
               </p>
 
               <h2>2. Scope of Work</h2>
               <p>
-                NextOnline Technology will provide web design and development services as agreed upon with the client. The scope of work, deliverables, and project timeline will be defined in a separate agreement or proposal.
+                NextOnline LLC will provide web design and development services as agreed upon with the client. The scope of work, deliverables, and project timeline will be defined in a separate agreement or proposal.
               </p>
 
               <h2>3. Client Responsibilities</h2>
@@ -73,7 +73,7 @@ const TermsOfService = () => {
 
               <h2>9. Confidentiality</h2>
               <p>
-                NextOnline Technology will keep all client information and project details confidential unless required by law or with the client's explicit consent.
+                NextOnline LLC will keep all client information and project details confidential unless required by law or with the client's explicit consent.
               </p>
 
               <h2>10. Termination</h2>
@@ -83,7 +83,7 @@ const TermsOfService = () => {
 
               <h2>11. Limitation of Liability</h2>
               <p>
-                NextOnline Technology shall not be liable for any direct, indirect, incidental, consequential, or exemplary damages arising from the use or inability to use the website or any related services.
+                NextOnline LLC shall not be liable for any direct, indirect, incidental, consequential, or exemplary damages arising from the use or inability to use the website or any related services.
               </p>
 
               <h2>12. Governing Law and Jurisdiction</h2>

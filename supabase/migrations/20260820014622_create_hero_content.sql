@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS public.hero_content (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    badge_text TEXT NOT NULL DEFAULT 'NextOnline Technology — Driving Global Innovation',
+    badge_text TEXT NOT NULL DEFAULT 'NextOnline LLC — Driving Global Innovation',
     badge_subtext TEXT NOT NULL DEFAULT 'Est. 2021',
     top_label TEXT NOT NULL DEFAULT 'Innovate. Scale. Succeed.',
     heading_line1 TEXT NOT NULL DEFAULT 'Driving the Future of',

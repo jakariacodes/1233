@@ -112,7 +112,7 @@ const About = () => {
               <div className="max-w-4xl mx-auto text-center">
                 <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 animate-slide-up">
                   <Sparkles className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-semibold text-primary">About NextOnline Technology</span>
+                  <span className="text-sm font-semibold text-primary">About NextOnline LLC</span>
                 </div>
                 <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up animation-delay-100">
                   We Are The
@@ -161,7 +161,7 @@ const About = () => {
                     <span className="text-gradient block">Digital Reality</span>
                   </h2>
                   <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                    NextOnline Technology emerged from a vision 
+                    NextOnline LLC emerged from a vision 
                     to provide world-class digital services to businesses of all sizes. 
                     What started as a small team with big dreams has grown into a 
                     comprehensive digital agency serving clients across the globe.
@@ -202,7 +202,7 @@ const About = () => {
                     </div>
                     
                     <h3 className="font-display text-3xl font-bold mb-2">
-                      NextOnline Technology
+                      NextOnline LLC
                     </h3>
                     <p className="text-primary font-semibold mb-6 flex items-center justify-center gap-2 uppercase tracking-widest text-sm">
                       <Sparkles className="w-4 h-4" />

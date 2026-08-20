@@ -66,9 +66,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "NextOnline Technology | Premier Digital Agency" },
-      { name: "description", content: "NextOnline Technology is a modern, technology-driven digital service company. We deliver high-quality professional digital solutions across UK, USA, Canada and worldwide." },
-      { property: "og:title", content: "NextOnline Technology | Premier Digital Agency" },
+      { title: "NextOnline LLC | Premier Digital Agency" },
+      { name: "description", content: "NextOnline LLC is a modern, technology-driven digital service company. We deliver high-quality professional digital solutions across UK, USA, Canada and worldwide." },
+      { property: "og:title", content: "NextOnline LLC | Premier Digital Agency" },
       { property: "og:description", content: "Bangladesh's premium digital agency delivering cutting-edge solutions that transform businesses." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

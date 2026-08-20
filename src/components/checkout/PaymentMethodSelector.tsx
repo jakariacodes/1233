@@ -30,7 +30,7 @@ const paymentMethods = [
     name: "Bank Transfer",
     icon: Landmark,
     color: "bg-[#0D47A1]",
-    instructions: "Account: NextOnline Technology, A/C: 123456789, International Bank",
+    instructions: "Account: NextOnline LLC, A/C: 123456789, International Bank",
   },
   {
     id: "crypto",

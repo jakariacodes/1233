@@ -52,7 +52,7 @@ export const HeroSection = () => {
   }
 
   const content = heroData || {
-    badge_text: "NextOnline Technology — Driving Global Innovation",
+    badge_text: "NextOnline LLC — Driving Global Innovation",
     badge_subtext: "Est. 2021",
     top_label: "Innovate. Scale. Succeed.",
     heading_line1: "Driving the Future of",
