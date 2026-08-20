@@ -1,102 +1,180 @@
-import { Shield, User, Bell, Globe, Save, Loader2, Send, Camera, Link as LinkIcon, Mail, Phone, MapPin } from "lucide-react";
-import { useState } from "react";
+import { Shield, Globe, Save, Loader2, Layout, Type, AlignLeft, MousePointer2 } from "lucide-react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { useHeroContent, HeroContent } from "@/hooks/useHeroContent";
 
 const Settings = () => {
   const { toast } = useToast();
+  const { data: heroContent, refetch } = useHeroContent();
   const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState<HeroContent>({
+    badge_text: "",
+    badge_subtext: "",
+    top_label: "",
+    heading_line1: "",
+    heading_accent: "",
+    heading_line2: "",
+    description: "",
+    primary_btn_text: "",
+    primary_btn_link: "",
+    secondary_btn_text: "",
+    secondary_btn_link: "",
+  });
+
+  useEffect(() => {
+    if (heroContent) {
+      setFormData(heroContent);
+    }
+  }, [heroContent]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setLoading(false);
-    toast({
-      title: "Settings saved",
-      description: "Your changes have been saved successfully.",
-    });
+
+    try {
+      const { error } = await supabase
+        .from("hero_content" as any)
+        .update(formData)
+        .eq("id", (heroContent as any).id);
+
+      if (error) throw error;
+
+      toast({
+        title: "Settings saved",
+        description: "Hero section content updated successfully.",
+      });
+      refetch();
+    } catch (error: any) {
+      console.error("Error updating hero content:", error);
+      toast({
+        title: "Error",
+        description: error.message || "Failed to update hero content.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-display font-bold mb-2 text-foreground">Settings</h1>
-        <p className="text-muted-foreground">Manage your site settings and configurations.</p>
+        <p className="text-muted-foreground">Manage your site settings and hero section content.</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2">
-          <form onSubmit={handleSave} className="space-y-6">
-            <div className="bg-card p-6 rounded-2xl border border-border space-y-6">
-              <div className="flex items-center gap-2 text-lg font-semibold border-b border-border pb-4">
-                <Globe className="w-5 h-5 text-primary" />
-                General Settings
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="siteName">Site Name</Label>
-                  <Input id="siteName" defaultValue="NextOnline Technology" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="siteEmail">Contact Email</Label>
-                  <Input id="siteEmail" type="email" defaultValue="contact@techcrafterit.com" />
-                </div>
-              </div>
+      <div className="grid grid-cols-1 gap-8">
+        <form onSubmit={handleSave} className="space-y-6">
+          <div className="bg-card p-6 rounded-2xl border border-border space-y-6">
+            <div className="flex items-center gap-2 text-lg font-semibold border-b border-border pb-4 text-foreground">
+              <Layout className="w-5 h-5 text-primary" />
+              Hero Section Management
             </div>
-
-            <div className="bg-card p-6 rounded-2xl border border-border space-y-6">
-              <div className="flex items-center gap-2 text-lg font-semibold border-b border-border pb-4">
-                <Shield className="w-5 h-5 text-primary" />
-                Social Media Links
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="facebook">Facebook</Label>
-                  <div className="relative">
-                    <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                    <Input id="facebook" className="pl-10" placeholder="https://facebook.com/..." />
-                  </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-wider mb-2">
+                  <Shield className="w-4 h-4" />
+                  Badge & Top Label
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="twitter">Twitter</Label>
-                  <div className="relative">
-                    <Send className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                    <Input id="twitter" className="pl-10" placeholder="https://twitter.com/..." />
-                  </div>
+                  <Label htmlFor="badge_text">Badge Text</Label>
+                  <Input id="badge_text" value={formData.badge_text} onChange={handleChange} />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="badge_subtext">Badge Sub-text</Label>
+                  <Input id="badge_subtext" value={formData.badge_subtext} onChange={handleChange} />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="top_label">Top Label (Small Title)</Label>
+                  <Input id="top_label" value={formData.top_label} onChange={handleChange} />
                 </div>
               </div>
-            </div>
 
-            <div className="flex justify-end">
-              <Button type="submit" disabled={loading} className="px-8">
-                {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                Save Changes
-              </Button>
-            </div>
-          </form>
-        </div>
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-wider mb-2">
+                  <Type className="w-4 h-4" />
+                  Main Heading
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="heading_line1">Heading Line 1</Label>
+                  <Input id="heading_line1" value={formData.heading_line1} onChange={handleChange} />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="heading_accent">Accent Heading (Colored)</Label>
+                  <Input id="heading_accent" value={formData.heading_accent} onChange={handleChange} />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="heading_line2">Heading Line 2</Label>
+                  <Input id="heading_line2" value={formData.heading_line2} onChange={handleChange} />
+                </div>
+              </div>
 
-        <div className="space-y-6">
-          <div className="bg-card p-6 rounded-2xl border border-border">
-            <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
-            <div className="space-y-2">
-              <Button variant="outline" className="w-full justify-start">
-                <Bell className="mr-2 w-4 h-4" />
-                Notification Settings
-              </Button>
-              <Button variant="outline" className="w-full justify-start">
-                <User className="mr-2 w-4 h-4" />
-                Account Security
-              </Button>
+              <div className="md:col-span-2 space-y-4">
+                <div className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-wider mb-2">
+                  <AlignLeft className="w-4 h-4" />
+                  Description
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="description">Hero Description</Label>
+                  <Textarea 
+                    id="description" 
+                    value={formData.description} 
+                    onChange={handleChange} 
+                    className="min-h-[100px]"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-wider mb-2">
+                  <MousePointer2 className="w-4 h-4" />
+                  Primary Button
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="primary_btn_text">Button Text</Label>
+                  <Input id="primary_btn_text" value={formData.primary_btn_text} onChange={handleChange} />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="primary_btn_link">Button Link</Label>
+                  <Input id="primary_btn_link" value={formData.primary_btn_link} onChange={handleChange} />
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-wider mb-2">
+                  <MousePointer2 className="w-4 h-4" />
+                  Secondary Button
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="secondary_btn_text">Button Text</Label>
+                  <Input id="secondary_btn_text" value={formData.secondary_btn_text} onChange={handleChange} />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="secondary_btn_link">Button Link</Label>
+                  <Input id="secondary_btn_link" value={formData.secondary_btn_link} onChange={handleChange} />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div className="flex justify-end">
+            <Button type="submit" disabled={loading} className="px-8 h-12 rounded-xl">
+              {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Save className="mr-2 h-4 w-4" />}
+              Save Hero Content
+            </Button>
+          </div>
+        </form>
       </div>
     </div>
   );

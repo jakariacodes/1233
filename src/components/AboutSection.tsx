@@ -52,11 +52,12 @@ const AboutSection = () => {
             </h2>
             
             <p className="text-slate-600 text-lg mb-10 leading-relaxed max-w-xl">
-              NextOnline Technology is a leading web development and digital service company based in Bangladesh, 
-              serving clients in UK, USA, Canada and worldwide. With over 5 years of experience, we provide 
-              professional web design service, web development service, SEO service and problem solutions that help 
-              businesses thrive in the digital age.
+              NextOnline Technology is a premier global software development and digital strategy agency. 
+              Serving enterprise clients across the UK, USA, Europe, and the Middle East, we specialize in 
+              high-performance web architecture, bespoke software engineering, and innovative digital solutions 
+              that scale businesses globally.
             </p>
+
             
             {/* 2x2 Feature Grid */}
             <div className="grid sm:grid-cols-2 gap-4 mb-12">
@@ -112,8 +113,9 @@ const AboutSection = () => {
                     <span className="text-[10px] font-bold text-primary uppercase tracking-wider">Our Core Vision</span>
                   </div>
                   <h4 className="text-white font-display font-bold text-2xl mb-3 leading-tight">
-                    Driving the Future of <span className="text-primary">Digital Innovation</span> in Bangladesh
+                    Driving the Future of <span className="text-primary">Digital Innovation</span> Worldwide
                   </h4>
+
                   <p className="text-slate-400 text-sm leading-relaxed">
                     We combine creative strategy with technical expertise to build scalable solutions that solve complex business challenges and create meaningful impact.
                   </p>
@@ -124,8 +126,9 @@ const AboutSection = () => {
               <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 mb-8 relative">
                 <MessageSquare className="absolute top-4 left-4 w-5 h-5 text-primary opacity-20" />
                 <p className="text-slate-600 text-sm leading-relaxed pl-6 italic">
-                  "Our mission is to become Bangladesh's leading digital agency, delivering innovative solutions that help businesses succeed in the digital world."
+                  "Our mission is to lead the global digital frontier, delivering unparalleled innovation that empowers businesses to redefine excellence in the digital age."
                 </p>
+
               </div>
               
               {/* Badges & Social */}
