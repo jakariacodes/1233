@@ -153,7 +153,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       to={link.href as any}
-                      className="text-white/80 hover:text-primary transition-colors text-sm font-medium"
+                      className="text-[#FFFFFF] hover:text-primary transition-colors text-sm font-medium"
                     >
                       {link.name}
                     </Link>
