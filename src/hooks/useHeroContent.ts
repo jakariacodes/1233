@@ -28,7 +28,7 @@ export const useHeroContent = () => {
         console.error("Error fetching hero content:", error);
         return null;
       }
-      return data as HeroContent;
+      return data as unknown as HeroContent;
     },
   });
 };
