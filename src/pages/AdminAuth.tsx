@@ -118,7 +118,7 @@ const AdminAuth = () => {
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="bg-slate-950 border-slate-800 text-white h-12 focus:ring-primary focus:border-primary"
               />
-              {errors.email && <p className="text-xs text-red-400 mt-1">{errors.email}</p>}
+              {errors['email'] && <p className="text-xs text-red-400 mt-1">{errors['email']}</p>}
             </div>
 
             <div>
