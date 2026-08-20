@@ -134,7 +134,7 @@ const Footer = () => {
               <h5 className="text-sm font-bold tracking-wider uppercase text-white/90">Bangladesh</h5>
             </div>
             <div className="space-y-1">
-              <p className="text-[13px] text-white/70 font-bold">Next Online Technology</p>
+              <p className="text-[13px] text-white/70 font-bold">Next Online LLC</p>
               <p className="text-[13px] text-white/60 leading-relaxed">
                 1505/13, 37 Bir Uttam C R Dotto Road,<br />
                 Nahar Plaza, Ramana, Dhaka-1000
