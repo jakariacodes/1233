@@ -24,7 +24,7 @@ export const CTASection = () => {
                   Build Your <span className="text-primary">Digital Future</span> With Us
                 </h2>
                 <p className="text-white/60 text-xl mb-10 leading-relaxed">
-                  Join hundreds of forward-thinking brands who trust NextOnline Technology 
+                  Join hundreds of forward-thinking brands who trust NextOnline LLC 
                   to deliver premium digital experiences that scale.
                 </p>
                 

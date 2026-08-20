@@ -11,7 +11,7 @@ UPDATE public.service_packages SET price = 6500 WHERE name LIKE '%Premium%' AND 
 UPDATE public.service_packages SET price = price / 100 WHERE price > 10000; -- If they were in BDT, convert to approx USD for demo
 CREATE TABLE IF NOT EXISTS public.hero_content (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    badge_text TEXT NOT NULL DEFAULT 'NextOnline Technology — Driving Global Innovation',
+    badge_text TEXT NOT NULL DEFAULT 'NextOnline LLC — Driving Global Innovation',
     badge_subtext TEXT NOT NULL DEFAULT 'Est. 2021',
     top_label TEXT NOT NULL DEFAULT 'Innovate. Scale. Succeed.',
     heading_line1 TEXT NOT NULL DEFAULT 'Driving the Future of',

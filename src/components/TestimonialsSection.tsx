@@ -10,7 +10,7 @@ const testimonials = [
     role: "CEO, TechVenture BD",
     avatar: "MR",
     rating: 5,
-    review: "NextOnline Technology transformed our online presence completely. Their web development team delivered a stunning e-commerce platform that increased our sales by 150%. Highly recommended!",
+    review: "NextOnline LLC transformed our online presence completely. Their web development team delivered a stunning e-commerce platform that increased our sales by 150%. Highly recommended!",
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const testimonials = [
     role: "Founder, StartupHub",
     avatar: "AK",
     rating: 5,
-    review: "Professional, creative, and always on time. NextOnline Technology built our entire brand identity from scratch - logo, website, and marketing materials. Exceptional quality!",
+    review: "Professional, creative, and always on time. NextOnline LLC built our entire brand identity from scratch - logo, website, and marketing materials. Exceptional quality!",
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const testimonials = [
     role: "Director, EduTech Solutions",
     avatar: "IH",
     rating: 5,
-    review: "The SEO optimization NextOnline Technology did for our website brought us to the first page of Google. Our organic traffic increased by 400%. Amazing results!",
+    review: "The SEO optimization NextOnline LLC did for our website brought us to the first page of Google. Our organic traffic increased by 400%. Amazing results!",
   },
   {
     id: 6,
@@ -50,7 +50,7 @@ const testimonials = [
     role: "CEO, HealthCare Plus",
     avatar: "NI",
     rating: 5,
-    review: "From concept to launch, NextOnline Technology was with us every step. Their video editing for our promotional campaigns was cinema-quality. Truly impressed!",
+    review: "From concept to launch, NextOnline LLC was with us every step. Their video editing for our promotional campaigns was cinema-quality. Truly impressed!",
   },
 ];
 
@@ -120,7 +120,7 @@ export const TestimonialsSection = () => {
               Trusted by Hundreds of <span className="text-primary">Industry Leaders</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Real results for real businesses. See how NextOnline Technology 
+              Real results for real businesses. See how NextOnline LLC 
               has helped our clients scale their digital presence.
             </p>
           </div>

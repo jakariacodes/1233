@@ -3,7 +3,7 @@ import { OffersCampaigns } from '@/pages/help/HelpSupportPages';
 
 export const Route = createFileRoute('/help/offers')({
   head: () => ({
-    title: 'Offers & Campaigns | NextOnline Technology',
+    title: 'Offers & Campaigns | NextOnline LLC',
     meta: [{ name: 'description', content: 'Explore latest promotions, discounts, and innovation grants for startups.' }],
   }),
   component: OffersCampaigns,

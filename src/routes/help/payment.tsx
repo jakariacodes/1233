@@ -3,7 +3,7 @@ import { PaymentHelp } from '@/pages/help/HelpPages';
 
 export const Route = createFileRoute('/help/payment')({
   head: () => ({
-    title: 'Payment Information | NextOnline Technology',
+    title: 'Payment Information | NextOnline LLC',
     meta: [{ name: 'description', content: 'Secure international payment methods including Card, PayPal, and Bank Transfer.' }],
   }),
   component: PaymentHelp,
