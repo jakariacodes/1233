@@ -103,6 +103,57 @@ export type Database = {
           },
         ]
       }
+      chat_messages: {
+        Row: {
+          created_at: string | null
+          id: string
+          message: string
+          sender_type: string | null
+          session_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          message: string
+          sender_type?: string | null
+          session_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          message?: string
+          sender_type?: string | null
+          session_id?: string
+        }
+        Relationships: []
+      }
+      chat_settings: {
+        Row: {
+          ai_chat_enabled: boolean | null
+          id: string
+          live_chat_enabled: boolean | null
+          updated_at: string | null
+          welcome_message: string | null
+          whatsapp_number: string | null
+        }
+        Insert: {
+          ai_chat_enabled?: boolean | null
+          id?: string
+          live_chat_enabled?: boolean | null
+          updated_at?: string | null
+          welcome_message?: string | null
+          whatsapp_number?: string | null
+        }
+        Update: {
+          ai_chat_enabled?: boolean | null
+          id?: string
+          live_chat_enabled?: boolean | null
+          updated_at?: string | null
+          welcome_message?: string | null
+          whatsapp_number?: string | null
+        }
+        Relationships: []
+      }
       contact_messages: {
         Row: {
           created_at: string | null
