@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '@tanstack/react-router';
-import { Linkedin, Facebook, Globe, Users, Loader2 } from "lucide-react";
+import { LinkedinIcon as Linkedin, FacebookIcon as Facebook, Globe, Users, Loader2 } from "lucide-react";
 import { useTeamMembers } from "@/hooks/useTeamMembers";
 
 const TeamSection = () => {
