@@ -141,7 +141,6 @@ const LicensePage = () => {
         </div>
       </main>
 
-      <Footer />
     </div>
   );
 };
