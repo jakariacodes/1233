@@ -109,6 +109,37 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  useEffect(() => {
+    // Define the global init function for Google Translate
+    (window as any).googleTranslateElementInit = () => {
+      new (window as any).google.translate.TranslateElement(
+        {
+          pageLanguage: 'en',
+          layout: (window as any).google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: true,
+        },
+        'google_translate_element'
+      );
+    };
+
+    // Check for user's language and auto-trigger if possible
+    const userLang = navigator.language || (navigator as any).userLanguage;
+    const langCode = userLang.split('-')[0];
+
+    // Simple delay to ensure Google script is ready
+    const timer = setTimeout(() => {
+      if (langCode && langCode !== 'en') {
+        const translateEl = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+        if (translateEl) {
+          translateEl.value = langCode;
+          translateEl.dispatchEvent(new Event('change'));
+        }
+      }
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
