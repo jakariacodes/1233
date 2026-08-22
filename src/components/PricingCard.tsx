@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { useNavigate } from "@tanstack/react-router";
 
 interface PricingCardProps {
@@ -27,30 +27,49 @@ export const PricingCard = ({ pkg, serviceId }: PricingCardProps) => {
   };
 
   return (
-    <div className={`group relative p-8 rounded-[2.5rem] border transition-all duration-500 hover:-translate-y-2 ${pkg.is_popular ? "border-primary bg-white shadow-2xl scale-105 z-10" : "bg-white border-slate-100 shadow-sm"}`}>
+    <div className={`group relative p-8 rounded-3xl border transition-all duration-500 hover:-translate-y-2 flex flex-col ${
+      pkg.is_popular 
+        ? "border-primary bg-primary/5 shadow-2xl scale-[1.02] z-10" 
+        : "bg-white/5 border-white/10 hover:border-white/20 shadow-sm"
+    }`}>
       {pkg.is_popular && (
-        <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-6 py-2 rounded-full shadow-lg">
-          MOST POPULAR
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] uppercase tracking-widest font-black px-4 py-1.5 rounded-full shadow-lg z-20">
+          Recommended
         </div>
       )}
-      <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">{pkg.name}</h3>
-      <div className="flex items-baseline gap-1 mb-8">
-        <span className="text-4xl font-bold text-slate-900">${pkg.price.toLocaleString()}</span>
+      
+      <div className="mb-6">
+        <h3 className={`text-xl font-display font-bold mb-2 transition-colors ${pkg.is_popular ? "text-primary" : "text-white"}`}>
+          {pkg.name}
+        </h3>
+        <div className="flex items-baseline gap-1">
+          <span className="text-sm font-medium text-white/50">$</span>
+          <span className="text-4xl font-display font-bold text-white">{pkg.price.toLocaleString()}</span>
+          <span className="text-xs text-white/40 ml-1">/ project</span>
+        </div>
       </div>
-      <ul className="space-y-4 mb-10 min-h-[200px]">
+
+      <div className="h-px w-full bg-white/5 mb-8" />
+
+      <ul className="space-y-4 mb-10 flex-grow">
         {(pkg.features || []).map((f: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-3 text-muted-foreground text-sm group-hover:text-slate-900 transition-colors">
-            <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" /> 
-            {f}
+          <li key={idx} className="flex items-start gap-3 text-white/70 text-sm group-hover:text-white transition-colors">
+            <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" /> 
+            <span>{f}</span>
           </li>
         ))}
       </ul>
+
       <Button 
         onClick={handleOrder}
-        className="w-full rounded-2xl h-12 text-sm font-bold shadow-lg shadow-primary/10 group-hover:shadow-primary/20 transition-all" 
-        variant={pkg.is_popular ? "default" : "outline"}
+        className={`w-full rounded-xl h-12 text-sm font-bold transition-all gap-2 ${
+          pkg.is_popular 
+            ? "bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20" 
+            : "bg-white/5 hover:bg-white/10 text-white border border-white/10"
+        }`} 
       >
         Order Now
+        <ArrowRight className="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
       </Button>
     </div>
   );

@@ -190,4 +190,16 @@
   .glass-sidebar {
     @apply bg-white/90 dark:bg-[#011612]/95 backdrop-blur-xl border-r border-border;
   }
+
+  .tech-card {
+    @apply relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300;
+  }
+
+  .tech-card:hover {
+    @apply border-primary/50 bg-white/10 -translate-y-1;
+  }
+
+  .dark-section {
+    @apply bg-[#011612] text-white;
+  }
 }
