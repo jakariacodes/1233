@@ -1,9 +1,10 @@
-import { Shield, Globe, Save, Loader2, Layout, Type, AlignLeft, MousePointer2, Image as ImageIcon, Upload } from "lucide-react";
+import { Shield, Globe, Save, Loader2, Layout, Type, AlignLeft, MousePointer2, Image as ImageIcon, Upload, MessageSquare, Bot, Phone } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useHeroContent, HeroContent } from "@/hooks/useHeroContent";
@@ -28,12 +29,24 @@ const Settings = () => {
     secondary_btn_link: "",
     header_logo_url: "",
   });
+  const [chatSettings, setChatSettings] = useState<any>({
+    ai_chat_enabled: true,
+    live_chat_enabled: true,
+    welcome_message: "",
+    whatsapp_number: "",
+  });
 
   useEffect(() => {
     if (heroContent) {
       setFormData(heroContent);
     }
+    fetchChatSettings();
   }, [heroContent]);
+
+  const fetchChatSettings = async () => {
+    const { data } = await (supabase.from('chat_settings' as any).select('*') as any).single();
+    if (data) setChatSettings(data);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
@@ -62,6 +75,31 @@ const Settings = () => {
       toast({
         title: "Error",
         description: error.message || "Failed to update hero content.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleChatSave = async () => {
+    setLoading(true);
+    try {
+      const { error } = await (supabase
+        .from("chat_settings" as any)
+        .update(chatSettings)
+        .eq("id", chatSettings.id) as any);
+
+      if (error) throw error;
+
+      toast({
+        title: "Chat settings saved",
+        description: "AI and Live Chat configuration updated.",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to update chat settings.",
         variant: "destructive",
       });
     } finally {
@@ -267,6 +305,79 @@ const Settings = () => {
             </Button>
           </div>
         </form>
+
+        <div className="bg-card p-6 rounded-2xl border border-border space-y-6">
+          <div className="flex items-center gap-2 text-lg font-semibold border-b border-border pb-4 text-foreground">
+            <MessageSquare className="w-5 h-5 text-primary" />
+            Chat & AI Assistant Settings
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <div className="flex items-center justify-between p-4 bg-secondary/20 rounded-xl border border-border">
+                <div className="flex items-center gap-3">
+                  <Bot className="w-5 h-5 text-primary" />
+                  <div>
+                    <p className="text-sm font-bold">AI Assistant</p>
+                    <p className="text-[10px] text-muted-foreground">Automated AI responses for users</p>
+                  </div>
+                </div>
+                <Switch 
+                  checked={chatSettings.ai_chat_enabled} 
+                  onCheckedChange={(checked) => setChatSettings({...chatSettings, ai_chat_enabled: checked})} 
+                />
+              </div>
+
+              <div className="flex items-center justify-between p-4 bg-secondary/20 rounded-xl border border-border">
+                <div className="flex items-center gap-3">
+                  <MessageSquare className="w-5 h-5 text-primary" />
+                  <div>
+                    <p className="text-sm font-bold">Live Support Chat</p>
+                    <p className="text-[10px] text-muted-foreground">Allow users to message for support</p>
+                  </div>
+                </div>
+                <Switch 
+                  checked={chatSettings.live_chat_enabled} 
+                  onCheckedChange={(checked) => setChatSettings({...chatSettings, live_chat_enabled: checked})} 
+                />
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="welcome_message">Welcome Message</Label>
+                <Textarea 
+                  id="welcome_message" 
+                  value={chatSettings.welcome_message} 
+                  onChange={(e) => setChatSettings({...chatSettings, welcome_message: e.target.value})}
+                  placeholder="Example: Hello! How can we help you today?"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="whatsapp_number">WhatsApp Number (Optional)</Label>
+                <div className="flex gap-2">
+                  <div className="h-12 w-12 rounded-xl bg-secondary/50 flex items-center justify-center border border-border">
+                    <Phone className="w-5 h-5 text-muted-foreground" />
+                  </div>
+                  <Input 
+                    id="whatsapp_number" 
+                    value={chatSettings.whatsapp_number} 
+                    onChange={(e) => setChatSettings({...chatSettings, whatsapp_number: e.target.value})}
+                    placeholder="+880 1XXX-XXXXXX"
+                    className="flex-1"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-end pt-4">
+            <Button onClick={handleChatSave} disabled={loading} className="px-8 h-12 rounded-xl bg-primary text-white">
+              {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Save className="mr-2 h-4 w-4" />}
+              Save Chat Settings
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );
