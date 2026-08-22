@@ -12,6 +12,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { ChatWidget } from "@/components/ChatWidget";
 import appCss from "@/styles.css?url";
 import { reportLovableError } from "@/lib/lovable-error-reporting";
 
@@ -153,6 +154,7 @@ function RootComponent() {
           </main>
           <Footer />
         </div>
+        <ChatWidget />
         <Toaster />
         <GoogleAnalytics />
       </AuthProvider>
