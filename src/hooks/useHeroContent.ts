@@ -13,6 +13,7 @@ export interface HeroContent {
   primary_btn_link: string;
   secondary_btn_text: string;
   secondary_btn_link: string;
+  header_logo_url?: string;
 }
 
 export const useHeroContent = () => {

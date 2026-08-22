@@ -6,6 +6,7 @@ const services = [
   {
     icon: Globe,
     title: "Web Design",
+    slug: "web-design",
     description: "Stunning, responsive websites that captivate visitors and drive conversions with modern UI/UX.",
     gradient: "from-teal-500 to-cyan-500",
     bgGradient: "from-teal-500/10 to-cyan-500/10",
@@ -13,6 +14,7 @@ const services = [
   {
     icon: Code2,
     title: "Web Development",
+    slug: "web-development",
     description: "Robust, scalable web applications built with cutting-edge technologies like React & Node.js.",
     gradient: "from-teal-600 to-teal-400",
     bgGradient: "from-teal-600/10 to-teal-400/10",
@@ -20,6 +22,7 @@ const services = [
   {
     icon: Palette,
     title: "Graphic Design",
+    slug: "graphic-design",
     description: "Eye-catching visuals that communicate your brand's unique identity and message.",
     gradient: "from-orange-500 to-red-500",
     bgGradient: "from-orange-500/10 to-red-500/10",
@@ -27,6 +30,7 @@ const services = [
   {
     icon: Video,
     title: "Video Editing",
+    slug: "video-editing",
     description: "Professional video production that tells your story with cinematic impact.",
     gradient: "from-cyan-600 to-cyan-400",
     bgGradient: "from-cyan-600/10 to-cyan-400/10",
@@ -34,6 +38,7 @@ const services = [
   {
     icon: TrendingUp,
     title: "Digital Marketing",
+    slug: "digital-marketing",
     description: "Strategic campaigns that amplify your reach and maximize ROI across all channels.",
     gradient: "from-teal-500 to-blue-500",
     bgGradient: "from-teal-500/10 to-blue-500/10",
@@ -41,6 +46,7 @@ const services = [
   {
     icon: Search,
     title: "SEO Optimization",
+    slug: "seo-optimization",
     description: "Data-driven strategies to dominate search rankings and drive organic traffic.",
     gradient: "from-cyan-500 to-blue-500",
     bgGradient: "from-cyan-500/10 to-blue-500/10",
@@ -48,6 +54,7 @@ const services = [
   {
     icon: Briefcase,
     title: "Business Strategy",
+    slug: "business-strategy",
     description: "Expert consulting to align your digital presence with business goals.",
     gradient: "from-amber-500 to-orange-500",
     bgGradient: "from-amber-500/10 to-orange-500/10",
@@ -55,6 +62,7 @@ const services = [
   {
     icon: Zap,
     title: "AI Solutions",
+    slug: "ai-solutions",
     description: "Custom AI-powered digital solutions tailored to your unique challenges.",
     gradient: "from-cyan-500 to-teal-500",
     bgGradient: "from-cyan-500/10 to-teal-500/10",
@@ -97,7 +105,8 @@ export const ServicesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <Link
-              to="/services"
+              to="/services/$id"
+              params={{ id: service.slug }}
               key={index}
               className="group relative bg-white rounded-[2rem] p-8 border border-slate-200 hover:border-primary/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,168,132,0.08)] animate-slide-up overflow-hidden flex flex-col"
               style={{ animationDelay: `${index * 75}ms` }}

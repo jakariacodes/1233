@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X, ChevronDown, Sparkles, Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase, Zap, ArrowRight } from "lucide-react";
 import React from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useHeroContent } from "@/hooks/useHeroContent";
 
 const iconMap: Record<string, any> = {
   Globe, Code2, Palette, Video, TrendingUp, Search, Briefcase, Zap
@@ -73,6 +74,7 @@ const services = [
 
 const Navbar = () => {
   const { user, isAdmin } = useAuth();
+  const { data: heroData } = useHeroContent();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -126,7 +128,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group shrink-0">
           <img 
-            src={logoHeader} 
+            src={heroData?.header_logo_url || logoHeader} 
             alt="Next Online LLC" 
             className="h-10 w-auto object-contain"
           />
