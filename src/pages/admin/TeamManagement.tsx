@@ -93,10 +93,10 @@ const TeamManagement = () => {
 
     try {
       const socialLinks: Record<string, string> = {};
-      if (formData.linkedin_url?.trim()) socialLinks.linkedin = formData.linkedin_url.trim();
-      if (formData.twitter_url?.trim()) socialLinks.twitter = formData.twitter_url.trim();
-      if (formData.facebook_url?.trim()) socialLinks.facebook = formData.facebook_url.trim();
-      if (formData.portfolio_url?.trim()) socialLinks.portfolio = formData.portfolio_url.trim();
+      if (formData.linkedin_url?.trim()) socialLinks['linkedin'] = formData.linkedin_url.trim();
+      if (formData.twitter_url?.trim()) socialLinks['twitter'] = formData.twitter_url.trim();
+      if (formData.facebook_url?.trim()) socialLinks['facebook'] = formData.facebook_url.trim();
+      if (formData.portfolio_url?.trim()) socialLinks['portfolio'] = formData.portfolio_url.trim();
 
       const memberData = {
         name: formData.name.trim(),
