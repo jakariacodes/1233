@@ -1,5 +1,5 @@
-import { Shield, Globe, Save, Loader2, Layout, Type, AlignLeft, MousePointer2 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Shield, Globe, Save, Loader2, Layout, Type, AlignLeft, MousePointer2, Image as ImageIcon, Upload } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,6 +12,8 @@ const Settings = () => {
   const { toast } = useToast();
   const { data: heroContent, refetch } = useHeroContent();
   const [loading, setLoading] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [formData, setFormData] = useState<HeroContent>({
     badge_text: "",
     badge_subtext: "",
@@ -24,6 +26,7 @@ const Settings = () => {
     primary_btn_link: "",
     secondary_btn_text: "",
     secondary_btn_link: "",
+    header_logo_url: "",
   });
 
   useEffect(() => {
@@ -66,6 +69,44 @@ const Settings = () => {
     }
   };
 
+  const handleLogoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploading(true);
+    try {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `logo-${Math.random()}.${fileExt}`;
+      const filePath = `${fileName}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from('branding')
+        .upload(filePath, file);
+
+      if (uploadError) throw uploadError;
+
+      const { data: { publicUrl } } = supabase.storage
+        .from('branding')
+        .getPublicUrl(filePath);
+
+      setFormData(prev => ({ ...prev, header_logo_url: publicUrl }));
+      
+      toast({
+        title: "Logo uploaded",
+        description: "New logo uploaded successfully. Save changes to apply.",
+      });
+    } catch (error: any) {
+      console.error("Error uploading logo:", error);
+      toast({
+        title: "Upload failed",
+        description: error.message || "Failed to upload logo.",
+        variant: "destructive",
+      });
+    } finally {
+      setUploading(false);
+    }
+  };
+
   return (
     <div className="space-y-8">
       <div>
@@ -75,6 +116,57 @@ const Settings = () => {
 
       <div className="grid grid-cols-1 gap-8">
         <form onSubmit={handleSave} className="space-y-6">
+          {/* Site Branding Section */}
+          <div className="bg-card p-6 rounded-2xl border border-border space-y-6">
+            <div className="flex items-center gap-2 text-lg font-semibold border-b border-border pb-4 text-foreground">
+              <ImageIcon className="w-5 h-5 text-primary" />
+              Site Branding
+            </div>
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="w-full md:w-1/3 aspect-video bg-secondary/30 rounded-2xl border border-dashed border-border flex items-center justify-center overflow-hidden">
+                {formData.header_logo_url ? (
+                  <img src={formData.header_logo_url} alt="Site Logo" className="max-h-full object-contain p-4" />
+                ) : (
+                  <div className="text-center p-4">
+                    <ImageIcon className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
+                    <p className="text-xs text-muted-foreground">No custom logo uploaded</p>
+                  </div>
+                )}
+              </div>
+              <div className="flex-1 space-y-4">
+                <div className="space-y-2">
+                  <Label>Header Logo</Label>
+                  <div className="flex gap-2">
+                    <Input 
+                      type="file" 
+                      accept="image/*" 
+                      onChange={handleLogoUpload} 
+                      ref={fileInputRef}
+                      className="hidden" 
+                    />
+                    <Button 
+                      type="button" 
+                      variant="outline" 
+                      className="w-full h-12 rounded-xl gap-2"
+                      onClick={() => fileInputRef.current?.click()}
+                      disabled={uploading}
+                    >
+                      {uploading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4" />}
+                      {formData.header_logo_url ? "Change Logo" : "Upload Logo"}
+                    </Button>
+                  </div>
+                  <p className="text-[10px] text-muted-foreground">Recommended: Transparent PNG, 200x50px</p>
+                </div>
+                {formData.header_logo_url && (
+                  <div className="space-y-2">
+                    <Label htmlFor="header_logo_url">Logo URL</Label>
+                    <Input id="header_logo_url" value={formData.header_logo_url} readOnly className="bg-secondary/50" />
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
           <div className="bg-card p-6 rounded-2xl border border-border space-y-6">
             <div className="flex items-center gap-2 text-lg font-semibold border-b border-border pb-4 text-foreground">
               <Layout className="w-5 h-5 text-primary" />
