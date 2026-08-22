@@ -174,16 +174,16 @@ const Navbar = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[750px] bg-[#000d0b] rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden text-white"
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[750px] bg-white rounded-[2.5rem] shadow-[0_25px_50px_rgba(0,0,0,0.15)] border border-slate-100 overflow-hidden text-slate-900"
                       >
-                        <div className="p-10 relative overflow-hidden">
-                          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10" />
+                        <div className="p-10 relative overflow-hidden bg-white">
+                          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />
                           <div className="flex items-center justify-between mb-10">
                             <div>
-                              <h3 className="text-2xl font-display font-bold text-white tracking-tight">Our Services</h3>
-                              <p className="text-sm text-white/50 mt-1 font-light">Enterprise-grade digital solutions</p>
+                              <h3 className="text-2xl font-display font-bold text-slate-900 tracking-tight">Our Services</h3>
+                              <p className="text-sm text-slate-500 mt-1 font-normal">Enterprise-grade digital solutions</p>
                             </div>
-                            <Link to="/services" className="text-xs font-black uppercase tracking-widest text-primary flex items-center gap-2 hover:opacity-80 transition-opacity" onClick={() => setIsServicesOpen(false)}>
+                            <Link to="/services" className="text-[10px] font-black uppercase tracking-widest text-primary flex items-center gap-2 hover:opacity-80 transition-opacity" onClick={() => setIsServicesOpen(false)}>
                               View All Solutions <ArrowRight className="w-4 h-4" />
                             </Link>
                           </div>
@@ -194,23 +194,23 @@ const Navbar = () => {
                                 key={idx} 
                                 to={"/services/$id" as any}
                                 params={{ id: service.slug || service.id } as any}
-                                className="group flex items-start gap-5 p-3 rounded-2xl hover:bg-white/5 transition-all"
+                                className="group flex items-start gap-5 p-3 rounded-2xl hover:bg-slate-50 transition-all"
                                 onClick={() => setIsServicesOpen(false)}
                               >
                                 <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center text-primary bg-primary/10 shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-500", service.color ? "group-hover:bg-primary" : "")}>
                                   {service.icon ? <service.icon className="w-6 h-6" /> : (iconMap[service.icon_name] ? React.createElement(iconMap[service.icon_name], { className: "w-6 h-6" }) : <Globe className="w-6 h-6" />)}
                                 </div>
                                 <div className="space-y-1">
-                                  <h4 className="text-sm font-bold text-white group-hover:text-primary transition-colors">{service.title}</h4>
-                                  <p className="text-[11px] text-white/40 leading-relaxed font-light line-clamp-1">{service.description}</p>
+                                  <h4 className="text-sm font-bold text-slate-900 group-hover:text-primary transition-colors">{service.title}</h4>
+                                  <p className="text-[11px] text-slate-500 leading-relaxed font-normal line-clamp-1">{service.description}</p>
                                 </div>
                               </Link>
                             ))}
                           </div>
                         </div>
                         
-                        <div className="bg-white/5 p-8 flex items-center justify-between border-t border-white/5">
-                          <div className="flex items-center gap-3 text-xs text-white/40 font-medium">
+                        <div className="bg-slate-50 p-8 flex items-center justify-between border-t border-slate-100">
+                          <div className="flex items-center gap-3 text-xs text-slate-500 font-medium">
                             <Sparkles className="w-4 h-4 text-primary" />
                             Transforming digital visions into reality.
                           </div>
