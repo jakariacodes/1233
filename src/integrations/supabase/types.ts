@@ -142,6 +142,60 @@ export type Database = {
         }
         Relationships: []
       }
+      hero_content: {
+        Row: {
+          badge_subtext: string | null
+          badge_text: string | null
+          created_at: string | null
+          description: string | null
+          header_logo_url: string | null
+          heading_accent: string | null
+          heading_line1: string | null
+          heading_line2: string | null
+          id: string
+          primary_btn_link: string | null
+          primary_btn_text: string | null
+          secondary_btn_link: string | null
+          secondary_btn_text: string | null
+          top_label: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          badge_subtext?: string | null
+          badge_text?: string | null
+          created_at?: string | null
+          description?: string | null
+          header_logo_url?: string | null
+          heading_accent?: string | null
+          heading_line1?: string | null
+          heading_line2?: string | null
+          id?: string
+          primary_btn_link?: string | null
+          primary_btn_text?: string | null
+          secondary_btn_link?: string | null
+          secondary_btn_text?: string | null
+          top_label?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          badge_subtext?: string | null
+          badge_text?: string | null
+          created_at?: string | null
+          description?: string | null
+          header_logo_url?: string | null
+          heading_accent?: string | null
+          heading_line1?: string | null
+          heading_line2?: string | null
+          id?: string
+          primary_btn_link?: string | null
+          primary_btn_text?: string | null
+          secondary_btn_link?: string | null
+          secondary_btn_text?: string | null
+          top_label?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       orders: {
         Row: {
           admin_notes: string | null
