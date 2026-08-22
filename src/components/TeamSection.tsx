@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '@tanstack/react-router';
-import { Linkedin, Facebook, Globe, Users, Loader2 } from "lucide-react";
+import { Globe, Users, Loader2 } from "lucide-react";
 import { useTeamMembers } from "@/hooks/useTeamMembers";
 
 const TeamSection = () => {
@@ -46,8 +46,8 @@ const TeamSection = () => {
 
                   <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                     {[
-                      { url: member.linkedin_url, Icon: Linkedin },
-                      { url: member.facebook_url, Icon: Facebook },
+                      { url: member.linkedin_url, Icon: Globe },
+                      { url: member.facebook_url, Icon: Globe },
                       { url: member.portfolio_url, Icon: Globe },
                     ]
                       .filter((l) => l.url)
