@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { useTeamMembers } from "@/hooks/useTeamMembers";
-import { Linkedin, Facebook, Globe, Users, MapPin, Loader2, ArrowUpRight, Sparkles } from "lucide-react";
+import { Globe, Users, MapPin, Loader2, ArrowUpRight, Sparkles } from "lucide-react";
 
 const stats = [
   { value: "30+", label: "Team Members" },
@@ -11,8 +11,8 @@ const stats = [
 
 const SocialLinks = ({ member, dark = false }: { member: any; dark?: boolean }) => {
   const links = [
-    { url: member.linkedin_url, Icon: Linkedin },
-    { url: member.facebook_url, Icon: Facebook },
+    { url: member.linkedin_url, Icon: Globe },
+    { url: member.facebook_url, Icon: Globe },
     { url: member.portfolio_url || member.twitter_url, Icon: Globe },
   ].filter((l) => l.url);
 
