@@ -95,6 +95,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <div id="google_translate_element" style={{ display: 'none' }}></div>
         <Scripts />
       </body>
     </html>
