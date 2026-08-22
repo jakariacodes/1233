@@ -17,6 +17,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as LicenseRouteImport } from './routes/license'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RefundRouteImport } from './routes/refund'
@@ -89,6 +90,11 @@ const CheckoutRoute = CheckoutRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LicenseRoute = LicenseRouteImport.update({
+  id: '/license',
+  path: '/license',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioRoute = PortfolioRouteImport.update({
@@ -281,6 +287,7 @@ export interface FileRoutesByFullPath {
   '/careers': typeof CareersRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
+  '/license': typeof LicenseRoute
   '/portfolio': typeof PortfolioRoute
   '/privacy': typeof PrivacyRoute
   '/refund': typeof RefundRoute
@@ -324,6 +331,7 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
+  '/license': typeof LicenseRoute
   '/portfolio': typeof PortfolioRoute
   '/privacy': typeof PrivacyRoute
   '/refund': typeof RefundRoute
@@ -368,6 +376,7 @@ export interface FileRoutesById {
   '/careers': typeof CareersRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
+  '/license': typeof LicenseRoute
   '/portfolio': typeof PortfolioRoute
   '/privacy': typeof PrivacyRoute
   '/refund': typeof RefundRoute
@@ -413,6 +422,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/checkout'
     | '/contact'
+    | '/license'
     | '/portfolio'
     | '/privacy'
     | '/refund'
@@ -456,6 +466,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/checkout'
     | '/contact'
+    | '/license'
     | '/portfolio'
     | '/privacy'
     | '/refund'
@@ -499,6 +510,7 @@ export interface FileRouteTypes {
     | '/careers'
     | '/checkout'
     | '/contact'
+    | '/license'
     | '/portfolio'
     | '/privacy'
     | '/refund'
@@ -544,6 +556,7 @@ export interface RootRouteChildren {
   CareersRoute: typeof CareersRoute
   CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
+  LicenseRoute: typeof LicenseRoute
   PortfolioRoute: typeof PortfolioRoute
   PrivacyRoute: typeof PrivacyRoute
   RefundRoute: typeof RefundRoute
@@ -622,6 +635,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/license': {
+      id: '/license'
+      path: '/license'
+      fullPath: '/license'
+      preLoaderRoute: typeof LicenseRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio': {
@@ -924,6 +944,7 @@ const rootRouteChildren: RootRouteChildren = {
   CareersRoute: CareersRoute,
   CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
+  LicenseRoute: LicenseRoute,
   PortfolioRoute: PortfolioRoute,
   PrivacyRoute: PrivacyRoute,
   RefundRoute: RefundRoute,
