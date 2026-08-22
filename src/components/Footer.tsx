@@ -55,12 +55,12 @@ const Footer = () => {
     <footer className="py-16 bg-[#011612] text-white overflow-hidden relative border-t border-white/5">
       <div className="container-custom">
         {/* Top Info Bar (Integrated Address & Contact) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-20 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-20 pb-12 border-b border-white/10">
           <div className="flex flex-col space-y-6">
             <Link to="/" className="block">
               <img
                 src={logoFooter}
-                alt="NextOnline LLC"
+                alt="Next Online LLC"
                 className="h-10 w-auto object-contain brightness-0 invert"
               />
             </Link>
@@ -110,6 +110,20 @@ const Footer = () => {
               <p className="text-[13px] text-white/60 leading-relaxed">
                 1209 Mountain Road Pl NE, Ste N<br />
                 Albuquerque, NM, 87110 USA
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-base" role="img" aria-label="USA Flag">🇺🇸</span>
+              <h5 className="text-sm font-bold tracking-wider uppercase text-white/90">New York Office</h5>
+            </div>
+            <div className="space-y-1">
+              <p className="text-[13px] text-white/70 font-bold">Next Online LLC</p>
+              <p className="text-[13px] text-white/60 leading-relaxed">
+                89-15 PARSONS BLVD #10K<br />
+                JAMAICA, NEW YORK 11432 USA
               </p>
             </div>
           </div>
@@ -179,11 +193,12 @@ const Footer = () => {
               <div className="flex flex-wrap md:justify-end gap-6 text-xs font-bold uppercase tracking-widest text-white/80">
                 <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
                 <Link to="/terms" className="hover:text-white transition-colors">Terms & Condition</Link>
+                <Link to="/license" className="hover:text-white transition-colors">All License</Link>
                 <Link to="/refund" className="hover:text-white transition-colors">Payment & Refund Policy</Link>
 
               </div>
               <p className="text-white/70 text-xs font-medium uppercase tracking-[0.2em]">
-                Copyright © {currentYear} NextOnline LLC. All rights reserved.
+                Copyright © {currentYear} Next Online LLC. All rights reserved.
               </p>
             </div>
           </div>
