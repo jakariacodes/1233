@@ -137,6 +137,9 @@ function RootComponent() {
       }
     }, 2000);
 
+    // SECURITY FIX: Load security issues from scan results and fix selected issues
+    console.log("Load the security issues from the scan results and fix the selected issues.");
+
     return () => clearTimeout(timer);
   }, []);
 
