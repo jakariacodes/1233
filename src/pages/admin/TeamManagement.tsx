@@ -92,15 +92,18 @@ const TeamManagement = () => {
     setIsSubmitting(true);
 
     try {
+      const socialLinks: Record<string, string> = {};
+      if (formData.linkedin_url?.trim()) socialLinks.linkedin = formData.linkedin_url.trim();
+      if (formData.twitter_url?.trim()) socialLinks.twitter = formData.twitter_url.trim();
+      if (formData.facebook_url?.trim()) socialLinks.facebook = formData.facebook_url.trim();
+      if (formData.portfolio_url?.trim()) socialLinks.portfolio = formData.portfolio_url.trim();
+
       const memberData = {
         name: formData.name.trim(),
         role: formData.role.trim(),
         bio: formData.bio?.trim() || null,
         image_url: formData.image_url?.trim() || null,
-        linkedin_url: formData.linkedin_url?.trim() || null,
-        twitter_url: formData.twitter_url?.trim() || null,
-        facebook_url: formData.facebook_url?.trim() || null,
-        portfolio_url: formData.portfolio_url?.trim() || null,
+        social_links: socialLinks,
         display_order: formData.display_order,
         is_active: formData.is_active,
       };
