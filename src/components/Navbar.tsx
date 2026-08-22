@@ -127,7 +127,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center gap-2 group shrink-0">
           <img 
             src={logoHeader} 
-            alt="NextOnline LLC" 
+            alt="Next Online LLC" 
             className="h-10 w-auto object-contain"
           />
         </Link>
