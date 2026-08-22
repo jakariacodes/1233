@@ -8,7 +8,7 @@ import licenseAll from "@/assets/license-all.png.asset.json";
 
 const LicensePage = () => {
   return (
-    <div className="min-h-screen bg-[#011612] text-white">
+    <div className="min-h-screen bg-[#011612] text-white pt-32">
 
       
       <main className="pb-20">

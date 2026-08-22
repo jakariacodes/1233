@@ -283,7 +283,7 @@ const Contact = () => {
              <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-4">
                 <Globe className="w-8 h-8 text-blue-300 animate-spin-slow" />
              </div>
-             <p className="text-[#0F172A] font-medium italic">Hatibandha, Lalmonirhat, Rangpur, Bangladesh</p>
+             <p className="text-[#0F172A] font-medium italic">89-15 PARSONS BLVD #10K, JAMAICA, NEW YORK 11432 USA</p>
              <a 
               href="https://maps.google.com" 
               target="_blank" 
