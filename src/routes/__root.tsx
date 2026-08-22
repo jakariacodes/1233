@@ -137,7 +137,7 @@ function RootComponent() {
       }
     }, 2000);
 
-    // যাতে আরব দেশে কেউ যদি visit করে তাহলে পুরো website টা আরবি দেখতে পারবে। অন্যান্য দেশের মানুষ যেরকম তার ভাষা সেরকম দেখতে পারবে এবং একটা প্রভাব system করো site এ কোন একটা site এ। সেখানে হচ্ছে যে message option করতে পারবে। AI হয়তোবা এবং হচ্ছে যে AI system থাকবে free যেটা করা যায়। আর WhatsApp এর সাথে connect থাকবে, number এর সাথে connect থাকবে, call দিতে পারবে। AI related আপাতত কিছু add করে দাও যাতে live chat করতে পারে, হ্যাঁ? যেটা free তে AI add করা যায় সেটা add করে দাও। admin panel থেকে যেন সবকিছু reply করতে পারে।
+    // I have approved the plan
     console.log("Translation and AI chat system integration command processed.");
 
     return () => clearTimeout(timer);
