@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { useTeamMembers } from "@/hooks/useTeamMembers";
-import { LinkedinIcon as Linkedin, FacebookIcon as Facebook, Globe, Users, MapPin, Loader2, ArrowUpRight, Sparkles } from "lucide-react";
+import { Linkedin, Facebook, Globe, Users, MapPin, Loader2, ArrowUpRight, Sparkles } from "lucide-react";
 
 const stats = [
   { value: "30+", label: "Team Members" },
