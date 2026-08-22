@@ -16,8 +16,13 @@ export const ChatWidget = () => {
 
   useEffect(() => {
     const fetchSettings = async () => {
-      const { data } = await supabase.from('chat_settings').select('*').single();
-      if (data) setSettings(data);
+      try {
+        // Casting to any to bypass local type mismatch until schema syncs
+        const { data } = await (supabase.from('chat_settings' as any).select('*') as any).single();
+        if (data) setSettings(data);
+      } catch (err) {
+        console.error("Chat settings not found or error:", err);
+      }
     };
     fetchSettings();
   }, []);
@@ -30,7 +35,6 @@ export const ChatWidget = () => {
     setInputValue('');
 
     if (activeTab === 'ai') {
-      // Simple AI Simulation (could be connected to an AI API later)
       setTimeout(() => {
         setMessages(prev => [...prev, { 
           sender: 'bot', 
@@ -38,22 +42,25 @@ export const ChatWidget = () => {
         }]);
       }, 1000);
     } else {
-      // Live Chat - Store in database
-      const { error } = await supabase.from('chat_messages').insert([{
-        session_id: sessionId,
-        sender_type: 'user',
-        message: userMessage
-      }]);
+      try {
+        const { error } = await (supabase.from('chat_messages' as any).insert([{
+          session_id: sessionId,
+          sender_type: 'user',
+          message: userMessage
+        }] as any) as any);
 
-      if (error) {
-        toast.error("Failed to send message to live chat.");
-      } else {
-        setTimeout(() => {
-          setMessages(prev => [...prev, { 
-            sender: 'admin', 
-            text: "An agent will be with you shortly. For immediate assistance, feel free to call our support." 
-          }]);
-        }, 1500);
+        if (error) {
+          toast.error("Failed to send message to live chat.");
+        } else {
+          setTimeout(() => {
+            setMessages(prev => [...prev, { 
+              sender: 'admin', 
+              text: "An agent will be with you shortly. For immediate assistance, feel free to call our support." 
+            }]);
+          }, 1500);
+        }
+      } catch (err) {
+        toast.error("Live chat is currently unavailable.");
       }
     }
   };
