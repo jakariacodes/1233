@@ -43,7 +43,7 @@ const Footer = () => {
       links: [
         { name: "About Us", href: "/about" },
         { name: "Our Team", href: "/team" },
-        { name: "Case Studies", href: "/portfolio" },
+        { name: "All License", href: "/license" },
         { name: "Career", href: "/careers" },
         { name: "Blog", href: "/blog" },
         { name: "News", href: "/blog" },
@@ -181,25 +181,21 @@ const Footer = () => {
         {/* Lower Footer Area */}
         <div className="pt-12 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-12">
-            {/* Tagline or Brief Description */}
-            <div className="max-w-md">
-              <p className="text-sm text-white/70 leading-relaxed italic">
-                Empowering businesses globally with cutting-edge software solutions and digital innovation.
+            {/* Copyright area (Left side) */}
+            <div className="text-left">
+              <p className="text-white/70 text-xs font-medium uppercase tracking-[0.2em]">
+                Copyright © {currentYear} Next Online LLC. All rights reserved.
               </p>
             </div>
 
-            {/* Copyright & Links */}
+            {/* Links area (Right side) */}
             <div className="text-left md:text-right space-y-4">
               <div className="flex flex-wrap md:justify-end gap-6 text-xs font-bold uppercase tracking-widest text-white/80">
                 <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
                 <Link to="/terms" className="hover:text-white transition-colors">Terms & Condition</Link>
                 <Link to="/license" className="hover:text-white transition-colors">All License</Link>
                 <Link to="/refund" className="hover:text-white transition-colors">Payment & Refund Policy</Link>
-
               </div>
-              <p className="text-white/70 text-xs font-medium uppercase tracking-[0.2em]">
-                Copyright © {currentYear} Next Online LLC. All rights reserved.
-              </p>
             </div>
           </div>
         </div>
