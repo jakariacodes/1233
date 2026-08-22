@@ -92,7 +92,7 @@ const Contact = () => {
           {[
             { icon: Phone, title: "Call Us", desc: "Speak directly with our team", info: "+1 (413) 628-1326", color: "bg-green-50 text-green-600" },
             { icon: Mail, title: "Email Us", desc: "Get a response within 24 hours", info: "info@thenextonline.com", color: "bg-blue-50 text-blue-600" },
-            { icon: MapPin, title: "Visit Us", desc: "Come say hello", info: "Hatibandha, Lalmonirhat", color: "bg-purple-50 text-purple-600" }
+            { icon: MapPin, title: "Visit 🇺🇸", desc: "New York Office", info: "Next Online LLC\n89-15 PARSONS BLVD #10K\nJAMAICA, NEW YORK 11432 USA", color: "bg-purple-50 text-purple-600" }
           ].map((item, index) => (
             <motion.div
               key={index}
@@ -106,7 +106,7 @@ const Contact = () => {
               </div>
               <h3 className="text-xl font-bold text-[#0F172A] mb-2">{item.title}</h3>
               <p className="text-slate-500 text-sm mb-4">{item.desc}</p>
-              <p className="font-semibold text-[#0F172A]">{item.info}</p>
+              <div className="font-semibold text-[#0F172A] whitespace-pre-line">{item.info}</div>
             </motion.div>
           ))}
         </div>

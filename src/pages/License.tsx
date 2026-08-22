@@ -9,9 +9,9 @@ import licenseAll from "@/assets/license-all.png.asset.json";
 const LicensePage = () => {
   return (
     <div className="min-h-screen bg-[#011612] text-white">
-      <Navbar />
+
       
-      <main className="pt-32 pb-20">
+      <main className="pb-20">
         <div className="container-custom">
           {/* Header */}
           <div className="text-center mb-16">
@@ -141,7 +141,6 @@ const LicensePage = () => {
         </div>
       </main>
 
-      <Footer />
     </div>
   );
 };

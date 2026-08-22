@@ -193,7 +193,6 @@ const Footer = () => {
               <div className="flex flex-wrap md:justify-end gap-6 text-xs font-bold uppercase tracking-widest text-white/80">
                 <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
                 <Link to="/terms" className="hover:text-white transition-colors">Terms & Condition</Link>
-                <Link to="/license" className="hover:text-white transition-colors">All License</Link>
                 <Link to="/refund" className="hover:text-white transition-colors">Payment & Refund Policy</Link>
               </div>
             </div>
