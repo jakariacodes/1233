@@ -232,16 +232,16 @@ const Navbar = () => {
         </div>
 
         {/* Right Side Actions */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 md:gap-6">
           {!user ? (
             <>
-              <Link 
+              <Link
                 to="/auth"
                 className="hidden md:block text-sm font-medium hover:text-primary transition-colors text-slate-600"
               >
                 Login
               </Link>
-              <Link to="/services">
+              <Link to="/services" className="hidden md:block">
                 <Button className="rounded-full px-8 bg-primary hover:bg-primary/90 text-white font-bold h-11 text-sm shadow-lg shadow-primary/25" variant="default">
                   <Sparkles className="w-4 h-4 mr-2" />
                   Get Started
@@ -249,7 +249,7 @@ const Navbar = () => {
               </Link>
             </>
           ) : (
-            <Link to={isAdmin ? "/admin" : "/dashboard"}>
+            <Link to={isAdmin ? "/admin" : "/dashboard"} className="hidden md:block">
               <Button className="rounded-full px-8 bg-primary hover:bg-primary/90 text-white font-bold h-11 text-sm shadow-lg shadow-primary/25" variant="default">
                 {isAdmin ? "Admin Panel" : "Dashboard"}
               </Button>
