@@ -216,7 +216,7 @@ const Navbar = () => {
                             <Sparkles className="w-4 h-4 text-primary" />
                             Transforming digital visions into reality.
                           </div>
-                          <Link to="/contact" onClick={() => setIsServicesOpen(false)}>
+                          <Link to="/services" onClick={() => setIsServicesOpen(false)}>
                             <Button size="sm" className="rounded-xl bg-primary hover:bg-primary/90 text-white font-bold h-11 px-8 shadow-lg shadow-primary/20">
                               Get Started
                             </Button>
@@ -232,16 +232,16 @@ const Navbar = () => {
         </div>
 
         {/* Right Side Actions */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 md:gap-6">
           {!user ? (
             <>
-              <Link 
+              <Link
                 to="/auth"
                 className="hidden md:block text-sm font-medium hover:text-primary transition-colors text-slate-600"
               >
                 Login
               </Link>
-              <Link to="/contact">
+              <Link to="/services" className="hidden md:block">
                 <Button className="rounded-full px-8 bg-primary hover:bg-primary/90 text-white font-bold h-11 text-sm shadow-lg shadow-primary/25" variant="default">
                   <Sparkles className="w-4 h-4 mr-2" />
                   Get Started
@@ -249,7 +249,7 @@ const Navbar = () => {
               </Link>
             </>
           ) : (
-            <Link to={isAdmin ? "/admin" : "/dashboard"}>
+            <Link to={isAdmin ? "/admin" : "/dashboard"} className="hidden md:block">
               <Button className="rounded-full px-8 bg-primary hover:bg-primary/90 text-white font-bold h-11 text-sm shadow-lg shadow-primary/25" variant="default">
                 {isAdmin ? "Admin Panel" : "Dashboard"}
               </Button>
@@ -293,7 +293,7 @@ const Navbar = () => {
                     <Link to={"/auth" as any} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium py-2">
                       Login
                     </Link>
-                    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Link to="/services" onClick={() => setIsMobileMenuOpen(false)}>
                       <Button className="w-full rounded-full h-12 shadow-lg">Get Started</Button>
                     </Link>
                   </>
