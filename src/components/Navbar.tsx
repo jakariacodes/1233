@@ -216,7 +216,7 @@ const Navbar = () => {
                             <Sparkles className="w-4 h-4 text-primary" />
                             Transforming digital visions into reality.
                           </div>
-                          <Link to="/contact" onClick={() => setIsServicesOpen(false)}>
+                          <Link to="/services" onClick={() => setIsServicesOpen(false)}>
                             <Button size="sm" className="rounded-xl bg-primary hover:bg-primary/90 text-white font-bold h-11 px-8 shadow-lg shadow-primary/20">
                               Get Started
                             </Button>
@@ -241,7 +241,7 @@ const Navbar = () => {
               >
                 Login
               </Link>
-              <Link to="/contact">
+              <Link to="/services">
                 <Button className="rounded-full px-8 bg-primary hover:bg-primary/90 text-white font-bold h-11 text-sm shadow-lg shadow-primary/25" variant="default">
                   <Sparkles className="w-4 h-4 mr-2" />
                   Get Started
@@ -293,7 +293,7 @@ const Navbar = () => {
                     <Link to={"/auth" as any} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium py-2">
                       Login
                     </Link>
-                    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Link to="/services" onClick={() => setIsMobileMenuOpen(false)}>
                       <Button className="w-full rounded-full h-12 shadow-lg">Get Started</Button>
                     </Link>
                   </>
