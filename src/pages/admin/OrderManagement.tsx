@@ -24,6 +24,8 @@ import { toast } from 'sonner';
 import { Plus, Edit2, Trash2, ShoppingCart, Loader2, Search, Clock, DollarSign, CheckCircle, AlertCircle, PlayCircle, Filter } from 'lucide-react';
 import { orderSchema, validateForm } from '@/lib/validation';
 import { motion } from 'framer-motion';
+import { Link } from '@tanstack/react-router';
+import { RecordPaymentDialog } from '@/components/admin/RecordPaymentDialog';
 
 const statusOptions = [
   { value: 'pending', label: 'Pending', color: 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400' },
@@ -405,6 +407,15 @@ const OrderManagement = () => {
                               Approve
                             </Button>
                           )}
+                          <RecordPaymentDialog
+                            orderId={order.id}
+                            orderNumber={order.order_number}
+                            amount={order.amount}
+                            onSaved={refetch}
+                          />
+                          <Button variant="outline" size="sm" asChild className="rounded-xl px-4">
+                            <Link to="/invoice/$invoiceNumber" params={{ invoiceNumber: order.order_number }} target="_blank">Invoice</Link>
+                          </Button>
                           <Button variant="outline" size="sm" onClick={() => openEditDialog(order)} className="rounded-xl px-4">Edit</Button>
                           <Button variant="ghost" size="sm" className="text-rose-500 rounded-xl" onClick={() => handleDelete(order.id)}>Delete</Button>
                         </div>

@@ -1,4 +1,4 @@
-import { CheckCircle2, Package, ArrowRight, Home } from "lucide-react";
+import { CheckCircle2, Package, ArrowRight, Home, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
@@ -30,6 +30,16 @@ export default function OrderSuccess({ orderNumber, email }: OrderSuccessProps) 
           <Button 
             asChild
             className="w-full h-16 rounded-[1.25rem] font-bold text-lg shadow-lg shadow-primary/20 bg-primary hover:bg-primary/90"
+          >
+            <Link to="/invoice/$invoiceNumber" params={{ invoiceNumber: orderNumber }}>
+              <FileText className="w-5 h-5 mr-2" /> View Invoice
+            </Link>
+          </Button>
+
+          <Button 
+            asChild
+            variant="outline"
+            className="w-full h-14 rounded-2xl font-bold border-slate-200 text-slate-700"
           >
             <Link to="/dashboard">
               Go to Dashboard <ArrowRight className="w-5 h-5 ml-2" />

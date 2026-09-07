@@ -32,6 +32,7 @@ import { Route as HelpOffersRouteImport } from './routes/help/offers'
 import { Route as HelpPaymentRouteImport } from './routes/help/payment'
 import { Route as HelpSupportRouteImport } from './routes/help/support'
 import { Route as HelpTechnicalIssueRouteImport } from './routes/help/technical-issue'
+import { Route as InvoiceInvoiceNumberRouteImport } from './routes/invoice.$invoiceNumber'
 import { Route as ProductsBusinessManagementRouteImport } from './routes/products/business-management'
 import { Route as ProductsDomainRouteImport } from './routes/products/domain'
 import { Route as ProductsHospitalManagementRouteImport } from './routes/products/hospital-management'
@@ -165,6 +166,11 @@ const HelpSupportRoute = HelpSupportRouteImport.update({
 const HelpTechnicalIssueRoute = HelpTechnicalIssueRouteImport.update({
   id: '/help/technical-issue',
   path: '/help/technical-issue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvoiceInvoiceNumberRoute = InvoiceInvoiceNumberRouteImport.update({
+  id: '/invoice/$invoiceNumber',
+  path: '/invoice/$invoiceNumber',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductsBusinessManagementRoute =
@@ -301,6 +307,7 @@ export interface FileRoutesByFullPath {
   '/help/payment': typeof HelpPaymentRoute
   '/help/support': typeof HelpSupportRoute
   '/help/technical-issue': typeof HelpTechnicalIssueRoute
+  '/invoice/$invoiceNumber': typeof InvoiceInvoiceNumberRoute
   '/products/business-management': typeof ProductsBusinessManagementRoute
   '/products/domain': typeof ProductsDomainRoute
   '/products/hospital-management': typeof ProductsHospitalManagementRoute
@@ -344,6 +351,7 @@ export interface FileRoutesByTo {
   '/help/payment': typeof HelpPaymentRoute
   '/help/support': typeof HelpSupportRoute
   '/help/technical-issue': typeof HelpTechnicalIssueRoute
+  '/invoice/$invoiceNumber': typeof InvoiceInvoiceNumberRoute
   '/products/business-management': typeof ProductsBusinessManagementRoute
   '/products/domain': typeof ProductsDomainRoute
   '/products/hospital-management': typeof ProductsHospitalManagementRoute
@@ -390,6 +398,7 @@ export interface FileRoutesById {
   '/help/payment': typeof HelpPaymentRoute
   '/help/support': typeof HelpSupportRoute
   '/help/technical-issue': typeof HelpTechnicalIssueRoute
+  '/invoice/$invoiceNumber': typeof InvoiceInvoiceNumberRoute
   '/products/business-management': typeof ProductsBusinessManagementRoute
   '/products/domain': typeof ProductsDomainRoute
   '/products/hospital-management': typeof ProductsHospitalManagementRoute
@@ -436,6 +445,7 @@ export interface FileRouteTypes {
     | '/help/payment'
     | '/help/support'
     | '/help/technical-issue'
+    | '/invoice/$invoiceNumber'
     | '/products/business-management'
     | '/products/domain'
     | '/products/hospital-management'
@@ -479,6 +489,7 @@ export interface FileRouteTypes {
     | '/help/payment'
     | '/help/support'
     | '/help/technical-issue'
+    | '/invoice/$invoiceNumber'
     | '/products/business-management'
     | '/products/domain'
     | '/products/hospital-management'
@@ -524,6 +535,7 @@ export interface FileRouteTypes {
     | '/help/payment'
     | '/help/support'
     | '/help/technical-issue'
+    | '/invoice/$invoiceNumber'
     | '/products/business-management'
     | '/products/domain'
     | '/products/hospital-management'
@@ -568,6 +580,7 @@ export interface RootRouteChildren {
   HelpPaymentRoute: typeof HelpPaymentRoute
   HelpSupportRoute: typeof HelpSupportRoute
   HelpTechnicalIssueRoute: typeof HelpTechnicalIssueRoute
+  InvoiceInvoiceNumberRoute: typeof InvoiceInvoiceNumberRoute
   ProductsBusinessManagementRoute: typeof ProductsBusinessManagementRoute
   ProductsDomainRoute: typeof ProductsDomainRoute
   ProductsHospitalManagementRoute: typeof ProductsHospitalManagementRoute
@@ -740,6 +753,13 @@ declare module '@tanstack/react-router' {
       path: '/help/technical-issue'
       fullPath: '/help/technical-issue'
       preLoaderRoute: typeof HelpTechnicalIssueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invoice/$invoiceNumber': {
+      id: '/invoice/$invoiceNumber'
+      path: '/invoice/$invoiceNumber'
+      fullPath: '/invoice/$invoiceNumber'
+      preLoaderRoute: typeof InvoiceInvoiceNumberRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products/business-management': {
@@ -956,6 +976,7 @@ const rootRouteChildren: RootRouteChildren = {
   HelpPaymentRoute: HelpPaymentRoute,
   HelpSupportRoute: HelpSupportRoute,
   HelpTechnicalIssueRoute: HelpTechnicalIssueRoute,
+  InvoiceInvoiceNumberRoute: InvoiceInvoiceNumberRoute,
   ProductsBusinessManagementRoute: ProductsBusinessManagementRoute,
   ProductsDomainRoute: ProductsDomainRoute,
   ProductsHospitalManagementRoute: ProductsHospitalManagementRoute,

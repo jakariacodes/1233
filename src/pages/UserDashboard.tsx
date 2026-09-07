@@ -204,9 +204,13 @@ export default function UserDashboard() {
                               </div>
                             </td>
                             <td className="px-8 py-5 text-right">
-                              <button className="px-4 py-2 bg-slate-50 hover:bg-slate-100 text-slate-600 rounded-xl text-xs font-bold transition-all border border-slate-200">
-                                Track Details
-                              </button>
+                              <Link
+                                to="/invoice/$invoiceNumber"
+                                params={{ invoiceNumber: order.order_number }}
+                                className="inline-block px-4 py-2 bg-slate-50 hover:bg-slate-100 text-slate-600 rounded-xl text-xs font-bold transition-all border border-slate-200"
+                              >
+                                View Invoice
+                              </Link>
                             </td>
                           </motion.tr>
                         ))}
