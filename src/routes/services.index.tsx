@@ -3,6 +3,7 @@ import Services from '@/pages/Services';
 import { getServices } from '@/lib/services.functions';
 
 export const Route = createFileRoute('/services/')({
+  staticData: { sitemap: true },
   head: () => ({
     title: 'Professional Digital Services | NextOnline LLC',
     meta: [

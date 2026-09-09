@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 
 export const Route = createFileRoute('/_authenticated')({
+  staticData: { sitemap: 'exclude-subtree' },
   component: AuthenticatedLayout,
 });
 
