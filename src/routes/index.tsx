@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import IndexPage from '@/pages/Index';
 
 export const Route = createFileRoute('/')({
+  staticData: { sitemap: true },
   head: () => ({
     title: 'NextOnline LLC | Premier Digital Agency & IT Solutions',
     meta: [

@@ -4,6 +4,7 @@ import { getServiceById } from '@/lib/services.functions';
 import { ArrowLeft } from 'lucide-react';
 
 export const Route = createFileRoute('/checkout')({
+  staticData: { sitemap: false },
   validateSearch: (search: Record<string, unknown>) => {
     return {
       serviceId: (search['serviceId'] as string) || '',

@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import InvoicePage from '@/pages/Invoice';
 
 export const Route = createFileRoute('/invoice/$invoiceNumber')({
+  staticData: { sitemap: false },
   head: () => ({
     title: 'Invoice | Next Online LLC',
     meta: [
