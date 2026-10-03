@@ -4,16 +4,16 @@ import Team from '@/pages/Team';
 export const Route = createFileRoute('/team')({
   staticData: { sitemap: true },
   head: () => ({
-    title: 'Our Team | NextOnline LLC',
+    title: 'Our Team | InfraTech',
     meta: [
       {
         name: 'description',
-        content: 'Meet the experts behind NextOnline LLC — a dedicated team of creative minds, developers, and strategists delivering exceptional digital solutions worldwide.',
+        content: 'Meet the experts behind InfraTech — a dedicated team of creative minds, developers, and strategists delivering exceptional digital solutions worldwide.',
       },
-      { property: 'og:title', content: 'Our Team | NextOnline LLC' },
+      { property: 'og:title', content: 'Our Team | InfraTech' },
       {
         property: 'og:description',
-        content: 'Meet the talented professionals driving digital innovation at NextOnline LLC.',
+        content: 'Meet the talented professionals driving digital innovation at InfraTech.',
       },
       { property: 'og:type', content: 'website' },
       { name: 'twitter:card', content: 'summary_large_image' },

@@ -62,8 +62,8 @@ export const SupportHub = () => (
         <Send className="w-10 h-10 mb-6 text-primary" />
         <h3 className="text-2xl font-display font-bold mb-4">Email Support</h3>
         <p className="text-muted-foreground mb-8">Send us an email and we'll get back to you within 24 hours.</p>
-        <a href="mailto:info@thenextonline.com" className="block">
-          <Button variant="outline" className="w-full h-12 rounded-xl font-bold border-primary/20 text-primary">info@thenextonline.com</Button>
+        <a href="mailto:info@InfraGlobalTech.com" className="block">
+          <Button variant="outline" className="w-full h-12 rounded-xl font-bold border-primary/20 text-primary">info@InfraGlobalTech.com</Button>
         </a>
       </div>
     </div>

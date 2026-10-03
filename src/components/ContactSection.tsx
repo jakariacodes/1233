@@ -8,11 +8,11 @@ const ContactSection = () => {
     <section className="relative overflow-hidden pt-16 md:pt-24" id="contact">
       {/* Background split: top half white, bottom half dark (same as footer) */}
       <div className="absolute top-0 left-0 w-full h-1/2 bg-white z-0" />
-      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-[#011612] z-0" />
+      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-[#071b3d] z-0" />
 
       <div className="container-custom relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-gradient-to-br from-[#061839] via-[#022822] to-[#011612] rounded-[2rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/5 relative group/container transition-all duration-500">
+          <div className="bg-gradient-to-br from-[#061839] via-[#102557] to-[#071b3d] rounded-[2rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/5 relative group/container transition-all duration-500">
             {/* Added shadow/premium glow effect */}
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/5 to-primary/5 opacity-0 group-hover/container:opacity-100 transition-opacity duration-500" />
             
@@ -90,11 +90,11 @@ const ContactSection = () => {
 
                     <div className="relative group">
                       <select className="w-full bg-transparent border-b border-white/20 py-2 text-white outline-none focus:border-primary transition-all appearance-none cursor-pointer group-hover:border-white/40">
-                        <option className="bg-[#022822]">Select Industry</option>
-                        <option className="bg-[#022822]">E-Gov Solutions</option>
-                        <option className="bg-[#022822]">EdTech</option>
-                        <option className="bg-[#022822]">FinTech</option>
-                        <option className="bg-[#022822]">HealthTech</option>
+                        <option className="bg-[#102557]">Select Industry</option>
+                        <option className="bg-[#102557]">E-Gov Solutions</option>
+                        <option className="bg-[#102557]">EdTech</option>
+                        <option className="bg-[#102557]">FinTech</option>
+                        <option className="bg-[#102557]">HealthTech</option>
                       </select>
                       <label className="absolute left-0 -top-4 text-white/40 text-xs">
                         Industry <span className="text-red-500">*</span>
@@ -104,10 +104,10 @@ const ContactSection = () => {
 
                     <div className="relative group">
                       <select className="w-full bg-transparent border-b border-white/20 py-2 text-white outline-none focus:border-primary transition-all appearance-none cursor-pointer group-hover:border-white/40">
-                        <option className="bg-[#022822]">Select Budget</option>
-                        <option className="bg-[#022822]">$1,000 - $5,000</option>
-                        <option className="bg-[#022822]">$5,000 - $10,000</option>
-                        <option className="bg-[#022822]">$10,000+</option>
+                        <option className="bg-[#102557]">Select Budget</option>
+                        <option className="bg-[#102557]">$1,000 - $5,000</option>
+                        <option className="bg-[#102557]">$5,000 - $10,000</option>
+                        <option className="bg-[#102557]">$10,000+</option>
                       </select>
                       <label className="absolute left-0 -top-4 text-white/40 text-xs">
                         Budget <span className="text-red-500">*</span>

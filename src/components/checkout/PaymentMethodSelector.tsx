@@ -41,7 +41,7 @@ const paymentMethods = [
     name: "Bank Transfer",
     icon: Landmark,
     color: "bg-[#0D47A1]",
-    instructions: "Account: NextOnline LLC, A/C: 123456789, International Bank. Please share the receipt after transfer.",
+    instructions: "Account: InfraTech, A/C: 123456789, International Bank. Please share the receipt after transfer.",
     type: "manual"
   },
   {

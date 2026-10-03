@@ -37,7 +37,7 @@ const AboutSection = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-6 group cursor-default">
               <Sparkles className="w-3.5 h-3.5 text-blue-500 animate-pulse" />
-              <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">About Next Online</span>
+              <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">About InfraTech</span>
             </div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 leading-[1.1] tracking-tight text-slate-900">
@@ -52,7 +52,7 @@ const AboutSection = () => {
             </h2>
             
             <p className="text-slate-600 text-lg mb-10 leading-relaxed max-w-xl">
-              Next Online LLC is a premier global software development and digital strategy agency. 
+              InfraTech is a premier global software development and digital strategy agency. 
               Serving enterprise clients across the UK, USA, Europe, and the Middle East, we specialize in 
               high-performance web architecture, bespoke software engineering, and innovative digital solutions 
               that scale businesses globally.

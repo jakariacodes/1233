@@ -38,7 +38,7 @@ export const ChatWidget = () => {
       setTimeout(() => {
         setMessages(prev => [...prev, { 
           sender: 'bot', 
-          text: `Thank you for your message! I'm the Next Online AI. How can I help you with our digital services?` 
+          text: `Thank you for your message! I'm the InfraTech AI. How can I help you with our digital services?` 
         }]);
       }, 1000);
     } else {
@@ -84,7 +84,7 @@ export const ChatWidget = () => {
                   <Bot className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm">Next Online Support</h3>
+                  <h3 className="font-bold text-sm">InfraTech Support</h3>
                   <p className="text-[10px] text-white/60">Online & Ready to Help</p>
                 </div>
               </div>

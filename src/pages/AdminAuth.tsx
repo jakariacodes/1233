@@ -101,7 +101,7 @@ const AdminAuth = () => {
             <ShieldCheck className="w-4 h-4" />
             <span className="text-xs font-bold uppercase tracking-widest">Administrator Portal</span>
           </div>
-          <h1 className="font-display text-3xl font-bold text-white mb-2">NextOnline LLC</h1>
+          <h1 className="font-display text-3xl font-bold text-white mb-2">InfraTech</h1>
           <p className="text-slate-400">Restricted Access Area</p>
         </div>
 

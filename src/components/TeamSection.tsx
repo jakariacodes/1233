@@ -12,7 +12,7 @@ const TeamSection = () => {
       <div className="container-custom relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 tracking-tight">
-            Meet the <span className="text-primary">Experts</span> Behind NextOnline
+            Meet the <span className="text-primary">Experts</span> Behind InfraTech
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
             A collective of digital craftsmen dedicated to redefining innovation

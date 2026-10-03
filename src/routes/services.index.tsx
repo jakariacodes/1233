@@ -5,7 +5,7 @@ import { getServices } from '@/lib/services.functions';
 export const Route = createFileRoute('/services/')({
   staticData: { sitemap: true },
   head: () => ({
-    title: 'Professional Digital Services | NextOnline LLC',
+    title: 'Professional Digital Services | InfraTech',
     meta: [
       {
         name: 'description',
@@ -13,7 +13,7 @@ export const Route = createFileRoute('/services/')({
       },
       {
         property: 'og:title',
-        content: 'Professional Digital Services | NextOnline LLC',
+        content: 'Professional Digital Services | InfraTech',
       },
       {
         property: 'og:description',

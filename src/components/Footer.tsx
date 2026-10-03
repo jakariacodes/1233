@@ -35,7 +35,7 @@ const Footer = () => {
         { name: "Chat with us", href: "/help/support" },
         { name: "Technical issue", href: "/help/technical-issue" },
         { name: "Offers & Campaigns", href: "/help/offers" },
-        { name: "Next Online Support", href: "/help/support" },
+        { name: "InfraTech Support", href: "/help/support" },
       ],
     },
     {

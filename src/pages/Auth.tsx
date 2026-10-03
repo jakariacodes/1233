@@ -143,7 +143,7 @@ const Auth = () => {
                 <div className="text-center mb-8 animate-slide-up">
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
                     <ShieldCheck className="w-4 h-4" />
-                    <span className="text-sm font-medium">{isLogin ? "Secure Access Portal" : "Join NextOnline LLC"}</span>
+                    <span className="text-sm font-medium">{isLogin ? "Secure Access Portal" : "Join InfraTech"}</span>
                   </div>
                   <h1 className="font-display text-3xl md:text-4xl font-bold mb-4 text-slate-900">
                     {isLogin ? "Welcome Back" : "Create Account"}

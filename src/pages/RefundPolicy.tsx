@@ -37,7 +37,7 @@ const RefundPolicy = () => {
                 <div>
                   <h3 className="font-display font-bold text-lg mb-2 text-white">Important Notice</h3>
                   <p className="text-white/70">
-                    Please read this payment and refund policy carefully. By placing an order with Next Online LLC, you acknowledge that you have read, understood, and agree to this policy.
+                    Please read this payment and refund policy carefully. By placing an order with InfraTech, you acknowledge that you have read, understood, and agree to this policy.
                   </p>
                 </div>
               </div>
@@ -45,7 +45,7 @@ const RefundPolicy = () => {
               <div className="prose prose-invert prose-lg prose-headings:font-display prose-headings:font-bold prose-p:text-white/70 prose-li:text-white/70">
                 <h2>1. Overview</h2>
                 <p>
-                  At Next Online LLC, we strive to provide high-quality digital services. We plan each project by dividing work into milestones to ensure mutual understanding and eliminate potential disputes.
+                  At InfraTech, we strive to provide high-quality digital services. We plan each project by dividing work into milestones to ensure mutual understanding and eliminate potential disputes.
                 </p>
 
                 <h2>2. Payment Policy</h2>
@@ -81,7 +81,7 @@ const RefundPolicy = () => {
 
                 <h2>7. Contact Information</h2>
                 <p>
-                  For any questions regarding our Payment & Refund Policy, please contact us at info@thenextonline.com.
+                  For any questions regarding our Payment & Refund Policy, please contact us at info@InfraGlobalTech.com.
                 </p>
               </div>
             </div>

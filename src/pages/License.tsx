@@ -8,7 +8,7 @@ import licenseAll from "@/assets/license-all.png.asset.json";
 
 const LicensePage = () => {
   return (
-    <div className="min-h-screen bg-[#011612] text-white pt-32">
+    <div className="min-h-screen bg-[#071b3d] text-white pt-32">
 
       
       <main className="pb-20">
@@ -16,7 +16,7 @@ const LicensePage = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold font-heading mb-6 text-white">
-              Next Online <span className="text-primary">All License</span>
+              InfraTech <span className="text-primary">All License</span>
             </h1>
             <p className="text-white/60 max-w-2xl mx-auto">
               Our commitment to global standards and legal compliance.
@@ -29,7 +29,7 @@ const LicensePage = () => {
               <div className="group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-4 transition-all duration-300 hover:border-primary/30">
                 <img 
                   src={licenseAll.url} 
-                  alt="Next Online All License" 
+                  alt="InfraTech All License" 
                   className="w-full h-auto rounded-lg"
                 />
                 <div className="mt-4 flex items-center justify-between">
@@ -73,7 +73,7 @@ const LicensePage = () => {
                   <div className="space-y-4">
                     <div className="flex items-center gap-3 text-white/80">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="font-medium text-lg">Next Online LLC</p>
+                      <p className="font-medium text-lg">InfraTech</p>
                     </div>
                     <div className="pl-8 space-y-2">
                       <p className="text-white/60">Certificate of Organization</p>
@@ -119,7 +119,7 @@ const LicensePage = () => {
                   <div className="space-y-4">
                     <div className="flex items-center gap-3 text-white/80">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="font-medium text-lg">Next Online LLC</p>
+                      <p className="font-medium text-lg">InfraTech</p>
                     </div>
                     <div className="pl-8 space-y-2">
                       <p className="text-white/60">Bangladesh Proprietorship Company</p>
@@ -134,7 +134,7 @@ const LicensePage = () => {
           {/* Footer Text */}
           <div className="text-center text-white/40 text-sm max-w-3xl mx-auto border-t border-white/5 pt-12">
             <p>
-              Next Online LLC is committed to transparency and compliance in every jurisdiction we operate. 
+              InfraTech is committed to transparency and compliance in every jurisdiction we operate. 
               These documents certify our legal existence and right to perform business activities globally.
             </p>
           </div>

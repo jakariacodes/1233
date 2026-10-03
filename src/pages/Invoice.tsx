@@ -181,7 +181,7 @@ export default function InvoicePage() {
           </div>
 
           <div className="px-10 py-6 bg-slate-50 text-center text-xs text-slate-400 font-medium print:bg-white">
-            Thank you for your business — Next Online LLC
+            Thank you for your business — InfraTech
           </div>
         </div>
       </div>

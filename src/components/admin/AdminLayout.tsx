@@ -39,7 +39,7 @@ export const AdminLayout = ({ children }: { children?: React.ReactNode }) => {
               N
             </div>
             <div>
-              <span className="font-display font-bold text-xl block tracking-tight">NextOnline</span>
+              <span className="font-display font-bold text-xl block tracking-tight">InfraTech</span>
               <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-semibold">Admin Panel</span>
             </div>
           </Link>
@@ -77,7 +77,7 @@ export const AdminLayout = ({ children }: { children?: React.ReactNode }) => {
         <div className="absolute top-0 right-0 -z-10 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 -z-10 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
         
-        <header className="bg-white/80 dark:bg-[#011612]/80 backdrop-blur-xl border-b border-border/50 h-20 sticky top-0 z-40 px-6 md:px-10 flex items-center justify-between">
+        <header className="bg-white/80 dark:bg-[#071b3d]/80 backdrop-blur-xl border-b border-border/50 h-20 sticky top-0 z-40 px-6 md:px-10 flex items-center justify-between">
            <button className="lg:hidden p-2 hover:bg-secondary rounded-xl transition-colors" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
            </button>
