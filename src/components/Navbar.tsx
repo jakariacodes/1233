@@ -11,7 +11,7 @@ import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-import logoHeader from "@/assets/logo-header.png";
+import infraTechLogo from "@/assets/infratech-logo.png.asset.json";
 
 const services = [
   {
@@ -128,9 +128,9 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group shrink-0">
           <img 
-            src={heroData?.header_logo_url || logoHeader} 
-            alt="Next Online LLC" 
-            className="h-10 w-auto object-contain"
+            src={heroData?.header_logo_url || infraTechLogo.url}
+            alt="InfraTech"
+            className="h-11 w-auto max-w-[190px] object-contain"
           />
         </Link>
 

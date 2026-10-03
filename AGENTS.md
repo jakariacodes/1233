@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Use the uploaded InfraTech logo through its Lovable Assets JSON pointer so branded imagery stays CDN-backed and lightweight.

@@ -4,7 +4,7 @@ import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
 
 export const CTASection = () => {
   return (
-    <section className="section-padding relative overflow-hidden bg-[#011612]">
+    <section className="section-padding relative overflow-hidden bg-[#071b3d]">
       {/* Background Orbs */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] -z-10 translate-x-1/3 -translate-y-1/3" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] -z-10 -translate-x-1/3 translate-y-1/3" />
@@ -24,7 +24,7 @@ export const CTASection = () => {
                   Build Your <span className="text-primary">Digital Future</span> With Us
                 </h2>
                 <p className="text-white/60 text-xl mb-10 leading-relaxed">
-                  Join hundreds of forward-thinking brands who trust NextOnline LLC 
+                  Join hundreds of forward-thinking brands who trust InfraTech 
                   to deliver premium digital experiences that scale.
                 </p>
                 
@@ -52,8 +52,8 @@ export const CTASection = () => {
                   {
                     icon: Mail,
                     label: "Email Inquiry",
-                    value: "info@thenextonline.com",
-                    href: "mailto:info@thenextonline.com"
+                    value: "info@InfraGlobalTech.com",
+                    href: "mailto:info@InfraGlobalTech.com"
                   },
                   {
                     icon: MapPin,

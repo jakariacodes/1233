@@ -45,14 +45,14 @@ export const HeroSection = () => {
 
   if (isLoading) {
     return (
-      <section className="relative min-h-screen flex items-center justify-center bg-[#011612]">
+      <section className="relative min-h-screen flex items-center justify-center bg-[#071b3d]">
         <Loader2 className="w-8 h-8 text-primary animate-spin" />
       </section>
     );
   }
 
   const content = heroData || {
-    badge_text: "NextOnline LLC — Driving Global Innovation",
+    badge_text: "InfraTech — Driving Global Innovation",
     badge_subtext: "Est. 2021",
     top_label: "Innovate. Scale. Succeed.",
     heading_line1: "Driving the Future of",
@@ -66,7 +66,7 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#011612] py-20 lg:py-0">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#071b3d] py-20 lg:py-0">
       {/* Animated Tech Grid Background */}
       <div className="absolute inset-0 tech-grid opacity-50" />
       
@@ -140,7 +140,7 @@ export const HeroSection = () => {
 
             {/* Heading with reference-based design */}
             <div className="mb-8 animate-slide-up animation-delay-100">
-              <div className="inline-block px-4 py-1.5 rounded-lg bg-teal-500/10 text-teal-400 font-bold text-xs uppercase tracking-widest mb-6 border border-teal-500/20">
+              <div className="inline-block px-4 py-1.5 rounded-lg bg-accent/10 text-accent font-bold text-xs uppercase tracking-widest mb-6 border border-accent/20">
                 {content.top_label}
               </div>
               <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15] tracking-tight">
@@ -163,7 +163,7 @@ export const HeroSection = () => {
                   className="group flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 cursor-pointer hover-lift"
                   style={{ animationDelay: `${300 + index * 100}ms` }}
                 >
-                  <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-teal-700 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <service.icon className="w-3.5 h-3.5 text-white" />
                   </div>
                   <span className="text-sm font-medium text-white/80 group-hover:text-white transition-colors">{service.label}</span>
@@ -181,7 +181,7 @@ export const HeroSection = () => {
               <Link to={content.secondary_btn_link}>
                 <Button 
                   variant="outline" 
-                  className="gap-2 h-12 px-8 text-sm border-teal-500/50 text-teal-400 hover:bg-teal-500/10 rounded-full group font-bold backdrop-blur-sm uppercase tracking-wider"
+                  className="gap-2 h-12 px-8 text-sm border-accent/50 text-accent hover:bg-accent/10 rounded-full group font-bold backdrop-blur-sm uppercase tracking-wider"
                 >
                   {content.secondary_btn_text}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -212,7 +212,7 @@ export const HeroSection = () => {
           <div className="order-1 lg:order-2">
             <div className="relative animate-scale-in animation-delay-200">
               {/* Animated Glow */}
-              <div className="absolute -inset-6 bg-gradient-to-r from-primary/20 to-teal-500/20 rounded-[2.5rem] blur-3xl animate-glow-pulse" />
+              <div className="absolute -inset-6 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[2.5rem] blur-3xl animate-glow-pulse" />
               
               {/* Pulse rings */}
               <div className="absolute -inset-4 rounded-[2.5rem] border border-primary/20 animate-pulse-ring opacity-50" />
@@ -223,7 +223,7 @@ export const HeroSection = () => {
                 {/* Header */}
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-teal-700 flex items-center justify-center animate-bounce-gentle">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center animate-bounce-gentle">
                       <Zap className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -282,7 +282,7 @@ export const HeroSection = () => {
               </div>
 
               {/* Floating Badge - Left */}
-              <div className="absolute -left-4 top-1/3 bg-[#011612]/80 backdrop-blur-md rounded-2xl p-3 shadow-2xl border border-white/10 hidden lg:flex items-center gap-3 animate-slide-up hover:scale-105 hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+              <div className="absolute -left-4 top-1/3 bg-[#071b3d]/80 backdrop-blur-md rounded-2xl p-3 shadow-2xl border border-white/10 hidden lg:flex items-center gap-3 animate-slide-up hover:scale-105 hover:border-primary/30 transition-all duration-300 cursor-pointer group">
                 <div className="w-11 h-11 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:animate-bounce-gentle">
                   <Shield className="w-5 h-5 text-white" />
                 </div>
@@ -293,7 +293,7 @@ export const HeroSection = () => {
               </div>
 
               {/* Floating Badge - Right */}
-              <div className="absolute -right-2 bottom-1/4 bg-[#011612]/80 backdrop-blur-md rounded-2xl p-3 shadow-2xl border border-white/10 hidden lg:flex items-center gap-3 animate-slide-up hover:scale-105 hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+              <div className="absolute -right-2 bottom-1/4 bg-[#071b3d]/80 backdrop-blur-md rounded-2xl p-3 shadow-2xl border border-white/10 hidden lg:flex items-center gap-3 animate-slide-up hover:scale-105 hover:border-primary/30 transition-all duration-300 cursor-pointer group">
                 <div className="w-11 h-11 bg-gradient-to-br from-primary to-teal-700 rounded-xl flex items-center justify-center group-hover:animate-bounce-gentle">
                   <Users className="w-5 h-5 text-white" />
                 </div>

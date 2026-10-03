@@ -4,15 +4,15 @@ import IndexPage from '@/pages/Index';
 export const Route = createFileRoute('/')({
   staticData: { sitemap: true },
   head: () => ({
-    title: 'NextOnline LLC | Premier Digital Agency & IT Solutions',
+    title: 'InfraTech | Premier Digital Agency & IT Solutions',
     meta: [
       {
         name: 'description',
-        content: 'NextOnline LLC is a leading digital agency in Bangladesh providing web development, mobile apps, and premium IT solutions.',
+        content: 'InfraTech is a leading digital agency in Bangladesh providing web development, mobile apps, and premium IT solutions.',
       },
       {
         property: 'og:title',
-        content: 'NextOnline LLC | Premier Digital Agency & IT Solutions',
+        content: 'InfraTech | Premier Digital Agency & IT Solutions',
       },
       {
         property: 'og:description',

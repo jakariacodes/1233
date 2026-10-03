@@ -85,7 +85,7 @@ export const DeliveryHelp = () => (
     icon={Zap}
   >
     <h2>Project Delivery Process</h2>
-    <p>At NextOnline LLC, we ensure a transparent and efficient delivery process for all our digital solutions.</p>
+    <p>At InfraTech, we ensure a transparent and efficient delivery process for all our digital solutions.</p>
     
     <h3>1. Development Phases</h3>
     <p>Projects are delivered in stages defined during the strategy phase. Each stage includes quality assurance and client review before final handover.</p>

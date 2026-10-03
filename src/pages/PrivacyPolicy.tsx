@@ -32,12 +32,12 @@ const PrivacyPolicy = () => {
           <div className="container-custom">
             <div className="max-w-4xl mx-auto prose prose-invert prose-lg prose-headings:font-display prose-headings:font-bold prose-p:text-white/70 prose-li:text-white/70">
               <p>
-                Next Online is a webdesign agency who is providing services for more than eight years with proven success records. From the very inception of its journey, it gives promising services to customers worldwide and has become the best digital marketing agency all over world.
+                InfraTech is a webdesign agency who is providing services for more than eight years with proven success records. From the very inception of its journey, it gives promising services to customers worldwide and has become the best digital marketing agency all over world.
               </p>
               
-              <h2>Next Online Privacy Policy</h2>
+              <h2>InfraTech Privacy Policy</h2>
               <p>
-                Next Online is committed to protecting and respecting your privacy, including any personal information you may choose to provide us. This Privacy Policy, including Cookie Policy, describes how your personal information is collected, used, and shared when you visit or purchase from thenextonline.com (the "Site").
+                InfraTech is committed to protecting and respecting your privacy, including any personal information you may choose to provide us. This Privacy Policy, including Cookie Policy, describes how your personal information is collected, used, and shared when you visit or purchase from thenextonline.com (the "Site").
               </p>
               <p>
                 Please read the following carefully to understand our views and practices regarding your personal information and how we will treat it.
@@ -97,7 +97,7 @@ const PrivacyPolicy = () => {
 
               <h2>CONTACT US</h2>
               <p>
-                For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at info@thenextonline.com.
+                For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at info@InfraGlobalTech.com.
               </p>
             </div>
           </div>
