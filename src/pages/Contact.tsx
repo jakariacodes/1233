@@ -75,7 +75,7 @@ const Contact = () => {
             className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#0F172A] mb-6 leading-tight"
           >
             Get in Touch & Start Your <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500">Digital Journey</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Digital Journey</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -90,9 +90,9 @@ const Contact = () => {
         {/* Quick Info Cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-20 max-w-6xl mx-auto">
           {[
-            { icon: Phone, title: "Call Us", desc: "Speak directly with our team", info: "+1 (413) 628-1326", color: "bg-green-50 text-green-600" },
-            { icon: Mail, title: "Email Us", desc: "Get a response within 24 hours", info: "info@thenextonline.com", color: "bg-blue-50 text-blue-600" },
-            { icon: MapPin, title: "Visit 🇺🇸", desc: "New York Office", info: "Next Online LLC\n89-15 PARSONS BLVD #10K\nJAMAICA, NEW YORK 11432 USA", color: "bg-purple-50 text-purple-600" }
+            { icon: Phone, title: "Call Us", desc: "Speak directly with our team", info: "+1 (760) 286-5194", color: "bg-primary/10 text-primary" },
+            { icon: Mail, title: "Email Us", desc: "Get a response within 24 hours", info: "info@InfraGlobalTech.com", color: "bg-accent/10 text-accent" },
+            { icon: MapPin, title: "Visit 🇺🇸", desc: "New York Office", info: "InfraTech\n89-15 PARSONS BLVD #10K\nJAMAICA, NEW YORK 11432 USA", color: "bg-primary/10 text-primary" }
           ].map((item, index) => (
             <motion.div
               key={index}

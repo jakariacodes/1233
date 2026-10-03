@@ -2,7 +2,7 @@ import { useParams, Link } from '@tanstack/react-router';
 import { Printer, ArrowLeft, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useInvoice } from '@/hooks/useInvoice';
-import logo from '@/assets/logo.png';
+import infraTechLogo from '@/assets/infratech-logo.png.asset.json';
 
 const money = (value: number, currency: string) =>
   `${currency === 'BDT' ? '৳' : '$'}${Number(value || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
@@ -63,12 +63,13 @@ export default function InvoicePage() {
           {/* Header */}
           <div className="p-10 border-b border-slate-100 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
             <div>
-              <img src={logo} alt="Next Online LLC" className="h-10 w-auto mb-4" />
+              <img src={infraTechLogo.url} alt="InfraTech" className="h-10 w-auto mb-4" />
               <p className="text-sm text-slate-500 leading-relaxed">
-                Next Online LLC<br />
+                InfraTech<br />
                 89-15 Parsons Blvd #10K<br />
                 Jamaica, New York 11432, USA<br />
-                Info@thenextonline.com
+                info@InfraGlobalTech.com<br />
+                +1 (760) 286-5194
               </p>
             </div>
             <div className="sm:text-right">

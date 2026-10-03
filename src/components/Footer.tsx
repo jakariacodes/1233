@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Globe, Mail, Phone, MapPin } from "lucide-react";
-import logoFooter from "@/assets/logo-footer.webp";
+import infraTechLogo from "@/assets/infratech-logo.png.asset.json";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -52,16 +52,16 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="py-16 bg-[#011612] text-white overflow-hidden relative border-t border-white/5">
+    <footer className="py-16 bg-[#071b3d] text-white overflow-hidden relative border-t border-white/5">
       <div className="container-custom">
         {/* Top Info Bar (Integrated Address & Contact) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-20 pb-12 border-b border-white/10">
           <div className="flex flex-col space-y-6">
             <Link to="/" className="block">
               <img
-                src={logoFooter}
-                alt="Next Online LLC"
-                className="h-10 w-auto object-contain brightness-0 invert"
+                src={infraTechLogo.url}
+                alt="InfraTech"
+                className="h-11 w-auto max-w-full object-contain brightness-0 invert"
               />
             </Link>
             <div className="flex gap-3">
@@ -86,7 +86,7 @@ const Footer = () => {
                 <Mail className="w-4 h-4" />
               </div>
               <div>
-                <a href="mailto:info@thenextonline.com" className="text-sm font-medium hover:text-primary transition-colors block">info@thenextonline.com</a>
+                <a href="mailto:info@InfraGlobalTech.com" className="text-sm font-medium hover:text-primary transition-colors block">info@InfraGlobalTech.com</a>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -94,8 +94,7 @@ const Footer = () => {
                 <Phone className="w-4 h-4" />
               </div>
               <div className="space-y-1">
-                <a href="tel:+14136281326" className="text-sm font-medium block hover:text-primary transition-colors">+1 (413) 628-1326</a>
-                <a href="tel:+8801711392738" className="text-sm font-medium block hover:text-primary transition-colors">+88 01711-392738</a>
+                <a href="tel:+17602865194" className="text-sm font-medium block hover:text-primary transition-colors">+1 (760) 286-5194</a>
               </div>
             </div>
           </div>
@@ -106,11 +105,8 @@ const Footer = () => {
               <h5 className="text-sm font-bold tracking-wider uppercase text-white/90">USA Office</h5>
             </div>
             <div className="space-y-1">
-              <p className="text-[13px] text-white/70 font-bold">Next Online LLC</p>
-              <p className="text-[13px] text-white/60 leading-relaxed">
-                1209 Mountain Road Pl NE, Ste N<br />
-                Albuquerque, NM, 87110 USA
-              </p>
+              <p className="text-[13px] text-white/70 font-bold">InfraTech</p>
+              <p className="text-[13px] text-white/60 leading-relaxed">United States</p>
             </div>
           </div>
 
@@ -120,7 +116,7 @@ const Footer = () => {
               <h5 className="text-sm font-bold tracking-wider uppercase text-white/90">New York Office</h5>
             </div>
             <div className="space-y-1">
-              <p className="text-[13px] text-white/70 font-bold">Next Online LLC</p>
+              <p className="text-[13px] text-white/70 font-bold">InfraTech</p>
               <p className="text-[13px] text-white/60 leading-relaxed">
                 89-15 PARSONS BLVD #10K<br />
                 JAMAICA, NEW YORK 11432 USA
@@ -148,7 +144,7 @@ const Footer = () => {
               <h5 className="text-sm font-bold tracking-wider uppercase text-white/90">Bangladesh</h5>
             </div>
             <div className="space-y-1">
-              <p className="text-[13px] text-white/70 font-bold">Next Online LLC</p>
+              <p className="text-[13px] text-white/70 font-bold">InfraTech</p>
               <p className="text-[13px] text-white/60 leading-relaxed">
                 1505/13, 37 Bir Uttam C R Dotto Road,<br />
                 Nahar Plaza, Ramana, Dhaka-1000
@@ -184,7 +180,7 @@ const Footer = () => {
             {/* Copyright area (Left side) */}
             <div className="text-left">
               <p className="text-white/70 text-xs font-medium uppercase tracking-[0.2em]">
-                Copyright © {currentYear} Next Online LLC. All rights reserved.
+                Copyright © {currentYear} InfraTech. All rights reserved.
               </p>
             </div>
 
