@@ -8,4 +8,4 @@
 - [x] Add the transparent InfraTech logo to the footer.
 - [x] Remove the homepage contact block above the footer.
 - [x] Remove remaining visitor-facing Next Online branding.
-- [ ] Verify the final homepage and footer at desktop and mobile widths.
+- [x] Verify the final homepage and footer at desktop and mobile widths.
