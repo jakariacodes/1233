@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Use the uploaded InfraTech logo through its Lovable Assets JSON pointer so branded imagery stays CDN-backed and lightweight.
+- Keep administrator authorization in `user_roles`; authentication passwords remain exclusively in the managed auth service.

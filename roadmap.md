@@ -9,3 +9,4 @@
 - [x] Remove the homepage contact block above the footer.
 - [x] Remove remaining visitor-facing Next Online branding.
 - [x] Verify the final homepage and footer at desktop and mobile widths.
+- [x] Create the secure `info@InfraGlobalTech.com` administrator account and password setup flow.

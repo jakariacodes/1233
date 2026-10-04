@@ -18,7 +18,7 @@ const AdminAuth = () => {
   const [isResetting, setIsResetting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
-    email: "",
+    email: "info@InfraGlobalTech.com",
     password: "",
   });
 
@@ -113,7 +113,7 @@ const AdminAuth = () => {
               </label>
               <Input
                 type="email"
-                placeholder="admin@infratech.com"
+                placeholder="info@InfraGlobalTech.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="bg-slate-950 border-slate-800 text-white h-12 focus:ring-primary focus:border-primary"
