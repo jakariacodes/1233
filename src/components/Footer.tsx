@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send, Globe, Sparkles, Heart, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Globe, Sparkles, Heart, Share2, AtSign, Camera, Briefcase } from "lucide-react";
 import infraTechLogo from "@/assets/infratech-logo.png.asset.json";
 
 const quickLinks = [
@@ -24,10 +24,10 @@ const services = [
 ];
 
 const socials = [
-  { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61559869275150" },
-  { Icon: Twitter, href: "#" },
-  { Icon: Instagram, href: "#" },
-  { Icon: Linkedin, href: "#" },
+  { Icon: Share2, href: "https://www.facebook.com/profile.php?id=61559869275150" },
+  { Icon: AtSign, href: "#" },
+  { Icon: Camera, href: "#" },
+  { Icon: Briefcase, href: "#" },
 ];
 
 const Footer = () => {
@@ -148,4 +148,5 @@ const Footer = () => {
   );
 };
 
+export { Footer };
 export default Footer;
