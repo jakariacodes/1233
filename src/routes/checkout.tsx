@@ -5,6 +5,16 @@ import { ArrowLeft } from 'lucide-react';
 
 export const Route = createFileRoute('/checkout')({
   staticData: { sitemap: false },
+  head: () => ({
+    title: 'Secure Checkout | InfraTech',
+    meta: [
+      { name: 'description', content: 'Complete your InfraTech service order securely.' },
+      { property: 'og:title', content: 'Secure Checkout | InfraTech' },
+      { property: 'og:description', content: 'Complete your InfraTech service order securely.' },
+      { property: 'og:type', content: 'website' },
+      { name: 'twitter:card', content: 'summary' },
+    ],
+  }),
   validateSearch: (search: Record<string, unknown>) => {
     return {
       serviceId: (search['serviceId'] as string) || '',
