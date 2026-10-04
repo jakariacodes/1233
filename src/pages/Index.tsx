@@ -10,7 +10,6 @@ import { TeamSection } from "@/components/TeamSection";
 import { PricingSection } from "@/components/PricingSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { BlogSection } from "@/components/BlogSection";
-import { ContactSection } from "@/components/ContactSection";
 
 
 const Index = () => {
@@ -27,8 +26,6 @@ const Index = () => {
       <PricingSection />
       <TestimonialsSection />
       <BlogSection />
-      <ContactSection />
-      
     </div>
   );
 };

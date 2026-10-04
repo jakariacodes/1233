@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, Globe, Sparkles, Heart, Share2, AtSign, Camera, Briefcase } from "lucide-react";
-import infraTechLogo from "@/assets/infratech-logo.png.asset.json";
+import { Button } from "@/components/ui/button";
+import infraTechFooterLogo from "@/assets/infratech-footer-logo.png.asset.json";
 
 const quickLinks = [
   { name: "Home", href: "/" },
@@ -62,9 +63,9 @@ const Footer = () => {
                 placeholder="Enter your email address"
                 className="flex-1 rounded-xl bg-white/15 border border-white/30 px-4 py-3 text-sm placeholder:text-white/70 outline-none focus:border-white"
               />
-              <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-indigo-700 hover:bg-white/90">
+              <Button type="submit" variant="secondary" className="rounded-xl px-5 py-3 text-sm font-semibold">
                 Subscribe <Send className="w-4 h-4" />
-              </button>
+              </Button>
             </form>
             <p className="mt-2 text-[11px] text-white/75">No spam, unsubscribe anytime.</p>
           </div>
@@ -73,7 +74,9 @@ const Footer = () => {
         {/* Main */}
         <div className="mt-12 pt-12 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
-            <Link to="/"><img src={infraTechLogo.url} alt="InfraTech" className="h-11 w-auto brightness-0 invert" /></Link>
+            <Link to="/" aria-label="InfraTech home">
+              <img src={infraTechFooterLogo.url} alt="InfraTech" className="h-12 w-auto max-w-full object-contain" />
+            </Link>
             <p className="mt-5 text-sm text-white/70 leading-relaxed">
               Empowering businesses globally with cutting-edge software solutions, web development and digital services.
             </p>
