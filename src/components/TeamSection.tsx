@@ -36,6 +36,9 @@ const TeamSection = () => {
                     <img
                       src={member.image_url}
                       alt={member.name}
+                      width={1024}
+                      height={1280}
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   ) : (
@@ -54,7 +57,7 @@ const TeamSection = () => {
                       .map(({ url, Icon }, i) => (
                         <a
                           key={i}
-                          href={url!}
+                          href={url ?? '#'}
                           target="_blank"
                           rel="noreferrer"
                           className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-primary transition-colors"
