@@ -1,6 +1,4 @@
 import React from "react";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { FileText, ShieldCheck, Award, CheckCircle2 } from "lucide-react";
 import licenseUsa from "@/assets/license-usa.png.asset.json";
 import licenseUk from "@/assets/license-uk.png.asset.json";
@@ -96,7 +94,7 @@ const LicensePage = () => {
                   <div className="space-y-4">
                     <div className="flex items-center gap-3 text-white/80">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="font-medium text-lg">NEXT ONLINE GLOBAL LTD</p>
+                      <p className="font-medium text-lg">INFRATECH GLOBAL LTD</p>
                     </div>
                     <div className="pl-8 space-y-2">
                       <p className="text-white/60">Certificate of Incorporation (Private Limited Company)</p>

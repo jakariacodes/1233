@@ -111,8 +111,8 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Hosting", href: "#" },
     { name: "Services", href: "/services", hasDropdown: true },
+    { name: "Portfolio", href: "/portfolio" },
     { name: "Team", href: "/team" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
@@ -257,12 +257,17 @@ const Navbar = () => {
           )}
 
           {/* Mobile Toggle */}
-          <button 
-            className="lg:hidden p-2 text-foreground/70 hover:text-primary transition-colors" 
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            className="lg:hidden text-foreground/70 hover:text-primary"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          </Button>
         </div>
       </div>
 

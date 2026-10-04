@@ -5,6 +5,16 @@ import { Loader2 } from 'lucide-react';
 
 export const Route = createFileRoute('/_authenticated')({
   staticData: { sitemap: 'exclude-subtree' },
+  head: () => ({
+    title: 'Secure Account | InfraTech',
+    meta: [
+      { name: 'description', content: 'Secure InfraTech account area.' },
+      { property: 'og:title', content: 'Secure Account | InfraTech' },
+      { property: 'og:description', content: 'Secure InfraTech account area.' },
+      { property: 'og:type', content: 'website' },
+      { name: 'twitter:card', content: 'summary' },
+    ],
+  }),
   component: AuthenticatedLayout,
 });
 

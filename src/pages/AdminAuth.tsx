@@ -113,7 +113,7 @@ const AdminAuth = () => {
               </label>
               <Input
                 type="email"
-                placeholder="admin@nextonline.com"
+                placeholder="admin@infratech.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="bg-slate-950 border-slate-800 text-white h-12 focus:ring-primary focus:border-primary"
