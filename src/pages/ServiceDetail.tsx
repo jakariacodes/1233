@@ -4,9 +4,21 @@ import { ArrowLeft, ArrowRight, Star, Users, Award, Play, Sparkles } from "lucid
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { PricingCard } from "@/components/PricingCard";
 
+type ServicePackage = {
+  id: string;
+  [key: string]: unknown;
+};
+
+type ServiceDetails = {
+  id: string;
+  slug?: string | null;
+  title: string;
+  description: string;
+  service_packages?: ServicePackage[] | null;
+};
 
 const ServiceDetail = () => {
-  const service = useLoaderData({ from: '/services/$id' });
+  const service = useLoaderData({ from: '/services/$id' }) as ServiceDetails | null;
 
   if (!service) return null;
 
@@ -82,7 +94,7 @@ const ServiceDetail = () => {
                     <p className="text-muted-foreground italic">Pricing for this service will be available soon.</p>
                   </div>
                 ) : (
-                  packages.map((pkg: any) => (
+                  packages.map((pkg) => (
                     <PricingCard 
                       key={pkg.id} 
                       pkg={pkg} 
