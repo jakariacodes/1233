@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
+import founderCeoPhoto from '@/assets/founder-ceo-fahim.jpg';
 
 export interface TeamMember {
   id: string;
@@ -35,6 +36,9 @@ export const useTeamMembers = () => {
         const socialLinks = member.social_links as any || {};
         return {
           ...member,
+          image_url: member.name === 'Sheikh Md Habibur Rahman Fahim'
+            ? founderCeoPhoto
+            : member.image_url,
           linkedin_url: socialLinks.linkedin || null,
           twitter_url: socialLinks.twitter || null,
           facebook_url: socialLinks.facebook || null,

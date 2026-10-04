@@ -19,6 +19,10 @@ export const Route = createFileRoute('/')({
         content: 'Revolutionizing the digital landscape with premium technology solutions and AI-powered platforms.',
       },
       {
+        property: 'og:type',
+        content: 'website',
+      },
+      {
         name: 'twitter:card',
         content: 'summary_large_image',
       },

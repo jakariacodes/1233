@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Award, Users, Target, Rocket, CheckCircle, Calendar, Sparkles, Globe, TrendingUp, Heart, Shield, Code, Palette, Megaphone, Star, MapPin } from "lucide-react";
-import ceoPhoto from "@/assets/ceo-photo.jpg";
 
 const values = [
   {
@@ -34,7 +33,7 @@ const timeline = [
   {
     year: "2020",
     title: "The Beginning",
-    description: "Founded with a vision to provide world-class digital services to businesses worldwide.",
+    description: "Founded with a vision to provide world-class digital services to businesses globally.",
     icon: Sparkles,
     color: "from-blue-500 to-cyan-500",
   },

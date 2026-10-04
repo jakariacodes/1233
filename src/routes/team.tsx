@@ -8,7 +8,7 @@ export const Route = createFileRoute('/team')({
     meta: [
       {
         name: 'description',
-        content: 'Meet the experts behind InfraTech — a dedicated team of creative minds, developers, and strategists delivering exceptional digital solutions worldwide.',
+        content: 'Meet the experts behind InfraTech — a dedicated team of creative minds, developers, and strategists delivering exceptional digital solutions globally.',
       },
       { property: 'og:title', content: 'Our Team | InfraTech' },
       {

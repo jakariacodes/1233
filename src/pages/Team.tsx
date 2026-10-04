@@ -94,10 +94,17 @@ const Team = () => {
               <div className="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-br from-primary/20 to-accent/10 blur-2xl" />
               <div className="relative aspect-square rounded-[2rem] overflow-hidden border border-border shadow-[0_24px_60px_rgba(0,0,0,0.10)] bg-secondary">
                 {leader.image_url && (
-                  <img src={leader.image_url} alt={leader.name} className="w-full h-full object-cover" />
+                  <img
+                    src={leader.image_url}
+                    alt={leader.name}
+                    width={1024}
+                    height={1280}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
                 )}
                 <span className="absolute bottom-5 left-5 px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-semibold shadow-lg">
-                  Founder &amp; Leader
+                  Founder &amp; CEO
                 </span>
               </div>
             </div>
@@ -147,7 +154,14 @@ const Team = () => {
                   <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/30 group-hover:rotate-45 transition-transform duration-700" />
                   <div className="absolute inset-1.5 rounded-full overflow-hidden bg-secondary">
                     {member.image_url ? (
-                      <img src={member.image_url} alt={member.name} className="w-full h-full object-cover" />
+                      <img
+                        src={member.image_url}
+                        alt={member.name}
+                        width={1024}
+                        height={1280}
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                      />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-2xl font-bold text-primary">
                         {member.name.charAt(0)}
