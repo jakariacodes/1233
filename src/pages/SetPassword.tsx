@@ -117,7 +117,7 @@ const SetPassword = () => {
                   {showPassword ? <EyeOff /> : <Eye />}
                 </Button>
               </div>
-              {errors.password && <p className="mt-1 text-xs text-destructive">{errors.password}</p>}
+              {errors['password'] && <p className="mt-1 text-xs text-destructive">{errors['password']}</p>}
             </div>
 
             <div>
@@ -131,7 +131,7 @@ const SetPassword = () => {
                 className="h-12 border-background/20 bg-background/10 text-background placeholder:text-background/40"
                 placeholder="Enter it again"
               />
-              {errors.confirmPassword && <p className="mt-1 text-xs text-destructive">{errors.confirmPassword}</p>}
+              {errors['confirmPassword'] && <p className="mt-1 text-xs text-destructive">{errors['confirmPassword']}</p>}
             </div>
 
             <Button type="submit" className="h-12 w-full" disabled={submitting}>

@@ -6,7 +6,10 @@ import { PricingCard } from "@/components/PricingCard";
 
 type ServicePackage = {
   id: string;
-  [key: string]: unknown;
+  name: string;
+  price: number;
+  features: string[];
+  is_popular?: boolean;
 };
 
 type ServiceDetails = {
