@@ -57,7 +57,7 @@ export const HeroSection = () => {
     top_label: "Innovate. Scale. Succeed.",
     heading_line1: "Driving the Future of",
     heading_accent: "Digital Innovation",
-    heading_line2: "Worldwide",
+    heading_line2: "Global",
     description: "We empower businesses globally with next-generation software solutions, cutting-edge technology, and creative digital strategies designed for the modern era.",
     primary_btn_text: "Get Started",
     primary_btn_link: "/contact",

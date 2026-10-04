@@ -32,12 +32,12 @@ const PrivacyPolicy = () => {
           <div className="container-custom">
             <div className="max-w-4xl mx-auto prose prose-invert prose-lg prose-headings:font-display prose-headings:font-bold prose-p:text-white/70 prose-li:text-white/70">
               <p>
-                InfraTech is a webdesign agency who is providing services for more than eight years with proven success records. From the very inception of its journey, it gives promising services to customers worldwide and has become the best digital marketing agency all over world.
+                InfraTech is a web design agency providing proven digital services globally. Since the beginning of our journey, we have focused on dependable service and measurable client success.
               </p>
               
               <h2>InfraTech Privacy Policy</h2>
               <p>
-                InfraTech is committed to protecting and respecting your privacy, including any personal information you may choose to provide us. This Privacy Policy, including Cookie Policy, describes how your personal information is collected, used, and shared when you visit or purchase from thenextonline.com (the "Site").
+                InfraTech is committed to protecting and respecting your privacy, including any personal information you may choose to provide us. This Privacy Policy, including Cookie Policy, describes how your personal information is collected, used, and shared when you visit or purchase from the InfraTech website (the "Site").
               </p>
               <p>
                 Please read the following carefully to understand our views and practices regarding your personal information and how we will treat it.

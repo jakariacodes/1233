@@ -113,7 +113,7 @@ const AboutSection = () => {
                     <span className="text-[10px] font-bold text-primary uppercase tracking-wider">Our Core Vision</span>
                   </div>
                   <h4 className="text-white font-display font-bold text-2xl mb-3 leading-tight">
-                    Driving the Future of <span className="text-primary">Digital Innovation</span> Worldwide
+                    Driving the Future of <span className="text-primary">Digital Innovation</span> Global
                   </h4>
 
                   <p className="text-slate-400 text-sm leading-relaxed">
