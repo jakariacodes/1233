@@ -50,7 +50,8 @@ const AdminAuth = () => {
         return;
       }
 
-      const { error } = await signIn(formData.email, formData.password);
+      // Trim stray spaces from copy-paste, which otherwise cause "Invalid login credentials"
+      const { error } = await signIn(formData.email.trim().toLowerCase(), formData.password.trim());
       if (error) {
         toast.error(error.message);
       } else {
