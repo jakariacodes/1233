@@ -23,7 +23,7 @@ export const useHeroContent = () => {
       const { data, error } = await supabase
         .from("hero_content" as any)
         .select("*")
-        .single();
+        .maybeSingle();
       
       if (error) {
         console.error("Error fetching hero content:", error);
