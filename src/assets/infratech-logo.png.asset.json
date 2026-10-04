@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "13e91477-41ff-410b-b351-b142c22aa56a",
-  "project_id": "ae6bf32a-8c4e-4dd0-beac-a4e96382fe59",
-  "url": "/__l5e/assets-v1/13e91477-41ff-410b-b351-b142c22aa56a/infratech-logo.png",
-  "r2_key": "a/v1/ae6bf32a-8c4e-4dd0-beac-a4e96382fe59/13e91477-41ff-410b-b351-b142c22aa56a/infratech-logo.png",
-  "original_filename": "infratech-logo.png",
-  "size": 50260,
   "content_type": "image/png",
-  "created_at": "2026-10-03T17:18:26Z"
+  "created_at": "2026-10-03T17:18:26Z",
+  "original_filename": "infratech-logo.png",
+  "project_id": "8e4fe26b-d4e0-4e71-9606-eb3a624a2afb",
+  "r2_key": "a/v1/8e4fe26b-d4e0-4e71-9606-eb3a624a2afb/13e91477-41ff-410b-b351-b142c22aa56a/infratech-logo.png",
+  "size": 50260,
+  "url": "/__l5e/assets-v1/13e91477-41ff-410b-b351-b142c22aa56a/infratech-logo.png",
+  "version": 1
 }
